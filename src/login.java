@@ -50,6 +50,11 @@ public class login extends javax.swing.JDialog
 
         jLabel2.setText("Password:");
 
+        usernameTxtbx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameTxtbxActionPerformed(evt);
+            }
+        });
         usernameTxtbx.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 usernameTxtbxKeyPressed(evt);
@@ -176,6 +181,10 @@ public class login extends javax.swing.JDialog
             submitBttn.doClick();
         }
     }//GEN-LAST:event_passwordTxtbxKeyPressed
+
+    private void usernameTxtbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameTxtbxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameTxtbxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
