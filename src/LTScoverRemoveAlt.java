@@ -186,7 +186,7 @@ private void loadData()
         returned = connection.lookup(command);
         while(returned.next())
         {
-            cover tempCover = new cover (returned.getInt("ID"), returned.getDate("cover_date"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getString("staff"), returned.getString("cover_for"));
+            cover tempCover = new cover (returned.getInt("ID"), returned.getDate("cover_date"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getString("location"), returned.getString("staff"), returned.getString("cover_for"));
             coverShifts.add(tempCover);
         }
         shiftList.setListData(coverShifts.toArray());

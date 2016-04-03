@@ -27,8 +27,9 @@ public class cover {
     private LocalTime endTime;
     private String staff;
     private String coverFor;
+    private String location;
     
-    public cover (int inID, java.sql.Date inCoverDate, java.sql.Time inStartTime, java.sql.Time inEndTime, String inStaff, String inCoverFor)
+    public cover (int inID, java.sql.Date inCoverDate, java.sql.Time inStartTime, java.sql.Time inEndTime,String inLocation,  String inStaff, String inCoverFor)
     {
         ID = inID;
         coverDate = inCoverDate;
@@ -36,6 +37,7 @@ public class cover {
         endTime = timeConvert(inEndTime);
         staff = inStaff;
         coverFor = inCoverFor;
+        location = inLocation;
     }
     
     private LocalTime timeConvert(java.sql.Time inTime)
@@ -62,6 +64,11 @@ public class cover {
     public LocalTime getEndTime()
     {
         return endTime;
+    }
+    
+    public String getLocation()
+    {
+        return location;
     }
     
     public String getStaff()

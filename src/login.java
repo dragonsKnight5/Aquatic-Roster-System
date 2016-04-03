@@ -160,6 +160,7 @@ public class login extends javax.swing.JDialog
             {
                 System.out.println("Passwords didn't match");
                 JOptionPane.showMessageDialog(parent,"The login details used can't be found\n Please check your details and try again");
+                passwordTxtbx.setText("");
             }
         }
         catch (SQLException ex)

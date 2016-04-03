@@ -193,7 +193,7 @@ private void loadData()
         returned = connection.lookup(command);
         while(returned.next())
         {
-            lts tempShift = new lts(returned.getInt("ID"), returned.getString("staff"), returned.getString("shift_day"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getDate("start_date"), returned.getDate("end_date"));
+            lts tempShift = new lts(returned.getInt("ID"), returned.getString("staff"), returned.getString("shift_day"), returned.getString("location"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getDate("start_date"), returned.getDate("end_date"));
             ltsShifts.add(tempShift);
         }
         shiftList.setListData(ltsShifts.toArray());

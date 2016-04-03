@@ -21,16 +21,16 @@ import javax.swing.JOptionPane;
  *
  * @author james
  */
-public class userRemoval extends javax.swing.JDialog 
+public class locationRemoval extends javax.swing.JDialog 
 {
     main parent;
     dbConnection connection;
-    ArrayList<String> myUsers = new ArrayList<String>();
-    users selectedUser = null;
+    ArrayList<String> myLocations = new ArrayList<String>();
+    locations selectedLocation = null;
     /**
      * Creates new form userRemoval
      */
-    public userRemoval(main inParent, dbConnection inConnection) 
+    public locationRemoval(main inParent, dbConnection inConnection) 
     {
         super(inParent,true);
         parent = inParent;
@@ -43,16 +43,12 @@ public class userRemoval extends javax.swing.JDialog
     private void loadData()
     {
         ResultSet returned;
-        returned = connection.getUsers();
+        returned = connection.getLocations();
         try
         {
             while(returned.next())
             {
-                String userIn = parent.getUser();
-                if (!returned.getString("username").equalsIgnoreCase(userIn))
-                {
-                    userCombo.addItem(returned.getString("username"));
-                }
+                locationCombo.addItem(returned.getString("location"));
             }
         }
         catch (SQLException ex)
@@ -71,11 +67,11 @@ public class userRemoval extends javax.swing.JDialog
 
         removeButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
-        userCombo = new javax.swing.JComboBox<>();
+        locationCombo = new javax.swing.JComboBox<>();
         completionCheckbox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Location Remove");
+        setTitle("User Remove");
 
         removeButton.setText("Remove");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +97,7 @@ public class userRemoval extends javax.swing.JDialog
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(userCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 11, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(closeButton)
@@ -116,7 +112,7 @@ public class userRemoval extends javax.swing.JDialog
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(userCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(completionCheckbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -139,16 +135,17 @@ public class userRemoval extends javax.swing.JDialog
                 JOptionPane.YES_NO_OPTION)
             == JOptionPane.YES_OPTION)
         {
-            String command = "delete from users where username = \"" + userCombo.getSelectedItem() + "\"";
+            String command = "delete from locations where location = \"" + locationCombo.getSelectedItem() + "\"";
+            //JOptionPane.showMessageDialog(parent, command);
             int status = connection.removeUser(command);
             
             if (status == 1)
             {
-                JOptionPane.showMessageDialog(parent, "User Removed");
+                JOptionPane.showMessageDialog(parent, "Location Removed");
             }
             else
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Remove User");
+                JOptionPane.showMessageDialog(parent, "Unable To Remove Location");
             }
             
             if (completionCheckbox.isSelected())
@@ -157,7 +154,7 @@ public class userRemoval extends javax.swing.JDialog
             }
             else
             {
-                userCombo.removeAllItems();
+                locationCombo.removeAllItems();
                 loadData();
             }
         }
@@ -167,7 +164,7 @@ public class userRemoval extends javax.swing.JDialog
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionCheckbox;
+    private javax.swing.JComboBox<String> locationCombo;
     private javax.swing.JButton removeButton;
-    private javax.swing.JComboBox<String> userCombo;
     // End of variables declaration//GEN-END:variables
 }

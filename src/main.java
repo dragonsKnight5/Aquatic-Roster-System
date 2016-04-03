@@ -25,7 +25,7 @@ public class main extends javax.swing.JFrame {
     Boolean supervisor = false;
         private final String user = "staff";
         private final String password = "dragon";
-        private final String address = "192.168.1.215";
+        private final String address = "192.168.1.209";
     /**
      * Creates new form main
      */
@@ -71,6 +71,10 @@ public class main extends javax.swing.JFrame {
         newStaffMenuItem = new javax.swing.JMenuItem();
         editStaffMenuItem = new javax.swing.JMenuItem();
         removeStaffMenuItem = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        newLocationMenuItem = new javax.swing.JMenuItem();
+        editLocationMenuItem = new javax.swing.JMenuItem();
+        removeLocationMenuItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
 
@@ -319,6 +323,37 @@ public class main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu4.setText("Location");
+
+        newLocationMenuItem.setText("New Location");
+        newLocationMenuItem.setEnabled(false);
+        newLocationMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newLocationMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu4.add(newLocationMenuItem);
+
+        editLocationMenuItem.setText("Edit Location");
+        editLocationMenuItem.setEnabled(false);
+        editLocationMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editLocationMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu4.add(editLocationMenuItem);
+
+        removeLocationMenuItem.setText("Remove Location");
+        removeLocationMenuItem.setEnabled(false);
+        removeLocationMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeLocationMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu4.add(removeLocationMenuItem);
+
+        jMenuBar1.add(jMenu4);
+
         jMenu3.setText("About");
 
         aboutMenuItem.setText("About");
@@ -402,6 +437,9 @@ public class main extends javax.swing.JFrame {
         removeShiftBtn.setEnabled(true);
         EditCoverBtn.setEnabled(true);
         removeCoverBtn.setEnabled(true);
+        newLocationMenuItem.setEnabled(true);
+        editLocationMenuItem.setEnabled(true);
+        removeLocationMenuItem.setEnabled(true);
         supervisor = true;
         userConfig();
     }
@@ -463,7 +501,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_loginMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        JOptionPane.showMessageDialog(null, "Version 0.7");
+        JOptionPane.showMessageDialog(null, "Version 0.8");
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void newStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newStaffMenuItemActionPerformed
@@ -526,6 +564,9 @@ public class main extends javax.swing.JFrame {
         removeCoverBtn.setEnabled(false);
         supervisor = false;
         userLabel.setText("No One");
+        newLocationMenuItem.setEnabled(false);
+        editLocationMenuItem.setEnabled(false);
+        removeLocationMenuItem.setEnabled(false);
     }//GEN-LAST:event_logoutMenuItemActionPerformed
 
     private void guardShiftEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftEditBtnActionPerformed
@@ -551,6 +592,18 @@ public class main extends javax.swing.JFrame {
     private void removeCoverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCoverBtnActionPerformed
         LTScoverRemove removeCover = new LTScoverRemove(this, connection);
     }//GEN-LAST:event_removeCoverBtnActionPerformed
+
+    private void newLocationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newLocationMenuItemActionPerformed
+        locationAdd newLocation = new locationAdd(this, connection);
+    }//GEN-LAST:event_newLocationMenuItemActionPerformed
+
+    private void editLocationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLocationMenuItemActionPerformed
+        locationEdit adjustLocation = new locationEdit(this, connection);
+    }//GEN-LAST:event_editLocationMenuItemActionPerformed
+
+    private void removeLocationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeLocationMenuItemActionPerformed
+        locationRemoval destroyLocation = new locationRemoval(this, connection);
+    }//GEN-LAST:event_removeLocationMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -593,6 +646,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton createCoverBtn;
     private javax.swing.JButton createShiftBtn;
     private javax.swing.JMenuItem databaseConnectMenuItem;
+    private javax.swing.JMenuItem editLocationMenuItem;
     private javax.swing.JButton editShiftBtn;
     private javax.swing.JMenuItem editStaffMenuItem;
     private javax.swing.JMenuItem exitMenuItem;
@@ -604,6 +658,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
@@ -612,8 +667,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenuItem loginMenuItem;
     private javax.swing.JMenuItem logoutMenuItem;
     private javax.swing.JButton lookupCoverBtn;
+    private javax.swing.JMenuItem newLocationMenuItem;
     private javax.swing.JMenuItem newStaffMenuItem;
     private javax.swing.JButton removeCoverBtn;
+    private javax.swing.JMenuItem removeLocationMenuItem;
     private javax.swing.JButton removeShiftBtn;
     private javax.swing.JMenuItem removeStaffMenuItem;
     private javax.swing.JButton shiftLookupBtn;

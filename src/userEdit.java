@@ -63,9 +63,9 @@ public class userEdit extends javax.swing.JDialog {
         closeButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         userList = new javax.swing.JList();
-        department1Combo = new javax.swing.JComboBox<String>();
-        department2Combo = new javax.swing.JComboBox<String>();
-        department3Combo = new javax.swing.JComboBox<String>();
+        department1Combo = new javax.swing.JComboBox<>();
+        department2Combo = new javax.swing.JComboBox<>();
+        department3Combo = new javax.swing.JComboBox<>();
         completionCheckbox = new javax.swing.JCheckBox();
         firstNameTxtbx = new javax.swing.JTextField();
 
@@ -88,7 +88,7 @@ public class userEdit extends javax.swing.JDialog {
 
         jLabel8.setText("Password:");
 
-        passwordTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        passwordTxt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         passwordTxt.setName("password");
 
         updateButton.setText("Update");
@@ -114,11 +114,11 @@ public class userEdit extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(userList);
 
-        department1Combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LTS", "Lifeguard" }));
+        department1Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LTS", "Lifeguard" }));
 
-        department2Combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "LTS", "Lifeguard" }));
+        department2Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard" }));
 
-        department3Combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "LTS", "Lifeguard" }));
+        department3Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard" }));
 
         completionCheckbox.setText("Close On Completion");
 
@@ -316,14 +316,16 @@ public class userEdit extends javax.swing.JDialog {
         String command = "UPDATE users SET username = \"" + usernameTextbox.getText() + "\", first_name = \"" + firstNameTxtbx.getText() + "\", last_name = \"" + lastNameTextbox.getText()
                 + "\", department_1 = \"" + (String)department1Combo.getSelectedItem() + "\", department_2 = \"" + department2 + "\", department_3 = \"" + department3 + "\", supervisor = " + supervisor 
                 + ", password = \"" + password + "\" where id = \"" + ID + "\"";
-        
-        int status = connection.editUser(command);
-        if (status == 1)
-        {
-            JOptionPane.showMessageDialog(parent, "User edited successfully");
-            if (completionCheckbox.isSelected())
-            {
-                dispose();
+        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
+                "",
+                JOptionPane.YES_NO_OPTION)
+                == JOptionPane.YES_OPTION) {
+            int status = connection.editUser(command);
+            if (status == 1) {
+                JOptionPane.showMessageDialog(parent, "User edited successfully");
+                if (completionCheckbox.isSelected()) {
+                    dispose();
+                }
             }
         }
     }//GEN-LAST:event_updateButtonActionPerformed

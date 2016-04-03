@@ -65,17 +65,15 @@ public class dbConnection
         }
     }
      
-     public Integer addLTSshift (String command)
+     public int addLTSshift (String command)
      {
-         Integer status = null;
-         status = addUser(command);
+         int status = addUser(command);
          return status;
      }
      
-          public Integer addGuardShift (String command)
+          public int addGuardShift (String command)
      {
-         Integer status = null;
-         status = addUser(command);
+         int status = addUser(command);
          return status;
      }
      
@@ -86,6 +84,12 @@ public class dbConnection
      }
      
      public int addCover (String command)
+     {
+         int status = addUser(command);
+         return status;
+     }
+     
+     public int addLocation (String command)
      {
          int status = addUser(command);
          return status;
@@ -208,5 +212,56 @@ public class dbConnection
             JOptionPane.showMessageDialog(null, ex);
          }
          return users;
+     }
+     
+     public ResultSet ltsLocations()
+     {
+         ResultSet result = null;
+         sql = "select * from location where lts = true";
+         
+         try
+         {
+             ps1 = conn.prepareStatement(sql);
+             result = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+             JOptionPane.showMessageDialog(null, ex);
+         }
+         return result;
+     }
+     
+     public ResultSet lifeguardLocations()
+     {
+         ResultSet result = null;
+         sql = "select * from location where lifeguard = true";
+         
+         try
+         {
+             ps1 = conn.prepareStatement(sql);
+             result = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+             JOptionPane.showMessageDialog(null, ex);
+         }
+         return result;
+     }
+     
+     public ResultSet getLocations()
+     {
+         ResultSet result = null;
+         sql = "select * from location";
+         
+         try
+         {
+             ps1 = conn.prepareStatement(sql);
+             result = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+             JOptionPane.showMessageDialog(null, ex);
+         }
+         return result;
      }
 }

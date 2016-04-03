@@ -30,8 +30,9 @@ public class lts {
     private java.sql.Date startDate;
     private java.sql.Date endDate;
     private String day;
+    private String location;
 
-    public lts(int inID, String inStaff, String inDay, java.sql.Time inStartTime, java.sql.Time inEndTime, java.sql.Date inStartDate, java.sql.Date inEndDate)
+    public lts(int inID, String inStaff, String inDay, String inLocation,java.sql.Time inStartTime, java.sql.Time inEndTime, java.sql.Date inStartDate, java.sql.Date inEndDate)
     {
         ID = inID;
         staff = inStaff;
@@ -40,6 +41,7 @@ public class lts {
         endTime = timeConvert(inEndTime);
         startDate = inStartDate;
         endDate = inEndDate;
+        location = inLocation;
     }
     
     public String getStartTimeString()
@@ -112,5 +114,10 @@ public class lts {
     public java.sql.Date getEndDate()
     {
         return endDate;
+    }
+    
+    public String getLocation()
+    {
+        return location;
     }
 }
