@@ -23,9 +23,9 @@ import javax.swing.JOptionPane;
 public class main extends javax.swing.JFrame {
     dbConnection connection = new dbConnection();
     Boolean supervisor = false;
-        private final String user = "staff";
-        private final String password = "dragon";
-        private final String address = "192.168.1.209";
+    private final String user = "staff";
+    private final String password = "dragon";
+    private final String address = "192.168.1.209";
     /**
      * Creates new form main
      */
