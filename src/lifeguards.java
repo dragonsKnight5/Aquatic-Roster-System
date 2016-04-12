@@ -22,7 +22,7 @@ import java.time.LocalTime;
  */
 public class lifeguards {
  
-   private int ID;
+    private int ID;
     private java.sql.Date shiftDate;
     private LocalTime startTime;
     private LocalTime endTime;
@@ -30,8 +30,9 @@ public class lifeguards {
     private String staff1;
     private String staff2;
     private String staff3;
+    private String onCall;
     
-    public lifeguards (int inID, java.sql.Date inDate, java.sql.Time inStartTime, java.sql.Time inEndTime, String inLocation, String inStaff1, String inStaff2, String inStaff3)
+    public lifeguards (int inID, java.sql.Date inDate, java.sql.Time inStartTime, java.sql.Time inEndTime, String inLocation, String inStaff1, String inStaff2, String inStaff3, String inOnCall)
     {
         ID = inID;
         shiftDate = inDate;
@@ -41,7 +42,7 @@ public class lifeguards {
         staff1 = inStaff1;
         staff2 = inStaff2;
         staff3 = inStaff3;
-        
+        onCall = inOnCall;
     }
     
     public String toString()
@@ -107,5 +108,10 @@ public class lifeguards {
     public String getLocation()
     {
         return location;
+    }
+    
+    public String getOnCall()
+    {
+        return onCall;
     }
 }
