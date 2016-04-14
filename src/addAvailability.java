@@ -16,7 +16,8 @@
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -367,11 +368,24 @@ public addAvailability(main inParent, dbConnection inConnection) {
     }//GEN-LAST:event_departmentComboItemStateChanged
 
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
-        String command = "insert into availability (username, monday, tuesday, wednesday, thursday, friday, saturday, sunday, department, location, weekStarting"
-                + " values (\'" + userCombo.getSelectedItem() + "\', \'" + mondayCombo.getSelectedItem() + "\', \'" + tuesdayCombo.getSelectedItem() + "\', \'" + wednesdayCombo.getSelectedItem()
-                + "\', \'" + thursdayCombo.getSelectedItem() + "\', \'" + fridayCombo + "\', \'" + saturdayCombo.getSelectedItem() + "\', \'" + sundayCombo.getSelectedItem() + "\', \'"
-                + departmentCombo.getSelectedItem() + "\', \'" + dateCombo.getSelectedItem() + "\')";
+        SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        java.sql.Date selectedDate = null;
         
+        try
+        {
+            java.util.Date myDate = myDateFormat.parse((String)dateCombo.getSelectedItem());
+            selectedDate = new java.sql.Date(myDate.getTime());
+        }
+        catch (ParseException ex)
+        {
+            System.out.println(ex);
+        }
+        
+        String command = "insert into availability (username, monday, tuesday, wednesday, thursday, friday, saturday, sunday, department, location, weekStarting)"
+                + " values (\'" + userCombo.getSelectedItem() + "\', \'" + mondayCombo.getSelectedItem() + "\', \'" + tuesdayCombo.getSelectedItem() + "\', \'" + wednesdayCombo.getSelectedItem()
+                + "\', \'" + thursdayCombo.getSelectedItem() + "\', \'" + fridayCombo.getSelectedItem() + "\', \'" + saturdayCombo.getSelectedItem() + "\', \'" + sundayCombo.getSelectedItem() + "\', \'"
+                + departmentCombo.getSelectedItem() + "\', \'" + locationCombo.getSelectedItem() + "\', \'"+ selectedDate + "\')";
+        System.out.println(command);
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
                 JOptionPane.YES_NO_OPTION)
