@@ -71,6 +71,9 @@ public class main extends javax.swing.JFrame {
         newStaffMenuItem = new javax.swing.JMenuItem();
         editStaffMenuItem = new javax.swing.JMenuItem();
         removeStaffMenuItem = new javax.swing.JMenuItem();
+        addAvailabilityMenuItem = new javax.swing.JMenuItem();
+        editAvailabilityMenuItem = new javax.swing.JMenuItem();
+        removeAvailabilityMenuItem = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         newLocationMenuItem = new javax.swing.JMenuItem();
         editLocationMenuItem = new javax.swing.JMenuItem();
@@ -82,9 +85,13 @@ public class main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Roster System");
+        setMaximumSize(new java.awt.Dimension(620, 504));
+
+        jTabbedPane1.setMaximumSize(null);
 
         createShiftBtn.setText("Create Shift");
         createShiftBtn.setEnabled(false);
+        createShiftBtn.setMaximumSize(null);
         createShiftBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createShiftBtnActionPerformed(evt);
@@ -93,6 +100,7 @@ public class main extends javax.swing.JFrame {
 
         shiftLookupBtn.setText("Lookup Shift");
         shiftLookupBtn.setEnabled(false);
+        shiftLookupBtn.setMaximumSize(null);
         shiftLookupBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shiftLookupBtnActionPerformed(evt);
@@ -101,6 +109,7 @@ public class main extends javax.swing.JFrame {
 
         createCoverBtn.setText("Create Cover");
         createCoverBtn.setEnabled(false);
+        createCoverBtn.setMaximumSize(null);
         createCoverBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createCoverBtnActionPerformed(evt);
@@ -109,6 +118,7 @@ public class main extends javax.swing.JFrame {
 
         lookupCoverBtn.setText("Lookup Cover");
         lookupCoverBtn.setEnabled(false);
+        lookupCoverBtn.setMaximumSize(null);
         lookupCoverBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lookupCoverBtnActionPerformed(evt);
@@ -117,6 +127,7 @@ public class main extends javax.swing.JFrame {
 
         editShiftBtn.setText("Edit Shift");
         editShiftBtn.setEnabled(false);
+        editShiftBtn.setMaximumSize(null);
         editShiftBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editShiftBtnActionPerformed(evt);
@@ -125,6 +136,7 @@ public class main extends javax.swing.JFrame {
 
         EditCoverBtn.setText("Edit Cover");
         EditCoverBtn.setEnabled(false);
+        EditCoverBtn.setMaximumSize(null);
         EditCoverBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditCoverBtnActionPerformed(evt);
@@ -133,6 +145,7 @@ public class main extends javax.swing.JFrame {
 
         removeShiftBtn.setText("Remove Shift");
         removeShiftBtn.setEnabled(false);
+        removeShiftBtn.setMaximumSize(null);
         removeShiftBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeShiftBtnActionPerformed(evt);
@@ -141,6 +154,7 @@ public class main extends javax.swing.JFrame {
 
         removeCoverBtn.setText("Remove Cover");
         removeCoverBtn.setEnabled(false);
+        removeCoverBtn.setMaximumSize(null);
         removeCoverBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeCoverBtnActionPerformed(evt);
@@ -169,20 +183,20 @@ public class main extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createShiftBtn)
-                    .addComponent(createCoverBtn))
+                    .addComponent(createShiftBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createCoverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shiftLookupBtn)
-                    .addComponent(lookupCoverBtn))
+                    .addComponent(shiftLookupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lookupCoverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editShiftBtn)
-                    .addComponent(EditCoverBtn))
+                    .addComponent(editShiftBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditCoverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removeShiftBtn)
-                    .addComponent(removeCoverBtn))
+                    .addComponent(removeShiftBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeCoverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -226,14 +240,14 @@ public class main extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(guardShiftEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(guardLookupBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(guardShiftCreatorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(guardShiftRemoveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,8 +265,10 @@ public class main extends javax.swing.JFrame {
         jTabbedPane1.addTab("Lifeguards", jPanel2);
 
         jLabel1.setText("Logged In As:");
+        jLabel1.setMaximumSize(null);
 
         userLabel.setText("No One");
+        userLabel.setMaximumSize(null);
 
         jMenu1.setText("System");
 
@@ -321,6 +337,23 @@ public class main extends javax.swing.JFrame {
         });
         jMenu2.add(removeStaffMenuItem);
 
+        addAvailabilityMenuItem.setText("Add Availability");
+        addAvailabilityMenuItem.setEnabled(false);
+        addAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAvailabilityMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu2.add(addAvailabilityMenuItem);
+
+        editAvailabilityMenuItem.setText("Edit Availability");
+        editAvailabilityMenuItem.setEnabled(false);
+        jMenu2.add(editAvailabilityMenuItem);
+
+        removeAvailabilityMenuItem.setText("Remove Availability");
+        removeAvailabilityMenuItem.setEnabled(false);
+        jMenu2.add(removeAvailabilityMenuItem);
+
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("Location");
@@ -373,25 +406,25 @@ public class main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userLabel)
-                .addGap(134, 134, 134))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(userLabel))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -452,6 +485,9 @@ public class main extends javax.swing.JFrame {
         guardLookupBtn.setEnabled(true);
         shiftLookupBtn.setEnabled(true);
         lookupCoverBtn.setEnabled(true);
+        addAvailabilityMenuItem.setEnabled(true);
+        editAvailabilityMenuItem.setEnabled(true);
+        removeAvailabilityMenuItem.setEnabled(true);
     }
     
     private void removeStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStaffMenuItemActionPerformed
@@ -567,6 +603,9 @@ public class main extends javax.swing.JFrame {
         newLocationMenuItem.setEnabled(false);
         editLocationMenuItem.setEnabled(false);
         removeLocationMenuItem.setEnabled(false);
+        addAvailabilityMenuItem.setEnabled(false);
+        editAvailabilityMenuItem.setEnabled(false);
+        removeAvailabilityMenuItem.setEnabled(false);
     }//GEN-LAST:event_logoutMenuItemActionPerformed
 
     private void guardShiftEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftEditBtnActionPerformed
@@ -604,6 +643,10 @@ public class main extends javax.swing.JFrame {
     private void removeLocationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeLocationMenuItemActionPerformed
         locationRemoval destroyLocation = new locationRemoval(this, connection);
     }//GEN-LAST:event_removeLocationMenuItemActionPerformed
+
+    private void addAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAvailabilityMenuItemActionPerformed
+        addAvailability newAvailability = new addAvailability(this, connection);
+    }//GEN-LAST:event_addAvailabilityMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -643,9 +686,11 @@ public class main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditCoverBtn;
     private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JMenuItem addAvailabilityMenuItem;
     private javax.swing.JButton createCoverBtn;
     private javax.swing.JButton createShiftBtn;
     private javax.swing.JMenuItem databaseConnectMenuItem;
+    private javax.swing.JMenuItem editAvailabilityMenuItem;
     private javax.swing.JMenuItem editLocationMenuItem;
     private javax.swing.JButton editShiftBtn;
     private javax.swing.JMenuItem editStaffMenuItem;
@@ -669,6 +714,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton lookupCoverBtn;
     private javax.swing.JMenuItem newLocationMenuItem;
     private javax.swing.JMenuItem newStaffMenuItem;
+    private javax.swing.JMenuItem removeAvailabilityMenuItem;
     private javax.swing.JButton removeCoverBtn;
     private javax.swing.JMenuItem removeLocationMenuItem;
     private javax.swing.JButton removeShiftBtn;

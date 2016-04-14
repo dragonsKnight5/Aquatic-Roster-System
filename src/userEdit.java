@@ -276,8 +276,8 @@ public class userEdit extends javax.swing.JDialog {
         firstNameTxtbx.setText(selectedUser.getFirstName());
         lastNameTextbox.setText(selectedUser.getLastName());
         department1Combo.setSelectedItem(selectedUser.getDepartment1());
-        department1Combo.setSelectedItem(selectedUser.getDepartment2());
-        department1Combo.setSelectedItem(selectedUser.getDepartment3());
+        department2Combo.setSelectedItem(selectedUser.getDepartment2());
+        department3Combo.setSelectedItem(selectedUser.getDepartment3());
         passwordTxt.setText(selectedUser.getPassword());
          
         if(selectedUser.getSupervisor())

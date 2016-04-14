@@ -65,6 +65,12 @@ public class dbConnection
         }
     }
      
+     public int newAvailability (String command)
+     {
+         int status = addUser(command);
+         return status;
+     }
+     
      public int addLTSshift (String command)
      {
          int status = addUser(command);
@@ -252,6 +258,23 @@ public class dbConnection
      {
          ResultSet result = null;
          sql = "select * from location";
+         
+         try
+         {
+             ps1 = conn.prepareStatement(sql);
+             result = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+             JOptionPane.showMessageDialog(null, ex);
+         }
+         return result;
+     }
+     
+     public ResultSet getDepartments(String myUser)
+     {
+         ResultSet result = null;
+         sql = "select department_1, department_2, department_3 from users where username = \'" + myUser + "\'";
          
          try
          {

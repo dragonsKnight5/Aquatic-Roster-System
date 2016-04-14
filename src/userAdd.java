@@ -99,11 +99,11 @@ public class userAdd extends javax.swing.JDialog {
             }
         });
 
-        departmentCombo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LTS", "Lifeguard" }));
+        departmentCombo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LTS", "Lifeguard", "Gym", "ISC" }));
 
-        departmentCombo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard" }));
+        departmentCombo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard", "Gym", "ISC" }));
 
-        departmentCombo3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard" }));
+        departmentCombo3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard", "Gym", "ISC" }));
 
         completionCheckbox.setText("Close On Completion");
 
@@ -208,17 +208,8 @@ public class userAdd extends javax.swing.JDialog {
         String firstName = firstNameTextbox.getText();
         String lastName = lastNameTextbox.getText();
         String department1 = (String) departmentCombo1.getSelectedItem();
-        String department2 = null;
-        if (((String) departmentCombo2.getSelectedItem()).equalsIgnoreCase("none"))
-        {
-            department2 = "null";
-        }
-        
-        String department3 = null;
-        if (((String) departmentCombo3.getSelectedItem()).equalsIgnoreCase("none"))
-        {
-            department3 = "none";
-        }
+        String department2 = (String) departmentCombo2.getSelectedItem();
+        String department3 = (String) departmentCombo3.getSelectedItem();
         Boolean supervisor = null;
         if (supervisorCheckbox.isSelected())
         {
