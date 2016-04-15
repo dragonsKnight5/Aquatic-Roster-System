@@ -21,8 +21,6 @@ import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-//import java.time.temporal.TemporalAdjusters;
-//import java.time.temporal.ChronoUnit;
 import static java.time.temporal.TemporalAdjusters.*;
 import javax.swing.JOptionPane;
 
@@ -33,15 +31,17 @@ import javax.swing.JOptionPane;
 public class addAvailability extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
+    Boolean supervisor;
 
     /**
      * Creates new form addAvailability
      */
-public addAvailability(main inParent, dbConnection inConnection) {
+public addAvailability(main inParent, dbConnection inConnection, Boolean inSupervisor) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        supervisor = inSupervisor;
         loadData();
         setVisible(true);
     }
@@ -385,7 +385,7 @@ public addAvailability(main inParent, dbConnection inConnection) {
                 + " values (\'" + userCombo.getSelectedItem() + "\', \'" + mondayCombo.getSelectedItem() + "\', \'" + tuesdayCombo.getSelectedItem() + "\', \'" + wednesdayCombo.getSelectedItem()
                 + "\', \'" + thursdayCombo.getSelectedItem() + "\', \'" + fridayCombo.getSelectedItem() + "\', \'" + saturdayCombo.getSelectedItem() + "\', \'" + sundayCombo.getSelectedItem() + "\', \'"
                 + departmentCombo.getSelectedItem() + "\', \'" + locationCombo.getSelectedItem() + "\', \'"+ selectedDate + "\')";
-        System.out.println(command);
+        //System.out.println(command);
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
                 JOptionPane.YES_NO_OPTION)
@@ -413,7 +413,14 @@ public addAvailability(main inParent, dbConnection inConnection) {
         {
             while(returned.next())
             {
-                userCombo.addItem(returned.getString("username"));
+                if (supervisor)
+                {
+                    userCombo.addItem(returned.getString("username"));
+                }
+                else if ((returned.getString("username")).equalsIgnoreCase(parent.getUser()))
+                {
+                    userCombo.addItem(returned.getString("username"));
+                }
             }
             LocalDate date = LocalDate.now();
             LocalDate myDate = date.with(next(DayOfWeek.MONDAY));

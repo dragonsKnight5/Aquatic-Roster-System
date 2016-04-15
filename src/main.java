@@ -645,7 +645,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_removeLocationMenuItemActionPerformed
 
     private void addAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAvailabilityMenuItemActionPerformed
-        addAvailability newAvailability = new addAvailability(this, connection);
+        addAvailability newAvailability = new addAvailability(this, connection, supervisor);
     }//GEN-LAST:event_addAvailabilityMenuItemActionPerformed
 
     /**
