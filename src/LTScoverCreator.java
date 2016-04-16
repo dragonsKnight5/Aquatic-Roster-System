@@ -38,15 +38,17 @@ import javax.swing.JOptionPane;
 public class LTScoverCreator extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
+    commonFunctions comFunc;
 
     /**
      * Creates new form LTSshiftCover
      */
-    public LTScoverCreator(main inParent, dbConnection inConnection) {
+    public LTScoverCreator(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -228,15 +230,12 @@ public class LTScoverCreator extends javax.swing.JDialog {
     {
         // Date Setup and handling block
         LocalDate myDate = LocalDate.now();
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-        String dateString = myFormat.format(myDate);
+        LocalDate formatedDate;
+        String dateString = comFunc.formatDate(myDate);
         
-        dateCombo.addItem(dateString);
         int count = 0;
         do {
-            LocalDate newDate = myDate.plusDays(count);
-            dateString = myFormat.format(newDate);
-            dateCombo.addItem(dateString);
+            dateCombo.addItem(comFunc.plusDaysFormated(myDate, count));
             count ++;
         } while (count <= 90);
         
@@ -266,19 +265,7 @@ public class LTScoverCreator extends javax.swing.JDialog {
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
         LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
-        java.sql.Date selectedDate = null;
-        
-        try
-        {
-            SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            String stringDate = (String)dateCombo.getSelectedItem();
-            java.util.Date myDate = myDateFormat.parse(stringDate);
-            selectedDate = new java.sql.Date(myDate.getTime());
-        }
-        catch (ParseException ex)
-        {
-            System.out.println(ex);
-        }
+        java.sql.Date selectedDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
         
         String command = "insert into LTS_Covers (cover_date, start_time, end_time, location, staff, cover_for) values (\"" + selectedDate + "\", \"" + startTime
                 + "\", \"" + endTime + "\", \""+ locationCombo.getSelectedItem() + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + staffCombo2.getSelectedItem() + "\")";
