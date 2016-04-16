@@ -1,4 +1,6 @@
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 
 /*
@@ -17,18 +19,42 @@ import java.time.format.DateTimeFormatter;
  * limitations under the License.
  */
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  *
  * @author james
  */
 public class commonFunctions {
+    DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+    SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
     
     public String formatDate(LocalDate date)
     {
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         String dateString = myFormat.format(date);
         return dateString;
+    }
+    
+    public String plusDaysFormated(LocalDate date, int days)
+    {
+        date = date.plusDays(days);
+        return formatDate(date);
+    }
+    
+    public java.sql.Date dateSwitch(String date)
+    {
+        java.sql.Date selectedDate = null;
+        try
+        {
+            java.util.Date myDate = myDateFormat.parse(date);
+            selectedDate = new java.sql.Date(myDate.getTime());
+        }
+        catch (ParseException ex)
+        {
+            
+        }
+        return selectedDate;
     }
     
 }

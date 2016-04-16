@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class main extends javax.swing.JFrame {
     dbConnection connection = new dbConnection();
+    commonFunctions myCommonFunctions = new commonFunctions();
     Boolean supervisor = false;
     private final String user = "staff";
     private final String password = "dragon";
@@ -517,7 +518,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_lookupCoverBtnActionPerformed
 
     private void createCoverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCoverBtnActionPerformed
-        LTScoverCreator shiftCover = new LTScoverCreator(this, connection);
+        LTScoverCreator shiftCover = new LTScoverCreator(this, connection, myCommonFunctions);
     }//GEN-LAST:event_createCoverBtnActionPerformed
 
     private void guardLookupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardLookupBtnActionPerformed
