@@ -17,9 +17,13 @@
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -30,6 +34,7 @@ public class editAvailability extends javax.swing.JDialog {
     dbConnection connection;
     Boolean supervisor;
     ArrayList<availability> availList = new ArrayList<availability>();
+    int ID;
 
     /**
      * Creates new form addAvailability
@@ -329,59 +334,99 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
     }//GEN-LAST:event_departmentComboItemStateChanged
 
     private void updateBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBttnActionPerformed
+        SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        java.sql.Date selectedDate = null;
+
+        try {
+            java.util.Date myDate = myDateFormat.parse((String) dateCombo.getSelectedItem());
+            selectedDate = new java.sql.Date(myDate.getTime());
+        } catch (ParseException ex) {
+            System.out.println(ex);
+        }
         
+        String command = "update availability set department = \'" + departmentCombo.getSelectedItem() + "\', location = \'" + locationCombo.getSelectedItem()
+                + "\', weekStarting = \'" + selectedDate + "\', monday = \'" + mondayCombo.getSelectedItem() + "\', tuesday = \'" + tuesdayCombo.getSelectedItem()
+                + "\', wednesday = \'" + wednesdayCombo.getSelectedItem() + "\', thursday = \'" + thursdayCombo.getSelectedItem() + "\', friday = \'" 
+                + fridayCombo.getSelectedItem() + "\', saturday = \'" + saturdayCombo.getSelectedItem() + "\', sunday = \'" + sundayCombo.getSelectedItem() 
+                + "\' where ID = \'" + ID + "\'";
+        int status = connection.updateShift(command);
+            if (status == 1)
+            {
+                JOptionPane.showMessageDialog(parent, "Availability Update Successfull");
+                if (completionTckbx.isSelected())
+                {
+                    dispose();
+                }
+                else
+                {
+                    loadData();
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(parent, "Unable To Update Availability");
+            }
     }//GEN-LAST:event_updateBttnActionPerformed
 
     private void availabilityListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_availabilityListValueChanged
-        availability selectedAvailability = (availability)availabilityList.getSelectedValue();
-        departmentCombo.setSelectedItem(selectedAvailability.getDepartment());
-        locationCombo.setSelectedItem(selectedAvailability.getLocation());
+        try
+        {
+            availability selectedAvailability = (availability)availabilityList.getSelectedValue();
+            departmentCombo.setSelectedItem(selectedAvailability.getDepartment());
+            locationCombo.setSelectedItem(selectedAvailability.getLocation());
+            ID = selectedAvailability.getID();
         
-        // date manipulation block
-        dateCombo.removeAllItems();
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-        Date availDate = selectedAvailability.getWeekStarting();
-        LocalDate selectedDate = availDate.toLocalDate();
-        String dateString = null;
-        LocalDate newDate = null;
-        int count = 14;
-        do
+            // date manipulation block
+            dateCombo.removeAllItems();
+            DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+            Date availDate = selectedAvailability.getWeekStarting();
+            LocalDate selectedDate = availDate.toLocalDate();
+            String dateString = null;
+            LocalDate newDate = null;
+            int count = 14;
+            do
                 {
                     newDate = selectedDate.minusDays(count);
                     dateString = myFormat.format(newDate);
                     dateCombo.addItem(dateString);
                     count = count - 7;
                 } while (count != 0);
-        do 
+            do 
                 {
                     newDate = selectedDate.plusDays(count);
                     dateString = myFormat.format(newDate);
                     dateCombo.addItem(dateString);
                     count = count + 7;
                 } while (count != 21);
-        dateString = myFormat.format(selectedDate);
-        dateCombo.setSelectedItem(dateString);
+            dateString = myFormat.format(selectedDate);
+            dateCombo.setSelectedItem(dateString);
 
-        String tempDay = selectedAvailability.getMonday();
-        mondayCombo.setSelectedItem(tempDay);
-        tempDay = selectedAvailability.getTuesday();
-        tuesdayCombo.setSelectedItem(tempDay);
-        tempDay = selectedAvailability.getWednesday();
-        wednesdayCombo.setSelectedItem(tempDay);
-        tempDay = selectedAvailability.getThursday();
-        thursdayCombo.setSelectedItem(tempDay);
-        tempDay = selectedAvailability.getFriday();
-        fridayCombo.setSelectedItem(tempDay);
-        tempDay = selectedAvailability.getSaturday();
-        saturdayCombo.setSelectedItem(tempDay);
-        tempDay = selectedAvailability.getSunday();
-        sundayCombo.setSelectedItem(tempDay);
+            String tempDay = selectedAvailability.getMonday();
+            mondayCombo.setSelectedItem(tempDay);
+            tempDay = selectedAvailability.getTuesday();
+            tuesdayCombo.setSelectedItem(tempDay);
+            tempDay = selectedAvailability.getWednesday();
+            wednesdayCombo.setSelectedItem(tempDay);
+            tempDay = selectedAvailability.getThursday();
+            thursdayCombo.setSelectedItem(tempDay);
+            tempDay = selectedAvailability.getFriday();
+            fridayCombo.setSelectedItem(tempDay);
+            tempDay = selectedAvailability.getSaturday();
+            saturdayCombo.setSelectedItem(tempDay);
+            tempDay = selectedAvailability.getSunday();
+            sundayCombo.setSelectedItem(tempDay);
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
         
     }//GEN-LAST:event_availabilityListValueChanged
 
     private void loadData ()
     {
         availList.clear();
+        availabilityList.setListData(availList.toArray());
         String command = null;
         if (supervisor)
         {

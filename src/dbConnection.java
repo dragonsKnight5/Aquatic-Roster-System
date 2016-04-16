@@ -71,6 +71,12 @@ public class dbConnection
          return status;
      }
      
+     public int updateAvailability (String command)
+     {
+         int status = addUser(command);
+         return status;
+     }
+     
      public int addLTSshift (String command)
      {
          int status = addUser(command);
