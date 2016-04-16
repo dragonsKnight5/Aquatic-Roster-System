@@ -357,6 +357,11 @@ public class main extends javax.swing.JFrame {
 
         removeAvailabilityMenuItem.setText("Remove Availability");
         removeAvailabilityMenuItem.setEnabled(false);
+        removeAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeAvailabilityMenuItemActionPerformed(evt);
+            }
+        });
         jMenu2.add(removeAvailabilityMenuItem);
 
         jMenuBar1.add(jMenu2);
@@ -656,6 +661,10 @@ public class main extends javax.swing.JFrame {
     private void editAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAvailabilityMenuItemActionPerformed
         editAvailability availabilityEdit = new editAvailability(this, connection, supervisor);
     }//GEN-LAST:event_editAvailabilityMenuItemActionPerformed
+
+    private void removeAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAvailabilityMenuItemActionPerformed
+        removeAvailability availabilityRemoval = new removeAvailability(this, connection, supervisor);
+    }//GEN-LAST:event_removeAvailabilityMenuItemActionPerformed
 
     /**
      * @param args the command line arguments

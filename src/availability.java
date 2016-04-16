@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import java.time.LocalDate;
 /**
  *
  * @author james
@@ -32,6 +32,7 @@ public class availability
     private String department;
     private String location;
     private java.sql.Date date;
+    final private commonFunctions myCommonFunctions = new commonFunctions();
     
     public availability (int inID, String inUsername, String inMonday, String inTuesday, String inWednesday, String inThursday, String inFriday, String inSaturday, String inSunday, String inDepartment, String inLocation, java.sql.Date inDate)
     {
@@ -111,6 +112,7 @@ public class availability
     
     public String toString()
     {
-        return username + " " + date.toString();
+        LocalDate tempDate = date.toLocalDate();
+        return username + " " + myCommonFunctions.formatDate(tempDate);
     }
 }
