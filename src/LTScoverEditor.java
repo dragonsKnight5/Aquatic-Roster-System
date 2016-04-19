@@ -277,33 +277,35 @@ public class LTScoverEditor extends javax.swing.JDialog {
         endMinuteSpinner.setValue(endTime.getMinute());
         
         ResultSet returned;
-        returned = connection.getLTSusers();
         try
         {
+            // user block 1
+            returned = connection.getLTSusers();
             while(returned.next())
             {
                 staffCombo.addItem(returned.getString("username"));
                 //coverCombo.addItem(returned.getString("username"));
             }
             staffCombo.addItem("None");
-            
-            String day = (((selectedShift.getDate()).toLocalDate()).getDayOfWeek()).toString();
-            returned = connection.newGetLTSusers((String)locationCombo.getSelectedItem(), day);
-            while(returned.next())
-            {
-                //staffCombo.addItem(returned.getString("username"));
-                coverCombo.addItem(returned.getString("username"));
-            }
-            
             staffCombo.setSelectedItem(selectedShift.getStaff());
-            coverCombo.setSelectedItem(selectedShift.getCoverFor());
             
+            // location block 
             returned = connection.ltsLocations();
             while(returned.next())
             {
                 locationCombo.addItem(returned.getString("location"));
             }
             locationCombo.setSelectedItem(selectedShift.getLocation());
+            
+            // user block 2
+            String day =((((selectedShift.getDate()).toLocalDate()).getDayOfWeek()).toString()).toLowerCase();
+            returned = connection.newGetLTSusers((String)locationCombo.getSelectedItem(), day);
+            while(returned.next())
+            {
+                //staffCombo.addItem(returned.getString("username"));
+                coverCombo.addItem(returned.getString("username"));
+            }
+            coverCombo.setSelectedItem(selectedShift.getCoverFor());
         }
         catch (SQLException ex)
         {
