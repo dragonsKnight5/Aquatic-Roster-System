@@ -228,7 +228,7 @@ public class dbConnection
      public ResultSet newGetLTSusers(String location, String day)
      {
          ResultSet users = null;
-         sql = "select username from availability where department = \'LTS\' and location = \'" + location + "\' and " + day + " = \'both\'";
+         sql = "select username from availability where department = \'LTS\' and location = \'" + location + "\' and (" + day + " = \'both\' or " + day + " = \'Morning\' or " + day + " = \'Afternoon\')";
          System.out.println(sql);
          try
          {
