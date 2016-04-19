@@ -636,7 +636,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_removeShiftBtnActionPerformed
 
     private void EditCoverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditCoverBtnActionPerformed
-        LTScoverEditor editCover = new LTScoverEditor(this, connection);
+        LTScoverEditor editCover = new LTScoverEditor(this, connection, myCommonFunctions);
     }//GEN-LAST:event_EditCoverBtnActionPerformed
 
     private void removeCoverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCoverBtnActionPerformed
