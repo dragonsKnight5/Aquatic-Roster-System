@@ -225,6 +225,22 @@ public class dbConnection
          }
          return users;
      }
+     public ResultSet newGetLTSusers(String location, String day)
+     {
+         ResultSet users = null;
+         sql = "select username from availability where department = \'LTS\' and location = \'" + location + "\' and " + day + " = \'both\'";
+         System.out.println(sql);
+         try
+         {
+             ps1 = conn.prepareStatement(sql);
+             users = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+            JOptionPane.showMessageDialog(null, ex);
+         }
+         return users;
+     }
      
      public ResultSet ltsLocations()
      {
@@ -292,5 +308,11 @@ public class dbConnection
              JOptionPane.showMessageDialog(null, ex);
          }
          return result;
+     }
+     
+     public ResultSet userAvailabilityByLocation (String location)
+     {
+         String command = "select username from availability where location = \'" + location + "\'";
+         return lookup(location);
      }
 }

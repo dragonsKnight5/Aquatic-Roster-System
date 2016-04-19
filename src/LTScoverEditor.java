@@ -237,6 +237,7 @@ public class LTScoverEditor extends javax.swing.JDialog {
         dateCombo.removeAllItems();
         staffCombo.removeAllItems();
         coverCombo.removeAllItems();
+        locationCombo.removeAllItems();
         
         int count = 7;
         
@@ -282,18 +283,37 @@ public class LTScoverEditor extends javax.swing.JDialog {
             while(returned.next())
             {
                 staffCombo.addItem(returned.getString("username"));
-                coverCombo.addItem(returned.getString("username"));
+                //coverCombo.addItem(returned.getString("username"));
             }
             staffCombo.addItem("None");
             
+            String day = (((selectedShift.getDate()).toLocalDate()).getDayOfWeek()).toString();
+            returned = connection.newGetLTSusers((String)locationCombo.getSelectedItem(), day);
+            while(returned.next())
+            {
+                //staffCombo.addItem(returned.getString("username"));
+                coverCombo.addItem(returned.getString("username"));
+            }
+            
             staffCombo.setSelectedItem(selectedShift.getStaff());
             coverCombo.setSelectedItem(selectedShift.getCoverFor());
+            
+            returned = connection.ltsLocations();
+            while(returned.next())
+            {
+                locationCombo.addItem(returned.getString("location"));
+            }
+            locationCombo.setSelectedItem(selectedShift.getLocation());
         }
         catch (SQLException ex)
         {
-            JOptionPane.showMessageDialog(parent, ex);
+            System.out.println(ex);
         }
-        locationCombo.setSelectedItem(selectedShift.getLocation());
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
     }//GEN-LAST:event_shiftListValueChanged
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
