@@ -19,15 +19,15 @@ import java.time.format.DateTimeFormatter;
  * limitations under the License.
  */
 import java.time.LocalDate;
-import java.time.LocalTime;
+//import java.time.LocalTime;
 
 /**
  *
  * @author james
  */
 public class commonFunctions {
-    DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-    SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+    private SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
     
     public String formatDate(LocalDate date)
     {
@@ -39,6 +39,12 @@ public class commonFunctions {
     public String plusDaysFormated(LocalDate date, int days)
     {
         date = date.plusDays(days);
+        return formatDate(date);
+    }
+    
+    public String minusDaysFormated(LocalDate date, int days)
+    {
+        date = date.minusDays(days);
         return formatDate(date);
     }
     

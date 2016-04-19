@@ -30,15 +30,17 @@ public class LTScoverEditor extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
     ArrayList<cover> coverShifts = new ArrayList<cover>();
+    commonFunctions comFunc;
     int ID;
     /**
      * Creates new form Lifeguard
      */
-    public LTScoverEditor(main inParent, dbConnection inConnection) {
+    public LTScoverEditor(main inParent, dbConnection inConnection,  commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -240,33 +242,26 @@ public class LTScoverEditor extends javax.swing.JDialog {
         locationCombo.removeAllItems();
         
         int count = 7;
-        
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         Date coverDate = selectedShift.getDate();
         LocalDate selectedDate = coverDate.toLocalDate();
-        String dateString = null;
-        LocalDate newDate = null;
         ID = selectedShift.getID();
+        
         
         //Date manipulation block
         do
                 {
-                    newDate = selectedDate.minusDays(count);
-                    dateString = myFormat.format(newDate);
-                    dateCombo.addItem(dateString);
+                    dateCombo.addItem(comFunc.minusDaysFormated(selectedDate, count));
                     count --;
                 } while (count != 0);
       
         do 
                 {
-                    newDate = selectedDate.plusDays(count);
-                    dateString = myFormat.format(newDate);
-                    dateCombo.addItem(dateString);
+                    dateCombo.addItem(comFunc.plusDaysFormated(selectedDate, count));
                     count++;
                 } while (count != 17);
         
         //set selected date to date provided by database
-        dateCombo.setSelectedItem(myFormat.format(selectedDate));
+        dateCombo.setSelectedItem(comFunc.formatDate(selectedDate));
         
         //Settings pushed to screen
         LocalTime startTime = selectedShift.getStartTime();

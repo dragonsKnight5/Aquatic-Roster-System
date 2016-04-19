@@ -229,7 +229,6 @@ public class LTScoverCreator extends javax.swing.JDialog {
     {
         // Date Setup and handling block
         LocalDate myDate = LocalDate.now();
-        LocalDate formatedDate;
         String dateString = comFunc.formatDate(myDate);
         
         int count = 0;
