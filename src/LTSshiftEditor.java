@@ -32,14 +32,16 @@ public class LTSshiftEditor extends javax.swing.JDialog {
     ArrayList<lts> ltsShifts = new ArrayList<lts>();
     int ID;
     String day;
+    commonFunctions comFunc;
     /**
      * Creates new form Lifeguard
      */
-    public LTSshiftEditor(main inParent, dbConnection inConnection) {
+    public LTSshiftEditor(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -270,51 +272,53 @@ public class LTSshiftEditor extends javax.swing.JDialog {
 
             int count = 7;
             System.out.println("manipulate date");
-            DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+            //DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
             Date shiftStartDate = selectedShift.getStartDate();
             Date shiftEndDate = selectedShift.getEndDate();
             LocalDate selectedStartDate = shiftStartDate.toLocalDate();
             LocalDate selectedEndDate = shiftEndDate.toLocalDate();
-            String dateString = null;
-            LocalDate newDate = null;
+            //String dateString = null;
+            //LocalDate newDate = null;
             ID = selectedShift.getID();
             day = selectedShift.getDay();
 
             //Date manipulation block
             do {
                 // start date setup
-                newDate = selectedStartDate.minusDays(count);
-                dateString = myFormat.format(newDate);
-                startDateCombo.addItem(dateString);
+                //newDate = selectedStartDate.minusDays(count);
+                //dateString = myFormat.format(newDate);
+                //startDateCombo.addItem(dateString);
+                startDateCombo.addItem(comFunc.minusDaysFormated(selectedStartDate, count));
 
                 // end date setup
-                newDate = selectedEndDate.minusDays(count);
-                dateString = myFormat.format(newDate);
-                endDateCombo.addItem(dateString);
+                //newDate = selectedEndDate.minusDays(count);
+                //dateString = myFormat.format(newDate);
+                //endDateCombo.addItem(dateString);
+                endDateCombo.addItem(comFunc.plusDaysFormated(selectedEndDate, count));
                 count--;
             } while (count != 0);
 
-            dateString = myFormat.format(selectedStartDate);
-            startDateCombo.addItem(dateString);
-            dateString = myFormat.format(selectedEndDate);
-            endDateCombo.addItem(dateString);
+            //dateString = myFormat.format(selectedStartDate);
+            startDateCombo.addItem(comFunc.formatDate(selectedStartDate));
+            //dateString = myFormat.format(selectedEndDate);
+            endDateCombo.addItem(comFunc.formatDate(selectedEndDate));
 
             do {
                 count++;
-                newDate = selectedStartDate.plusDays(count);
-                dateString = myFormat.format(newDate);
-                startDateCombo.addItem(dateString);
+                //newDate = selectedStartDate.plusDays(count);
+                //dateString = myFormat.format(newDate);
+                startDateCombo.addItem(comFunc.plusDaysFormated(selectedStartDate, count));
                 if (count <= 10) {
-                    newDate = selectedEndDate.plusDays(count);
-                    dateString = myFormat.format(newDate);
-                    endDateCombo.addItem(dateString);
+                    //newDate = selectedEndDate.plusDays(count);
+                    //dateString = myFormat.format(newDate);
+                    endDateCombo.addItem(comFunc.plusDaysFormated(selectedEndDate, count));
                 }
             } while (count != 17);
 
             // set selected Items
             // Date
-            startDateCombo.setSelectedItem(myFormat.format(selectedStartDate));
-            endDateCombo.setSelectedItem(myFormat.format(selectedEndDate));
+            startDateCombo.setSelectedItem(comFunc.formatDate(selectedStartDate));
+            endDateCombo.setSelectedItem(comFunc.formatDate(selectedEndDate));
             // Time
             LocalTime startTime = selectedShift.getStartTime();
             LocalTime endTime = selectedShift.getEndTime();

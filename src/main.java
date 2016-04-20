@@ -510,7 +510,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_shiftLookupBtnActionPerformed
 
     private void createShiftBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createShiftBtnActionPerformed
-        LTSshiftCreator  ltsShiftcreate = new LTSshiftCreator(this, connection);
+        LTSshiftCreator  ltsShiftcreate = new LTSshiftCreator(this, connection, myCommonFunctions);
     }//GEN-LAST:event_createShiftBtnActionPerformed
 
     private void lookupCoverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupCoverBtnActionPerformed
@@ -628,7 +628,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_guardShiftRemoveBtnActionPerformed
 
     private void editShiftBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editShiftBtnActionPerformed
-        LTSshiftEditor ltsEdit = new LTSshiftEditor(this, connection);
+        LTSshiftEditor ltsEdit = new LTSshiftEditor(this, connection, myCommonFunctions);
     }//GEN-LAST:event_editShiftBtnActionPerformed
 
     private void removeShiftBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeShiftBtnActionPerformed
