@@ -101,6 +101,7 @@ public class LTSshiftEditor extends javax.swing.JDialog {
 
         jLabel6.setText("Staff:");
 
+        shiftList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         shiftList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 shiftListValueChanged(evt);
@@ -138,23 +139,25 @@ public class LTSshiftEditor extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel7)))
+                                .addGap(20, 20, 20))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(20, 20, 20))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,22 +172,21 @@ public class LTSshiftEditor extends javax.swing.JDialog {
                                         .addComponent(startHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(startMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(startDateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(endDateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(staffCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, 167, Short.MAX_VALUE)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
+                                    .addComponent(dayCombo, 0, 174, Short.MAX_VALUE)
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(locationCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(staffCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(closeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                         .addComponent(completionTickbox)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(updateButton)
@@ -193,7 +195,7 @@ public class LTSshiftEditor extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -209,13 +211,17 @@ public class LTSshiftEditor extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(dayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
                                 .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(startHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(startMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -225,27 +231,25 @@ public class LTSshiftEditor extends javax.swing.JDialog {
                                     .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(staffCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
+                                .addGap(45, 45, 45)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(updateButton)
                                     .addComponent(completionTickbox)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
+                                .addGap(8, 8, 8)
                                 .addComponent(jLabel4)
-                                .addGap(33, 33, 33)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel5)
-                                .addGap(26, 26, 26)
+                                .addGap(31, 31, 31)
                                 .addComponent(jLabel6))))
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(closeButton))
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(closeButton)))
+                .addGap(6, 6, 6))
         );
 
         pack();
@@ -256,88 +260,90 @@ public class LTSshiftEditor extends javax.swing.JDialog {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void shiftListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_shiftListValueChanged
-        lts selectedShift = (lts)shiftList.getSelectedValue();
-        //Clear previous values from combo boxes
-        startDateCombo.removeAllItems();
-        staffCombo.removeAllItems();
-        
-        int count = 7;
-        
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-        Date shiftStartDate = selectedShift.getStartDate();
-        Date shiftEndDate = selectedShift.getEndDate();
-        LocalDate selectedStartDate = shiftStartDate.toLocalDate();
-        LocalDate selectedEndDate = shiftEndDate.toLocalDate();
-        String dateString = null;
-        LocalDate newDate = null;
-        ID = selectedShift.getID();
-        day = selectedShift.getDay();
-        
-        //Date manipulation block
-        do
-                {
-                    // start date setup
-                    newDate = selectedStartDate.minusDays(count);
-                    dateString = myFormat.format(newDate);
-                    startDateCombo.addItem(dateString);
-                    
-                    // end date setup
-                    newDate = selectedEndDate.minusDays(count);
+        try {
+            lts selectedShift = (lts) shiftList.getSelectedValue();
+
+            //Clear previous values from combo boxes
+            System.out.println("Clear combos");
+            startDateCombo.removeAllItems();
+            staffCombo.removeAllItems();
+
+            int count = 7;
+            System.out.println("manipulate date");
+            DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+            Date shiftStartDate = selectedShift.getStartDate();
+            Date shiftEndDate = selectedShift.getEndDate();
+            LocalDate selectedStartDate = shiftStartDate.toLocalDate();
+            LocalDate selectedEndDate = shiftEndDate.toLocalDate();
+            String dateString = null;
+            LocalDate newDate = null;
+            ID = selectedShift.getID();
+            day = selectedShift.getDay();
+
+            //Date manipulation block
+            do {
+                // start date setup
+                newDate = selectedStartDate.minusDays(count);
+                dateString = myFormat.format(newDate);
+                startDateCombo.addItem(dateString);
+
+                // end date setup
+                newDate = selectedEndDate.minusDays(count);
+                dateString = myFormat.format(newDate);
+                endDateCombo.addItem(dateString);
+                count--;
+            } while (count != 0);
+
+            dateString = myFormat.format(selectedStartDate);
+            startDateCombo.addItem(dateString);
+            dateString = myFormat.format(selectedEndDate);
+            endDateCombo.addItem(dateString);
+
+            do {
+                count++;
+                newDate = selectedStartDate.plusDays(count);
+                dateString = myFormat.format(newDate);
+                startDateCombo.addItem(dateString);
+                if (count <= 10) {
+                    newDate = selectedEndDate.plusDays(count);
                     dateString = myFormat.format(newDate);
                     endDateCombo.addItem(dateString);
-                    count --;
-                } while (count != 0);
+                }
+            } while (count != 17);
 
-        dateString = myFormat.format(selectedStartDate);
-        startDateCombo.addItem(dateString);
-        dateString = myFormat.format(selectedEndDate);
-        endDateCombo.addItem(dateString);
-      
-        do 
-                {
-                    count++;
-                    newDate = selectedStartDate.plusDays(count);
-                    dateString = myFormat.format(newDate);
-                    startDateCombo.addItem(dateString);
-                    if (count <=10)
-                    {
-                        newDate = selectedEndDate.plusDays(count);
-                        dateString = myFormat.format(newDate);
-                        endDateCombo.addItem(dateString);
-                    }
-                } while (count != 17);
-        
-        // set selected Items
-        // Date
-        startDateCombo.setSelectedItem(myFormat.format(selectedStartDate));
-        endDateCombo.setSelectedItem(myFormat.format(selectedEndDate));
-        // Time
-        LocalTime startTime = selectedShift.getStartTime();
-        LocalTime endTime = selectedShift.getEndTime();
-        startHourSpinner.setValue(startTime.getHour());
-        startMinuteSpinner.setValue(startTime.getMinute());
-        endHourSpinner.setValue(endTime.getHour());
-        endMinuteSpinner.setValue(endTime.getMinute());
-        // Day
-        dayCombo.setSelectedItem(day);
-        // Staff
-        staffCombo.setSelectedItem(selectedShift.getStaff());
-        
-        ResultSet returned;
-        returned = connection.getLifeguardUsers();
-        try
-        {
+            // set selected Items
+            // Date
+            startDateCombo.setSelectedItem(myFormat.format(selectedStartDate));
+            endDateCombo.setSelectedItem(myFormat.format(selectedEndDate));
+            // Time
+            LocalTime startTime = selectedShift.getStartTime();
+            LocalTime endTime = selectedShift.getEndTime();
+            startHourSpinner.setValue(startTime.getHour());
+            startMinuteSpinner.setValue(startTime.getMinute());
+            endHourSpinner.setValue(endTime.getHour());
+            endMinuteSpinner.setValue(endTime.getMinute());
+            // Day
+            dayCombo.setSelectedItem(day);
+
+            ResultSet returned;
+            System.out.println("Get lts staff by location");
+            
+            // Staff
+            returned = connection.newGetLTSusers(((String)locationCombo.getSelectedItem()).toLowerCase(), (String)dayCombo.getSelectedItem());
             while(returned.next())
             {
                 staffCombo.addItem(returned.getString("username"));
             }
+            String tempUser = selectedShift.getStaff();
+            //staffCombo.setSelectedItem(selectedShift.getStaff());
+            staffCombo.setSelectedItem(tempUser);
             
-            staffCombo.setSelectedItem(selectedShift.getStaff());
+            
             locationCombo.setSelectedItem(selectedShift.getLocation());
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(parent, ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
     }//GEN-LAST:event_shiftListValueChanged
 
@@ -380,6 +386,11 @@ public class LTSshiftEditor extends javax.swing.JDialog {
                 {
                     dispose();
                 }
+                else
+                {
+                    ltsShifts.clear();
+                    shiftList.setListData(ltsShifts.toArray());
+                }
             }
             else
             {
@@ -389,34 +400,27 @@ public class LTSshiftEditor extends javax.swing.JDialog {
     }//GEN-LAST:event_updateButtonActionPerformed
 
 private void loadData()
-{
-    ResultSet returned;
-    shiftList.removeAll();
-    String command = "select * from LTS_Shift";
-    try
     {
-        returned = connection.lookup(command);
-        while(returned.next())
-        {
-            lts tempShift = new lts(returned.getInt("ID"), returned.getString("staff"), returned.getString("shift_day"), returned.getString("location"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getDate("start_date"), returned.getDate("end_date"));;
-            ltsShifts.add(tempShift);
-        }
-        shiftList.setListData(ltsShifts .toArray());
-        if(!ltsShifts.isEmpty())
-        {
-            shiftList.setSelectedIndex(0);
-        }
-        returned = connection.ltsLocations();
-            while(returned.next())
-            {
+        ResultSet returned;
+        shiftList.removeAll();
+        String command = "select * from LTS_Shift";
+        try {
+            returned = connection.lookup(command);
+            while (returned.next()) {
+                lts tempShift = new lts(returned.getInt("ID"), returned.getString("staff"), returned.getString("shift_day"), returned.getString("location"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getDate("start_date"), returned.getDate("end_date"));;
+                ltsShifts.add(tempShift);
+            }
+            shiftList.setListData(ltsShifts.toArray());
+
+            returned = connection.ltsLocations();
+            while (returned.next()) {
                 locationCombo.addItem(returned.getString("location"));
             }
+            locationCombo.setSelectedItem("None");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(parent, ex);
+        }
     }
-    catch (SQLException ex)
-    {
-        JOptionPane.showMessageDialog(parent, ex);
-    }
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
