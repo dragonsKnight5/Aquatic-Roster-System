@@ -272,45 +272,29 @@ public class LTSshiftEditor extends javax.swing.JDialog {
 
             int count = 7;
             System.out.println("manipulate date");
-            //DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
             Date shiftStartDate = selectedShift.getStartDate();
             Date shiftEndDate = selectedShift.getEndDate();
             LocalDate selectedStartDate = shiftStartDate.toLocalDate();
             LocalDate selectedEndDate = shiftEndDate.toLocalDate();
-            //String dateString = null;
-            //LocalDate newDate = null;
             ID = selectedShift.getID();
             day = selectedShift.getDay();
 
             //Date manipulation block
             do {
-                // start date setup
-                //newDate = selectedStartDate.minusDays(count);
-                //dateString = myFormat.format(newDate);
-                //startDateCombo.addItem(dateString);
                 startDateCombo.addItem(comFunc.minusDaysFormated(selectedStartDate, count));
 
                 // end date setup
-                //newDate = selectedEndDate.minusDays(count);
-                //dateString = myFormat.format(newDate);
-                //endDateCombo.addItem(dateString);
                 endDateCombo.addItem(comFunc.plusDaysFormated(selectedEndDate, count));
                 count--;
             } while (count != 0);
 
-            //dateString = myFormat.format(selectedStartDate);
             startDateCombo.addItem(comFunc.formatDate(selectedStartDate));
-            //dateString = myFormat.format(selectedEndDate);
             endDateCombo.addItem(comFunc.formatDate(selectedEndDate));
 
             do {
                 count++;
-                //newDate = selectedStartDate.plusDays(count);
-                //dateString = myFormat.format(newDate);
                 startDateCombo.addItem(comFunc.plusDaysFormated(selectedStartDate, count));
                 if (count <= 10) {
-                    //newDate = selectedEndDate.plusDays(count);
-                    //dateString = myFormat.format(newDate);
                     endDateCombo.addItem(comFunc.plusDaysFormated(selectedEndDate, count));
                 }
             } while (count != 17);
@@ -338,9 +322,9 @@ public class LTSshiftEditor extends javax.swing.JDialog {
             {
                 staffCombo.addItem(returned.getString("username"));
             }
-            String tempUser = selectedShift.getStaff();
-            //staffCombo.setSelectedItem(selectedShift.getStaff());
-            staffCombo.setSelectedItem(tempUser);
+            //String tempUser = selectedShift.getStaff();
+            staffCombo.setSelectedItem(selectedShift.getStaff());
+            //staffCombo.setSelectedItem(tempUser);
             
             
             locationCombo.setSelectedItem(selectedShift.getLocation());
