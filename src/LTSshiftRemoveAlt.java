@@ -15,7 +15,7 @@
  */
 
 import java.sql.*;
-import java.time.format.DateTimeFormatter;
+//import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -127,8 +127,8 @@ public class LTSshiftRemoveAlt extends javax.swing.JDialog {
 
     private void shiftListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_shiftListValueChanged
         // need to find out if there's another way to deal with null pointer exception problem
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("d/MM/YYYY");
-        String dateString;
+        //DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("d/MM/YYYY");
+        //String dateString;
         try
         {
             lts selectedShift = (lts)shiftList.getSelectedValue();

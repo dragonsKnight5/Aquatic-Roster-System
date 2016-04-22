@@ -15,7 +15,7 @@
  */
 
 import java.sql.*;
-import java.time.format.DateTimeFormatter;
+//import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -27,14 +27,16 @@ public class LTSshiftRemove extends javax.swing.JDialog {
     dbConnection connection;
     ArrayList<lts> ltsShifts = new ArrayList<lts>();
     int ID;
+    commonFunctions comFunc;
     /**
      * Creates new form Lifeguard
      */
-    public LTSshiftRemove(main inParent, dbConnection inConnection) {
+    public LTSshiftRemove(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -215,17 +217,17 @@ public class LTSshiftRemove extends javax.swing.JDialog {
 
     private void shiftListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_shiftListValueChanged
         // need to find out if there's another way to deal with null pointer exception problem
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("d/MM/YYYY");
-        String dateString;
+        //DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("d/MM/YYYY");
+        //String dateString;
         try
         {
             lts selectedShift = (lts)shiftList.getSelectedValue();
             startTimeLabel.setText(selectedShift.getStartTimeString());
             endTimeLabel.setText(selectedShift.getEndTimeString());
-            dateString = myFormat.format((selectedShift.getStartDate()).toLocalDate());
-            startDateLabel.setText(dateString);
-            dateString = myFormat.format((selectedShift.getEndDate()).toLocalDate());
-            endDateLabel.setText(dateString);
+            //dateString = myFormat.format((selectedShift.getStartDate()).toLocalDate());
+            startDateLabel.setText(comFunc.formatDate(selectedShift.getStartDate().toLocalDate()));
+            //dateString = myFormat.format((selectedShift.getEndDate()).toLocalDate());
+            endDateLabel.setText(comFunc.formatDate(selectedShift.getEndDate().toLocalDate()));
             staffLabel.setText(selectedShift.getStaff());
             ID = selectedShift.getID();
             locationLbl.setText(selectedShift.getLocation());

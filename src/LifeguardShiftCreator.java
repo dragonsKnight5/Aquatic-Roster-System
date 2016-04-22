@@ -30,15 +30,17 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
     ArrayList<users> myUsers = new ArrayList<users>();
+    commonFunctions comFunc;
 
     /**
      * Creates new form LifeguardShiftCreator
      */
-    public LifeguardShiftCreator(main inParent, dbConnection inConnection) {
+    public LifeguardShiftCreator(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -234,6 +236,7 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
         LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
         SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String stringDate = (String)dateCombo.getSelectedItem();
+        
         java.sql.Date selectedDate = null;
         
         try

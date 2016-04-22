@@ -16,7 +16,7 @@
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /*
@@ -33,14 +33,16 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
     ArrayList<lts> ltsShifts = new ArrayList<lts>();
+    commonFunctions comFunc;
     /**
      * Creates new form LNSSshiftLookup
      */
-    public LTSshiftLookup(main inParent, dbConnection inConnection) {
+    public LTSshiftLookup(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent,true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         firstLoad();
         setVisible(true);
     }
@@ -228,11 +230,11 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         endTimeLabel.setText((selectedShift.getEndTime()).toString());
         staffLabel.setText(selectedShift.getStaff());
         
-        SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/YYYY");
-        String formatedDate = myDateFormat.format(selectedShift.getStartDate());
-        startDateLabel.setText(formatedDate);
-        formatedDate = myDateFormat.format(selectedShift.getEndDate());
-        endDateLabel.setText(formatedDate);
+        //SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/YYYY");
+        //String formatedDate = myDateFormat.format(selectedShift.getStartDate());
+        startDateLabel.setText(comFunc.formatDate(selectedShift.getStartDate().toLocalDate()));
+        //formatedDate = myDateFormat.format(selectedShift.getEndDate());
+        endDateLabel.setText(comFunc.formatDate(selectedShift.getEndDate().toLocalDate()));
         dayCombo.setSelectedItem("All");
         locationLbl.setText(selectedShift.getLocation());
        }

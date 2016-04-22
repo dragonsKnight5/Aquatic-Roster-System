@@ -322,9 +322,7 @@ public class LTSshiftEditor extends javax.swing.JDialog {
             {
                 staffCombo.addItem(returned.getString("username"));
             }
-            //String tempUser = selectedShift.getStaff();
             staffCombo.setSelectedItem(selectedShift.getStaff());
-            //staffCombo.setSelectedItem(tempUser);
             
             
             locationCombo.setSelectedItem(selectedShift.getLocation());
