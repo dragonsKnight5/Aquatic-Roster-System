@@ -1,7 +1,9 @@
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.format.DateTimeFormatter;
+import static java.time.temporal.TemporalAdjusters.*;
 
 /*
  * Copyright 2016 james.
@@ -19,6 +21,7 @@ import java.time.format.DateTimeFormatter;
  * limitations under the License.
  */
 import java.time.LocalDate;
+import static java.time.temporal.TemporalAdjusters.next;
 //import java.time.LocalTime;
 
 /**
@@ -58,9 +61,46 @@ public class commonFunctions {
         }
         catch (ParseException ex)
         {
-            
+            System.out.println(ex);
         }
         return selectedDate;
+    }
+    
+    public java.sql.Date day2Date(String date, String day)
+    {
+        LocalDate tempDate = dateSwitch(date).toLocalDate();
+        LocalDate manipDate = null;
+        if (day.equalsIgnoreCase("monday"))
+        {
+            manipDate = tempDate.with(next(DayOfWeek.MONDAY));
+        }
+        else if (day.equalsIgnoreCase("tuesday"))
+        {
+            manipDate = tempDate.with(next(DayOfWeek.TUESDAY));
+        }
+        else if (day.equalsIgnoreCase("wednesday"))
+        {
+            manipDate = tempDate.with(next(DayOfWeek.WEDNESDAY));
+        }
+        else if (day.equalsIgnoreCase("thursday"))
+        {
+            manipDate = tempDate.with(next(DayOfWeek.THURSDAY));
+        }
+        else if (day.equalsIgnoreCase("friday"))
+        {
+            manipDate = tempDate.with(next(DayOfWeek.FRIDAY));
+        }
+        else if (day.equalsIgnoreCase("saturday"))
+        {
+            manipDate = tempDate.with(next(DayOfWeek.SATURDAY));
+        }
+        else if (day.equalsIgnoreCase("sunday"))
+        {
+            manipDate = tempDate.with(next(DayOfWeek.SUNDAY));
+        }
+        
+        
+        return dateSwitch(manipDate.toString());
     }
     
 }

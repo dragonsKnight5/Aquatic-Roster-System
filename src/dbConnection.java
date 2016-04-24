@@ -245,7 +245,7 @@ public class dbConnection
      public ResultSet ltsLocations()
      {
          ResultSet result = null;
-         sql = "select * from location where lts = true";
+         sql = "select location from location where lts = true";
          
          try
          {
@@ -262,7 +262,7 @@ public class dbConnection
      public ResultSet lifeguardLocations()
      {
          ResultSet result = null;
-         sql = "select * from location where lifeguard = true";
+         sql = "select location from location where lifeguard = true";
          
          try
          {

@@ -526,7 +526,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_guardLookupBtnActionPerformed
 
     private void guardShiftCreatorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftCreatorBtnActionPerformed
-        LifeguardShiftCreator guardShiftCreator = new LifeguardShiftCreator(this, connection);
+        LifeguardShiftCreator guardShiftCreator = new LifeguardShiftCreator(this, connection, myCommonFunctions);
     }//GEN-LAST:event_guardShiftCreatorBtnActionPerformed
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
