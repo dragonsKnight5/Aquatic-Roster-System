@@ -1,4 +1,5 @@
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -98,9 +99,10 @@ public class commonFunctions {
         {
             manipDate = tempDate.with(next(DayOfWeek.SUNDAY));
         }
+        java.sql.Date returnDate = Date.valueOf(tempDate);
         
-        
-        return dateSwitch(manipDate.toString());
+        return returnDate;
     }
+    
     
 }

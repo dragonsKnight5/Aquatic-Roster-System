@@ -313,7 +313,7 @@ public class LTScoverCreator extends javax.swing.JDialog {
         }
         catch (SQLException ex)
         {
-            
+            System.out.println(ex);
         }
     }//GEN-LAST:event_locationComboItemStateChanged
 

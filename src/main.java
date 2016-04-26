@@ -620,7 +620,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutMenuItemActionPerformed
 
     private void guardShiftEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftEditBtnActionPerformed
-        LifeguardShiftEditor editShift = new LifeguardShiftEditor(this, connection);
+        LifeguardShiftEditor editShift = new LifeguardShiftEditor(this, connection, myCommonFunctions);
     }//GEN-LAST:event_guardShiftEditBtnActionPerformed
 
     private void guardShiftRemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftRemoveBtnActionPerformed

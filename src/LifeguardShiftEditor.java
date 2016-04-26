@@ -22,6 +22,8 @@ import javax.swing.JOptionPane;
 import java.time.LocalTime;
 import java.time.LocalDate;
 import java.text.ParseException;
+import java.time.DayOfWeek;
+import static java.time.temporal.TemporalAdjusters.next;
 /**
  *
  * @author james
@@ -31,14 +33,16 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
     dbConnection connection;
     ArrayList<lifeguards> guardShifts = new ArrayList<lifeguards>();
     int ID;
+    commonFunctions comFunc;
     /**
      * Creates new form Lifeguard
      */
-    public LifeguardShiftEditor(main inParent, dbConnection inConnection) {
+    public LifeguardShiftEditor(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -77,6 +81,8 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         jSeparator4 = new javax.swing.JSeparator();
         onCallCombo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        shiftCombo = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lifeguard Shift Editor");
@@ -126,6 +132,10 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
 
         jLabel3.setText("On Call:");
 
+        shiftCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Morning", "Afternoon" }));
+
+        jButton1.setText("Refresh Listed Users");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,12 +146,13 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(closeButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateButton)
-                        .addGap(116, 116, 116))
+                        .addComponent(completionTickbox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(updateButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -149,32 +160,35 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(staffCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(staffCombo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(staffCombo3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(completionTickbox)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(endHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(locationCombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dateCombo, 0, 177, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(startHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(startMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
-                            .addComponent(onCallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                            .addComponent(onCallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                .addComponent(shiftCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(locationCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,14 +221,18 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
                                     .addComponent(endHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
+                                .addGap(22, 22, 22)
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel5)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(shiftCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(staffCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,20 +243,20 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(onCallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                                .addComponent(completionTickbox))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
+                                .addGap(80, 80, 80)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3)
-                                .addGap(52, 52, 52))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGap(18, 18, 18))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                     .addComponent(jSeparator1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateButton)
-                    .addComponent(closeButton)))
+                    .addComponent(closeButton)
+                    .addComponent(completionTickbox)))
         );
 
         pack();
@@ -249,61 +267,74 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void shiftListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_shiftListValueChanged
-        lifeguards selectedShift = (lifeguards)shiftList.getSelectedValue();
-        //Clear previous values from combo boxes
-        dateCombo.removeAllItems();
-        staffCombo1.removeAllItems();
-        staffCombo2.removeAllItems();
-        staffCombo3.removeAllItems();
-        onCallCombo.removeAllItems();
-        
-        int count = 3;
-        
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("d/MM/YYYY");
-        Date shiftDate = selectedShift.getShiftDate();
-        LocalDate selectedDate = shiftDate.toLocalDate();
-        String dateString = null;
-        LocalDate newDate = null;
-        ID = selectedShift.getID();
-        
-        //Date manipulation block
-        do
-                {
-                    newDate = selectedDate.minusDays(count);
-                    dateString = myFormat.format(newDate);
-                    dateCombo.addItem(dateString);
-                    count --;
-                } while (count != 0);
+        try {
+            lifeguards selectedShift = (lifeguards) shiftList.getSelectedValue();
+            //Clear previous values from combo boxes
+            dateCombo.removeAllItems();
+            staffCombo1.removeAllItems();
+            staffCombo2.removeAllItems();
+            staffCombo3.removeAllItems();
+            onCallCombo.removeAllItems();
 
-        dateString = myFormat.format(selectedDate);
-        dateCombo.addItem(dateString);
-      
-        do 
-                {
-                    count++;
-                    newDate = selectedDate.plusDays(count);
-                    dateString = myFormat.format(newDate);
-                    dateCombo.addItem(dateString);
-                } while (count != 17);
-        
-        //set selected date to date provided by database
-        dateString = myFormat.format(selectedDate);
-        dateCombo.setSelectedItem(dateString = myFormat.format(selectedDate));
-        
-        //Settings pushed to screen
-        LocalTime startTime = selectedShift.getStartTime();
-        LocalTime endTime = selectedShift.getEndTime();
-        startHourSpinner.setValue(startTime.getHour());
-        startMinuteSpinner.setValue(startTime.getMinute());
-        endHourSpinner.setValue(endTime.getHour());
-        endMinuteSpinner.setValue(endTime.getMinute());
-        
-        ResultSet returned;
-        returned = connection.getLifeguardUsers();
-        try
-        {
-            while(returned.next())
+            int count = 3;
+
+            DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+            
+            LocalDate shiftDate = selectedShift.getShiftDate().toLocalDate();
+            //LocalDate selectedDate = shiftDate.toLocalDate();
+            System.out.println("Shift Date: " + shiftDate.toString());
+            //String dateString = null;
+            //LocalDate newDate = null;
+            ID = selectedShift.getID();
+
+            //Date manipulation block
+            System.out.println("Starting minus date manipulation");
+            //String temp = null;
+            do {
+                //newDate = selectedDate.minusDays(count);
+                //dateString = myFormat.format(newDate);
+                //dateString = comFunc.formatDate(newDate);
+                dateCombo.addItem(comFunc.minusDaysFormated(shiftDate, count));
+                count--;
+            } while (count != 0);
+
+            dateCombo.addItem(comFunc.formatDate(shiftDate));
+            
+            System.out.println("Starting plus date manipulation");
+            do {
+                count++;
+                dateCombo.addItem(comFunc.plusDaysFormated(shiftDate, count));
+            } while (count != 17);
+
+            dateCombo.setSelectedItem(comFunc.formatDate(shiftDate));
+
+            //Settings pushed to screen
+            LocalTime startTime = selectedShift.getStartTime();
+            LocalTime endTime = selectedShift.getEndTime();
+            startHourSpinner.setValue(startTime.getHour());
+            startMinuteSpinner.setValue(startTime.getMinute());
+            endHourSpinner.setValue(endTime.getHour());
+            endMinuteSpinner.setValue(endTime.getMinute());
+            
+            java.sql.Date lookupDate;
+            String day = shiftDate.getDayOfWeek().toString();
+            if ((shiftDate.getDayOfWeek().toString()).equalsIgnoreCase("monday"))
             {
+                lookupDate = selectedShift.getShiftDate();
+            }
+            else
+            {
+                LocalDate tempDate = shiftDate.with(next(DayOfWeek.MONDAY));
+                tempDate = tempDate.minusDays(7);
+                lookupDate = Date.valueOf(tempDate);
+            }
+            
+            ResultSet returned;
+            String command = "select username from availability where weekStarting = \'" + lookupDate + "\' and department = \'Lifeguard\' and (" 
+                    + day + " = both";
+            
+            returned = connection.getLifeguardUsers();
+            while (returned.next()) {
                 staffCombo1.addItem(returned.getString("username"));
                 staffCombo2.addItem(returned.getString("username"));
                 staffCombo3.addItem(returned.getString("username"));
@@ -312,17 +343,18 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
             staffCombo2.addItem("None");
             staffCombo3.addItem("None");
             onCallCombo.addItem("None");
-            
+
             staffCombo1.setSelectedItem(selectedShift.getStaff1());
             staffCombo2.setSelectedItem(selectedShift.getStaff2());
             staffCombo3.setSelectedItem(selectedShift.getStaff3());
             onCallCombo.setSelectedItem(selectedShift.getOnCall());
+            locationCombo.setSelectedItem(selectedShift.getLocation());
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
-        catch (SQLException ex)
-        {
-            JOptionPane.showMessageDialog(parent, ex);
-        }
-        locationCombo.setSelectedItem(selectedShift.getLocation());
+        
     }//GEN-LAST:event_shiftListValueChanged
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
@@ -382,20 +414,19 @@ private void loadData()
             guardShifts.add(tempGuard);
         }
         shiftList.setListData(guardShifts.toArray());
-        if (!guardShifts.isEmpty())
-        {
-            shiftList.setSelectedIndex(0);
-        }
+//        if (!guardShifts.isEmpty())
+//        {
+//            shiftList.setSelectedIndex(0);
+//        }
         returned = connection.lifeguardLocations();
         while(returned.next())
         {
             locationCombo.addItem(returned.getString("location"));
         }
-
     }
     catch (SQLException ex)
     {
-        JOptionPane.showMessageDialog(parent, ex);
+        System.out.println(ex);
     }
 }
 
@@ -405,6 +436,7 @@ private void loadData()
     private javax.swing.JComboBox<String> dateCombo;
     private javax.swing.JSpinner endHourSpinner;
     private javax.swing.JSpinner endMinuteSpinner;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -418,6 +450,7 @@ private void loadData()
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JComboBox<String> locationCombo;
     private javax.swing.JComboBox<String> onCallCombo;
+    private javax.swing.JComboBox<String> shiftCombo;
     private javax.swing.JList shiftList;
     private javax.swing.JComboBox<String> staffCombo1;
     private javax.swing.JComboBox<String> staffCombo2;

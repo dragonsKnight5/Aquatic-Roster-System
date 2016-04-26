@@ -19,8 +19,6 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import java.time.LocalTime;
 import java.time.LocalDate;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import static java.time.temporal.TemporalAdjusters.next;
 /**
