@@ -4,7 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.format.DateTimeFormatter;
-import static java.time.temporal.TemporalAdjusters.*;
+import java.time.LocalDate;
+import static java.time.temporal.TemporalAdjusters.next;
+//import static java.time.temporal.TemporalAdjusters.*;
 
 /*
  * Copyright 2016 james.
@@ -21,8 +23,6 @@ import static java.time.temporal.TemporalAdjusters.*;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import java.time.LocalDate;
-import static java.time.temporal.TemporalAdjusters.next;
 //import java.time.LocalTime;
 
 /**
