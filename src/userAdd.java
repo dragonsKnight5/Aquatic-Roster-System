@@ -69,22 +69,39 @@ public class userAdd extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("User Add");
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Username:");
 
+        usernameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setText("First Name:");
 
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel3.setText("Last Name:");
 
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel4.setText("Department 1:");
 
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel5.setText("Department 2:");
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel6.setText("Department 3:");
 
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel7.setText("Supervisor:");
 
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel8.setText("Password:");
 
+        lastNameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        supervisorCheckbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        passwordTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        submitButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +109,7 @@ public class userAdd extends javax.swing.JDialog {
             }
         });
 
+        closeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,13 +117,19 @@ public class userAdd extends javax.swing.JDialog {
             }
         });
 
+        departmentCombo1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         departmentCombo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LTS", "Lifeguard", "Gym", "ISC" }));
 
+        departmentCombo2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         departmentCombo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard", "Gym", "ISC" }));
 
+        departmentCombo3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         departmentCombo3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard", "Gym", "ISC" }));
 
+        completionCheckbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         completionCheckbox.setText("Close On Completion");
+
+        firstNameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,7 +142,7 @@ public class userAdd extends javax.swing.JDialog {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addGap(36, 36, 36)
-                            .addComponent(firstNameTextbox, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                            .addComponent(firstNameTextbox, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
                         .addComponent(jLabel6)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel5)

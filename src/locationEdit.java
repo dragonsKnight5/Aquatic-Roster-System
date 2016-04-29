@@ -64,6 +64,7 @@ public class locationEdit extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("User Edit");
 
+        updateButton.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +72,7 @@ public class locationEdit extends javax.swing.JDialog {
             }
         });
 
+        closeButton.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +80,7 @@ public class locationEdit extends javax.swing.JDialog {
             }
         });
 
+        userList.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         userList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         userList.setVisibleRowCount(12);
         userList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -87,14 +90,27 @@ public class locationEdit extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(userList);
 
+        completionCheckbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         completionCheckbox.setText("Close On Completion");
 
+        ltsTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel10.setText("Gym:");
 
+        lifeguardTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        gymTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel1.setText("Location:");
 
+        locationTxtbx.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel7.setText("Lifeguard:");
 
+        jLabel9.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel9.setText("LTS:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -77,6 +77,7 @@ public class userRemoval extends javax.swing.JDialog
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Location Remove");
 
+        removeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         removeButton.setText("Remove");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +85,7 @@ public class userRemoval extends javax.swing.JDialog
             }
         });
 
+        closeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +93,9 @@ public class userRemoval extends javax.swing.JDialog
             }
         });
 
+        userCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        completionCheckbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         completionCheckbox.setText("Close On Completion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

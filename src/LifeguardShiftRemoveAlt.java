@@ -61,6 +61,7 @@ public class LifeguardShiftRemoveAlt extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lifeguard Shift Remove");
 
+        closeButton.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +69,8 @@ public class LifeguardShiftRemoveAlt extends javax.swing.JDialog {
             }
         });
 
+        shiftList.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        shiftList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         shiftList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 shiftListValueChanged(evt);
@@ -75,6 +78,7 @@ public class LifeguardShiftRemoveAlt extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(shiftList);
 
+        removeButton.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         removeButton.setText("Remove");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +86,7 @@ public class LifeguardShiftRemoveAlt extends javax.swing.JDialog {
             }
         });
 
+        completionTickbox.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         completionTickbox.setText("Close On Completion");
         completionTickbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,14 +94,18 @@ public class LifeguardShiftRemoveAlt extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Start Time");
 
+        startTimeLabel.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         startTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel3.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("End Time");
 
+        endTimeLabel.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         endTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

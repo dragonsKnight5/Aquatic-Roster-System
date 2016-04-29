@@ -89,8 +89,10 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Availability");
 
+        jLabel2.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel2.setText("Department:");
 
+        departmentCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         departmentCombo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 departmentComboItemStateChanged(evt);
@@ -102,38 +104,59 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel3.setText("Location:");
 
+        locationCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel4.setText("Week Starting:");
 
+        dateCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel5.setText("Monday:");
 
+        mondayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         mondayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel6.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel6.setText("Tuesday");
 
+        tuesdayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         tuesdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel7.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel7.setText("Wednesday:");
 
+        wednesdayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         wednesdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel8.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel8.setText("Thursday:");
 
+        thursdayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         thursdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel9.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel9.setText("Friday:");
 
+        fridayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         fridayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel10.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel10.setText("Saturday:");
 
+        saturdayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         saturdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel11.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel11.setText("Sunday:");
 
+        sundayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         sundayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        updateBttn.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         updateBttn.setText("Update Availability");
         updateBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +164,7 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
             }
         });
 
+        closeBttn.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         closeBttn.setText("Close");
         closeBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +172,8 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
             }
         });
 
+        availabilityList.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        availabilityList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         availabilityList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 availabilityListValueChanged(evt);
@@ -155,6 +181,7 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
         });
         jScrollPane1.setViewportView(availabilityList);
 
+        completionTckbx.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         completionTckbx.setText("Close On Completion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,7 +245,7 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
                                     .addGap(18, 18, 18)
                                     .addComponent(sundayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(93, 93, 93)))
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(closeBttn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

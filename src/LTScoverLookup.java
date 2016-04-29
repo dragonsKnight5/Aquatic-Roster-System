@@ -69,6 +69,8 @@ public class LTScoverLookup extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LTS Cover Lookup");
 
+        coverList.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        coverList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         coverList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 coverListValueChanged(evt);
@@ -76,6 +78,7 @@ public class LTScoverLookup extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(coverList);
 
+        closeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,23 +86,31 @@ public class LTScoverLookup extends javax.swing.JDialog {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel4.setLabelFor(startTimeLbl);
         jLabel4.setText("Start Time:");
 
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel5.setLabelFor(locationLbl);
         jLabel5.setText("End Time:");
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel6.setLabelFor(coveredLbl);
         jLabel6.setText("Covered By:");
 
+        coveredLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         coveredLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        locationLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         locationLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        startTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Location:");
 
+        endTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

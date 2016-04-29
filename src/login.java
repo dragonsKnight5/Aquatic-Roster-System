@@ -46,10 +46,13 @@ public class login extends javax.swing.JDialog
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("User Name:");
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setText("Password:");
 
+        usernameTxtbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         usernameTxtbx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameTxtbxActionPerformed(evt);
@@ -61,12 +64,14 @@ public class login extends javax.swing.JDialog
             }
         });
 
+        passwordTxtbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         passwordTxtbx.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 passwordTxtbxKeyPressed(evt);
             }
         });
 
+        submitBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         submitBttn.setText("Submit");
         submitBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +79,7 @@ public class login extends javax.swing.JDialog
             }
         });
 
+        cancelButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

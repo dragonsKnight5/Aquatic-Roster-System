@@ -72,25 +72,41 @@ public class userEdit extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("User Edit");
 
+        jLabel1.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel1.setText("username:");
 
+        usernameTextbox.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel2.setText("First Name:");
 
+        jLabel3.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel3.setText("Last Name:");
 
+        jLabel4.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel4.setText("Department 1:");
 
+        jLabel5.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel5.setText("Department 2:");
 
+        jLabel6.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel6.setText("Department 3:");
 
+        jLabel7.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel7.setText("Supervisor:");
 
+        jLabel8.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel8.setText("Password:");
 
+        lastNameTextbox.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+
+        supervisorCheckBox.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+
+        passwordTxt.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         passwordTxt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         passwordTxt.setName("password");
 
+        updateButton.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +114,7 @@ public class userEdit extends javax.swing.JDialog {
             }
         });
 
+        closeButton.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +122,7 @@ public class userEdit extends javax.swing.JDialog {
             }
         });
 
+        userList.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         userList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         userList.setVisibleRowCount(12);
         userList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -114,13 +132,19 @@ public class userEdit extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(userList);
 
+        department1Combo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         department1Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LTS", "Lifeguard" }));
 
+        department2Combo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         department2Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard" }));
 
+        department3Combo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         department3Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard" }));
 
+        completionCheckbox.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         completionCheckbox.setText("Close On Completion");
+
+        firstNameTxtbx.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,7 +197,7 @@ public class userEdit extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -207,9 +231,8 @@ public class userEdit extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(supervisorCheckBox)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(29, 29, 29))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeButton)

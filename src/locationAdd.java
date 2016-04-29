@@ -62,10 +62,17 @@ public class locationAdd extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Location Add");
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Location:");
 
+        locationTxtbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel7.setText("Lifeguard:");
 
+        lifeguardTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        submitButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +80,7 @@ public class locationAdd extends javax.swing.JDialog {
             }
         });
 
+        closeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,11 +88,18 @@ public class locationAdd extends javax.swing.JDialog {
             }
         });
 
+        completionCheckbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         completionCheckbox.setText("Close On Completion");
 
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel9.setText("LTS:");
 
+        ltsTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel10.setText("Gym:");
+
+        gymTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,7 +116,7 @@ public class locationAdd extends javax.swing.JDialog {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lifeguardTckbx, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(ltsTckbx, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -149,8 +164,7 @@ public class locationAdd extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeButton)
-                    .addComponent(submitButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(submitButton)))
         );
 
         pack();

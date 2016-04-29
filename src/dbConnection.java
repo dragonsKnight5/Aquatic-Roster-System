@@ -173,7 +173,7 @@ public class dbConnection
          }
          catch (SQLException ex)
          {
-             JOptionPane.showMessageDialog(null, ex.getMessage() + ex.getSQLState() + ex.getErrorCode());
+             System.out.println(ex);
          }
          return lookup;
      }
@@ -210,6 +210,23 @@ public class dbConnection
          return users;
      }
      
+          public ResultSet newGetLifeguardUsers(String location, String day, String shift, java.sql.Date weekDate)
+     {
+         ResultSet users = null;
+         sql = "select username from availability where department = \'Lifeguard\' and location = \'" + location + "\' and weekStarting = \'" + weekDate + "\' and (" + day + " = \'both\' or " + day + " = \'" + shift + "\')";
+         System.out.println(sql);
+         try
+         {
+             ps1 = conn.prepareStatement(sql);
+             users = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+            JOptionPane.showMessageDialog(null, ex);
+         }
+         return users;
+     }
+     
      public ResultSet getLTSusers()
      {
          ResultSet users = null;
@@ -225,6 +242,7 @@ public class dbConnection
          }
          return users;
      }
+     
      public ResultSet newGetLTSusers(String location, String day)
      {
          ResultSet users = null;
@@ -254,7 +272,7 @@ public class dbConnection
          }
          catch (SQLException ex)
          {
-             JOptionPane.showMessageDialog(null, ex);
+             System.out.println("dbConnection\n" + ex);
          }
          return result;
      }
@@ -312,7 +330,21 @@ public class dbConnection
      
      public ResultSet userAvailabilityByLocation (String location)
      {
-         String command = "select username from availability where location = \'" + location + "\'";
-         return lookup(location);
+         String command = "select distinct username from availability where location = \'" + location + "\'";
+         //System.out.println(command);
+         
+         ResultSet result = null;
+         
+         try
+         {
+             ps1 = conn.prepareStatement(command);
+             result = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+             System.out.println(ex);
+         }
+         
+         return result;
      }
 }

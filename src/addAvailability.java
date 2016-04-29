@@ -85,8 +85,10 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Availability");
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Username:");
 
+        userCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         userCombo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 userComboItemStateChanged(evt);
@@ -98,8 +100,10 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setText("Department:");
 
+        departmentCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         departmentCombo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 departmentComboItemStateChanged(evt);
@@ -111,38 +115,59 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel3.setText("Location:");
 
+        locationCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel4.setText("Week Starting:");
 
+        dateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel5.setText("Monday:");
 
+        mondayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         mondayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel6.setText("Tuesday");
 
+        tuesdayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         tuesdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel7.setText("Wednesday:");
 
+        wednesdayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         wednesdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel8.setText("Thursday:");
 
+        thursdayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         thursdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel9.setText("Friday:");
 
+        fridayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         fridayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel10.setText("Saturday:");
 
+        saturdayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         saturdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel11.setText("Sunday:");
 
+        sundayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         sundayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
+        submitBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         submitBttn.setText("Submit Availability");
         submitBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +175,7 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
             }
         });
 
+        closeBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeBttn.setText("Close");
         closeBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,7 +234,7 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
                                         .addComponent(jLabel7)
                                         .addGap(18, 18, 18)
                                         .addComponent(wednesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel8)

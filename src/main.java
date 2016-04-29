@@ -46,6 +46,11 @@ public class main extends javax.swing.JFrame {
 
         jMenuItem4 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        guardLookupBtn = new javax.swing.JButton();
+        guardShiftCreatorBtn = new javax.swing.JButton();
+        guardShiftEditBtn = new javax.swing.JButton();
+        guardShiftRemoveBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         createShiftBtn = new javax.swing.JButton();
         shiftLookupBtn = new javax.swing.JButton();
@@ -55,11 +60,6 @@ public class main extends javax.swing.JFrame {
         EditCoverBtn = new javax.swing.JButton();
         removeShiftBtn = new javax.swing.JButton();
         removeCoverBtn = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        guardLookupBtn = new javax.swing.JButton();
-        guardShiftCreatorBtn = new javax.swing.JButton();
-        guardShiftEditBtn = new javax.swing.JButton();
-        guardShiftRemoveBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -88,121 +88,10 @@ public class main extends javax.swing.JFrame {
         setTitle("Roster System");
         setMaximumSize(new java.awt.Dimension(620, 504));
 
+        jTabbedPane1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jTabbedPane1.setMaximumSize(null);
 
-        createShiftBtn.setText("Create Shift");
-        createShiftBtn.setEnabled(false);
-        createShiftBtn.setMaximumSize(null);
-        createShiftBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createShiftBtnActionPerformed(evt);
-            }
-        });
-
-        shiftLookupBtn.setText("Lookup Shift");
-        shiftLookupBtn.setEnabled(false);
-        shiftLookupBtn.setMaximumSize(null);
-        shiftLookupBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shiftLookupBtnActionPerformed(evt);
-            }
-        });
-
-        createCoverBtn.setText("Create Cover");
-        createCoverBtn.setEnabled(false);
-        createCoverBtn.setMaximumSize(null);
-        createCoverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createCoverBtnActionPerformed(evt);
-            }
-        });
-
-        lookupCoverBtn.setText("Lookup Cover");
-        lookupCoverBtn.setEnabled(false);
-        lookupCoverBtn.setMaximumSize(null);
-        lookupCoverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lookupCoverBtnActionPerformed(evt);
-            }
-        });
-
-        editShiftBtn.setText("Edit Shift");
-        editShiftBtn.setEnabled(false);
-        editShiftBtn.setMaximumSize(null);
-        editShiftBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editShiftBtnActionPerformed(evt);
-            }
-        });
-
-        EditCoverBtn.setText("Edit Cover");
-        EditCoverBtn.setEnabled(false);
-        EditCoverBtn.setMaximumSize(null);
-        EditCoverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditCoverBtnActionPerformed(evt);
-            }
-        });
-
-        removeShiftBtn.setText("Remove Shift");
-        removeShiftBtn.setEnabled(false);
-        removeShiftBtn.setMaximumSize(null);
-        removeShiftBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeShiftBtnActionPerformed(evt);
-            }
-        });
-
-        removeCoverBtn.setText("Remove Cover");
-        removeCoverBtn.setEnabled(false);
-        removeCoverBtn.setMaximumSize(null);
-        removeCoverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeCoverBtnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(createShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(editShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(shiftLookupBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removeShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(createCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lookupCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                    .addComponent(EditCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removeCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createShiftBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(createCoverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shiftLookupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lookupCoverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editShiftBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EditCoverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removeShiftBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(removeCoverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("LTS", jPanel1);
-
+        guardLookupBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         guardLookupBtn.setText("Lookup Shift");
         guardLookupBtn.setEnabled(false);
         guardLookupBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -211,6 +100,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        guardShiftCreatorBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         guardShiftCreatorBtn.setText("Create Shift");
         guardShiftCreatorBtn.setEnabled(false);
         guardShiftCreatorBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -219,6 +109,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        guardShiftEditBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         guardShiftEditBtn.setText("Edit Shift");
         guardShiftEditBtn.setEnabled(false);
         guardShiftEditBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +118,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        guardShiftRemoveBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         guardShiftRemoveBtn.setText("Remove Shift");
         guardShiftRemoveBtn.setEnabled(false);
         guardShiftRemoveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -260,19 +152,134 @@ public class main extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardShiftEditBtn)
                     .addComponent(guardShiftRemoveBtn))
-                .addGap(0, 86, Short.MAX_VALUE))
+                .addGap(0, 83, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Lifeguards", jPanel2);
 
-        jLabel1.setText("Logged In As:");
-        jLabel1.setMaximumSize(null);
+        createShiftBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        createShiftBtn.setText("Create Shift");
+        createShiftBtn.setEnabled(false);
+        createShiftBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createShiftBtnActionPerformed(evt);
+            }
+        });
 
+        shiftLookupBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        shiftLookupBtn.setText("Lookup Shift");
+        shiftLookupBtn.setEnabled(false);
+        shiftLookupBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shiftLookupBtnActionPerformed(evt);
+            }
+        });
+
+        createCoverBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        createCoverBtn.setText("Create Cover");
+        createCoverBtn.setEnabled(false);
+        createCoverBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createCoverBtnActionPerformed(evt);
+            }
+        });
+
+        lookupCoverBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lookupCoverBtn.setText("Lookup Cover");
+        lookupCoverBtn.setEnabled(false);
+        lookupCoverBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lookupCoverBtnActionPerformed(evt);
+            }
+        });
+
+        editShiftBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        editShiftBtn.setText("Edit Shift");
+        editShiftBtn.setEnabled(false);
+        editShiftBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editShiftBtnActionPerformed(evt);
+            }
+        });
+
+        EditCoverBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        EditCoverBtn.setText("Edit Cover");
+        EditCoverBtn.setEnabled(false);
+        EditCoverBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditCoverBtnActionPerformed(evt);
+            }
+        });
+
+        removeShiftBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        removeShiftBtn.setText("Remove Shift");
+        removeShiftBtn.setEnabled(false);
+        removeShiftBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeShiftBtnActionPerformed(evt);
+            }
+        });
+
+        removeCoverBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        removeCoverBtn.setText("Remove Cover");
+        removeCoverBtn.setEnabled(false);
+        removeCoverBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeCoverBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(createShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(shiftLookupBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removeShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(createCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lookupCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(EditCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removeCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createShiftBtn)
+                    .addComponent(createCoverBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(shiftLookupBtn)
+                    .addComponent(lookupCoverBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editShiftBtn)
+                    .addComponent(EditCoverBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(removeShiftBtn)
+                    .addComponent(removeCoverBtn))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("LTS", jPanel1);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel1.setText("Logged In As:");
+
+        userLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         userLabel.setText("No One");
-        userLabel.setMaximumSize(null);
 
         jMenu1.setText("System");
+        jMenu1.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
 
+        loginMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         loginMenuItem.setText("Login");
         loginMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,6 +288,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu1.add(loginMenuItem);
 
+        logoutMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         logoutMenuItem.setText("Logout");
         logoutMenuItem.setEnabled(false);
         logoutMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -290,6 +298,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu1.add(logoutMenuItem);
 
+        databaseConnectMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         databaseConnectMenuItem.setText("Connect To Database");
         databaseConnectMenuItem.setEnabled(false);
         databaseConnectMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -299,6 +308,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu1.add(databaseConnectMenuItem);
 
+        exitMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         exitMenuItem.setText("Exit");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,7 +320,9 @@ public class main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Staff");
+        jMenu2.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
 
+        newStaffMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         newStaffMenuItem.setText("New Staff");
         newStaffMenuItem.setEnabled(false);
         newStaffMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -320,6 +332,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu2.add(newStaffMenuItem);
 
+        editStaffMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         editStaffMenuItem.setText("Edit Staff");
         editStaffMenuItem.setEnabled(false);
         editStaffMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -329,6 +342,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu2.add(editStaffMenuItem);
 
+        removeStaffMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         removeStaffMenuItem.setText("Remove Staff");
         removeStaffMenuItem.setEnabled(false);
         removeStaffMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -338,6 +352,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu2.add(removeStaffMenuItem);
 
+        addAvailabilityMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         addAvailabilityMenuItem.setText("Add Availability");
         addAvailabilityMenuItem.setEnabled(false);
         addAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -347,6 +362,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu2.add(addAvailabilityMenuItem);
 
+        editAvailabilityMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         editAvailabilityMenuItem.setText("Edit Availability");
         editAvailabilityMenuItem.setEnabled(false);
         editAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -356,6 +372,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu2.add(editAvailabilityMenuItem);
 
+        removeAvailabilityMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         removeAvailabilityMenuItem.setText("Remove Availability");
         removeAvailabilityMenuItem.setEnabled(false);
         removeAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -368,7 +385,9 @@ public class main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("Location");
+        jMenu4.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
 
+        newLocationMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         newLocationMenuItem.setText("New Location");
         newLocationMenuItem.setEnabled(false);
         newLocationMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -378,6 +397,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu4.add(newLocationMenuItem);
 
+        editLocationMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         editLocationMenuItem.setText("Edit Location");
         editLocationMenuItem.setEnabled(false);
         editLocationMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -387,6 +407,7 @@ public class main extends javax.swing.JFrame {
         });
         jMenu4.add(editLocationMenuItem);
 
+        removeLocationMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         removeLocationMenuItem.setText("Remove Location");
         removeLocationMenuItem.setEnabled(false);
         removeLocationMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -399,7 +420,9 @@ public class main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu3.setText("About");
+        jMenu3.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
 
+        aboutMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         aboutMenuItem.setText("About");
         aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,14 +441,11 @@ public class main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(userLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

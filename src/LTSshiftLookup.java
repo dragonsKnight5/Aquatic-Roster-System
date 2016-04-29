@@ -80,14 +80,20 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LTS Shift Lookup");
 
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel4.setText("Start Time:");
 
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel5.setText("End Time:");
 
+        staffLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         staffLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel6.setText("Staff:");
 
+        ltsList.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        ltsList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ltsList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 ltsListValueChanged(evt);
@@ -95,6 +101,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(ltsList);
 
+        closeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,20 +111,28 @@ public class LTSshiftLookup extends javax.swing.JDialog {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        endTimeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        startTimeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        endDateLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        startDateLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel7.setText("Start Date:");
 
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel8.setText("End Date:");
 
+        dayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         dayCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }));
 
+        lookupBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lookupBtn.setText("Lookup");
         lookupBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,8 +140,10 @@ public class LTSshiftLookup extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Location:");
 
+        locationLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         locationLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,7 +154,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +189,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
