@@ -79,6 +79,9 @@ public class main extends javax.swing.JFrame {
         newLocationMenuItem = new javax.swing.JMenuItem();
         editLocationMenuItem = new javax.swing.JMenuItem();
         removeLocationMenuItem = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        overviewMenuItem = new javax.swing.JMenuItem();
+        absenteeMenuItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
 
@@ -419,6 +422,29 @@ public class main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setText("Reporting");
+        jMenu5.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
+
+        overviewMenuItem.setText("Overview");
+        overviewMenuItem.setEnabled(false);
+        overviewMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                overviewMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu5.add(overviewMenuItem);
+
+        absenteeMenuItem.setText("Absentee");
+        absenteeMenuItem.setEnabled(false);
+        absenteeMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                absenteeMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu5.add(absenteeMenuItem);
+
+        jMenuBar1.add(jMenu5);
+
         jMenu3.setText("About");
         jMenu3.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
 
@@ -504,6 +530,8 @@ public class main extends javax.swing.JFrame {
         newLocationMenuItem.setEnabled(true);
         editLocationMenuItem.setEnabled(true);
         removeLocationMenuItem.setEnabled(true);
+        absenteeMenuItem.setEnabled(true);
+        overviewMenuItem.setEnabled(true);
         supervisor = true;
         userConfig();
     }
@@ -637,6 +665,8 @@ public class main extends javax.swing.JFrame {
         addAvailabilityMenuItem.setEnabled(false);
         editAvailabilityMenuItem.setEnabled(false);
         removeAvailabilityMenuItem.setEnabled(false);
+        absenteeMenuItem.setEnabled(false);
+        overviewMenuItem.setEnabled(false);
     }//GEN-LAST:event_logoutMenuItemActionPerformed
 
     private void guardShiftEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftEditBtnActionPerformed
@@ -687,6 +717,14 @@ public class main extends javax.swing.JFrame {
         removeAvailability availabilityRemoval = new removeAvailability(this, connection, supervisor);
     }//GEN-LAST:event_removeAvailabilityMenuItemActionPerformed
 
+    private void absenteeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_absenteeMenuItemActionPerformed
+        absentee absenteeReport = new absentee(this,connection);
+    }//GEN-LAST:event_absenteeMenuItemActionPerformed
+
+    private void overviewMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewMenuItemActionPerformed
+        locationOverview overiew = new locationOverview(this, connection, myCommonFunctions);
+    }//GEN-LAST:event_overviewMenuItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -725,6 +763,7 @@ public class main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditCoverBtn;
     private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JMenuItem absenteeMenuItem;
     private javax.swing.JMenuItem addAvailabilityMenuItem;
     private javax.swing.JButton createCoverBtn;
     private javax.swing.JButton createShiftBtn;
@@ -743,6 +782,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
@@ -753,6 +793,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton lookupCoverBtn;
     private javax.swing.JMenuItem newLocationMenuItem;
     private javax.swing.JMenuItem newStaffMenuItem;
+    private javax.swing.JMenuItem overviewMenuItem;
     private javax.swing.JMenuItem removeAvailabilityMenuItem;
     private javax.swing.JButton removeCoverBtn;
     private javax.swing.JMenuItem removeLocationMenuItem;

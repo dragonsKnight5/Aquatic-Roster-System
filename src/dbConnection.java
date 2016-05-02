@@ -347,4 +347,23 @@ public class dbConnection
          
          return result;
      }
+     
+     public ResultSet absentee (java.sql.Date startDate, java.sql.Date endDate)
+     {
+         String command = "SELECT * FROM LTS_Covers WHERE cover_date between \'" + startDate + "\' and \'" + endDate +"\' ORDER BY cover_for ASC ";
+         
+         ResultSet result = null;
+         
+         try
+         {
+             ps1 = conn.prepareStatement(command);
+             result = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+             System.out.println(ex);
+         }
+         
+         return result;
+     }
 }

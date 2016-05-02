@@ -6,7 +6,6 @@ import java.time.DayOfWeek;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import static java.time.temporal.TemporalAdjusters.next;
-//import static java.time.temporal.TemporalAdjusters.*;
 
 /*
  * Copyright 2016 james.

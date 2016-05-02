@@ -15,13 +15,10 @@
  */
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
-//import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.time.LocalTime;
 import java.time.LocalDate;
-import java.text.ParseException;
 /**
  *
  * @author james
@@ -342,18 +339,8 @@ public class LTScoverEditor extends javax.swing.JDialog {
         {
             LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
             LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
-            SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             java.sql.Date selectedDate = null;
-            
-            try
-            {
-                java.util.Date myDate = myDateFormat.parse((String)dateCombo.getSelectedItem());
-                selectedDate = new java.sql.Date(myDate.getTime());
-            }
-            catch (ParseException ex)
-            {
-                System.out.println(ex);
-            }
+            selectedDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
             
             String command = "update LTS_Covers set cover_date= \'" + selectedDate + "\', start_time = \'" + startTime + "\', end_time = \'"
                     + endTime + "\', location = \'" + locationCombo.getSelectedItem() +"\', staff = \'" + staffCombo.getSelectedItem() + "\', cover_for = \'" + coverCombo.getSelectedItem() 
