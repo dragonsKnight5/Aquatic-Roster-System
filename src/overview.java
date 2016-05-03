@@ -15,6 +15,7 @@
  */
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -557,7 +558,8 @@ public class overview extends javax.swing.JDialog
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBttnActionPerformed
-        // TODO add your handling code here:
+        iscList((String) dateCombo.getSelectedItem());
+        lifeguardList((String)dateCombo.getSelectedItem());
     }//GEN-LAST:event_updateBttnActionPerformed
 
     private void lifeguardListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lifeguardListValueChanged
@@ -610,10 +612,11 @@ public class overview extends javax.swing.JDialog
     private void lifeguardList (String date)
     {
         // Lifeguard list setup
-        String command = null;
-        if (date.equalsIgnoreCase("All"))
+        String command = "select * from lifeguard";
+        if (!date.equalsIgnoreCase("All"))
         {
-            command = "select * from lifeguard";
+            java.sql.Date tempDate = comFunc.dateSwitch(date);
+            command = command.concat(" where shiftDate =\'" + tempDate + "\'");
         }
         
         ResultSet result = connection.lookup(command);
@@ -645,9 +648,15 @@ public class overview extends javax.swing.JDialog
         }
     }
     
-    private void iscList()
+    private void iscList(String date)
     {
         String command = "select * from ISC";
+        if (!date.equalsIgnoreCase("All"))
+        {
+            java.sql.Date tempDate = comFunc.dateSwitch(date);
+            command = command.concat(" where shiftDate =\'" + tempDate + "\'");
+        }
+        
         ResultSet returned = connection.lookup(command);
         try {
             while (returned.next()) {
@@ -666,9 +675,22 @@ public class overview extends javax.swing.JDialog
     private void loadData ()
     {
         dateCombo.addItem("All");
-        //ResultSet result;
+        LocalDate manipDate = LocalDate.now();
+        int count = 45;
+        while (count > 0)
+        {
+            dateCombo.addItem(comFunc.minusDaysFormated(manipDate, count));
+            count--;
+        }
+        while (count < 45)
+        {
+            count++;
+            dateCombo.addItem(comFunc.plusDaysFormated(manipDate, count));
+        }
         
         ltsList();
+        dateCombo.setSelectedItem("All");
+        iscList((String) dateCombo.getSelectedItem());
         lifeguardList((String)dateCombo.getSelectedItem());
     }
 
