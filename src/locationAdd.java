@@ -58,6 +58,8 @@ public class locationAdd extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         gymTckbx = new javax.swing.JCheckBox();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
+        iscTckbx = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Location Add");
@@ -101,6 +103,11 @@ public class locationAdd extends javax.swing.JDialog {
 
         gymTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
+        jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel11.setText("ISC:");
+
+        iscTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,36 +115,38 @@ public class locationAdd extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel10)
                             .addComponent(jLabel9)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lifeguardTckbx, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ltsTckbx, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(gymTckbx, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lifeguardTckbx)
+                                    .addComponent(ltsTckbx)
+                                    .addComponent(gymTckbx)
+                                    .addComponent(iscTckbx))
                                 .addGap(117, 117, 117))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(45, 45, 45)
                                 .addComponent(locationTxtbx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(closeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(completionCheckbox)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(closeButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(submitButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(completionCheckbox)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +167,14 @@ public class locationAdd extends javax.swing.JDialog {
                     .addComponent(gymTckbx)
                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(iscTckbx)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(completionCheckbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -180,6 +196,7 @@ public class locationAdd extends javax.swing.JDialog {
         Boolean lifeguard = null;
         Boolean lts = null;
         Boolean gym = null;
+        Boolean isc = null;
         if (lifeguardTckbx.isSelected())
         {
             lifeguard = true;
@@ -204,9 +221,17 @@ public class locationAdd extends javax.swing.JDialog {
         {
             gym = false;
         }
+        if (iscTckbx.isSelected())
+        {
+            isc = true;
+        }
+        else
+        {
+            isc = false;
+        }
         
-        String command = "insert into location (location, lifeguard, lts, gym) values (\'" + locationTxtbx.getSelectedText() + "\', \'"
-                + lifeguard + "\', \'" + lts + "\', \'" + gym + "\')";
+        String command = "insert into location (location, lifeguard, lts, gym, isc) values (\'" + locationTxtbx.getSelectedText() + "\', \'"
+                + lifeguard + "\', \'" + lts + "\', \'" + gym + "\', \'" + isc +"\')";
         
         //System.out.println(command);
         
@@ -229,6 +254,7 @@ public class locationAdd extends javax.swing.JDialog {
                     lifeguardTckbx.setSelected(false);
                     ltsTckbx.setSelected(false);
                     gymTckbx.setSelected(false);
+                    iscTckbx.setSelected(false);
                 }
             }
             else
@@ -243,8 +269,10 @@ public class locationAdd extends javax.swing.JDialog {
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionCheckbox;
     private javax.swing.JCheckBox gymTckbx;
+    private javax.swing.JCheckBox iscTckbx;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;

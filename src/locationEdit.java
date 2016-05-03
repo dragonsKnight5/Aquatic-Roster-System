@@ -60,6 +60,8 @@ public class locationEdit extends javax.swing.JDialog {
         locationTxtbx = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        iscTckbx = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("User Edit");
@@ -113,6 +115,11 @@ public class locationEdit extends javax.swing.JDialog {
         jLabel9.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel9.setText("LTS:");
 
+        jLabel11.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        jLabel11.setText("ISC:");
+
+        iscTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,14 +139,16 @@ public class locationEdit extends javax.swing.JDialog {
                                 .addComponent(jLabel10)
                                 .addComponent(jLabel9)
                                 .addComponent(jLabel7)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel11))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(locationTxtbx, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lifeguardTckbx, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(ltsTckbx, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(gymTckbx, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                    .addComponent(gymTckbx, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(iscTckbx, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -163,6 +172,10 @@ public class locationEdit extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(gymTckbx)
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iscTckbx)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(completionCheckbox))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -193,7 +206,7 @@ public class locationEdit extends javax.swing.JDialog {
             {
                 if (!(returned.getString("location").equalsIgnoreCase("None"))) 
                 {
-                    locations tempLocation = new locations(returned.getInt("ID"), returned.getString("location"), returned.getBoolean("lifeguard"), returned.getBoolean("lts"), returned.getBoolean("gym"));
+                    locations tempLocation = new locations(returned.getInt("ID"), returned.getString("location"), returned.getBoolean("lifeguard"), returned.getBoolean("lts"), returned.getBoolean("gym"), returned.getBoolean("isc"));
                     myLocations.add(tempLocation);
                 }
             }
@@ -245,6 +258,14 @@ public class locationEdit extends javax.swing.JDialog {
         {
             lifeguardTckbx.setSelected(false);
         }
+         if(selectedLocation.getIsc())
+        {
+            iscTckbx.setSelected(true);
+        }
+        else
+        {
+            iscTckbx.setSelected(false);
+        }
     }//GEN-LAST:event_userListValueChanged
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
@@ -263,9 +284,14 @@ public class locationEdit extends javax.swing.JDialog {
         {
             lts = true;
         }
+        boolean isc = false;
+        if(iscTckbx.isSelected())
+        {
+            isc = true;
+        }
         
         String command = "update location set locations = \"" + locationTxtbx.getText() + "\", lifeguard = " + lifeguard + ", lts = " + lts + ", gym = "
-                + gym + " where ID = \"" + ID + "\"";
+                + gym + ", isc = "+ isc + " where ID = \"" + ID + "\"";
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
                 JOptionPane.YES_NO_OPTION)
@@ -285,8 +311,10 @@ public class locationEdit extends javax.swing.JDialog {
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionCheckbox;
     private javax.swing.JCheckBox gymTckbx;
+    private javax.swing.JCheckBox iscTckbx;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;

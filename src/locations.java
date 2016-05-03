@@ -25,14 +25,16 @@ public class locations {
     private boolean lifeguard;
     private boolean lts;
     private boolean gym;
+    private boolean isc;
     
-    public locations(int inID, String inLocation, boolean inLifeguard, boolean inLts, boolean inGym)
+    public locations(int inID, String inLocation, boolean inLifeguard, boolean inLts, boolean inGym, boolean inIsc)
     {
         ID = inID;
         location = inLocation;
         lifeguard = inLifeguard;
         lts = inLts;
         gym = inGym;
+        isc = inIsc;
     }
     
     public String toString()
@@ -62,5 +64,10 @@ public class locations {
     public boolean getGym()
     {
         return gym;
+    }
+    
+    public boolean getIsc()
+    {
+        return isc;
     }
 }

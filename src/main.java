@@ -60,6 +60,11 @@ public class main extends javax.swing.JFrame {
         EditCoverBtn = new javax.swing.JButton();
         removeShiftBtn = new javax.swing.JButton();
         removeCoverBtn = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        iscLookupBtn = new javax.swing.JButton();
+        iscShiftEditBtn = new javax.swing.JButton();
+        iscShiftCreatorBtn = new javax.swing.JButton();
+        iscShiftRemoveBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -272,6 +277,72 @@ public class main extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("LTS", jPanel1);
+
+        iscLookupBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscLookupBtn.setText("Lookup Shift");
+        iscLookupBtn.setEnabled(false);
+        iscLookupBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iscLookupBtnActionPerformed(evt);
+            }
+        });
+
+        iscShiftEditBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscShiftEditBtn.setText("Edit Shift");
+        iscShiftEditBtn.setEnabled(false);
+        iscShiftEditBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iscShiftEditBtnActionPerformed(evt);
+            }
+        });
+
+        iscShiftCreatorBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscShiftCreatorBtn.setText("Create Shift");
+        iscShiftCreatorBtn.setEnabled(false);
+        iscShiftCreatorBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iscShiftCreatorBtnActionPerformed(evt);
+            }
+        });
+
+        iscShiftRemoveBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscShiftRemoveBtn.setText("Remove Shift");
+        iscShiftRemoveBtn.setEnabled(false);
+        iscShiftRemoveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iscShiftRemoveBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iscShiftEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iscLookupBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iscShiftCreatorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iscShiftRemoveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iscLookupBtn)
+                    .addComponent(iscShiftCreatorBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iscShiftEditBtn)
+                    .addComponent(iscShiftRemoveBtn))
+                .addGap(0, 83, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("ISC", jPanel3);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Logged In As:");
@@ -532,6 +603,9 @@ public class main extends javax.swing.JFrame {
         removeLocationMenuItem.setEnabled(true);
         absenteeMenuItem.setEnabled(true);
         overviewMenuItem.setEnabled(true);
+        iscShiftCreatorBtn.setEnabled(true);
+        iscShiftEditBtn.setEnabled(true);
+        iscShiftRemoveBtn.setEnabled(true);
         supervisor = true;
         userConfig();
     }
@@ -547,6 +621,7 @@ public class main extends javax.swing.JFrame {
         addAvailabilityMenuItem.setEnabled(true);
         editAvailabilityMenuItem.setEnabled(true);
         removeAvailabilityMenuItem.setEnabled(true);
+        iscLookupBtn.setEnabled(true);
     }
     
     private void removeStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStaffMenuItemActionPerformed
@@ -667,6 +742,10 @@ public class main extends javax.swing.JFrame {
         removeAvailabilityMenuItem.setEnabled(false);
         absenteeMenuItem.setEnabled(false);
         overviewMenuItem.setEnabled(false);
+        iscLookupBtn.setEnabled(false);
+        iscShiftCreatorBtn.setEnabled(false);
+        iscShiftEditBtn.setEnabled(false);
+        iscShiftRemoveBtn.setEnabled(false);
     }//GEN-LAST:event_logoutMenuItemActionPerformed
 
     private void guardShiftEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftEditBtnActionPerformed
@@ -722,8 +801,24 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_absenteeMenuItemActionPerformed
 
     private void overviewMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewMenuItemActionPerformed
-        locationOverview overiew = new locationOverview(this, connection, myCommonFunctions);
+        overview myOveriew = new overview(this, connection, myCommonFunctions);
     }//GEN-LAST:event_overviewMenuItemActionPerformed
+
+    private void iscLookupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iscLookupBtnActionPerformed
+        iscShiftLookup iscLookup = new iscShiftLookup(this, connection);
+    }//GEN-LAST:event_iscLookupBtnActionPerformed
+
+    private void iscShiftEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iscShiftEditBtnActionPerformed
+        iscShiftEditor iscEdit = new iscShiftEditor(this, connection, myCommonFunctions);
+    }//GEN-LAST:event_iscShiftEditBtnActionPerformed
+
+    private void iscShiftCreatorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iscShiftCreatorBtnActionPerformed
+        iscShiftCreator iscShiftCreator = new iscShiftCreator(this, connection, myCommonFunctions);
+    }//GEN-LAST:event_iscShiftCreatorBtnActionPerformed
+
+    private void iscShiftRemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iscShiftRemoveBtnActionPerformed
+        iscShiftRemove iscRemove = new iscShiftRemove(this, connection);
+    }//GEN-LAST:event_iscShiftRemoveBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -777,6 +872,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton guardShiftCreatorBtn;
     private javax.swing.JButton guardShiftEditBtn;
     private javax.swing.JButton guardShiftRemoveBtn;
+    private javax.swing.JButton iscLookupBtn;
+    private javax.swing.JButton iscShiftCreatorBtn;
+    private javax.swing.JButton iscShiftEditBtn;
+    private javax.swing.JButton iscShiftRemoveBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -787,6 +886,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JMenuItem loginMenuItem;
     private javax.swing.JMenuItem logoutMenuItem;
