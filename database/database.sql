@@ -92,6 +92,21 @@ CREATE TABLE `availability` (
 ALTER TABLE `availability`
 ADD KEY `username` (`username`);
 
+/* create ISC table */
+CREATE TABLE `ISC` (
+  `ID` int(4) NOT NULL,
+  `shift_date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `location` varchar(65) NOT NULL,
+  `staff1` varchar(65) NOT NULL,
+  `staff2` varchar(65) NOT NULL,
+  `staff3` varchar(65) NOT NULL,
+  `staff4` varchar(65) NOT NULL,
+  `onCall` varchar(65) NOT NULL,
+  Primary Key (ID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 /* create new user
  change address and password to desired values */
 create user 'staff'@'192.168.1.%' identified by 'password';
