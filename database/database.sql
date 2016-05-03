@@ -107,6 +107,12 @@ CREATE TABLE `ISC` (
   Primary Key (ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+ALTER TABLE `ISC`
+  ADD KEY `staff1` (`staff1`),
+  ADD KEY `staff2` (`staff2`),
+  ADD KEY `staff3` (`staff3`),
+  ADD KEY `staff4` (`staff4`);
+
 /* create new user
  change address and password to desired values */
 create user 'staff'@'192.168.1.%' identified by 'password';
