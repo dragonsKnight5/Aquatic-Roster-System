@@ -218,6 +218,7 @@ public class LifeguardShiftLookup extends javax.swing.JDialog {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void shiftListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_shiftListValueChanged
+        try {
         lifeguards selectedShift = (lifeguards)shiftList.getSelectedValue();
         startTimeLbl.setText((selectedShift.getStartTime()).toString());
         endTimeLbl.setText((selectedShift.getEndTime()).toString());
@@ -226,6 +227,11 @@ public class LifeguardShiftLookup extends javax.swing.JDialog {
         staffLabel3.setText(selectedShift.getStaff3());
         locationLbl.setText(selectedShift.getLocation());
         onCallLbl.setText(selectedShift.getOnCall());
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_shiftListValueChanged
 
 private void loadData()

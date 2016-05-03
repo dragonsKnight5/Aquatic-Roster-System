@@ -239,22 +239,19 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ltsListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ltsListValueChanged
-       try
-       {
-        lts selectedShift = (lts)ltsList.getSelectedValue();
-        startTimeLabel.setText((selectedShift.getStartTime()).toString());
-        endTimeLabel.setText((selectedShift.getEndTime()).toString());
-        staffLabel.setText(selectedShift.getStaff());
+        try {
+            lts selectedShift = (lts) ltsList.getSelectedValue();
+            startTimeLabel.setText((selectedShift.getStartTime()).toString());
+            endTimeLabel.setText((selectedShift.getEndTime()).toString());
+            staffLabel.setText(selectedShift.getStaff());
 
-        startDateLabel.setText(comFunc.formatDate(selectedShift.getStartDate().toLocalDate()));
-        endDateLabel.setText(comFunc.formatDate(selectedShift.getEndDate().toLocalDate()));
-        dayCombo.setSelectedItem("All");
-        locationLbl.setText(selectedShift.getLocation());
-       }
-       catch (Exception ex)
-       {
-           System.out.println(ex);
-       }
+            startDateLabel.setText(comFunc.formatDate(selectedShift.getStartDate().toLocalDate()));
+            endDateLabel.setText(comFunc.formatDate(selectedShift.getEndDate().toLocalDate()));
+            dayCombo.setSelectedItem("All");
+            locationLbl.setText(selectedShift.getLocation());
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
         
     }//GEN-LAST:event_ltsListValueChanged
 

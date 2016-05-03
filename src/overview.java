@@ -16,6 +16,7 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author james
@@ -27,6 +28,7 @@ public class overview extends javax.swing.JDialog
     commonFunctions comFunc;
     ArrayList<lts> ltsShifts = new ArrayList<lts>();
     ArrayList<lifeguards> guardShifts = new ArrayList<lifeguards>();
+    ArrayList<isc> iscShifts = new ArrayList<isc>();
     /**
      * Creates new form locationOverview
      */
@@ -57,10 +59,10 @@ public class overview extends javax.swing.JDialog
         jScrollPane2 = new javax.swing.JScrollPane();
         ltsList = new javax.swing.JList();
         jScrollPane3 = new javax.swing.JScrollPane();
-        iscList = new javax.swing.JList<>();
+        iscList = new javax.swing.JList();
         jLabel3 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        LifeguardStartTimeLbl = new javax.swing.JLabel();
+        lifeguardStartTimeLbl = new javax.swing.JLabel();
         lifeguardEndTimeLbl = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -73,38 +75,40 @@ public class overview extends javax.swing.JDialog
         lifeguardOnCallLbl = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        lifeguardlocationLbl = new javax.swing.JLabel();
+        lifeguardLocationLbl = new javax.swing.JLabel();
         ltsEndDateLbl = new javax.swing.JLabel();
         ltsLocationLbl = new javax.swing.JLabel();
-        staffLabel = new javax.swing.JLabel();
+        ltsStaffLbl = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         ltsStartDateLbl = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        endTimeLabel = new javax.swing.JLabel();
+        ltsEndTimeLbl = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         ltsStartTimeLbl = new javax.swing.JLabel();
-        LifeguardStartTimeLbl1 = new javax.swing.JLabel();
-        lifeguardEndTimeLbl1 = new javax.swing.JLabel();
+        iscStartTimeLbl = new javax.swing.JLabel();
+        iscEndTimeLbl = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         staffLbl1 = new javax.swing.JLabel();
-        lifeguardStaffLbl4 = new javax.swing.JLabel();
-        lifeguardStaffLbl5 = new javax.swing.JLabel();
-        lifeguardStaffLbl6 = new javax.swing.JLabel();
+        iscStaff1Lbl = new javax.swing.JLabel();
+        iscStaff2Lbl = new javax.swing.JLabel();
+        iscStaff3Lbl = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        lifeguardOnCallLbl1 = new javax.swing.JLabel();
+        iscOnCallLbl = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
-        lifeguardlocationLbl1 = new javax.swing.JLabel();
+        iscLocationLbl = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         dateCombo = new javax.swing.JComboBox<>();
         updateBttn = new javax.swing.JButton();
         exportBttn = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
+        iscStaff4Lbl = new javax.swing.JLabel();
+        exportCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -120,16 +124,31 @@ public class overview extends javax.swing.JDialog
 
         lifeguardList.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lifeguardList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lifeguardList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lifeguardListValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lifeguardList);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         ltsList.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         ltsList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        ltsList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ltsListValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(ltsList);
 
         iscList.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         iscList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        iscList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                iscListValueChanged(evt);
+            }
+        });
         jScrollPane3.setViewportView(iscList);
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -139,9 +158,9 @@ public class overview extends javax.swing.JDialog
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        LifeguardStartTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        LifeguardStartTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LifeguardStartTimeLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lifeguardStartTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lifeguardStartTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lifeguardStartTimeLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lifeguardEndTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lifeguardEndTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -178,9 +197,9 @@ public class overview extends javax.swing.JDialog
         lifeguardOnCallLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lifeguardOnCallLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lifeguardlocationLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lifeguardlocationLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lifeguardlocationLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lifeguardLocationLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lifeguardLocationLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lifeguardLocationLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         ltsEndDateLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         ltsEndDateLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -190,9 +209,9 @@ public class overview extends javax.swing.JDialog
         ltsLocationLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ltsLocationLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        staffLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        staffLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        staffLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ltsStaffLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        ltsStaffLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ltsStaffLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel8.setText("Staff:");
@@ -213,9 +232,9 @@ public class overview extends javax.swing.JDialog
         jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel12.setText("End Time:");
 
-        endTimeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        endTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        endTimeLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ltsEndTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        ltsEndTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ltsEndTimeLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel13.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel13.setText("Start Time:");
@@ -224,13 +243,13 @@ public class overview extends javax.swing.JDialog
         ltsStartTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ltsStartTimeLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        LifeguardStartTimeLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        LifeguardStartTimeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LifeguardStartTimeLbl1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        iscStartTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscStartTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iscStartTimeLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lifeguardEndTimeLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lifeguardEndTimeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lifeguardEndTimeLbl1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        iscEndTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscEndTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iscEndTimeLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel14.setText("End Time:");
@@ -244,28 +263,28 @@ public class overview extends javax.swing.JDialog
         staffLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         staffLbl1.setText("Staff:");
 
-        lifeguardStaffLbl4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lifeguardStaffLbl4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lifeguardStaffLbl4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        iscStaff1Lbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscStaff1Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iscStaff1Lbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lifeguardStaffLbl5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lifeguardStaffLbl5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lifeguardStaffLbl5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        iscStaff2Lbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscStaff2Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iscStaff2Lbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lifeguardStaffLbl6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lifeguardStaffLbl6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lifeguardStaffLbl6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        iscStaff3Lbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscStaff3Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iscStaff3Lbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel17.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel17.setText("On Call:");
 
-        lifeguardOnCallLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lifeguardOnCallLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lifeguardOnCallLbl1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        iscOnCallLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscOnCallLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iscOnCallLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lifeguardlocationLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lifeguardlocationLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lifeguardlocationLbl1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        iscLocationLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscLocationLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iscLocationLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel18.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel18.setText("Date:");
@@ -282,6 +301,12 @@ public class overview extends javax.swing.JDialog
 
         exportBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         exportBttn.setText("Export");
+
+        iscStaff4Lbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        iscStaff4Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iscStaff4Lbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        exportCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Lifeguard", "ISC", "LTS" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -306,8 +331,8 @@ public class overview extends javax.swing.JDialog
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(lifeguardEndTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(LifeguardStartTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lifeguardlocationLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(lifeguardStartTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lifeguardLocationLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lifeguardStaffLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -319,34 +344,40 @@ public class overview extends javax.swing.JDialog
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel17)
-                                            .addComponent(staffLbl1))
-                                        .addGap(7, 7, 7)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lifeguardEndTimeLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(LifeguardStartTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lifeguardlocationLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lifeguardStaffLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lifeguardStaffLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lifeguardStaffLbl6, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lifeguardOnCallLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel16)
+                                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(staffLbl1)
+                                                .addGap(7, 7, 7)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(iscEndTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(iscStartTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(iscLocationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(iscStaff1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(iscStaff2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(iscStaff3Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(iscStaff4Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel17)
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(iscOnCallLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -372,7 +403,7 @@ public class overview extends javax.swing.JDialog
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(ltsEndDateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(ltsLocationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(staffLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(ltsStaffLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel11)
@@ -381,9 +412,9 @@ public class overview extends javax.swing.JDialog
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jLabel12)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                    .addComponent(ltsEndTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 22, Short.MAX_VALUE))))
+                                .addGap(0, 20, Short.MAX_VALUE))))
                     .addComponent(jSeparator7)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel18)
@@ -392,6 +423,8 @@ public class overview extends javax.swing.JDialog
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(updateBttn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(exportCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(exportBttn)))
                 .addContainerGap())
         );
@@ -403,77 +436,12 @@ public class overview extends javax.swing.JDialog
                     .addComponent(jLabel18)
                     .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateBttn)
-                    .addComponent(exportBttn))
+                    .addComponent(exportBttn)
+                    .addComponent(exportCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel4)
-                                .addComponent(LifeguardStartTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel5)
-                                .addComponent(lifeguardEndTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lifeguardlocationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lifeguardStaffLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lifeguardStaffLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lifeguardStaffLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lifeguardOnCallLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addGap(58, 58, 58)
-                                    .addComponent(staffLbl)
-                                    .addGap(52, 52, 52)
-                                    .addComponent(jLabel6))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(ltsStartTimeLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(endTimeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel11)
-                                .addComponent(ltsStartDateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel10)
-                                .addComponent(ltsEndDateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel9)
-                                .addComponent(ltsLocationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel8)
-                                .addComponent(staffLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -481,34 +449,108 @@ public class overview extends javax.swing.JDialog
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel16)
-                            .addComponent(LifeguardStartTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(iscStartTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel14)
-                            .addComponent(lifeguardEndTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(iscEndTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lifeguardlocationLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(iscLocationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lifeguardStaffLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(iscStaff1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lifeguardStaffLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(iscStaff2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lifeguardStaffLbl6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(iscStaff3Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lifeguardOnCallLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(iscStaff4Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addGap(58, 58, 58)
-                                .addComponent(staffLbl1)
-                                .addGap(52, 52, 52)
-                                .addComponent(jLabel17)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(staffLbl1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(iscOnCallLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel17))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(lifeguardStartTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(lifeguardEndTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lifeguardLocationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lifeguardStaffLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lifeguardStaffLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lifeguardStaffLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lifeguardOnCallLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel7)
+                                            .addGap(58, 58, 58)
+                                            .addComponent(staffLbl)
+                                            .addGap(52, 52, 52)
+                                            .addComponent(jLabel6))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(ltsStartTimeLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(ltsEndTimeLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel11)
+                                        .addComponent(ltsStartDateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10)
+                                        .addComponent(ltsEndDateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel9)
+                                        .addComponent(ltsLocationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(ltsStaffLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -517,6 +559,53 @@ public class overview extends javax.swing.JDialog
     private void updateBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBttnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_updateBttnActionPerformed
+
+    private void lifeguardListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lifeguardListValueChanged
+        try {
+        lifeguards selectedShift = (lifeguards)lifeguardList.getSelectedValue();
+        lifeguardStartTimeLbl.setText((selectedShift.getStartTime()).toString());
+        lifeguardEndTimeLbl.setText((selectedShift.getEndTime()).toString());
+        lifeguardStaffLbl1.setText(selectedShift.getStaff1());
+        lifeguardStaffLbl2.setText(selectedShift.getStaff2());
+        lifeguardStaffLbl3.setText(selectedShift.getStaff3());
+        lifeguardLocationLbl.setText(selectedShift.getLocation());
+        lifeguardOnCallLbl.setText(selectedShift.getOnCall());
+        }
+        catch (Exception ex)
+        {
+            System.out.println("Lifeguard Selection Change\n" + ex);
+        }
+    }//GEN-LAST:event_lifeguardListValueChanged
+
+    private void ltsListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ltsListValueChanged
+        try {
+            lts selectedShift = (lts) ltsList.getSelectedValue();
+            ltsStartTimeLbl.setText((selectedShift.getStartTime()).toString());
+            ltsEndTimeLbl.setText((selectedShift.getEndTime()).toString());
+            ltsStaffLbl.setText(selectedShift.getStaff());
+            ltsStartDateLbl.setText(comFunc.formatDate(selectedShift.getStartDate().toLocalDate()));
+            ltsEndDateLbl.setText(comFunc.formatDate(selectedShift.getEndDate().toLocalDate()));
+            ltsLocationLbl.setText(selectedShift.getLocation());
+        } catch (Exception ex) {
+            System.out.println("lts selection change\n" + ex);
+        }
+    }//GEN-LAST:event_ltsListValueChanged
+
+    private void iscListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_iscListValueChanged
+        try {
+            isc selectedShift = (isc) iscList.getSelectedValue();
+            iscStartTimeLbl.setText((selectedShift.getStartTime()).toString());
+            iscEndTimeLbl.setText((selectedShift.getEndTime()).toString());
+            iscStaff1Lbl.setText(selectedShift.getStaff1());
+            iscStaff2Lbl.setText(selectedShift.getStaff2());
+            iscStaff3Lbl.setText(selectedShift.getStaff3());
+            iscStaff4Lbl.setText(selectedShift.getStaff4());
+            iscLocationLbl.setText(selectedShift.getLocation());
+            iscOnCallLbl.setText(selectedShift.getOnCall());
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_iscListValueChanged
 
     private void lifeguardList (String date)
     {
@@ -536,7 +625,7 @@ public class overview extends javax.swing.JDialog
             }
             lifeguardList.setListData(guardShifts.toArray());
         } catch (SQLException ex) {
-            System.out.println("lts load data\n" + ex);
+            System.out.println("lifeguard load data\n" + ex);
         }
     }
     
@@ -556,6 +645,24 @@ public class overview extends javax.swing.JDialog
         }
     }
     
+    private void iscList()
+    {
+        String command = "select * from ISC";
+        ResultSet returned = connection.lookup(command);
+        try {
+            while (returned.next()) {
+                isc tempISC = new isc(returned.getInt("ID"), returned.getDate("shift_Date"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getString("location"), returned.getString("staff1"), returned.getString("staff2"), returned.getString("staff3"), returned.getString("staff4"), returned.getString("onCall"));
+                iscShifts.add(tempISC);
+            }
+            iscList.setListData(iscShifts.toArray());
+            if (!iscShifts.isEmpty()) {
+                iscList.setSelectedIndex(0);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(parent, ex);
+        }
+    }
+    
     private void loadData ()
     {
         dateCombo.addItem("All");
@@ -566,12 +673,18 @@ public class overview extends javax.swing.JDialog
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LifeguardStartTimeLbl;
-    private javax.swing.JLabel LifeguardStartTimeLbl1;
     private javax.swing.JComboBox<String> dateCombo;
-    private javax.swing.JLabel endTimeLabel;
     private javax.swing.JButton exportBttn;
-    private javax.swing.JList<String> iscList;
+    private javax.swing.JComboBox<String> exportCombo;
+    private javax.swing.JLabel iscEndTimeLbl;
+    private javax.swing.JList iscList;
+    private javax.swing.JLabel iscLocationLbl;
+    private javax.swing.JLabel iscOnCallLbl;
+    private javax.swing.JLabel iscStaff1Lbl;
+    private javax.swing.JLabel iscStaff2Lbl;
+    private javax.swing.JLabel iscStaff3Lbl;
+    private javax.swing.JLabel iscStaff4Lbl;
+    private javax.swing.JLabel iscStartTimeLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -601,24 +714,20 @@ public class overview extends javax.swing.JDialog
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel lifeguardEndTimeLbl;
-    private javax.swing.JLabel lifeguardEndTimeLbl1;
     private javax.swing.JList lifeguardList;
+    private javax.swing.JLabel lifeguardLocationLbl;
     private javax.swing.JLabel lifeguardOnCallLbl;
-    private javax.swing.JLabel lifeguardOnCallLbl1;
     private javax.swing.JLabel lifeguardStaffLbl1;
     private javax.swing.JLabel lifeguardStaffLbl2;
     private javax.swing.JLabel lifeguardStaffLbl3;
-    private javax.swing.JLabel lifeguardStaffLbl4;
-    private javax.swing.JLabel lifeguardStaffLbl5;
-    private javax.swing.JLabel lifeguardStaffLbl6;
-    private javax.swing.JLabel lifeguardlocationLbl;
-    private javax.swing.JLabel lifeguardlocationLbl1;
+    private javax.swing.JLabel lifeguardStartTimeLbl;
     private javax.swing.JLabel ltsEndDateLbl;
+    private javax.swing.JLabel ltsEndTimeLbl;
     private javax.swing.JList ltsList;
     private javax.swing.JLabel ltsLocationLbl;
+    private javax.swing.JLabel ltsStaffLbl;
     private javax.swing.JLabel ltsStartDateLbl;
     private javax.swing.JLabel ltsStartTimeLbl;
-    private javax.swing.JLabel staffLabel;
     private javax.swing.JLabel staffLbl;
     private javax.swing.JLabel staffLbl1;
     private javax.swing.JButton updateBttn;

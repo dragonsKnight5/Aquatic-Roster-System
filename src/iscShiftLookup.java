@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 public class iscShiftLookup extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
-    ArrayList<lifeguards> guardShifts = new ArrayList<lifeguards>();
+    ArrayList<isc> iscShifts = new ArrayList<isc>();
     /**
      * Creates new form Lifeguard
      */
@@ -64,6 +64,7 @@ public class iscShiftLookup extends javax.swing.JDialog {
         jSeparator3 = new javax.swing.JSeparator();
         onCallLbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        staffLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ISC Shift Lookup");
@@ -123,6 +124,9 @@ public class iscShiftLookup extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("On Call:");
 
+        staffLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        staffLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,7 +158,8 @@ public class iscShiftLookup extends javax.swing.JDialog {
                                 .addComponent(staffLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(staffLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                                 .addComponent(staffLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                .addComponent(onCallLbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
+                                .addComponent(onCallLbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                .addComponent(staffLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -189,25 +194,25 @@ public class iscShiftLookup extends javax.swing.JDialog {
                                 .addGap(18, 18, 18)
                                 .addComponent(staffLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(staffLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(onCallLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(closeButton)
-                                .addContainerGap())
+                                .addComponent(onCallLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(jLabel7)
                                 .addGap(61, 61, 61)
-                                .addComponent(staffLbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addGap(42, 42, 42))))
+                                .addComponent(staffLbl)))
+                        .addGap(7, 19, Short.MAX_VALUE)
+                        .addComponent(closeButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addContainerGap())))
+                            .addComponent(jLabel1)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -218,31 +223,36 @@ public class iscShiftLookup extends javax.swing.JDialog {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void shiftListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_shiftListValueChanged
-        lifeguards selectedShift = (lifeguards)shiftList.getSelectedValue();
-        startTimeLbl.setText((selectedShift.getStartTime()).toString());
-        endTimeLbl.setText((selectedShift.getEndTime()).toString());
-        staffLabel1.setText(selectedShift.getStaff1());
-        staffLabel2.setText(selectedShift.getStaff2());
-        staffLabel3.setText(selectedShift.getStaff3());
-        locationLbl.setText(selectedShift.getLocation());
-        onCallLbl.setText(selectedShift.getOnCall());
+        try {
+            isc selectedShift = (isc) shiftList.getSelectedValue();
+            startTimeLbl.setText((selectedShift.getStartTime()).toString());
+            endTimeLbl.setText((selectedShift.getEndTime()).toString());
+            staffLabel1.setText(selectedShift.getStaff1());
+            staffLabel2.setText(selectedShift.getStaff2());
+            staffLabel3.setText(selectedShift.getStaff3());
+            staffLabel4.setText(selectedShift.getStaff4());
+            locationLbl.setText(selectedShift.getLocation());
+            onCallLbl.setText(selectedShift.getOnCall());
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_shiftListValueChanged
 
 private void loadData()
 {
     ResultSet returned;
     shiftList.removeAll();
-    String command = "select * from lifeguard";
+    String command = "select * from ISC";
     try
     {
         returned = connection.lookup(command);
         while(returned.next())
         {
-            lifeguards tempGuard = new lifeguards(returned.getInt("ID"), returned.getDate("shift_Date"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getString("location"), returned.getString("staff1"), returned.getString("staff2"), returned.getString("staff3"), returned.getString("onCall"));
-            guardShifts.add(tempGuard);
+            isc tempISC = new isc(returned.getInt("ID"), returned.getDate("shift_Date"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getString("location"), returned.getString("staff1"), returned.getString("staff2"), returned.getString("staff3"), returned.getString("staff4"), returned.getString("onCall"));
+            iscShifts.add(tempISC);
         }
-        shiftList.setListData(guardShifts.toArray());
-        if (!guardShifts.isEmpty())
+        shiftList.setListData(iscShifts.toArray());
+        if (!iscShifts.isEmpty())
         {
             shiftList.setSelectedIndex(0);
         }
@@ -270,6 +280,7 @@ private void loadData()
     private javax.swing.JLabel staffLabel1;
     private javax.swing.JLabel staffLabel2;
     private javax.swing.JLabel staffLabel3;
+    private javax.swing.JLabel staffLabel4;
     private javax.swing.JLabel staffLbl;
     private javax.swing.JLabel startTimeLbl;
     // End of variables declaration//GEN-END:variables
