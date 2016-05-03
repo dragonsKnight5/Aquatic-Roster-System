@@ -290,9 +290,11 @@
           <Font name="Al Bayan" size="15" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
+          <StringArray count="4">
             <StringItem index="0" value="LTS"/>
             <StringItem index="1" value="Lifeguard"/>
+            <StringItem index="2" value="GYM"/>
+            <StringItem index="3" value="ISC"/>
           </StringArray>
         </Property>
       </Properties>
@@ -306,10 +308,12 @@
           <Font name="Al Bayan" size="15" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="5">
             <StringItem index="0" value="None"/>
             <StringItem index="1" value="LTS"/>
             <StringItem index="2" value="Lifeguard"/>
+            <StringItem index="3" value="GYM"/>
+            <StringItem index="4" value="ISC"/>
           </StringArray>
         </Property>
       </Properties>
@@ -323,10 +327,12 @@
           <Font name="Al Bayan" size="15" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="5">
             <StringItem index="0" value="None"/>
             <StringItem index="1" value="LTS"/>
             <StringItem index="2" value="Lifeguard"/>
+            <StringItem index="3" value="Gym"/>
+            <StringItem index="4" value="ISC"/>
           </StringArray>
         </Property>
       </Properties>

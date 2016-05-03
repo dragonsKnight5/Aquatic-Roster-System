@@ -133,13 +133,13 @@ public class userEdit extends javax.swing.JDialog {
         jScrollPane1.setViewportView(userList);
 
         department1Combo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
-        department1Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LTS", "Lifeguard" }));
+        department1Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LTS", "Lifeguard", "GYM", "ISC" }));
 
         department2Combo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
-        department2Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard" }));
+        department2Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard", "GYM", "ISC" }));
 
         department3Combo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
-        department3Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard" }));
+        department3Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "LTS", "Lifeguard", "Gym", "ISC" }));
 
         completionCheckbox.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         completionCheckbox.setText("Close On Completion");
@@ -280,11 +280,11 @@ public class userEdit extends javax.swing.JDialog {
        }
        catch (SQLException ex)
        {
-           JOptionPane.showMessageDialog(parent,ex);
+           System.out.println(ex);
        }
        catch (Exception ex)
        {
-           JOptionPane.showMessageDialog(parent, ex);
+           System.out.println(ex);
        }
     }
     
@@ -293,6 +293,8 @@ public class userEdit extends javax.swing.JDialog {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void userListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_userListValueChanged
+        try
+        {
         users selectedUser = (users)userList.getSelectedValue();
         ID = selectedUser.getID();
         usernameTextbox.setText(selectedUser.getUsername());
@@ -311,20 +313,15 @@ public class userEdit extends javax.swing.JDialog {
         {
             supervisorCheckBox.setSelected(false);
         }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
         
     }//GEN-LAST:event_userListValueChanged
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        String department2 = null;
-        if (((String)department2Combo.getSelectedItem()).equalsIgnoreCase("none"))
-        {
-            department2 = "null";
-        }
-        String department3 = null;
-        if (((String)department3Combo.getSelectedItem()).equalsIgnoreCase("none"))
-        {
-            department3 = "null";
-        }
         Boolean supervisor = null;
         if (supervisorCheckBox.isSelected())
         {
@@ -337,7 +334,7 @@ public class userEdit extends javax.swing.JDialog {
         String password = new String(passwordTxt.getPassword());
         
         String command = "UPDATE users SET username = \"" + usernameTextbox.getText() + "\", first_name = \"" + firstNameTxtbx.getText() + "\", last_name = \"" + lastNameTextbox.getText()
-                + "\", department_1 = \"" + (String)department1Combo.getSelectedItem() + "\", department_2 = \"" + department2 + "\", department_3 = \"" + department3 + "\", supervisor = " + supervisor 
+                + "\", department_1 = \"" + (String)department1Combo.getSelectedItem() + "\", department_2 = \"" + department2Combo.getSelectedItem() + "\", department_3 = \"" + department3Combo.getSelectedItem() + "\", supervisor = " + supervisor 
                 + ", password = \"" + password + "\" where id = \"" + ID + "\"";
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
@@ -348,6 +345,10 @@ public class userEdit extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(parent, "User edited successfully");
                 if (completionCheckbox.isSelected()) {
                     dispose();
+                }
+                else
+                {
+                    loadData();
                 }
             }
         }

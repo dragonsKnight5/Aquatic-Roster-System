@@ -314,21 +314,23 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
             returned.next();
 
             System.out.println("Adding first department to combo");
-            String tempDepartment = returned.getString("department_1");
-            departmentCombo.addItem(tempDepartment);
+            System.out.println("first department: " + returned.getString("department_1"));
+            departmentCombo.addItem(returned.getString("department_1"));
             
             System.out.println("Test department 2 value");
-            if (!(returned.getString("department_2")).equalsIgnoreCase("None")) 
+            if (!returned.getString("department_2").equalsIgnoreCase("None")) 
             {
                 System.out.println("Adding second department to combo");
                 departmentCombo.addItem(returned.getString("department_2"));
+                System.out.println("second department: " + returned.getString("department_2"));
             }
             
             System.out.println("Test department 3 value");
-            if (!(returned.getString("department_3")).equalsIgnoreCase("None")) 
+            if (!returned.getString("department_3").equalsIgnoreCase("None")) 
             {
                 System.out.println("Adding third department to combo");
                 departmentCombo.addItem(returned.getString("department_3"));
+                System.out.println("third department: " + returned.getString("department_3"));
             }
         }
         catch (SQLException ex)

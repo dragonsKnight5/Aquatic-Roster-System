@@ -391,19 +391,9 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         {
             LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
             LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
-            SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             java.sql.Date selectedDate = null;
-            
-            try
-            {
-                java.util.Date myDate = myDateFormat.parse((String)dateCombo.getSelectedItem());
-                selectedDate = new java.sql.Date(myDate.getTime());
-            }
-            catch (ParseException ex)
-            {
-                System.out.println(ex);
-            }
-            
+
+                selectedDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
             
             String command = "update lifeguard set shift_date= \'" + selectedDate + "\', start_time = \'" + startTime + "\', end_time = \'"
                     + endTime + "\', staff1 = \'" + staffCombo1.getSelectedItem() + "\', staff2 = \'" +staffCombo2.getSelectedItem() + "\', staff3 = \'" 
