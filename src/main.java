@@ -87,6 +87,7 @@ public class main extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         overviewMenuItem = new javax.swing.JMenuItem();
         absenteeMenuItem = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
 
@@ -514,6 +515,14 @@ public class main extends javax.swing.JFrame {
         });
         jMenu5.add(absenteeMenuItem);
 
+        jMenuItem1.setText("file write test");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem1);
+
         jMenuBar1.add(jMenu5);
 
         jMenu3.setText("About");
@@ -671,7 +680,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_loginMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        JOptionPane.showMessageDialog(null, "Version 0.8");
+        JOptionPane.showMessageDialog(null, "Version 0.9");
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void newStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newStaffMenuItemActionPerformed
@@ -820,6 +829,10 @@ public class main extends javax.swing.JFrame {
         iscShiftRemove iscRemove = new iscShiftRemove(this, connection);
     }//GEN-LAST:event_iscShiftRemoveBtnActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -883,6 +896,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
