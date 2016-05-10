@@ -6,6 +6,13 @@ import java.time.DayOfWeek;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import static java.time.temporal.TemporalAdjusters.next;
+//import org.jopendocument.dom.spreadsheet.Sheet;
+import org.jopendocument.dom.spreadsheet.SpreadSheet;
+import java.io.File;
+import javax.swing.table.*;
+import javax.swing.table.DefaultTableModel;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /*
  * Copyright 2016 james.
@@ -102,6 +109,4 @@ public class commonFunctions {
         
         return returnDate;
     }
-    
-    
 }

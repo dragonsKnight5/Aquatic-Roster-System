@@ -28,11 +28,9 @@ public class lifeguards {
     private LocalTime endTime;
     private String location;
     private String staff1;
-    private String staff2;
-    private String staff3;
     private String onCall;
     
-    public lifeguards (int inID, java.sql.Date inDate, java.sql.Time inStartTime, java.sql.Time inEndTime, String inLocation, String inStaff1, String inStaff2, String inStaff3, String inOnCall)
+    public lifeguards (int inID, java.sql.Date inDate, java.sql.Time inStartTime, java.sql.Time inEndTime, String inLocation, String inStaff1, String inOnCall)
     {
         ID = inID;
         shiftDate = inDate;
@@ -40,8 +38,6 @@ public class lifeguards {
         endTime = timeConvert(inEndTime);
         location = inLocation;
         staff1 = inStaff1;
-        staff2 = inStaff2;
-        staff3 = inStaff3;
         onCall = inOnCall;
     }
     
@@ -93,16 +89,6 @@ public class lifeguards {
     public String getStaff1()
     {
         return staff1;
-    }
-    
-    public String getStaff2()
-    {
-        return staff2;
-    }
-    
-    public String getStaff3()
-    {
-        return staff3;
     }
     
     public String getLocation()
