@@ -516,6 +516,7 @@ public class main extends javax.swing.JFrame {
         jMenu5.add(absenteeMenuItem);
 
         jMenuItem1.setText("file write test");
+        jMenuItem1.setEnabled(false);
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);

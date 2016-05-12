@@ -230,7 +230,7 @@ public class absentee extends javax.swing.JDialog {
         {
         SpreadSheet absent = SpreadSheet.create(1, 50, 50);
         Sheet absenteeSheet = absent.getSheet(0);
-        int count = 1;
+        int count = 0;
         String id = null;
         char column = 'A';
         int row = 2;
@@ -239,11 +239,13 @@ public class absentee extends javax.swing.JDialog {
         while (absentee.size()> count)
         {
             tmpCover = absentee.get(count);
+            System.out.println("Previous user: " + user);
+            System.out.println("New User: " + tmpCover.getCoverFor());
             if (tmpCover.getCoverFor().equalsIgnoreCase(user))
             {
+                row++;
                 id = String.valueOf(column).concat(String.valueOf(row));
                 absenteeSheet.getCellAt(id).setValue(tmpCover.getDate());
-                row++;
             }
             else
             {
