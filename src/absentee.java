@@ -17,6 +17,8 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.sql.*;
+import org.jopendocument.dom.spreadsheet.*;
+import java.lang.IndexOutOfBoundsException;
 /**
  *
  * @author james
@@ -24,15 +26,17 @@ import java.sql.*;
 public class absentee extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
-    int tempYear = 2016;
+    commonFunctions comFunc;
+    ArrayList<cover> absentee = new ArrayList<cover>();
     /**
      * Creates new form absentee
      */
-    public absentee(main inParent, dbConnection inConnection) {
+    public absentee(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -48,7 +52,7 @@ public class absentee extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         absenteeList = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
+        exportBttn = new javax.swing.JButton();
         closeBttn = new javax.swing.JButton();
         updateBttn = new javax.swing.JButton();
         startDaySpinner = new javax.swing.JSpinner();
@@ -68,8 +72,13 @@ public class absentee extends javax.swing.JDialog {
         absenteeList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(absenteeList);
 
-        jButton1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        jButton1.setText("Export");
+        exportBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        exportBttn.setText("Export");
+        exportBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportBttnActionPerformed(evt);
+            }
+        });
 
         closeBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeBttn.setText("Close");
@@ -93,7 +102,7 @@ public class absentee extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Start Date");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel1.setBorder(null);
 
         startMonthSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMonthSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
@@ -104,7 +113,7 @@ public class absentee extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("End Date");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel2.setBorder(null);
 
         endMonthSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMonthSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
@@ -123,7 +132,7 @@ public class absentee extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(exportBttn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(closeBttn))
                     .addComponent(updateBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -167,25 +176,22 @@ public class absentee extends javax.swing.JDialog {
                             .addComponent(endYearCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(updateBttn)
-                        .addGap(61, 61, 61)
+                        .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
+                            .addComponent(exportBttn)
                             .addComponent(closeBttn)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBttnActionPerformed
-        ArrayList<cover> absentee = new ArrayList<cover>();
         absenteeList.setListData(absentee.toArray());
-        
-        String startDate = tempYear + "-" + startMonthSpinner.getValue() + "-" + startDaySpinner.getValue();
+        String startDate = startYearCombo.getSelectedItem() + "-" + startMonthSpinner.getValue() + "-" + startDaySpinner.getValue();
         System.out.println("Start Date: " + startDate);
-        String endDate = tempYear + "-" + endMonthSpinner.getValue() + "-" + endDaySpinner.getValue();
+        String endDate = endYearCombo.getSelectedItem() + "-" + endMonthSpinner.getValue() + "-" + endDaySpinner.getValue();
         System.out.println("End Date: " + endDate);
         java.sql.Date beginDate = java.sql.Date.valueOf(startDate);
         java.sql.Date finishDate = java.sql.Date.valueOf(endDate);
@@ -219,6 +225,50 @@ public class absentee extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_closeBttnActionPerformed
 
+    private void exportBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBttnActionPerformed
+        try
+        {
+        SpreadSheet absent = SpreadSheet.create(1, 50, 50);
+        Sheet absenteeSheet = absent.getSheet(0);
+        int count = 1;
+        String id = null;
+        char column = 'A';
+        int row = 2;
+        cover tmpCover = null;
+        String user = null;
+        while (absentee.size()> count)
+        {
+            tmpCover = absentee.get(count);
+            if (tmpCover.getCoverFor().equalsIgnoreCase(user))
+            {
+                id = String.valueOf(column).concat(String.valueOf(row));
+                absenteeSheet.getCellAt(id).setValue(tmpCover.getDate());
+                row++;
+            }
+            else
+            {
+                column++;
+                row = 2;
+                id = String.valueOf(column).concat(String.valueOf(1));
+                absenteeSheet.getCellAt(id).setValue(tmpCover.getCoverFor());
+                user = tmpCover.getCoverFor();
+                id = String.valueOf(column).concat(String.valueOf(row));
+                absenteeSheet.getCellAt(id).setValue(tmpCover.getDate());
+            }
+            count++;
+        }
+        absenteeSheet.getCellAt("A1").setValue("Staff:");
+        //absenteeSheet.getCellAt("A1").
+        absenteeSheet.getCellAt("A2").setValue("Absent Dates:");
+        
+        comFunc.saveFile(absenteeSheet, "absentee");
+        }
+        catch (IndexOutOfBoundsException ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_exportBttnActionPerformed
+
     public void loadData()
     {
         LocalDate todaysDate = LocalDate.now();
@@ -245,7 +295,7 @@ public class absentee extends javax.swing.JDialog {
     private javax.swing.JSpinner endDaySpinner;
     private javax.swing.JSpinner endMonthSpinner;
     private javax.swing.JComboBox<String> endYearCombo;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton exportBttn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

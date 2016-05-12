@@ -806,7 +806,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_removeAvailabilityMenuItemActionPerformed
 
     private void absenteeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_absenteeMenuItemActionPerformed
-        absentee absenteeReport = new absentee(this,connection);
+        absentee absenteeReport = new absentee(this,connection, myCommonFunctions);
     }//GEN-LAST:event_absenteeMenuItemActionPerformed
 
     private void overviewMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewMenuItemActionPerformed

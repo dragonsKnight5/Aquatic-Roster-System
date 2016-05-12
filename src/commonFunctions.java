@@ -6,13 +6,16 @@ import java.time.DayOfWeek;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import static java.time.temporal.TemporalAdjusters.next;
-//import org.jopendocument.dom.spreadsheet.Sheet;
-import org.jopendocument.dom.spreadsheet.SpreadSheet;
+import org.jopendocument.dom.spreadsheet.Sheet;
+import org.jopendocument.dom.spreadsheet.*;
 import java.io.File;
+import java.io.IOException;
 import javax.swing.table.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /*
  * Copyright 2016 james.
@@ -108,5 +111,58 @@ public class commonFunctions {
         java.sql.Date returnDate = Date.valueOf(tempDate);
         
         return returnDate;
+    }
+    
+    private Sheet loadTemplate()
+    {
+        Sheet returned = null;
+        try
+        {
+           File loadFile = new File ("rosterTemplate.ods");
+           returned = SpreadSheet.createFromFile(loadFile).getSheet(0);
+        }
+        catch (IOException ex)
+        {
+            System.out.println(ex);
+        }
+        
+        return returned;
+    }
+    
+    public void saveFile (Sheet saveFile, String fileName)
+    {
+        try
+        {
+            String path = setPath();
+            File outputFile = new File(path.concat(fileName).concat(".ods"));
+            saveFile.getSpreadSheet().saveAs(outputFile);
+            JOptionPane.showMessageDialog(null, "File Save Complete");
+        }
+        catch (IOException ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
+    private String setPath()
+    {
+        JFileChooser folderSelection = new JFileChooser();
+        folderSelection.setCurrentDirectory(new java.io.File("."));
+        folderSelection.setDialogTitle("Folder Location");
+        folderSelection.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        folderSelection.setAcceptAllFileFilterUsed(false);
+        String path = null;
+        
+        String seperator = System.getProperty("file.separator");
+
+        if (folderSelection.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            path = folderSelection.getSelectedFile().getPath();
+        }
+        else
+        {
+            System.out.println("No Selection ");
+        }
+        path = path.concat(seperator);
+        return path;
     }
 }
