@@ -384,6 +384,19 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
                     }
                 }
             }
+            else if(departmentValue.equalsIgnoreCase("isc"))
+            {
+                result = connection.lifeguardLocations();
+                
+                while (result.next())
+                {
+                    if (!result.getString("location").equalsIgnoreCase("None"))
+                    {
+                        System.out.println(result.getString("location"));
+                        locationCombo.addItem(result.getString("location"));
+                    }
+                }
+            }
         }
         catch (SQLException ex)
         {

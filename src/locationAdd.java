@@ -192,7 +192,7 @@ public class locationAdd extends javax.swing.JDialog {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         System.out.println("Get user variables");
-        //String username = locationTxtbx.getText();
+        String location = locationTxtbx.getText();
         Boolean lifeguard = null;
         Boolean lts = null;
         Boolean gym = null;
@@ -230,10 +230,10 @@ public class locationAdd extends javax.swing.JDialog {
             isc = false;
         }
         
-        String command = "insert into location (location, lifeguard, lts, gym, isc) values (\'" + locationTxtbx.getSelectedText() + "\', \'"
-                + lifeguard + "\', \'" + lts + "\', \'" + gym + "\', \'" + isc +"\')";
+        String command = "insert into location (location, lifeguard, lts, gym, isc) values (\'" + location + "\', "
+                + lifeguard + "," + lts + ", " + gym + ", " + isc +")";
         
-        //System.out.println(command);
+        System.out.println(command);
         
        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",

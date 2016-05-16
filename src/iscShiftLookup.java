@@ -242,7 +242,7 @@ private void loadData()
 {
     ResultSet returned;
     shiftList.removeAll();
-    String command = "select * from ISC";
+    String command = "select * from isc";
     try
     {
         returned = connection.lookup(command);

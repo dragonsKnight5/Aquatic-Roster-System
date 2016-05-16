@@ -228,14 +228,22 @@ public class absentee extends javax.swing.JDialog {
     private void exportBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBttnActionPerformed
         try
         {
-        SpreadSheet absent = SpreadSheet.create(1, 50, 50);
-        Sheet absenteeSheet = absent.getSheet(0);
+        //SpreadSheet absent = SpreadSheet.create(1, 50, 50);
+        Sheet absenteeSheet = comFunc.loadTemplate("absent");
         int count = 0;
         String id = null;
-        char column = 'A';
+        char column = 'B';
         int row = 2;
-        cover tmpCover = null;
+        cover tmpCover = absentee.get(count);;
         String user = null;
+        
+        // first table entry
+        absenteeSheet.getCellAt("B1").setValue(tmpCover.getCoverFor());
+        absenteeSheet.getCellAt("B2").setValue(tmpCover.getDate());
+        user = tmpCover.getCoverFor();
+        count++;
+        
+        // remaining table entries
         while (absentee.size()> count)
         {
             tmpCover = absentee.get(count);
@@ -259,13 +267,16 @@ public class absentee extends javax.swing.JDialog {
             }
             count++;
         }
-        absenteeSheet.getCellAt("A1").setValue("Staff:");
-        //absenteeSheet.getCellAt("A1").
-        absenteeSheet.getCellAt("A2").setValue("Absent Dates:");
+        //absenteeSheet.getCellAt("A1").setValue("Staff:");
+        //absenteeSheet.getCellAt("A2").setValue("Absent Dates:");
         
         comFunc.saveFile(absenteeSheet, "absentee");
         }
         catch (IndexOutOfBoundsException ex)
+        {
+            System.out.println(ex);
+        }
+        catch (Exception ex)
         {
             System.out.println(ex);
         }

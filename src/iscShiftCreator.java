@@ -32,7 +32,7 @@ public class iscShiftCreator extends javax.swing.JDialog {
     commonFunctions comFunc;
 
     /**
-     * Creates new form LifeguardShiftCreator
+     * Creates new form iscShiftCreator
      */
     public iscShiftCreator(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
@@ -319,9 +319,10 @@ public class iscShiftCreator extends javax.swing.JDialog {
         
         java.sql.Date selectedDate = comFunc.day2Date((String)dateCombo.getSelectedItem(), (String)dayCombo.getSelectedItem());
         
-            String command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, staff2, staff3,staff4,  location, oncall) values (\"" + selectedDate + "\", \"" + startTime + "\", \""
-                + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + staffCombo2.getSelectedItem() + "\", \"" + staffCombo3.getSelectedItem() + "\", \"" 
+            String command = "Insert into isc (Shift_date, start_time, end_time, staff1, staff2, staff3 ,staff4, location, onCall) values (\"" + selectedDate + "\", \"" + startTime + "\", \""
+                + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + staffCombo2.getSelectedItem() + "\", \"" + staffCombo3.getSelectedItem()
                    + "\", \"" +staffCombo4.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() +"\", \"" + onCallCombo.getSelectedItem() + "\")";
+            System.out.println(command);
 
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
@@ -397,9 +398,11 @@ public class iscShiftCreator extends javax.swing.JDialog {
             }
             staffCombo2.addItem("None");
             staffCombo3.addItem("None");
+            staffCombo4.addItem("None");
             onCallCombo.addItem("None");
             staffCombo2.setSelectedItem("None");
             staffCombo3.setSelectedItem("None");
+            staffCombo4.setSelectedItem("None");
             onCallCombo.setSelectedItem("None");
             if (staffCombo1.getItemCount() < 1)
             {
@@ -416,7 +419,7 @@ public class iscShiftCreator extends javax.swing.JDialog {
     {
         ResultSet returned;
         try {
-            returned = connection.lifeguardLocations();
+            returned = connection.iscLocations();
             while (returned.next()) {
                 locationCombo.addItem(returned.getString("location"));
             }

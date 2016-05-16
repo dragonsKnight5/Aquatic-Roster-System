@@ -15,12 +15,10 @@
  */
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.time.LocalTime;
 import java.time.LocalDate;
-import java.text.ParseException;
 import java.time.DayOfWeek;
 import static java.time.temporal.TemporalAdjusters.*;
 /**
@@ -399,25 +397,14 @@ public class iscShiftEditor extends javax.swing.JDialog {
         {
             LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
             LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
-            //SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             java.sql.Date selectedDate = null;
-            
-            //try
-            //{
-                selectedDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
-                //java.util.Date myDate = myDateFormat.parse((String)dateCombo.getSelectedItem());
-                //selectedDate = new java.sql.Date(myDate.getTime());
-            /**}
-            catch (ParseException ex)
-            {
-                System.out.println(ex);
-            }**/
+            selectedDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
             
             
-            String command = "update lifeguard set shift_date= \'" + selectedDate + "\', start_time = \'" + startTime + "\', end_time = \'"
+            String command = "update isc set shift_date= \'" + selectedDate + "\', start_time = \'" + startTime + "\', end_time = \'"
                     + endTime + "\', staff1 = \'" + staffCombo1.getSelectedItem() + "\', staff2 = \'" +staffCombo2.getSelectedItem() + "\', staff3 = \'" 
-                    + staffCombo3.getSelectedItem() + "\', location = \'" + locationCombo.getSelectedItem() + "\', onCall = \'" + onCallCombo.getSelectedItem() 
-                    + "\' where ID = \'" + ID + "\'";
+                    + staffCombo3.getSelectedItem() +"\', staff4 = \'" +staffCombo4.getSelectedItem() + "\', location = \'" + locationCombo.getSelectedItem() 
+                    + "\', onCall = \'" + onCallCombo.getSelectedItem() + "\' where ID = \'" + ID + "\'";
             
             int status = connection.updateShift(command);
             if (status == 1)
@@ -511,7 +498,7 @@ private void loadData()
 {
     ResultSet returned;
     shiftList.removeAll();
-    String command = "select * from ISC";
+    String command = "select * from isc";
     try
     {
         returned = connection.lookup(command);

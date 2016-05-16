@@ -294,6 +294,23 @@ public class dbConnection
          return result;
      }
      
+          public ResultSet iscLocations()
+     {
+         ResultSet result = null;
+         sql = "select location from location where isc = true";
+         
+         try
+         {
+             ps1 = conn.prepareStatement(sql);
+             result = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+             JOptionPane.showMessageDialog(null, ex);
+         }
+         return result;
+     }
+     
      public ResultSet getLocations()
      {
          ResultSet result = null;

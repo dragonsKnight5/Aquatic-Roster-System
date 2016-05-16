@@ -10,10 +10,6 @@ import org.jopendocument.dom.spreadsheet.Sheet;
 import org.jopendocument.dom.spreadsheet.*;
 import java.io.File;
 import java.io.IOException;
-import javax.swing.table.*;
-import javax.swing.table.DefaultTableModel;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -113,12 +109,20 @@ public class commonFunctions {
         return returnDate;
     }
     
-    private Sheet loadTemplate()
+    public Sheet loadTemplate(String template)
     {
         Sheet returned = null;
         try
         {
-           File loadFile = new File ("rosterTemplate.ods");
+            File loadFile = null;
+            if (template.equalsIgnoreCase("roster"))
+            {
+               loadFile = new File ("rosterTemplate.ods");
+            }
+            else if (template.equalsIgnoreCase("absent"))
+            {
+               loadFile = new File ("absentTemplate.ods"); 
+            }
            returned = SpreadSheet.createFromFile(loadFile).getSheet(0);
         }
         catch (IOException ex)
@@ -146,9 +150,12 @@ public class commonFunctions {
     
     private String setPath()
     {
+        File defaultPath = new File(System.getProperty("user.home"));
+        System.out.println("default path: " + defaultPath);
         JFileChooser folderSelection = new JFileChooser();
-        folderSelection.setCurrentDirectory(new java.io.File("."));
-        folderSelection.setDialogTitle("Folder Location");
+        
+        folderSelection.setCurrentDirectory(defaultPath);
+        folderSelection.setDialogTitle("Save Location");
         folderSelection.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         folderSelection.setAcceptAllFileFilterUsed(false);
         String path = null;

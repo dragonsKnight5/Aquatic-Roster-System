@@ -87,7 +87,7 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
         completionTckbx = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Add Availability");
+        setTitle("Edit Availability");
 
         jLabel2.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         jLabel2.setText("Department:");
@@ -339,6 +339,19 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
             else if(departmentValue.equalsIgnoreCase("lifeguard"))
             {
                 result = connection.lifeguardLocations();
+                
+                while (result.next())
+                {
+                    if (!result.getString("location").equalsIgnoreCase("None"))
+                    {
+                        //System.out.println(result.getString("location"));
+                        locationCombo.addItem(result.getString("location"));
+                    }
+                }
+            }
+            else if(departmentValue.equalsIgnoreCase("isc"))
+            {
+                result = connection.iscLocations();
                 
                 while (result.next())
                 {
