@@ -87,7 +87,7 @@ public class main extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         overviewMenuItem = new javax.swing.JMenuItem();
         absenteeMenuItem = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        exportLgRosterMenuItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
 
@@ -515,14 +515,14 @@ public class main extends javax.swing.JFrame {
         });
         jMenu5.add(absenteeMenuItem);
 
-        jMenuItem1.setText("file write test");
-        jMenuItem1.setEnabled(false);
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        exportLgRosterMenuItem.setText("Export LG Roster");
+        exportLgRosterMenuItem.setEnabled(false);
+        exportLgRosterMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                exportLgRosterMenuItemActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        jMenu5.add(exportLgRosterMenuItem);
 
         jMenuBar1.add(jMenu5);
 
@@ -616,6 +616,7 @@ public class main extends javax.swing.JFrame {
         iscShiftCreatorBtn.setEnabled(true);
         iscShiftEditBtn.setEnabled(true);
         iscShiftRemoveBtn.setEnabled(true);
+        exportLgRosterMenuItem.setEnabled(true);
         supervisor = true;
         userConfig();
     }
@@ -756,6 +757,7 @@ public class main extends javax.swing.JFrame {
         iscShiftCreatorBtn.setEnabled(false);
         iscShiftEditBtn.setEnabled(false);
         iscShiftRemoveBtn.setEnabled(false);
+        exportLgRosterMenuItem.setEnabled(false);
     }//GEN-LAST:event_logoutMenuItemActionPerformed
 
     private void guardShiftEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftEditBtnActionPerformed
@@ -830,9 +832,9 @@ public class main extends javax.swing.JFrame {
         iscShiftRemove iscRemove = new iscShiftRemove(this, connection);
     }//GEN-LAST:event_iscShiftRemoveBtnActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void exportLgRosterMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportLgRosterMenuItemActionPerformed
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_exportLgRosterMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -882,6 +884,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton editShiftBtn;
     private javax.swing.JMenuItem editStaffMenuItem;
     private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JMenuItem exportLgRosterMenuItem;
     private javax.swing.JButton guardLookupBtn;
     private javax.swing.JButton guardShiftCreatorBtn;
     private javax.swing.JButton guardShiftEditBtn;
@@ -897,7 +900,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
