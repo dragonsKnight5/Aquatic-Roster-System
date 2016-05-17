@@ -833,7 +833,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_iscShiftRemoveBtnActionPerformed
 
     private void exportLgRosterMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportLgRosterMenuItemActionPerformed
-        
+        lgExport guardExport = new lgExport(this, connection, myCommonFunctions);
     }//GEN-LAST:event_exportLgRosterMenuItemActionPerformed
 
     /**

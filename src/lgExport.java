@@ -15,8 +15,12 @@
  */
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import static java.time.temporal.TemporalAdjusters.next;
 import java.util.ArrayList;
+import org.jopendocument.dom.spreadsheet.Sheet;
 /**
  *
  * @author james
@@ -28,7 +32,39 @@ public class lgExport extends javax.swing.JDialog
     commonFunctions comFunc;
     ArrayList<lifeguards> guardShifts = new ArrayList<lifeguards>();
     String defaultSUP = "SARA WIGHTMAN";
+    LocalTime openTime = LocalTime.of(5, 30);
+    LocalTime satOpenTime = LocalTime.of(5, 30);
+    LocalTime twoPm = LocalTime.of(14, 00);
+    LocalTime satSunClose = LocalTime.of(19, 00);
+    LocalTime onePm = LocalTime.of(13,00);
+    LocalTime elevenThirty = LocalTime.of(11, 30);
+    LocalTime eightThirty = LocalTime.of(8, 30);
+    LocalTime fivePm = LocalTime.of(17, 00);
 
+
+    private final String sundayDay = "U1";
+    private final String sundayMonth = "W1";
+    private final String sundayYear = "Y1";
+    
+    private final String mondayDay = "AH1";
+    private final String mondayMonth = "AJ1";
+    private final String mondayYear = "AL1";
+    
+    private final String tuesdayDay = "AT1";
+    private final String tuesdayMonth = "AV1";
+    private final String tuesdayYear = "AX1";
+    
+    private final String wednesdayDay = "BG1";
+    private final String wednesdayMonth = "BI1";
+    private final String wednesdayYear = "BK1";
+    
+    private final String thursdayDay = "G60";
+    private final String thursdayMonth = "I60";
+    private final String thursdayYear = "K60";
+    
+    private final String fridayDay = "S60";
+    private final String fridayMonth = "U60";
+    private final String fridayYear = "W60";
     /**
      * Creates new form lgExport
      */
@@ -38,6 +74,7 @@ public class lgExport extends javax.swing.JDialog
         parent = inParent;
         connection = inConnection;
         comFunc = inCommon;
+        loadData();
         setVisible(true);
     }
 
@@ -59,33 +96,19 @@ public class lgExport extends javax.swing.JDialog
         fridayGroup = new javax.swing.ButtonGroup();
         dateCombo = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        saturdayDefRdBttn = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        saturdayDefaultSUPLbl = new javax.swing.JLabel();
-        supTextField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        ssundayDefRdBttn = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        sundayDefaultSUPLbl = new javax.swing.JLabel();
-        supTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        exportButton = new javax.swing.JButton();
         mondayDefRdBttn = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         supTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        mondayDefaultSUPLbl = new javax.swing.JLabel();
         jRadioButton7 = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         supTextField3 = new javax.swing.JTextField();
-        tuesdayDefaultSUPLbl = new javax.swing.JLabel();
         tuesdayDefRdBttn = new javax.swing.JRadioButton();
         wednesdayDefRdBttn = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         jRadioButton10 = new javax.swing.JRadioButton();
         supTextField4 = new javax.swing.JTextField();
-        wednesdayDefaultSUPLbl = new javax.swing.JLabel();
-        fridayDefaultSUPLbl = new javax.swing.JLabel();
         supTextField5 = new javax.swing.JTextField();
         fridayDefRdBttn = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
@@ -93,51 +116,30 @@ public class lgExport extends javax.swing.JDialog
         jRadioButton13 = new javax.swing.JRadioButton();
         supTextField6 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        thursdayDefaultSUPLbl = new javax.swing.JLabel();
         jRadioButton14 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LG Roster Exporter");
 
+        dateCombo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                dateComboItemStateChanged(evt);
+            }
+        });
+        dateCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateComboActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("SUP selector:");
 
-        saturdayGroup.add(saturdayDefRdBttn);
-        saturdayDefRdBttn.setText("Default");
-
-        saturdayGroup.add(jRadioButton2);
-        jRadioButton2.setText("Other");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        exportButton.setText("Export");
+        exportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                exportButtonActionPerformed(evt);
             }
         });
-
-        saturdayDefaultSUPLbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jButton1.setText("Export");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Saturday:");
-
-        sundayGroup.add(ssundayDefRdBttn);
-        ssundayDefRdBttn.setSelected(true);
-        ssundayDefRdBttn.setText("Default");
-
-        sundayGroup.add(jRadioButton4);
-        jRadioButton4.setText("Other");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
-            }
-        });
-
-        sundayDefaultSUPLbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel3.setText("Sunday:");
 
         mondayGroup.add(mondayDefRdBttn);
         mondayDefRdBttn.setSelected(true);
@@ -153,8 +155,6 @@ public class lgExport extends javax.swing.JDialog
 
         jLabel4.setText("Monday:");
 
-        mondayDefaultSUPLbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         tuesdayGroup.add(jRadioButton7);
         jRadioButton7.setText("Other");
         jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -164,8 +164,6 @@ public class lgExport extends javax.swing.JDialog
         });
 
         jLabel5.setText("Tuesday:");
-
-        tuesdayDefaultSUPLbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         tuesdayGroup.add(tuesdayDefRdBttn);
         tuesdayDefRdBttn.setSelected(true);
@@ -184,10 +182,6 @@ public class lgExport extends javax.swing.JDialog
                 jRadioButton10ActionPerformed(evt);
             }
         });
-
-        wednesdayDefaultSUPLbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        fridayDefaultSUPLbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fridayGroup.add(fridayDefRdBttn);
         fridayDefRdBttn.setSelected(true);
@@ -209,8 +203,6 @@ public class lgExport extends javax.swing.JDialog
 
         jLabel8.setText("Thursday:");
 
-        thursdayDefaultSUPLbl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         fridayGroup.add(jRadioButton14);
         jRadioButton14.setText("Other");
         jRadioButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -227,55 +219,13 @@ public class lgExport extends javax.swing.JDialog
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(12, 12, 12))
+                        .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(exportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ssundayDefRdBttn)
-                                            .addComponent(jRadioButton4))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(supTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(sundayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(saturdayDefRdBttn)
-                                            .addComponent(jRadioButton2))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(supTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(saturdayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(mondayDefRdBttn)
-                                            .addComponent(jRadioButton6))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(supTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(mondayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tuesdayDefRdBttn)
-                                            .addComponent(jRadioButton7))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(supTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tuesdayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel7)
@@ -284,9 +234,25 @@ public class lgExport extends javax.swing.JDialog
                                             .addComponent(wednesdayDefRdBttn)
                                             .addComponent(jRadioButton10))
                                         .addGap(18, 18, 18)
+                                        .addComponent(supTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(supTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(wednesdayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(mondayDefRdBttn)
+                                            .addComponent(jRadioButton6))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(supTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tuesdayDefRdBttn)
+                                            .addComponent(jRadioButton7))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(supTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(18, 18, 18)
@@ -294,9 +260,7 @@ public class lgExport extends javax.swing.JDialog
                                             .addComponent(thursdayDefRdBttn)
                                             .addComponent(jRadioButton13))
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(supTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(thursdayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(supTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(18, 18, 18)
@@ -304,116 +268,75 @@ public class lgExport extends javax.swing.JDialog
                                             .addComponent(fridayDefRdBttn)
                                             .addComponent(jRadioButton14))
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(supTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fridayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(supTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 15, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exportButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(saturdayDefRdBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(saturdayDefaultSUPLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(supTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton2)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel2)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ssundayDefRdBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(sundayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(supTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel3)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(mondayDefRdBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(mondayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(mondayDefRdBttn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(supTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jRadioButton6)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
-                                .addComponent(jLabel4)))
+                                .addComponent(jLabel4))))
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tuesdayDefRdBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tuesdayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(supTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton7)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel5))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(wednesdayDefRdBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(wednesdayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(supTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton10)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel7)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(thursdayDefRdBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(thursdayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(thursdayDefRdBttn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(supTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jRadioButton13)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
-                                .addComponent(jLabel8)))
+                                .addComponent(jLabel8)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tuesdayDefRdBttn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(supTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton7)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(fridayDefRdBttn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(supTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton14)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fridayDefRdBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(fridayDefaultSUPLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(supTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton14)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel6)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(wednesdayDefRdBttn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(supTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton10)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel7)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -422,37 +345,22 @@ public class lgExport extends javax.swing.JDialog
     
     private void loadData()
     {
+        LocalDate myDate = null;
         LocalDate tempDate = LocalDate.now();
-        java.sql.Date myDate = comFunc.day2Date(tempDate.toString(), "saturday");
-        dateCombo.addItem(myDate.toString());
-         dateCombo.addItem(comFunc.plusDaysFormated(myDate.toLocalDate(), 7));
-         dateCombo.addItem(comFunc.plusDaysFormated(myDate.toLocalDate(), 14));
-         dateCombo.addItem(comFunc.plusDaysFormated(myDate.toLocalDate(), 21));
-        saturdayDefaultSUPLbl.setText(defaultSUP);
-        sundayDefaultSUPLbl.setText(defaultSUP);
-        mondayDefaultSUPLbl.setText(defaultSUP);
-        tuesdayDefaultSUPLbl.setText(defaultSUP);
-        wednesdayDefaultSUPLbl.setText(defaultSUP);
-        thursdayDefaultSUPLbl.setText(defaultSUP);
-        fridayDefaultSUPLbl.setText(defaultSUP);
+        try
+        {
+            myDate = tempDate.with(next(DayOfWeek.SATURDAY));
+            dateCombo.addItem(comFunc.formatDate(myDate));
+            dateCombo.addItem(comFunc.plusDaysFormated(myDate, 7));
+            dateCombo.addItem(comFunc.plusDaysFormated(myDate, 14));
+            dateCombo.addItem(comFunc.plusDaysFormated(myDate, 21));
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
         
     }
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        if (jRadioButton2.isSelected())
-        {
-            supTextField.setEnabled(true);
-        }
-        else
-        {
-            supTextField.setEnabled(false);
-        }
-        
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
-
     private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton6ActionPerformed
@@ -473,16 +381,33 @@ public class lgExport extends javax.swing.JDialog
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton14ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+    private void exportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportButtonActionPerformed
+        Sheet guardSheet = comFunc.loadTemplate("roster");
         LocalDate outDate = (comFunc.dateSwitch((String)dateCombo.getSelectedItem())).toLocalDate();
         System.out.println("Day: " + outDate.getDayOfWeek());
         
-        LocalDate myDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem()).toLocalDate();
-        String tempDate = comFunc.plusDaysFormated(myDate, 6);
-        System.out.println("Day: " + (comFunc.dateSwitch(tempDate)).toLocalDate().getDayOfWeek());
-        String command = "select * from lifeguard where shift_date between " + comFunc.dateSwitch((String)dateCombo.getSelectedItem()) + " and " + comFunc.dateSwitch(tempDate);
+        java.sql.Date myDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
+        guardSheet = writeSaturday(myDate, guardSheet);
+        //String tempDate = comFunc.plusDaysFormated(myDate, 6);
+        //System.out.println("Day: " + (comFunc.dateSwitch(tempDate)).toLocalDate().getDayOfWeek());
         
+        
+    }//GEN-LAST:event_exportButtonActionPerformed
+
+    private Sheet writeSaturday(java.sql.Date inDate, Sheet inSheet)
+    {
+        final String saturdayDay = "H1";
+        final String saturdayMonth = "J1";
+        final String saturdayYear = "L1";
+        final String saturdaySPAopen = "B6";
+        final String saturdaySPAclose = "C6";
+        final String saturdayOpen1130 = "D6";
+        final String saturday830100 = "E6";
+        final String saturday100500 = "K6";
+        final String saturday200close = "L6";
+        final String saturdayOncallMorning = "F6";
+        final String saturdayOncallAfternoon = "M6";
+        String command = "select * from lifeguard where shift_date = " + inDate;
         ResultSet result = null;
         try {
             result = connection.lookup(command);
@@ -490,23 +415,70 @@ public class lgExport extends javax.swing.JDialog
                 lifeguards tempGuard = new lifeguards(result.getInt("ID"), result.getDate("shift_Date"), result.getTime("start_time"), result.getTime("end_time"), result.getString("location"), result.getString("staff1"), result.getString("onCall"));
                 guardShifts.add(tempGuard);
             }
+            int count = 0;
+            while (count <= guardShifts.size())
+            {
+                lifeguards tempGuard = guardShifts.get(count);
+                if (tempGuard.getStartTime() == satOpenTime && tempGuard.getEndTime() == twoPm) // open to 2pm
+                {
+                    inSheet.getCellAt(saturdaySPAopen).setValue(tempGuard.getStaff1());
+                    inSheet.getCellAt(saturdayOncallMorning).setValue(tempGuard.getOnCall());
+                    
+                    //Add Saturday date
+                    LocalDate saturdayDate = tempGuard.getShiftDate().toLocalDate();
+                    inSheet.getCellAt(saturdayDay).setValue(saturdayDate.getDayOfMonth());
+                    inSheet.getCellAt(saturdayMonth).setValue(saturdayDate.getMonthValue());
+                    inSheet.getCellAt(saturdayYear).setValue(saturdayDate.getYear());
+                }
+                else if (tempGuard.getStartTime() == onePm && tempGuard.getEndTime() == satSunClose) //1pm to close
+                {
+                    inSheet.getCellAt(saturdaySPAclose).setValue(tempGuard.getStaff1());
+                    inSheet.getCellAt(saturdayOncallAfternoon).setValue(tempGuard.getStaff1());
+                }
+                else if (tempGuard.getStartTime() == satOpenTime && tempGuard.getEndTime() == elevenThirty) // open to 11:30 am
+                {
+                    inSheet.getCellAt(saturdayOpen1130).setValue(tempGuard.getStaff1());
+                }
+                else if (tempGuard.getStartTime() == eightThirty && tempGuard.getEndTime() == onePm) // 8:30 am to 1 pm
+                {
+                    inSheet.getCellAt(saturday830100).setValue(tempGuard.getStaff1());
+                }
+                else if (tempGuard.getStartTime() == eightThirty && tempGuard.getEndTime() == onePm) // 8:30 am to 1 pm
+                {
+                    inSheet.getCellAt(saturday830100).setValue(tempGuard.getStaff1());
+                }
+                else if (tempGuard.getStartTime() == onePm && tempGuard.getEndTime() == fivePm) // 1pm to 5 pm
+                {
+                    inSheet.getCellAt(saturday100500).setValue(tempGuard.getStaff1());
+                }
+                else if (tempGuard.getStartTime() == twoPm && tempGuard.getEndTime() == satSunClose) // 2 pm to close
+                {
+                    inSheet.getCellAt(saturday200close).setValue(tempGuard.getStaff1());
+                }
+                count ++;
+            }
         }
         catch (SQLException ex)
         {
             System.out.println(ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        return inSheet;
+    }
+    private void dateComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateComboActionPerformed
+
+    private void dateComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_dateComboItemStateChanged
+
+    }//GEN-LAST:event_dateComboItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> dateCombo;
+    private javax.swing.JButton exportButton;
     private javax.swing.JRadioButton fridayDefRdBttn;
-    private javax.swing.JLabel fridayDefaultSUPLbl;
     private javax.swing.ButtonGroup fridayGroup;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -515,34 +487,22 @@ public class lgExport extends javax.swing.JDialog
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton13;
     private javax.swing.JRadioButton jRadioButton14;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton mondayDefRdBttn;
-    private javax.swing.JLabel mondayDefaultSUPLbl;
     private javax.swing.ButtonGroup mondayGroup;
-    private javax.swing.JRadioButton saturdayDefRdBttn;
-    private javax.swing.JLabel saturdayDefaultSUPLbl;
     private javax.swing.ButtonGroup saturdayGroup;
-    private javax.swing.JRadioButton ssundayDefRdBttn;
-    private javax.swing.JLabel sundayDefaultSUPLbl;
     private javax.swing.ButtonGroup sundayGroup;
-    private javax.swing.JTextField supTextField;
-    private javax.swing.JTextField supTextField1;
     private javax.swing.JTextField supTextField2;
     private javax.swing.JTextField supTextField3;
     private javax.swing.JTextField supTextField4;
     private javax.swing.JTextField supTextField5;
     private javax.swing.JTextField supTextField6;
     private javax.swing.JRadioButton thursdayDefRdBttn;
-    private javax.swing.JLabel thursdayDefaultSUPLbl;
     private javax.swing.ButtonGroup thursdayGroup;
     private javax.swing.JRadioButton tuesdayDefRdBttn;
-    private javax.swing.JLabel tuesdayDefaultSUPLbl;
     private javax.swing.ButtonGroup tuesdayGroup;
     private javax.swing.JRadioButton wednesdayDefRdBttn;
-    private javax.swing.JLabel wednesdayDefaultSUPLbl;
     private javax.swing.ButtonGroup wednesdayGroup;
     // End of variables declaration//GEN-END:variables
 }
