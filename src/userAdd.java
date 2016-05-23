@@ -268,8 +268,8 @@ public class userAdd extends javax.swing.JDialog {
                     usernameTextbox.setText("");;
                     firstNameTextbox.setText("");;
                     lastNameTextbox.setText("");;
-                    departmentCombo2.setSelectedIndex(1);
-                    departmentCombo3.setSelectedIndex(1);
+                    departmentCombo2.setSelectedIndex(0);
+                    departmentCombo3.setSelectedIndex(0);
                     supervisorCheckbox.setSelected(false);
                     passwordTextbox.setText("");
                 }
