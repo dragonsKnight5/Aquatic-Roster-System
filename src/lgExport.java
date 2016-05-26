@@ -430,7 +430,7 @@ public class lgExport extends javax.swing.JDialog
                 guardShifts.add(tempGuard);
             }
             int count = 0;
-            while (count <= guardShifts.size())
+            while (count < guardShifts.size())
             {
                 System.out.println("count: " + count + " guardShifts: " + guardShifts.size());
                 lifeguards tempGuard = guardShifts.get(count);
