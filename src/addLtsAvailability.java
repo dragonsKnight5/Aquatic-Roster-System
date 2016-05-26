@@ -20,7 +20,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import static java.time.temporal.TemporalAdjusters.*;
 import javax.swing.JOptionPane;
 
@@ -28,7 +27,7 @@ import javax.swing.JOptionPane;
  *
  * @author james
  */
-public class addAvailability extends javax.swing.JDialog {
+public class addLtsAvailability extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
     Boolean supervisor;
@@ -37,7 +36,7 @@ public class addAvailability extends javax.swing.JDialog {
     /**
      * Creates new form addAvailability
      */
-public addAvailability(main inParent, dbConnection inConnection, Boolean inSupervisor, commonFunctions inCommon) {
+public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSupervisor, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
@@ -85,7 +84,7 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
         closeBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Add Availability");
+        setTitle("Add LTS Availability");
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Username:");
@@ -465,11 +464,11 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
                 }
             }
             LocalDate date = LocalDate.now();
-            LocalDate myDate = date.with(next(DayOfWeek.SATURDAY));
+            LocalDate myDate = date.with(next(DayOfWeek.MONDAY));
             int count = 0;
             while (count < 5)
-            {
-                String dateString = comFunc.formatDate(myDate);
+            {;
+                String dateString = comFunc.formatDate(date);
                 dateCombo.addItem(dateString);
                 count++;
                 myDate = myDate.plusDays(7);

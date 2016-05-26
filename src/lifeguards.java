@@ -29,6 +29,7 @@ public class lifeguards {
     private String location;
     private String staff1;
     private String onCall;
+    private String day;
     
     public lifeguards (int inID, java.sql.Date inDate, java.sql.Time inStartTime, java.sql.Time inEndTime, String inLocation, String inStaff1, String inOnCall)
     {
@@ -39,13 +40,14 @@ public class lifeguards {
         location = inLocation;
         staff1 = inStaff1;
         onCall = inOnCall;
+        day = shiftDate.toLocalDate().getDayOfWeek().toString();
     }
     
     public String toString()
     {
         SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/YYYY");
         String formatedDate = myDateFormat.format(shiftDate);
-        return formatedDate;
+        return day + " " + formatedDate;
     }
     
     private LocalTime timeConvert(java.sql.Time inTime)

@@ -51,6 +51,7 @@ public class main extends javax.swing.JFrame {
         guardShiftCreatorBtn = new javax.swing.JButton();
         guardShiftEditBtn = new javax.swing.JButton();
         guardShiftRemoveBtn = new javax.swing.JButton();
+        guardShiftDayCreatorBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         createShiftBtn = new javax.swing.JButton();
         shiftLookupBtn = new javax.swing.JButton();
@@ -78,6 +79,7 @@ public class main extends javax.swing.JFrame {
         editStaffMenuItem = new javax.swing.JMenuItem();
         removeStaffMenuItem = new javax.swing.JMenuItem();
         addAvailabilityMenuItem = new javax.swing.JMenuItem();
+        addLtsAvailabilityMenuItem = new javax.swing.JMenuItem();
         editAvailabilityMenuItem = new javax.swing.JMenuItem();
         removeAvailabilityMenuItem = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -110,7 +112,7 @@ public class main extends javax.swing.JFrame {
         });
 
         guardShiftCreatorBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        guardShiftCreatorBtn.setText("Create Shift");
+        guardShiftCreatorBtn.setText("Create Single Shift");
         guardShiftCreatorBtn.setEnabled(false);
         guardShiftCreatorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,32 +138,49 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        guardShiftDayCreatorBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        guardShiftDayCreatorBtn.setText("Create Multiple Shifts");
+        guardShiftDayCreatorBtn.setEnabled(false);
+        guardShiftDayCreatorBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardShiftDayCreatorBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(guardShiftEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(guardLookupBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guardShiftEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(guardLookupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(62, 62, 62)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(guardShiftCreatorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(guardShiftRemoveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(15, 15, 15))
+                    .addComponent(guardShiftCreatorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guardShiftDayCreatorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(guardShiftRemoveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardLookupBtn)
-                    .addComponent(guardShiftCreatorBtn))
+                .addComponent(guardShiftCreatorBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guardShiftDayCreatorBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardShiftEditBtn)
-                    .addComponent(guardShiftRemoveBtn))
-                .addGap(0, 83, Short.MAX_VALUE))
+                    .addComponent(guardLookupBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guardShiftRemoveBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Lifeguards", jPanel2);
@@ -274,7 +293,7 @@ public class main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removeShiftBtn)
                     .addComponent(removeCoverBtn))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("LTS", jPanel1);
@@ -340,7 +359,7 @@ public class main extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iscShiftEditBtn)
                     .addComponent(iscShiftRemoveBtn))
-                .addGap(0, 83, Short.MAX_VALUE))
+                .addGap(0, 71, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("ISC", jPanel3);
@@ -436,6 +455,16 @@ public class main extends javax.swing.JFrame {
             }
         });
         jMenu2.add(addAvailabilityMenuItem);
+
+        addLtsAvailabilityMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
+        addLtsAvailabilityMenuItem.setText("Add LTS Availability");
+        addLtsAvailabilityMenuItem.setEnabled(false);
+        addLtsAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addLtsAvailabilityMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu2.add(addLtsAvailabilityMenuItem);
 
         editAvailabilityMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         editAvailabilityMenuItem.setText("Edit Availability");
@@ -558,7 +587,7 @@ public class main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -617,6 +646,7 @@ public class main extends javax.swing.JFrame {
         iscShiftEditBtn.setEnabled(true);
         iscShiftRemoveBtn.setEnabled(true);
         exportLgRosterMenuItem.setEnabled(true);
+        guardShiftDayCreatorBtn.setEnabled(true);
         supervisor = true;
         userConfig();
     }
@@ -630,6 +660,7 @@ public class main extends javax.swing.JFrame {
         shiftLookupBtn.setEnabled(true);
         lookupCoverBtn.setEnabled(true);
         addAvailabilityMenuItem.setEnabled(true);
+        addLtsAvailabilityMenuItem.setEnabled(true);
         editAvailabilityMenuItem.setEnabled(true);
         removeAvailabilityMenuItem.setEnabled(true);
         iscLookupBtn.setEnabled(true);
@@ -758,6 +789,8 @@ public class main extends javax.swing.JFrame {
         iscShiftEditBtn.setEnabled(false);
         iscShiftRemoveBtn.setEnabled(false);
         exportLgRosterMenuItem.setEnabled(false);
+        guardShiftDayCreatorBtn.setEnabled(false);
+        addLtsAvailabilityMenuItem.setEnabled(false);
     }//GEN-LAST:event_logoutMenuItemActionPerformed
 
     private void guardShiftEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftEditBtnActionPerformed
@@ -797,7 +830,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_removeLocationMenuItemActionPerformed
 
     private void addAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAvailabilityMenuItemActionPerformed
-        addAvailability newAvailability = new addAvailability(this, connection, supervisor);
+        addAvailability newAvailability = new addAvailability(this, connection, supervisor, myCommonFunctions);
     }//GEN-LAST:event_addAvailabilityMenuItemActionPerformed
 
     private void editAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAvailabilityMenuItemActionPerformed
@@ -835,6 +868,14 @@ public class main extends javax.swing.JFrame {
     private void exportLgRosterMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportLgRosterMenuItemActionPerformed
         lgExport guardExport = new lgExport(this, connection, myCommonFunctions);
     }//GEN-LAST:event_exportLgRosterMenuItemActionPerformed
+
+    private void guardShiftDayCreatorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftDayCreatorBtnActionPerformed
+        lgDayShiftCreator guardShiftDayCreator = new lgDayShiftCreator(this, connection, myCommonFunctions);
+    }//GEN-LAST:event_guardShiftDayCreatorBtnActionPerformed
+
+    private void addLtsAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLtsAvailabilityMenuItemActionPerformed
+        addLtsAvailability newLtsAvailability = new addLtsAvailability(this, connection, supervisor, myCommonFunctions);
+    }//GEN-LAST:event_addLtsAvailabilityMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -876,6 +917,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem absenteeMenuItem;
     private javax.swing.JMenuItem addAvailabilityMenuItem;
+    private javax.swing.JMenuItem addLtsAvailabilityMenuItem;
     private javax.swing.JButton createCoverBtn;
     private javax.swing.JButton createShiftBtn;
     private javax.swing.JMenuItem databaseConnectMenuItem;
@@ -887,6 +929,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenuItem exportLgRosterMenuItem;
     private javax.swing.JButton guardLookupBtn;
     private javax.swing.JButton guardShiftCreatorBtn;
+    private javax.swing.JButton guardShiftDayCreatorBtn;
     private javax.swing.JButton guardShiftEditBtn;
     private javax.swing.JButton guardShiftRemoveBtn;
     private javax.swing.JButton iscLookupBtn;
