@@ -34,16 +34,12 @@ CREATE TABLE `lifeguard` (
   `end_time` time NOT NULL,
   `location` varchar(65) NOT NULL,
   `staff1` varchar(65) NOT NULL,
-  `staff2` varchar(65) NOT NULL,
-  `staff3` varchar(65) NOT NULL,
   `onCall` varchar(65) NOT NULL,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `lifeguard`
   ADD KEY `staff1` (`staff1`),
-  ADD KEY `staff2` (`staff2`),
-  ADD KEY `staff3` (`staff3`),
   ADD CONSTRAINT `staffFK` FOREIGN KEY (`staff1`) REFERENCES `users` (`username`);
   
 /* create table LTS_Shift */

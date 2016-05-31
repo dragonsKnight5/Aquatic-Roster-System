@@ -310,7 +310,7 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
             do {
                 count++;
                 dateCombo.addItem(comFunc.plusDaysFormated(shiftDate, count));
-            } while (count != 17);
+            } while (count != 20);
 
             dateCombo.setSelectedItem(comFunc.formatDate(shiftDate));
 

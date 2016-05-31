@@ -40,10 +40,20 @@ public class commonFunctions {
     
     public String formatDate(LocalDate date)
     {
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         String dateString = myFormat.format(date);
         return dateString;
     }
+    
+    public String formatDate(java.sql.Date date)
+    {
+        String dateString = myDateFormat.format(date);
+        return dateString;
+    }
+    
+/**    public java.sql.Date formatDateOnly (java.sql.Date inDate)
+    {
+        return myDateFormat.;
+    }**/
     
     public String plusDaysFormated(LocalDate date, int days)
     {

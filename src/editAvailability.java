@@ -438,7 +438,7 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
                     dateString = myFormat.format(newDate);
                     dateCombo.addItem(dateString);
                     count = count + 7;
-                } while (count != 21);
+                } while (count != 25);
             dateString = myFormat.format(selectedDate);
             dateCombo.setSelectedItem(dateString);
 

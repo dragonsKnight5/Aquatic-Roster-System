@@ -382,33 +382,36 @@ public class lgExport extends javax.swing.JDialog
         System.out.println("Day: " + outDate.getDayOfWeek());
         
         java.sql.Date myDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
-        java.sql.Date startDate = myDate;
+        LocalDate startDate = myDate.toLocalDate();
         // write saturday values
         guardSheet = writeSaturday(myDate, guardSheet);
         LocalDate tempDate = myDate.toLocalDate().plusDays(1); //get sunday date
         myDate = java.sql.Date.valueOf(tempDate);
         // write sunday values
-        guardSheet = writeSunday(myDate, guardSheet);
-        tempDate = myDate.toLocalDate().plusDays(1); //get monday date
-        myDate = java.sql.Date.valueOf(tempDate);
+        //guardSheet = writeSunday(myDate, guardSheet);
+        //tempDate = myDate.toLocalDate().plusDays(1); //get monday date
+        //myDate = java.sql.Date.valueOf(tempDate);
         // write monday values
-        guardSheet = writeMonday(myDate, guardSheet);
+        //guardSheet = writeMonday(myDate, guardSheet);
         
         
-        if (mondayOtherRdBttn.isSelected())
+       /** if (mondayOtherRdBttn.isSelected())
         {
-            guardSheet.getCellAt("AC").setValue(supMondayTextField.getText());
+            guardSheet.getCellAt("AC6").setValue(supMondayTextField.getText());
         }
         else
         {
-            guardSheet.getCellAt("AC").setValue(defaultSUP);
-        }
-        String fileName = "roster" + startDate;
+            guardSheet.getCellAt("AC6").setValue(defaultSUP);
+        }**/
+       
+        String fileName = "roster " + startDate.getDayOfMonth() + "-" + startDate.getMonthValue() + "-" + startDate.getYear();
         comFunc.saveFile(guardSheet, fileName);
     }//GEN-LAST:event_exportButtonActionPerformed
 
     private Sheet writeSaturday(java.sql.Date inDate, Sheet inSheet)
     {
+        System.out.println("write saturday function");
+        System.out.println(inDate.toString() + " " + inDate.toLocalDate().getDayOfWeek());
         final String saturdayDay = "H1";
         final String saturdayMonth = "J1";
         final String saturdayYear = "L1";
@@ -420,8 +423,18 @@ public class lgExport extends javax.swing.JDialog
         final String saturday200close = "L6";
         final String saturdayOncallMorning = "F6";
         final String saturdayOncallAfternoon = "M6";
+        
+        //Add Saturday date
+        LocalDate saturdayDate = inDate.toLocalDate();
+        System.out.println("Saturday Day");
+        inSheet.getCellAt(saturdayDay).setValue(saturdayDate.getDayOfMonth());
+        System.out.println("Saturday Month");
+        inSheet.getCellAt(saturdayMonth).setValue(saturdayDate.getMonthValue());
+        System.out.println("Saturday Year");
+        inSheet.getCellAt(saturdayYear).setValue(saturdayDate.getYear());
+        
         String command = "select * from lifeguard where shift_date = \'" + inDate+ "\'";
-        System.out.println(command);
+        //System.out.println(command);
         ResultSet result = null;
         try {
             result = connection.lookup(command);
@@ -429,48 +442,47 @@ public class lgExport extends javax.swing.JDialog
                 lifeguards tempGuard = new lifeguards(result.getInt("ID"), result.getDate("shift_Date"), result.getTime("start_time"), result.getTime("end_time"), result.getString("location"), result.getString("staff1"), result.getString("onCall"));
                 guardShifts.add(tempGuard);
             }
+            
             int count = 0;
             while (count < guardShifts.size())
             {
-                System.out.println("count: " + count + " guardShifts: " + guardShifts.size());
                 lifeguards tempGuard = guardShifts.get(count);
-                if (tempGuard.getStartTime() == satSunOpenTime && tempGuard.getEndTime() == twoPm) // open to 2pm
+                System.out.println("Shift start time: " + tempGuard.getStartTimeString() + " end time " + tempGuard.getEndTime().toString());
+                if (tempGuard.getStartTime().toString().equalsIgnoreCase("6:00") && tempGuard.getEndTime().toString().equalsIgnoreCase("14:00")) // open to 2pm
                 {
+                    System.out.println("Open  to 2pm");
                     inSheet.getCellAt(saturdaySPAopen).setValue(tempGuard.getStaff1());
                     inSheet.getCellAt(saturdayOncallMorning).setValue(tempGuard.getOnCall());
-                    
-                    //Add Saturday date
-                    LocalDate saturdayDate = tempGuard.getShiftDate().toLocalDate();
-                    System.out.println("Saturday Day");
-                    inSheet.getCellAt(saturdayDay).setValue(saturdayDate.getDayOfMonth());
-                    System.out.println("Saturday Month");
-                    inSheet.getCellAt(saturdayMonth).setValue(saturdayDate.getMonthValue());
-                    System.out.println("Saturday Year");
-                    inSheet.getCellAt(saturdayYear).setValue(saturdayDate.getYear());
                 }
-                else if (tempGuard.getStartTime() == onePm && tempGuard.getEndTime() == satSunClose) //1pm to close
+                else if (tempGuard.getStartTime().toString().equalsIgnoreCase("13:00") && tempGuard.getEndTime().toString().equalsIgnoreCase("19:00")) //1pm to close
                 {
+                    System.out.println("1pm to close");
                     inSheet.getCellAt(saturdaySPAclose).setValue(tempGuard.getStaff1());
                     inSheet.getCellAt(saturdayOncallAfternoon).setValue(tempGuard.getStaff1());
                 }
                 else if (tempGuard.getStartTime() == satSunOpenTime && tempGuard.getEndTime() == elevenThirty) // open to 11:30 am
                 {
+                    System.out.println("open to 11:30");
                     inSheet.getCellAt(saturdayOpen1130).setValue(tempGuard.getStaff1());
                 }
                 else if (tempGuard.getStartTime() == eightThirty && tempGuard.getEndTime() == onePm) // 8:30 am to 1 pm
                 {
+                    System.out.println("8:30 to 1pm");
                     inSheet.getCellAt(saturday830100).setValue(tempGuard.getStaff1());
                 }
                 else if (tempGuard.getStartTime() == eightThirty && tempGuard.getEndTime() == onePm) // 8:30 am to 1 pm
                 {
+                    System.out.println("8:30 to 1pm");
                     inSheet.getCellAt(saturday830100).setValue(tempGuard.getStaff1());
                 }
                 else if (tempGuard.getStartTime() == onePm && tempGuard.getEndTime() == fivePm) // 1pm to 5 pm
                 {
+                    System.out.println("1pm to 5pm");
                     inSheet.getCellAt(saturday100500).setValue(tempGuard.getStaff1());
                 }
                 else if (tempGuard.getStartTime() == twoPm && tempGuard.getEndTime() == satSunClose) // 2 pm to close
                 {
+                    System.out.println("2pm to close");
                     inSheet.getCellAt(saturday200close).setValue(tempGuard.getStaff1());
                 }
                 count ++;
@@ -485,6 +497,8 @@ public class lgExport extends javax.swing.JDialog
     
     private Sheet writeSunday(java.sql.Date inDate, Sheet inSheet)
     {
+        System.out.println("Write Sunday Function");
+        System.out.println(inDate.toString() + " " + inDate.toLocalDate().getDayOfWeek());
         final String sundayDay = "U1";
         final String sundayMonth = "W1";
         final String sundayYear = "Y1";
@@ -495,6 +509,12 @@ public class lgExport extends javax.swing.JDialog
         final String sunday1pmClose = "X6";
         final String sundayAfternoonOncall = "Z6";
         
+        //Add Sunday date
+        LocalDate saturdayDate = inDate.toLocalDate();
+        inSheet.getCellAt(sundayDay).setValue(saturdayDate.getDayOfMonth());
+        inSheet.getCellAt(sundayMonth).setValue(saturdayDate.getMonthValue());
+        inSheet.getCellAt(sundayYear).setValue(saturdayDate.getYear());
+        
         String command = "select * from lifeguard where shift_date = " + inDate;
         ResultSet result = null;
         try {
@@ -504,19 +524,13 @@ public class lgExport extends javax.swing.JDialog
                 guardShifts.add(tempGuard);
             }
             int count = 0;
-            while (count <= guardShifts.size())
+            while (count < guardShifts.size())
             {
                 lifeguards tempGuard = guardShifts.get(count);
                 if (tempGuard.getStartTime() == satSunOpenTime && tempGuard.getEndTime() == onePm) // open to 1pm
                 {
                     inSheet.getCellAt(sundaySPAopen1pm).setValue(tempGuard.getStaff1());
                     inSheet.getCellAt(sundayMorningOncall).setValue(tempGuard.getOnCall());
-                    
-                    //Add Sunday date
-                    LocalDate saturdayDate = tempGuard.getShiftDate().toLocalDate();
-                    inSheet.getCellAt(sundayDay).setValue(saturdayDate.getDayOfMonth());
-                    inSheet.getCellAt(sundayMonth).setValue(saturdayDate.getMonthValue());
-                    inSheet.getCellAt(sundayYear).setValue(saturdayDate.getYear());
                 }
                 else if (tempGuard.getStartTime() == tenThirty && tempGuard.getEndTime() == satSunClose) //10:30am to close
                 {
@@ -543,6 +557,8 @@ public class lgExport extends javax.swing.JDialog
     
     private Sheet writeMonday(java.sql.Date inDate, Sheet inSheet)
     {
+        System.out.println("write saturday function");
+        System.out.println(inDate.toString() + " " + inDate.toLocalDate().getDayOfWeek());
         final String mondayDay = "AH1";
         final String mondayMonth = "AJ1";
         final String mondayYear = "AL1";
@@ -563,7 +579,7 @@ public class lgExport extends javax.swing.JDialog
                 guardShifts.add(tempGuard);
             }
             int count = 0;
-            while (count <= guardShifts.size())
+            while (count < guardShifts.size())
             {
                 lifeguards tempGuard = guardShifts.get(count);
                 if (tempGuard.getStartTime() == openTime && tempGuard.getEndTime() == onePm) // open to 1pm
