@@ -448,39 +448,39 @@ public class lgExport extends javax.swing.JDialog
             {
                 lifeguards tempGuard = guardShifts.get(count);
                 System.out.println("Shift start time: " + tempGuard.getStartTimeString() + " end time " + tempGuard.getEndTime().toString());
-                if (tempGuard.getStartTime().toString().equalsIgnoreCase("6:00") && tempGuard.getEndTime().toString().equalsIgnoreCase("14:00")) // open to 2pm
+                if (tempGuard.getStartTime().toString().equalsIgnoreCase("06:00") && tempGuard.getEndTime().toString().equalsIgnoreCase("14:00")) // open to 2pm
                 {
                     System.out.println("Open  to 2pm");
                     inSheet.getCellAt(saturdaySPAopen).setValue(tempGuard.getStaff1());
                     inSheet.getCellAt(saturdayOncallMorning).setValue(tempGuard.getOnCall());
                 }
-                else if (tempGuard.getStartTime().toString().equalsIgnoreCase("13:00") && tempGuard.getEndTime().toString().equalsIgnoreCase("19:00")) //1pm to close
+                else if (tempGuard.getStartTime().toString().equalsIgnoreCase("13:00") && tempGuard.getEndTime().toString().equalsIgnoreCase("19:30")) //1pm to close
                 {
                     System.out.println("1pm to close");
                     inSheet.getCellAt(saturdaySPAclose).setValue(tempGuard.getStaff1());
                     inSheet.getCellAt(saturdayOncallAfternoon).setValue(tempGuard.getStaff1());
                 }
-                else if (tempGuard.getStartTime() == satSunOpenTime && tempGuard.getEndTime() == elevenThirty) // open to 11:30 am
+                else if (tempGuard.getStartTime().toString().equalsIgnoreCase("06:00") && tempGuard.getEndTime().toString().equalsIgnoreCase("11:30")) // open to 11:30 am
                 {
                     System.out.println("open to 11:30");
                     inSheet.getCellAt(saturdayOpen1130).setValue(tempGuard.getStaff1());
                 }
-                else if (tempGuard.getStartTime() == eightThirty && tempGuard.getEndTime() == onePm) // 8:30 am to 1 pm
+                else if (tempGuard.getStartTime().toString().equalsIgnoreCase("08:30") && tempGuard.getEndTime().toString().equalsIgnoreCase("13:00")) // 8:30 am to 1 pm
                 {
                     System.out.println("8:30 to 1pm");
                     inSheet.getCellAt(saturday830100).setValue(tempGuard.getStaff1());
                 }
-                else if (tempGuard.getStartTime() == eightThirty && tempGuard.getEndTime() == onePm) // 8:30 am to 1 pm
+                else if (tempGuard.getStartTime().toString().equalsIgnoreCase("08:30") && tempGuard.getEndTime().toString().equalsIgnoreCase("13:00")) // 8:30 am to 1 pm
                 {
                     System.out.println("8:30 to 1pm");
                     inSheet.getCellAt(saturday830100).setValue(tempGuard.getStaff1());
                 }
-                else if (tempGuard.getStartTime() == onePm && tempGuard.getEndTime() == fivePm) // 1pm to 5 pm
+                else if (tempGuard.getStartTime().toString().equalsIgnoreCase("13:00") && tempGuard.getEndTime().toString().equalsIgnoreCase("17:00")) // 1pm to 5 pm
                 {
                     System.out.println("1pm to 5pm");
                     inSheet.getCellAt(saturday100500).setValue(tempGuard.getStaff1());
                 }
-                else if (tempGuard.getStartTime() == twoPm && tempGuard.getEndTime() == satSunClose) // 2 pm to close
+                else if (tempGuard.getStartTime().toString().equalsIgnoreCase("14:00") && tempGuard.getEndTime().toString().equalsIgnoreCase("19:30")) // 2 pm to close
                 {
                     System.out.println("2pm to close");
                     inSheet.getCellAt(saturday200close).setValue(tempGuard.getStaff1());

@@ -74,33 +74,36 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="startHourSpinner2" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                              <Component id="startHourSpinner1" min="-2" pref="53" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="startHourSpinner3" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
-                                          <Component id="startHourSpinner4" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
-                                          <Component id="startHourSpinner5" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
-                                          <Component id="startHourSpinner6" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                              <Component id="startMinuteSpinner1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="startMinuteSpinner2" min="-2" pref="53" max="-2" attributes="0"/>
-                                              <Component id="startMinuteSpinner3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="startMinuteSpinner4" min="-2" pref="53" max="-2" attributes="0"/>
-                                          <Component id="startMinuteSpinner5" min="-2" max="-2" attributes="0"/>
-                                          <Component id="startMinuteSpinner6" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="startHourSpinner2" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                                  <Component id="startHourSpinner1" min="-2" pref="53" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="startHourSpinner3" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                                              <Component id="startHourSpinner4" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                                              <Component id="startHourSpinner5" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                                              <Component id="startHourSpinner6" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="CheckBox4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="startMinuteSpinner1" max="32767" attributes="0"/>
+                                              <Component id="startMinuteSpinner3" max="32767" attributes="0"/>
+                                              <Component id="startMinuteSpinner2" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="startMinuteSpinner5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="startMinuteSpinner6" min="-2" max="-2" attributes="0"/>
+                                          <Component id="startMinuteSpinner4" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -114,14 +117,19 @@
                                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="endHourSpinner1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="endHourSpinner2" min="-2" pref="53" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="endHourSpinner1" max="32767" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="endHourSpinner2" max="32767" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="endMinuteSpinner1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="endMinuteSpinner2" min="-2" pref="53" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="endMinuteSpinner1" max="32767" attributes="0"/>
+                                                  <Component id="endMinuteSpinner2" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -135,14 +143,15 @@
                                               <Component id="endMinuteSpinner4" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="endHourSpinner6" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="endHourSpinner5" max="32767" attributes="0"/>
+                                                  <Component id="endHourSpinner6" max="32767" attributes="0"/>
+                                              </Group>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="endMinuteSpinner6" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="endHourSpinner5" min="-2" pref="53" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="endMinuteSpinner5" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="endMinuteSpinner6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="endMinuteSpinner5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -196,7 +205,6 @@
                           <Component id="CheckBox5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="CheckBox6" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="CheckBox3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="CheckBox4" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="CheckBox2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -225,9 +233,9 @@
                           <Component id="weekStartingCombo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="shiftDayLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="shiftDayLabel" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -991,6 +999,7 @@
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="weekStartingComboItemStateChanged"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weekStartingComboActionPerformed"/>
       </Events>
       <AuxValues>
