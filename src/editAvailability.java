@@ -32,6 +32,7 @@ import javax.swing.JOptionPane;
 public class editAvailability extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
+    commonFunctions comFunc;
     Boolean supervisor;
     ArrayList<availability> availList = new ArrayList<availability>();
     int ID;
@@ -39,12 +40,13 @@ public class editAvailability extends javax.swing.JDialog {
     /**
      * Creates new form addAvailability
      */
-public editAvailability(main inParent, dbConnection inConnection, Boolean inSupervisor) {
+public editAvailability(main inParent, dbConnection inConnection, Boolean inSupervisor, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
         supervisor = inSupervisor;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -172,8 +174,10 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
             }
         });
 
+        availabilityList.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         availabilityList.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         availabilityList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        availabilityList.setSelectedIndex(0);
         availabilityList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 availabilityListValueChanged(evt);
@@ -418,7 +422,7 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
         
             // date manipulation block
             dateCombo.removeAllItems();
-            DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+            //DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
             Date availDate = selectedAvailability.getWeekStarting();
             LocalDate selectedDate = availDate.toLocalDate();
             String dateString = null;
@@ -427,7 +431,8 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
             do
                 {
                     newDate = selectedDate.minusDays(count);
-                    dateString = myFormat.format(newDate);
+                    //dateString = myFormat.format(newDate);
+                    dateString = comFunc.formatDate(newDate);
                     dateCombo.addItem(dateString);
                     count = count - 7;
                 } while (count != 0);
@@ -435,11 +440,13 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
             do 
                 {
                     newDate = selectedDate.plusDays(count);
-                    dateString = myFormat.format(newDate);
+                    //dateString = myFormat.format(newDate);
+                    dateString = comFunc.formatDate(newDate);
                     dateCombo.addItem(dateString);
                     count = count + 7;
-                } while (count != 25);
-            dateString = myFormat.format(selectedDate);
+                } while (count != 28);
+            //dateString = myFormat.format(selectedDate);
+            dateString = comFunc.formatDate(selectedDate);
             dateCombo.setSelectedItem(dateString);
 
             String tempDay = selectedAvailability.getMonday();
@@ -527,6 +534,14 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
                 {
                     locationCombo.addItem(returned.getString("location"));
                 }
+            }
+            if (availList.isEmpty())
+            {
+                availabilityList.setSelectedIndex(-1);
+            }
+            else
+            {
+                availabilityList.setSelectedIndex(0);
             }
         }
         catch (SQLException ex)
