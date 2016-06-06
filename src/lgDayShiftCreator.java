@@ -780,12 +780,12 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(parent, ex);
         }
 
-        LocalDate date = LocalDate.now();
-        System.out.println("Date Now: " + date);
-        LocalDate myDate = date.with(next(DayOfWeek.SATURDAY));
+        //LocalDate date = LocalDate.now();
+        //System.out.println("Date Now: " + date);
+        LocalDate myDate = LocalDate.now().with(next(DayOfWeek.SATURDAY));
         //System.out.println("Date next Monday: " + myDate);
         //date = myDate;
-        int count = 0;
+        //int count = 0;
        // while (count < 50) {
        //     dateCombo.addItem(comFunc.formatDate(myDate));
        //     count++;
@@ -793,12 +793,12 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         //}
         
         //start week dates
-        count = 0;
+        int count = 0;
         while (count < 7) {
-            weekStartingCombo.addItem(comFunc.formatDate(date));
+            weekStartingCombo.addItem(comFunc.formatDate(myDate));
             count++;
-            System.out.println("count is: " + count + "\ndate: " + date.toString());
-            date = date.plusDays(7);
+            System.out.println("count is: " + count + "\ndate: " + myDate.toString());
+            myDate = myDate.plusDays(7);
         }
         refreshButton.doClick();
         

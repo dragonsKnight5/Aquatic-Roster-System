@@ -73,8 +73,7 @@ public class lifeguards {
     
     public String getStartTimeString()
     {
-                String time = startTime.toString();
-                return time;
+                return startTime.toString();
     }
     
     public LocalTime getEndTime()
@@ -84,8 +83,7 @@ public class lifeguards {
     
     public String getEndTimeString()
     {
-        String time = endTime.toString();
-        return time;
+        return endTime.toString();
     }
     
     public String getStaff1()

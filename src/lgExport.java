@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.DayOfWeek;
@@ -21,6 +22,7 @@ import java.time.LocalTime;
 import static java.time.temporal.TemporalAdjusters.next;
 import java.util.ArrayList;
 import org.jopendocument.dom.spreadsheet.Sheet;
+import org.jopendocument.dom.spreadsheet.Range;
 /**
  *
  * @author james
@@ -47,9 +49,7 @@ public class lgExport extends javax.swing.JDialog
     LocalTime twelveThirty = LocalTime.of(12, 30);
     LocalTime sevenPm = LocalTime.of(19, 00);
     
-    private final String tuesdayDay = "AT1";
-    private final String tuesdayMonth = "AV1";
-    private final String tuesdayYear = "AX1";
+    String [] [] timeList = new String [33] [3];
     
     private final String wednesdayDay = "BG1";
     private final String wednesdayMonth = "BI1";
@@ -96,9 +96,9 @@ public class lgExport extends javax.swing.JDialog
         mondayOtherRdBttn = new javax.swing.JRadioButton();
         supMondayTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        tuesdayOtherRdBttn = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        supTextField3 = new javax.swing.JTextField();
+        supTuesdayTextField = new javax.swing.JTextField();
         tuesdayDefRdBttn = new javax.swing.JRadioButton();
         wednesdayDefRdBttn = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
@@ -150,11 +150,11 @@ public class lgExport extends javax.swing.JDialog
 
         jLabel4.setText("Monday:");
 
-        tuesdayGroup.add(jRadioButton7);
-        jRadioButton7.setText("Other");
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+        tuesdayGroup.add(tuesdayOtherRdBttn);
+        tuesdayOtherRdBttn.setText("Other");
+        tuesdayOtherRdBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
+                tuesdayOtherRdBttnActionPerformed(evt);
             }
         });
 
@@ -243,9 +243,9 @@ public class lgExport extends javax.swing.JDialog
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(tuesdayDefRdBttn)
-                                            .addComponent(jRadioButton7))
+                                            .addComponent(tuesdayOtherRdBttn))
                                         .addGap(18, 18, 18)
-                                        .addComponent(supTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(supTuesdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -307,8 +307,8 @@ public class lgExport extends javax.swing.JDialog
                         .addComponent(tuesdayDefRdBttn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(supTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton7)))
+                            .addComponent(supTuesdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tuesdayOtherRdBttn)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(fridayDefRdBttn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -349,6 +349,140 @@ public class lgExport extends javax.swing.JDialog
             dateCombo.addItem(comFunc.plusDaysFormated(myDate, 7));
             dateCombo.addItem(comFunc.plusDaysFormated(myDate, 14));
             dateCombo.addItem(comFunc.plusDaysFormated(myDate, 21));
+        
+            //Add time data to array    
+            //Row 1
+            timeList[0][0] = "5:00";
+            timeList[0][1] = "27";
+            timeList[0][2] = "86";
+            //Row 2
+            timeList[1][0] = "5:30";
+            timeList[1][1] = "28";
+            timeList[1][2] = "87";
+            //Row 3
+            timeList[2][0] = "6:00";
+            timeList[2][1] = "29";
+            timeList[2][2] = "88";
+            //Row 4
+            timeList[3][0] = "6:30";
+            timeList[3][1] = "30";
+            timeList[3][2] = "89";
+            //Row 5
+            timeList[4][0] = "7:00";
+            timeList[4][1] = "31";
+            timeList[4][2] = "90";
+            //Row 6
+            timeList[5][0] = "7:30";
+            timeList[5][1] = "32";
+            timeList[5][2] = "91";
+            //Row 7
+            timeList[6][0] = "8:00";
+            timeList[6][1] = "33";
+            timeList[6][2] = "92";
+            //Row 8
+            timeList[7][0] = "8:30";
+            timeList[7][1] = "34";
+            timeList[7][2] = "93";
+            //Row 9
+            timeList[8][0] = "9:00";
+            timeList[8][1] = "35";
+            timeList[8][2] = "94";
+            //Row 10
+            timeList[9][0] = "9:30";
+            timeList[9][1] = "36";
+            timeList[9][2] = "95";
+            //Row 11
+            timeList[10][0] = "10:00";
+            timeList[10][1] = "37";
+            timeList[10][2] = "96";
+            //Row 12
+            timeList[11][0] = "10:30";
+            timeList[11][1] = "38";
+            timeList[11][2] = "97";
+            //Row 13
+            timeList[12][0] = "11:00";
+            timeList[12][1] = "39";
+            timeList[12][2] = "98";
+            //Row 14
+            timeList[13][0] = "11:30";
+            timeList[13][1] = "40";
+            timeList[13][2] = "99";
+            //Row 15
+            timeList[14][0] = "12:00";
+            timeList[14][1] = "41";
+            timeList[14][2] = "100";
+            //Row 16
+            timeList[15][0] = "12:30";
+            timeList[15][1] = "42";
+            timeList[15][2] = "101";
+            //Row 17
+            timeList[16][0] = "13:00";
+            timeList[16][1] = "43";
+            timeList[16][2] = "102";
+            //Row 18
+            timeList[17][0] = "13:30";
+            timeList[17][1] = "44";
+            timeList[17][2] = "103";
+            //Row 19
+            timeList[18][0] = "14:30";
+            timeList[18][1] = "45";
+            timeList[18][2] = "104";
+            //Row 20
+            timeList[19][0] = "15:00";
+            timeList[19][1] = "46";
+            timeList[19][2] = "105";
+            //Row 21
+            timeList[20][0] = "15:30";
+            timeList[20][1] = "47";
+            timeList[20][2] = "106";
+            //Row 22
+            timeList[21][0] = "16:00";
+            timeList[21][1] = "48";
+            timeList[21][2] = "107";
+            //Row 23
+            timeList[22][0] = "16:30";
+            timeList[22][1] = "49";
+            timeList[22][2] = "108";
+            //Row 24
+            timeList[23][0] = "17:00";
+            timeList[23][1] = "50";
+            timeList[23][2] = "109";
+            //Row 25
+            timeList[24][0] = "17:30";
+            timeList[24][1] = "51";
+            timeList[24][2] = "110";
+            //Row 26
+            timeList[25][0] = "18:00";
+            timeList[25][1] = "52";
+            timeList[25][2] = "111";
+            //Row 27
+            timeList[26][0] = "18:30";
+            timeList[26][1] = "53";
+            timeList[26][2] = "112";
+            //Row 28
+            timeList[27][0] = "19:00";
+            timeList[27][1] = "54";
+            timeList[27][2] = "113";
+            //Row 29
+            timeList[28][0] = "19:30";
+            timeList[28][1] = "55";
+            timeList[28][2] = "114";
+            //Row 30
+            timeList[29][0] = "20:00";
+            timeList[29][1] = "56";
+            timeList[29][2] = "115";
+            //Row 31
+            timeList[30][0] = "20:30";
+            timeList[30][1] = "57";
+            timeList[30][2] = "116";
+            //Row 32
+            timeList[31][0] = "21:00";
+            timeList[31][1] = "58";
+            timeList[31][2] = "117";
+            //Row 33
+            timeList[32][0] = "21:30";
+            timeList[32][1] = "59";
+            timeList[32][2] = "118";
         }
         catch (Exception ex)
         {
@@ -360,9 +494,9 @@ public class lgExport extends javax.swing.JDialog
         // TODO add your handling code here:
     }//GEN-LAST:event_mondayOtherRdBttnActionPerformed
 
-    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+    private void tuesdayOtherRdBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tuesdayOtherRdBttnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton7ActionPerformed
+    }//GEN-LAST:event_tuesdayOtherRdBttnActionPerformed
 
     private void jRadioButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton10ActionPerformed
         // TODO add your handling code here:
@@ -393,8 +527,8 @@ public class lgExport extends javax.swing.JDialog
         myDate = java.sql.Date.valueOf(tempDate);
         // write monday values
         guardSheet = writeMonday(myDate, guardSheet);
-        
-        
+        tempDate = myDate.toLocalDate().plusDays(1); //get tuesday date
+        myDate = java.sql.Date.valueOf(tempDate);
         if (mondayOtherRdBttn.isSelected())
         {
             guardSheet.getCellAt("AC6").setValue(supMondayTextField.getText());
@@ -403,7 +537,16 @@ public class lgExport extends javax.swing.JDialog
         {
             guardSheet.getCellAt("AC6").setValue(defaultSUP);
         }
-       
+        // write tuesday values
+        guardSheet = writeTuesday(myDate, guardSheet);        
+       if (tuesdayOtherRdBttn.isSelected())
+        {
+            guardSheet.getCellAt("AC6").setValue(supTuesdayTextField.getText());
+        }
+        else
+        {
+            guardSheet.getCellAt("AC6").setValue(defaultSUP);
+        }
         String fileName = "roster " + startDate.getDayOfMonth() + "-" + startDate.getMonthValue() + "-" + startDate.getYear();
         comFunc.saveFile(guardSheet, fileName);
     }//GEN-LAST:event_exportButtonActionPerformed
@@ -632,6 +775,90 @@ public class lgExport extends javax.swing.JDialog
         return inSheet;
     }
     
+    private Sheet writeTuesday(java.sql.Date inDate, Sheet inSheet)
+    {
+        guardShifts.clear();
+        System.out.println("write Tuesday function");
+        //System.out.println(inDate.toString() + " " + inDate.toLocalDate().getDayOfWeek());
+        final String tuesdayDay = "AT1";
+        final String tuesdayMonth = "AV1";
+        final String tuesdayYear = "AX1";
+
+        ArrayList tuesdayColumns = new ArrayList();
+        tuesdayColumns.add("AP");
+        tuesdayColumns.add("AQ");
+        tuesdayColumns.add("AR");
+        tuesdayColumns.add("AS");
+        tuesdayColumns.add("AT");
+        tuesdayColumns.add("AU");
+        tuesdayColumns.add("AV");
+        tuesdayColumns.add("AX");
+        tuesdayColumns.add("AY");
+        Integer staffRow = 6;
+        String selectedColumn;
+        
+        //Add Tuesday date
+        LocalDate saturdayDate = inDate.toLocalDate();
+        inSheet.getCellAt(tuesdayDay).setValue(saturdayDate.getDayOfMonth());
+        inSheet.getCellAt(tuesdayMonth).setValue(saturdayDate.getMonthValue());
+        inSheet.getCellAt(tuesdayYear).setValue(saturdayDate.getYear());
+        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' order by start_time";
+        ResultSet result = null;
+        try {
+            result = connection.lookup(command);
+            while (result.next()) {
+                lifeguards tempGuard = new lifeguards(result.getInt("ID"), result.getDate("shift_Date"), result.getTime("start_time"), result.getTime("end_time"), result.getString("location"), result.getString("staff1"), result.getString("onCall"));
+                System.out.println("Sunday shift start time: " + tempGuard.getStartTimeString() + " end time " + tempGuard.getEndTime().toString() + " record: " + tempGuard.getID());
+                guardShifts.add(tempGuard);
+            }
+            int count = 0;
+            System.out.println("thare are " + guardShifts.size() + " lifeguard shifts");
+            do
+            {
+                selectedColumn = tuesdayColumns.get(count).toString();
+                lifeguards tempGuard = guardShifts.get(count);
+                inSheet.getCellAt(selectedColumn.concat(staffRow.toString())).setValue(tempGuard.getStaff1());
+                inSheet.getCellAt(selectedColumn.concat("17")).setValue((tempGuard.getStartTimeString().concat(" - ")).concat(tempGuard.getEndTimeString()));
+                System.out.println("Current column: " + selectedColumn + ", staff member: " + tempGuard.getStaff1());
+                String startPoint = null;
+                String endPoint = null;
+                for (int x = 0; x < 33; x = x+1)
+                {
+                    System.out.println("start point loop count: " + x);
+                    if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0]))
+                    {
+                        startPoint = selectedColumn.concat(timeList[x][1]).toString();
+                    }
+                }
+                System.out.println("start point: " + startPoint);
+                for (int x = 0; x < 33; x = x+1)
+                {
+                    System.out.println("end point loop count: " + x);
+                    if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0]))
+                    {
+                        endPoint = selectedColumn.concat(timeList[x][1]).toString();
+                    }
+                }
+                System.out.println("start point: " + endPoint);
+                if (!startPoint.isEmpty())
+                {
+                    inSheet.getCellAt("Sheet1.".concat((startPoint.concat(":")).concat(endPoint))).setBackgroundColor(Color.green);
+                }
+                //inSheet.getRange()
+                count ++;
+            } while (count != guardShifts.size());
+        }
+        catch (SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+        return inSheet;
+    }
+    
     private void dateComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dateComboActionPerformed
@@ -655,19 +882,19 @@ public class lgExport extends javax.swing.JDialog
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton13;
     private javax.swing.JRadioButton jRadioButton14;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton mondayDefRdBttn;
     private javax.swing.ButtonGroup mondayGroup;
     private javax.swing.JRadioButton mondayOtherRdBttn;
     private javax.swing.JTextField supMondayTextField;
-    private javax.swing.JTextField supTextField3;
     private javax.swing.JTextField supTextField4;
     private javax.swing.JTextField supTextField5;
     private javax.swing.JTextField supTextField6;
+    private javax.swing.JTextField supTuesdayTextField;
     private javax.swing.JRadioButton thursdayDefRdBttn;
     private javax.swing.ButtonGroup thursdayGroup;
     private javax.swing.JRadioButton tuesdayDefRdBttn;
     private javax.swing.ButtonGroup tuesdayGroup;
+    private javax.swing.JRadioButton tuesdayOtherRdBttn;
     private javax.swing.JRadioButton wednesdayDefRdBttn;
     private javax.swing.ButtonGroup wednesdayGroup;
     // End of variables declaration//GEN-END:variables

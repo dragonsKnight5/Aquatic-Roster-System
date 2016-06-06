@@ -74,10 +74,10 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="tuesdayDefRdBttn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tuesdayOtherRdBttn" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                                      <Component id="supTextField3" min="-2" pref="112" max="-2" attributes="0"/>
+                                      <Component id="supTuesdayTextField" min="-2" pref="112" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -164,8 +164,8 @@
                       <Component id="tuesdayDefRdBttn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="supTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="supTuesdayTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tuesdayOtherRdBttn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -259,7 +259,7 @@
         <Property name="text" type="java.lang.String" value="Monday:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton7">
+    <Component class="javax.swing.JRadioButton" name="tuesdayOtherRdBttn">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="tuesdayGroup"/>
@@ -267,7 +267,7 @@
         <Property name="text" type="java.lang.String" value="Other"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton7ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tuesdayOtherRdBttnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -275,7 +275,7 @@
         <Property name="text" type="java.lang.String" value="Tuesday:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="supTextField3">
+    <Component class="javax.swing.JTextField" name="supTuesdayTextField">
     </Component>
     <Component class="javax.swing.JRadioButton" name="tuesdayDefRdBttn">
       <Properties>
