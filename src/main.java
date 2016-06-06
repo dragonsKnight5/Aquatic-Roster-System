@@ -26,7 +26,7 @@ public class main extends javax.swing.JFrame {
     Boolean supervisor = false;
     private final String user = "staff";
     private final String password = "dragon";
-    private final String address = "192.168.1.208";
+    private final String address = "192.168.1.209";
     /**
      * Creates new form main
      */
@@ -833,7 +833,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_addAvailabilityMenuItemActionPerformed
 
     private void editAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAvailabilityMenuItemActionPerformed
-        editAvailability availabilityEdit = new editAvailability(this, connection, supervisor);
+        editAvailability availabilityEdit = new editAvailability(this, connection, supervisor, myCommonFunctions);
     }//GEN-LAST:event_editAvailabilityMenuItemActionPerformed
 
     private void removeAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAvailabilityMenuItemActionPerformed
