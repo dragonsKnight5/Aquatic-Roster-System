@@ -345,7 +345,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="guardShiftEditBtn" pref="148" max="32767" attributes="0"/>
+                      <Component id="guardShiftEditBtn" pref="173" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="guardLookupBtn" min="-2" pref="149" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -463,7 +463,7 @@
                           <Component id="createShiftBtn" alignment="0" max="32767" attributes="0"/>
                           <Component id="editShiftBtn" alignment="0" max="32767" attributes="0"/>
                           <Component id="shiftLookupBtn" alignment="0" max="32767" attributes="0"/>
-                          <Component id="removeShiftBtn" alignment="0" max="32767" attributes="0"/>
+                          <Component id="removeShiftBtn" alignment="0" pref="177" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -472,6 +472,7 @@
                           <Component id="EditCoverBtn" alignment="0" max="32767" attributes="0"/>
                           <Component id="removeCoverBtn" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

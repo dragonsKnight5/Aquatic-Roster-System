@@ -26,14 +26,16 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
     dbConnection connection;
     ArrayList<lifeguards> guardShifts = new ArrayList<lifeguards>();
     int ID;
+    commonFunctions comFunc;
     /**
      * Creates new form Lifeguard
      */
-    public LifeguardShiftRemove(main inParent, dbConnection inConnection) {
+    public LifeguardShiftRemove(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -65,6 +67,8 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
         jSeparator3 = new javax.swing.JSeparator();
         onCallLbl = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        startTimeLabel1 = new javax.swing.JLabel();
+        endTimeLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lifeguard Shift Remove");
@@ -79,9 +83,11 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
 
         endTimeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        endTimeLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         startTimeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startTimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        startTimeLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel4.setText("Start Time:");
@@ -134,6 +140,14 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel8.setText("On Call:");
 
+        startTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        startTimeLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        endTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        endTimeLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,11 +174,17 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(staffLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(startTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(endTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(locationLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jSeparator3)
-                                    .addComponent(onCallLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(onCallLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(endTimeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                                            .addComponent(startTimeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(endTimeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                                            .addComponent(startTimeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(closeButton)
@@ -180,9 +200,13 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(startTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(startTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(startTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(endTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(12, 12, 12)
                                 .addComponent(locationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -230,7 +254,9 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
         {
             lifeguards selectedShift = (lifeguards)shiftList.getSelectedValue();
             startTimeLabel.setText(selectedShift.getStartTimeString());
+            startTimeLabel1.setText(comFunc.timeConvert(selectedShift.getStartTime()));
             endTimeLabel.setText(selectedShift.getEndTimeString());
+            endTimeLabel1.setText(comFunc.timeConvert(selectedShift.getEndTime()));
             staffLabel1.setText(selectedShift.getStaff1());
             ID = selectedShift.getID();
             locationLbl.setText(selectedShift.getLocation());
@@ -314,6 +340,7 @@ private void loadData()
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionTickbox;
     private javax.swing.JLabel endTimeLabel;
+    private javax.swing.JLabel endTimeLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -329,5 +356,6 @@ private void loadData()
     private javax.swing.JList shiftList;
     private javax.swing.JLabel staffLabel1;
     private javax.swing.JLabel startTimeLabel;
+    private javax.swing.JLabel startTimeLabel1;
     // End of variables declaration//GEN-END:variables
 }

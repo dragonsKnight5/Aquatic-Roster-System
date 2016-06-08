@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import static java.time.temporal.TemporalAdjusters.next;
 import org.jopendocument.dom.spreadsheet.Sheet;
 import org.jopendocument.dom.spreadsheet.*;
@@ -40,14 +41,12 @@ public class commonFunctions {
     
     public String formatDate(LocalDate date)
     {
-        String dateString = myFormat.format(date);
-        return dateString;
+        return myFormat.format(date);
     }
     
     public String formatDate(java.sql.Date date)
     {
-        String dateString = myDateFormat.format(date);
-        return dateString;
+        return myDateFormat.format(date);
     }
     
 /**    public java.sql.Date formatDateOnly (java.sql.Date inDate)
@@ -181,5 +180,13 @@ public class commonFunctions {
         }
         path = path.concat(seperator);
         return path;
+    }
+    
+    public String timeConvert (LocalTime time)
+    {
+        java.sql.Time tempDate = java.sql.Time.valueOf(time);
+        SimpleDateFormat timeConvertFormat = new  SimpleDateFormat("hh:mm aa");
+        
+        return timeConvertFormat.format(tempDate);
     }
 }

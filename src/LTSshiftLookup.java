@@ -75,6 +75,8 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         jSeparator3 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         locationLbl = new javax.swing.JLabel();
+        startTimeLabel1 = new javax.swing.JLabel();
+        endTimeLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LTS Shift Lookup");
@@ -145,6 +147,12 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         locationLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         locationLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        startTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,14 +175,20 @@ public class LTSshiftLookup extends javax.swing.JDialog {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(startTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                            .addComponent(endTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                             .addComponent(endDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                             .addComponent(jSeparator2)
                             .addComponent(staffLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                             .addComponent(startDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                             .addComponent(jSeparator3)
-                            .addComponent(locationLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)))
+                            .addComponent(locationLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(endTimeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                    .addComponent(startTimeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(startTimeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(endTimeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(dayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -196,9 +210,13 @@ public class LTSshiftLookup extends javax.swing.JDialog {
                                 .addGap(28, 28, 28)
                                 .addComponent(jLabel5))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(startTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(startTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(startTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(endTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -242,7 +260,9 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         try {
             lts selectedShift = (lts) ltsList.getSelectedValue();
             startTimeLabel.setText((selectedShift.getStartTime()).toString());
+            startTimeLabel1.setText(comFunc.timeConvert(selectedShift.getStartTime()));
             endTimeLabel.setText((selectedShift.getEndTime()).toString());
+            endTimeLabel1.setText(comFunc.timeConvert(selectedShift.getEndTime()));
             staffLabel.setText(selectedShift.getStaff());
 
             startDateLabel.setText(comFunc.formatDate(selectedShift.getStartDate().toLocalDate()));
@@ -325,6 +345,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     private javax.swing.JComboBox dayCombo;
     private javax.swing.JLabel endDateLabel;
     private javax.swing.JLabel endTimeLabel;
+    private javax.swing.JLabel endTimeLabel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -341,5 +362,6 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     private javax.swing.JLabel staffLabel;
     private javax.swing.JLabel startDateLabel;
     private javax.swing.JLabel startTimeLabel;
+    private javax.swing.JLabel startTimeLabel1;
     // End of variables declaration//GEN-END:variables
 }

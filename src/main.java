@@ -153,7 +153,7 @@ public class main extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(guardShiftEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                .addComponent(guardShiftEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(guardLookupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -266,13 +266,14 @@ public class main extends javax.swing.JFrame {
                     .addComponent(createShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(shiftLookupBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removeShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(removeShiftBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(createCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lookupCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(EditCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removeCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(removeCoverBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -678,7 +679,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_createShiftBtnActionPerformed
 
     private void lookupCoverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupCoverBtnActionPerformed
-        LTScoverLookup  ltsCoverLookup = new LTScoverLookup (this, connection);
+        LTScoverLookup  ltsCoverLookup = new LTScoverLookup (this, connection, myCommonFunctions);
     }//GEN-LAST:event_lookupCoverBtnActionPerformed
 
     private void createCoverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCoverBtnActionPerformed
@@ -686,7 +687,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_createCoverBtnActionPerformed
 
     private void guardLookupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardLookupBtnActionPerformed
-        LifeguardShiftLookup lifeguardLookup = new LifeguardShiftLookup(this, connection);
+        LifeguardShiftLookup lifeguardLookup = new LifeguardShiftLookup(this, connection, myCommonFunctions);
     }//GEN-LAST:event_guardLookupBtnActionPerformed
 
     private void guardShiftCreatorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftCreatorBtnActionPerformed
@@ -797,7 +798,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_guardShiftEditBtnActionPerformed
 
     private void guardShiftRemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftRemoveBtnActionPerformed
-        LifeguardShiftRemove guardRemove = new LifeguardShiftRemove(this, connection);
+        LifeguardShiftRemove guardRemove = new LifeguardShiftRemove(this, connection, myCommonFunctions);
     }//GEN-LAST:event_guardShiftRemoveBtnActionPerformed
 
     private void editShiftBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editShiftBtnActionPerformed
@@ -813,7 +814,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_EditCoverBtnActionPerformed
 
     private void removeCoverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCoverBtnActionPerformed
-        LTScoverRemove removeCover = new LTScoverRemove(this, connection);
+        LTScoverRemove removeCover = new LTScoverRemove(this, connection, myCommonFunctions);
     }//GEN-LAST:event_removeCoverBtnActionPerformed
 
     private void newLocationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newLocationMenuItemActionPerformed

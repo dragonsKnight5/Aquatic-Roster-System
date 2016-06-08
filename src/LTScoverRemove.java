@@ -25,15 +25,17 @@ public class LTScoverRemove extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
     ArrayList<cover> coverShifts = new ArrayList<cover>();
+    commonFunctions comFunc;
     int ID;
     /**
      * Creates new form Lifeguard
      */
-    public LTScoverRemove(main inParent, dbConnection inConnection) {
+    public LTScoverRemove(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -58,6 +60,8 @@ public class LTScoverRemove extends javax.swing.JDialog {
         completionTickbox = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         locationLbl = new javax.swing.JLabel();
+        startTimeLbl1 = new javax.swing.JLabel();
+        endTimeLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LTS Cover Remove");
@@ -113,6 +117,12 @@ public class LTScoverRemove extends javax.swing.JDialog {
         locationLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         locationLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        startTimeLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,19 +137,24 @@ public class LTScoverRemove extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(startTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(40, 40, 40)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jLabel5)))
-                                        .addComponent(endTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(locationLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5)))
+                                    .addComponent(locationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(73, 73, 73)
                                         .addComponent(removeButton))
-                                    .addComponent(completionTickbox)))
+                                    .addComponent(completionTickbox)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(startTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(startTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(endTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(47, 47, 47)
                                 .addComponent(jLabel1)))))
@@ -154,11 +169,15 @@ public class LTScoverRemove extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(startTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(startTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(startTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(endTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,7 +204,9 @@ public class LTScoverRemove extends javax.swing.JDialog {
         {
             cover selectedShift = (cover)shiftList.getSelectedValue();
             startTimeLbl.setText(selectedShift.getStartTime().toString());
+            startTimeLbl1.setText(comFunc.timeConvert(selectedShift.getStartTime()));
             endTimeLabel.setText(selectedShift.getEndTime().toString());
+            endTimeLabel1.setText(comFunc.timeConvert(selectedShift.getEndTime()));
             ID = selectedShift.getID();
             locationLbl.setText(selectedShift.getLocation());
             
@@ -268,6 +289,7 @@ private void loadData()
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionTickbox;
     private javax.swing.JLabel endTimeLabel;
+    private javax.swing.JLabel endTimeLabel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -276,5 +298,6 @@ private void loadData()
     private javax.swing.JButton removeButton;
     private javax.swing.JList shiftList;
     private javax.swing.JLabel startTimeLbl;
+    private javax.swing.JLabel startTimeLbl1;
     // End of variables declaration//GEN-END:variables
 }

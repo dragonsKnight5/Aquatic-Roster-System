@@ -122,6 +122,20 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         staffCombo7 = new javax.swing.JComboBox<>();
         startHourSpinner7 = new javax.swing.JSpinner();
         startMinuteSpinner5 = new javax.swing.JSpinner();
+        startTimeLbl1 = new javax.swing.JLabel();
+        endTimeLbl1 = new javax.swing.JLabel();
+        startTimeLbl2 = new javax.swing.JLabel();
+        endTimeLbl2 = new javax.swing.JLabel();
+        startTimeLbl3 = new javax.swing.JLabel();
+        endTimeLbl3 = new javax.swing.JLabel();
+        endTimeLbl4 = new javax.swing.JLabel();
+        startTimeLbl4 = new javax.swing.JLabel();
+        endTimeLbl5 = new javax.swing.JLabel();
+        startTimeLbl5 = new javax.swing.JLabel();
+        endTimeLbl6 = new javax.swing.JLabel();
+        startTimeLbl6 = new javax.swing.JLabel();
+        endTimeLbl7 = new javax.swing.JLabel();
+        startTimeLbl7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -202,12 +216,27 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
         startMinuteSpinner1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMinuteSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        startMinuteSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                startMinuteSpinner1StateChanged(evt);
+            }
+        });
 
         endMinuteSpinner1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMinuteSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        endMinuteSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endMinuteSpinner1StateChanged(evt);
+            }
+        });
 
         endHourSpinner1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endHourSpinner1.setModel(new javax.swing.SpinnerNumberModel(10, 10, 21, 1));
+        endHourSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endHourSpinner1StateChanged(evt);
+            }
+        });
 
         staffCombo1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
@@ -236,12 +265,27 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
         startMinuteSpinner2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMinuteSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        startMinuteSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                startMinuteSpinner2StateChanged(evt);
+            }
+        });
 
         endMinuteSpinner2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMinuteSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        endMinuteSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endMinuteSpinner2StateChanged(evt);
+            }
+        });
 
         endHourSpinner2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endHourSpinner2.setModel(new javax.swing.SpinnerNumberModel(10, 10, 21, 1));
+        endHourSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endHourSpinner2StateChanged(evt);
+            }
+        });
 
         submitButton3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         submitButton3.setText("Submit");
@@ -268,12 +312,27 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
         startMinuteSpinner3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMinuteSpinner3.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        startMinuteSpinner3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                startMinuteSpinner3StateChanged(evt);
+            }
+        });
 
         endMinuteSpinner3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMinuteSpinner3.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        endMinuteSpinner3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endMinuteSpinner3StateChanged(evt);
+            }
+        });
 
         endHourSpinner3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endHourSpinner3.setModel(new javax.swing.SpinnerNumberModel(10, 10, 21, 1));
+        endHourSpinner3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endHourSpinner3StateChanged(evt);
+            }
+        });
 
         submitButton4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         submitButton4.setText("Submit");
@@ -300,12 +359,27 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
         startMinuteSpinner4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMinuteSpinner4.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        startMinuteSpinner4.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                startMinuteSpinner4StateChanged(evt);
+            }
+        });
 
         endMinuteSpinner4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMinuteSpinner4.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        endMinuteSpinner4.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endMinuteSpinner4StateChanged(evt);
+            }
+        });
 
         endHourSpinner4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endHourSpinner4.setModel(new javax.swing.SpinnerNumberModel(10, 10, 21, 1));
+        endHourSpinner4.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endHourSpinner4StateChanged(evt);
+            }
+        });
 
         submitButton5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         submitButton5.setText("Submit");
@@ -317,9 +391,19 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
         endMinuteSpinner5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMinuteSpinner5.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        endMinuteSpinner5.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endMinuteSpinner5StateChanged(evt);
+            }
+        });
 
         endHourSpinner5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endHourSpinner5.setModel(new javax.swing.SpinnerNumberModel(10, 10, 21, 1));
+        endHourSpinner5.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endHourSpinner5StateChanged(evt);
+            }
+        });
 
         submitButton6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         submitButton6.setText("Submit");
@@ -331,12 +415,27 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
         startMinuteSpinner6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMinuteSpinner6.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        startMinuteSpinner6.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                startMinuteSpinner6StateChanged(evt);
+            }
+        });
 
         endMinuteSpinner6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMinuteSpinner6.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        endMinuteSpinner6.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endMinuteSpinner6StateChanged(evt);
+            }
+        });
 
         endHourSpinner6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endHourSpinner6.setModel(new javax.swing.SpinnerNumberModel(10, 10, 21, 1));
+        endHourSpinner6.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endHourSpinner6StateChanged(evt);
+            }
+        });
 
         CheckBox6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,6 +444,11 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         });
 
         staffCombo2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        staffCombo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                staffCombo2ActionPerformed(evt);
+            }
+        });
 
         staffCombo3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
@@ -436,12 +540,27 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
         startMinuteSpinner7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMinuteSpinner7.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        startMinuteSpinner7.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                startMinuteSpinner7StateChanged(evt);
+            }
+        });
 
         endMinuteSpinner7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMinuteSpinner7.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        endMinuteSpinner7.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endMinuteSpinner7StateChanged(evt);
+            }
+        });
 
         endHourSpinner7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endHourSpinner7.setModel(new javax.swing.SpinnerNumberModel(10, 10, 21, 1));
+        endHourSpinner7.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endHourSpinner7StateChanged(evt);
+            }
+        });
 
         CheckBox7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,177 +587,276 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
         startMinuteSpinner5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMinuteSpinner5.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        startMinuteSpinner5.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                startMinuteSpinner5StateChanged(evt);
+            }
+        });
+
+        startTimeLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        startTimeLbl2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLbl2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        startTimeLbl3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLbl3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLbl4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        startTimeLbl4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLbl5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        startTimeLbl5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLbl6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        startTimeLbl6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLbl7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        startTimeLbl7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(CheckBox6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(startHourSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(startMinuteSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton8))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel1))
+                            .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(morningOncallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(CheckBox4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(startHourSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(startMinuteSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(endHourSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(endMinuteSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel3)))
+                        .addGap(63, 63, 63)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(100, 100, 100)
+                                .addComponent(jLabel2)
+                                .addGap(42, 42, 42))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(afternoonOncallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(weekStartingCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addGap(51, 51, 51)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                    .addComponent(dateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(shiftDayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(staffCombo4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(submitButton4))
+                                .addComponent(completionTickbox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(submitAllButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(CheckBox5)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(startHourSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(startMinuteSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(CheckBox7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(startHourSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(startMinuteSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(endHourSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(endMinuteSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(staffCombo5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(submitButton5))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(endHourSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(endMinuteSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(endHourSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(endMinuteSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(staffCombo7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(submitButton7))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(staffCombo6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(submitButton6))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(63, 63, 63)
-                                        .addComponent(completionTickbox)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(submitAllButton))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(47, 47, 47)
-                                        .addComponent(jLabel1))
-                                    .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(morningOncallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel3)))
-                                .addGap(63, 63, 63)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(100, 100, 100)
-                                        .addComponent(jLabel2)
-                                        .addGap(42, 42, 42))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(afternoonOncallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(weekStartingCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel4))
-                                        .addGap(51, 51, 51)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                                            .addComponent(dateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(shiftDayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(24, 24, 24))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(CheckBox3)
-                                            .addComponent(CheckBox2))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(startHourSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(startHourSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(startHourSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(20, 20, 20)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(startMinuteSpinner3, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                                            .addComponent(startMinuteSpinner2)
-                                            .addComponent(startMinuteSpinner1))))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
-                                        .addComponent(jLabel6)
-                                        .addGap(83, 83, 83)
-                                        .addComponent(jLabel7))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(CheckBox7)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(endHourSpinner1)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(endHourSpinner2)
-                                                        .addGap(6, 6, 6)))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(endMinuteSpinner1)
-                                                    .addComponent(endMinuteSpinner2)))
+                                                    .addComponent(startTimeLbl6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                                    .addComponent(startTimeLbl7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(endHourSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(endMinuteSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(28, 28, 28)
-                                                .addComponent(staffCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(staffCombo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(staffCombo3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(0, 6, Short.MAX_VALUE)
+                                                    .addComponent(CheckBox6)
+                                                    .addComponent(CheckBox2))
+                                                .addGap(22, 22, 22)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(startHourSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(startHourSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(startHourSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(2, 2, 2))
+                                                            .addComponent(startHourSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGap(2, 2, 2)
+                                                            .addComponent(startHourSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(startMinuteSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(endTimeLbl7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addGap(6, 6, 6)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(layout.createSequentialGroup()
+                                                                            .addGap(6, 6, 6)
+                                                                            .addComponent(endHourSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(endHourSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                    .addGroup(layout.createSequentialGroup()
+                                                                        .addGap(4, 4, 4)
+                                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                            .addComponent(endHourSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                .addComponent(endHourSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                    .addComponent(endHourSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                    .addComponent(endHourSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                        .addGap(2, 2, 2)))
+                                                                .addComponent(endMinuteSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(startMinuteSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(24, 24, 24)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addGap(57, 57, 57)
+                                                                .addComponent(endMinuteSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addComponent(endTimeLbl6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(staffCombo6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel5)
+                                        .addGap(63, 63, 63)
+                                        .addComponent(jLabel6)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(submitButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(submitButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(submitButton3, javax.swing.GroupLayout.Alignment.TRAILING))))))
-                        .addContainerGap())))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(105, 105, 105)
+                                                .addComponent(jLabel7))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(67, 67, 67)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(staffCombo7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(staffCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(staffCombo5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(staffCombo4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(CheckBox3)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(startHourSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(startMinuteSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(333, 333, 333))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(startTimeLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                        .addComponent(CheckBox5)
+                                                        .addGap(24, 24, 24)
+                                                        .addComponent(startHourSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(startMinuteSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(28, 28, 28)
+                                                        .addComponent(endTimeLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(endHourSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(endMinuteSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(CheckBox4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(71, 71, 71)
+                                                        .addComponent(startMinuteSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(startTimeLbl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(24, 24, 24)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(endMinuteSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(endTimeLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(startMinuteSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(startTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(31, 31, 31)))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(63, 63, 63)
+                                                        .addComponent(endMinuteSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(endTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(40, 40, 40)
+                                                        .addComponent(startTimeLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGap(34, 34, 34))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addGap(29, 29, 29)
+                                                                .addComponent(startTimeLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addGap(115, 115, 115)
+                                                                .addComponent(startMinuteSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGap(18, 18, 18)))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(endTimeLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(63, 63, 63)
+                                                        .addComponent(endMinuteSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGap(63, 63, 63)
+                                                            .addComponent(endMinuteSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(endTimeLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(staffCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(staffCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(44, 44, 44)
+                                        .addComponent(submitButton1))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(submitButton7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(submitButton6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(submitButton5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(submitButton4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(submitButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(submitButton2, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                        .addGap(3, 3, 3)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -655,113 +873,171 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
                             .addComponent(weekStartingCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(shiftDayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(shiftDayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(afternoonOncallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(refreshButton)))
+                            .addComponent(refreshButton)
+                            .addComponent(morningOncallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(morningOncallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(endMinuteSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(endMinuteSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(staffCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(submitButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(startMinuteSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(endHourSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(endMinuteSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(staffCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(submitButton3)
-                            .addComponent(startHourSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(50, 50, 50)
                         .addComponent(submitButton1)
-                        .addComponent(staffCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(97, 97, 97)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(staffCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(submitButton3))
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(staffCombo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(submitButton4)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(startMinuteSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(endHourSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(startHourSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(startMinuteSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(endHourSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(startHourSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(CheckBox2)
-                                .addGap(15, 15, 15)
-                                .addComponent(CheckBox3)))))
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(startMinuteSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(endHourSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(endMinuteSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(startHourSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(submitButton4)
-                        .addComponent(staffCombo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CheckBox4))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(CheckBox5)
-                            .addGap(9, 9, 9))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(startHourSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(startMinuteSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(endHourSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(endMinuteSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(staffCombo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(submitButton5)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(endMinuteSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(staffCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(startMinuteSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(startTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(endTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(startMinuteSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(endMinuteSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(staffCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(submitButton2)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(startTimeLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(endTimeLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(8, 8, 8)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(endMinuteSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(CheckBox3)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(startMinuteSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(startHourSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(4, 4, 4)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(startTimeLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                                            .addComponent(endTimeLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(startMinuteSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(endMinuteSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(CheckBox4, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(endHourSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(endHourSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(41, 41, 41)
+                                        .addComponent(endHourSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(endHourSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(startTimeLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(endTimeLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(CheckBox5)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(startMinuteSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(startHourSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(endMinuteSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(endHourSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(staffCombo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(submitButton5))))
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(startTimeLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(endTimeLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(startMinuteSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(CheckBox6))
+                                                    .addComponent(endMinuteSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(startTimeLbl6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(endTimeLbl6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(2, 2, 2)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(staffCombo6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(submitButton6))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(startMinuteSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(CheckBox7)
+                                            .addComponent(endMinuteSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(staffCombo7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(submitButton7)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(endHourSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(endHourSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(CheckBox2)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(startHourSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(startHourSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(110, 110, 110)
+                                .addComponent(startHourSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(114, 114, 114)
+                                .addComponent(startHourSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(startHourSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CheckBox6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(startHourSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(startMinuteSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(endHourSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(endMinuteSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(staffCombo6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(submitButton6)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(endTimeLbl7, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(startTimeLbl7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CheckBox7)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(startHourSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(startMinuteSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(endHourSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(endMinuteSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(staffCombo7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(submitButton7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
                     .addComponent(completionTickbox)
-                    .addComponent(submitAllButton)))
+                    .addComponent(submitAllButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -819,7 +1095,8 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
             System.out.println(command);
             
             returned = connection.lookup(command);
-            while (returned.next()) {
+            while (returned.next()) 
+            {
                 staffCombo1.addItem(returned.getString("username"));
                 staffCombo2.addItem(returned.getString("username"));
                 staffCombo3.addItem(returned.getString("username"));
@@ -828,7 +1105,9 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
                 staffCombo6.addItem(returned.getString("username"));
                 staffCombo7.addItem(returned.getString("username"));
             }
-            if (staffCombo6.getItemCount() < 1) {
+            
+            if (staffCombo6.getItemCount() < 1) 
+            {
                 staffCombo1.addItem("None");
                 staffCombo2.addItem("None");
                 staffCombo3.addItem("None");
@@ -846,6 +1125,188 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         {
             System.out.println(ex);
         }
+        loadUsers();
+        convertAllTimes();
+    }
+    
+    private void loadUsers()
+    {
+        try {
+            //Row 1
+            staffCombo1.removeAllItems();
+            String shift;
+            if ((int) startHourSpinner1.getValue() >= 12) {
+                shift = "Afternoon";
+            } else {
+                shift = "Morning";
+            }
+            java.sql.Date myDate = comFunc.dateSwitch((String) weekStartingCombo.getSelectedItem());
+            String day = myDate.toLocalDate().getDayOfWeek().toString();
+
+            String command = "select username from availability where department = \"Lifeguard\" and location = \'" + locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and " + day
+                    + " = \'" + shift + "\'";
+            System.out.println(command);
+
+            ResultSet returned = connection.lookup(command);
+            while (returned.next()) {
+                staffCombo1.addItem(returned.getString("username"));
+            }
+            if (staffCombo1.getItemCount() < 1) {
+                staffCombo1.addItem("None");
+            }
+            //Row 2
+            staffCombo2.removeAllItems();
+            if ((int) startHourSpinner2.getValue() >= 12) {
+                shift = "Afternoon";
+            } else {
+                shift = "Morning";
+            }
+            myDate = comFunc.dateSwitch((String) weekStartingCombo.getSelectedItem());
+            day = myDate.toLocalDate().getDayOfWeek().toString();
+
+            command = "select username from availability where department = \"Lifeguard\" and location = \'" + locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and " + day
+                    + " = \'" + shift + "\'";
+            System.out.println(command);
+
+            returned = connection.lookup(command);
+            while (returned.next()) {
+                staffCombo2.addItem(returned.getString("username"));
+            }
+            if (staffCombo2.getItemCount() < 1) {
+                staffCombo2.addItem("None");
+            }
+
+            //Row 3
+            staffCombo3.removeAllItems();
+            if ((int) startHourSpinner3.getValue() >= 12) {
+                shift = "Afternoon";
+            } else {
+                shift = "Morning";
+            }
+            myDate = comFunc.dateSwitch((String) weekStartingCombo.getSelectedItem());
+            day = myDate.toLocalDate().getDayOfWeek().toString();
+
+            command = "select username from availability where department = \"Lifeguard\" and location = \'" + locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and " + day
+                    + " = \'" + shift + "\'";
+            System.out.println(command);
+
+            returned = connection.lookup(command);
+            while (returned.next()) {
+                staffCombo3.addItem(returned.getString("username"));
+            }
+            if (staffCombo3.getItemCount() < 1) {
+                staffCombo3.addItem("None");
+            }
+
+            //Row 4
+            staffCombo4.removeAllItems();
+            if ((int) startHourSpinner4.getValue() >= 12) {
+                shift = "Afternoon";
+            } else {
+                shift = "Morning";
+            }
+            myDate = comFunc.dateSwitch((String) weekStartingCombo.getSelectedItem());
+            day = myDate.toLocalDate().getDayOfWeek().toString();
+
+            command = "select username from availability where department = \"Lifeguard\" and location = \'" + locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and " + day
+                    + " = \'" + shift + "\'";
+            System.out.println(command);
+
+            returned = connection.lookup(command);
+            while (returned.next()) {
+                staffCombo4.addItem(returned.getString("username"));
+            }
+            if (staffCombo4.getItemCount() < 1) {
+                staffCombo4.addItem("None");
+            }
+
+            //Row 5
+            staffCombo5.removeAllItems();
+            if ((int) startHourSpinner5.getValue() >= 12) {
+                shift = "Afternoon";
+            } else {
+                shift = "Morning";
+            }
+            myDate = comFunc.dateSwitch((String) weekStartingCombo.getSelectedItem());
+            day = myDate.toLocalDate().getDayOfWeek().toString();
+
+            command = "select username from availability where department = \"Lifeguard\" and location = \'" + locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and " + day
+                    + " = \'" + shift + "\'";
+            System.out.println(command);
+
+            returned = connection.lookup(command);
+            while (returned.next()) {
+                staffCombo5.addItem(returned.getString("username"));
+            }
+            if (staffCombo5.getItemCount() < 1) {
+                staffCombo5.addItem("None");
+            }
+
+            //Row 6
+            staffCombo6.removeAllItems();
+            if ((int) startHourSpinner6.getValue() >= 12) {
+                shift = "Afternoon";
+            } else {
+                shift = "Morning";
+            }
+            myDate = comFunc.dateSwitch((String) weekStartingCombo.getSelectedItem());
+            day = myDate.toLocalDate().getDayOfWeek().toString();
+
+            command = "select username from availability where department = \"Lifeguard\" and location = \'" + locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and " + day
+                    + " = \'" + shift + "\'";
+            System.out.println(command);
+
+            returned = connection.lookup(command);
+            while (returned.next()) {
+                staffCombo6.addItem(returned.getString("username"));
+            }
+            if (staffCombo6.getItemCount() < 1) {
+                staffCombo6.addItem("None");
+            }
+
+            //Row 7
+            staffCombo7.removeAllItems();
+            if ((int) startHourSpinner7.getValue() >= 12) {
+                shift = "Afternoon";
+            } else {
+                shift = "Morning";
+            }
+            myDate = comFunc.dateSwitch((String) weekStartingCombo.getSelectedItem());
+            day = myDate.toLocalDate().getDayOfWeek().toString();
+
+            command = "select username from availability where department = \"Lifeguard\" and location = \'" + locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and " + day
+                    + " = \'" + shift + "\'";
+            System.out.println(command);
+
+            returned = connection.lookup(command);
+            while (returned.next()) {
+                staffCombo7.addItem(returned.getString("username"));
+            }
+            if (staffCombo7.getItemCount() < 1) {
+                staffCombo7.addItem("None");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+    
+    private void convertAllTimes() {
+        startTimeLbl1.setText(comFunc.timeConvert(LocalTime.of((int) startHourSpinner1.getValue(), (int) startMinuteSpinner1.getValue())));
+        endTimeLbl1.setText(comFunc.timeConvert(LocalTime.of((int) endHourSpinner1.getValue(), (int) endMinuteSpinner1.getValue())));
+        startTimeLbl2.setText(comFunc.timeConvert(LocalTime.of((int) startHourSpinner2.getValue(), (int) startMinuteSpinner2.getValue())));
+        endTimeLbl2.setText(comFunc.timeConvert(LocalTime.of((int) endHourSpinner2.getValue(), (int) endMinuteSpinner2.getValue())));
+        startTimeLbl3.setText(comFunc.timeConvert(LocalTime.of((int) startHourSpinner3.getValue(), (int) startMinuteSpinner3.getValue())));
+        endTimeLbl3.setText(comFunc.timeConvert(LocalTime.of((int) endHourSpinner3.getValue(), (int) endMinuteSpinner3.getValue())));
+        startTimeLbl4.setText(comFunc.timeConvert(LocalTime.of((int) startHourSpinner4.getValue(), (int) startMinuteSpinner4.getValue())));
+        endTimeLbl4.setText(comFunc.timeConvert(LocalTime.of((int) endHourSpinner4.getValue(), (int) endMinuteSpinner4.getValue())));
+        startTimeLbl5.setText(comFunc.timeConvert(LocalTime.of((int) startHourSpinner5.getValue(), (int) startMinuteSpinner5.getValue())));
+        endTimeLbl5.setText(comFunc.timeConvert(LocalTime.of((int) endHourSpinner5.getValue(), (int) endMinuteSpinner5.getValue())));
+        startTimeLbl6.setText(comFunc.timeConvert(LocalTime.of((int) startHourSpinner6.getValue(), (int) startMinuteSpinner6.getValue())));
+        endTimeLbl6.setText(comFunc.timeConvert(LocalTime.of((int) endHourSpinner6.getValue(), (int) endMinuteSpinner6.getValue())));
+        startTimeLbl7.setText(comFunc.timeConvert(LocalTime.of((int) startHourSpinner7.getValue(), (int) startMinuteSpinner7.getValue())));
+        endTimeLbl7.setText(comFunc.timeConvert(LocalTime.of((int) endHourSpinner7.getValue(), (int) endMinuteSpinner7.getValue())));
     }
     
     private void setupOncalls (LocalDate myDate)
@@ -1072,6 +1533,10 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
             if (completeSuccess)
             {
                 JOptionPane.showMessageDialog(parent,"All Shifts Added To Database");
+                if (completionTickbox.isSelected())
+                {
+                    dispose();
+                }
             }
             else
             {
@@ -1285,6 +1750,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         afternoonOncallCombo.removeAllItems();
         LocalDate tempDate = comFunc.dateSwitch(((String)dateCombo.getSelectedItem())).toLocalDate();
         setupOncalls(tempDate);
+        loadUsers();
     }//GEN-LAST:event_refreshButtonActionPerformed
 
     private void startHourSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startHourSpinner1StateChanged
@@ -1320,6 +1786,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         {
             System.out.println(ex);
         }
+        startTimeLbl1.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner1.getValue(), (int)startMinuteSpinner1.getValue())));
     }//GEN-LAST:event_startHourSpinner1StateChanged
 
     private void startHourSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startHourSpinner2StateChanged
@@ -1355,6 +1822,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         {
             System.out.println(ex);
         }
+        startTimeLbl2.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner2.getValue(), (int)startMinuteSpinner2.getValue())));
     }//GEN-LAST:event_startHourSpinner2StateChanged
 
     private void startHourSpinner3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startHourSpinner3StateChanged
@@ -1390,6 +1858,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         {
             System.out.println(ex);
         }
+        startTimeLbl3.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner3.getValue(), (int)startMinuteSpinner3.getValue())));
     }//GEN-LAST:event_startHourSpinner3StateChanged
 
     private void startHourSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startHourSpinner4StateChanged
@@ -1425,6 +1894,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         {
             System.out.println(ex);
         }
+        startTimeLbl4.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner4.getValue(), (int)startMinuteSpinner4.getValue())));
     }//GEN-LAST:event_startHourSpinner4StateChanged
 
     private void locationComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_locationComboItemStateChanged
@@ -1464,6 +1934,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         {
             System.out.println(ex);
         }
+        startTimeLbl5.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner5.getValue(), (int)startMinuteSpinner5.getValue())));
     }//GEN-LAST:event_startHourSpinner5StateChanged
 
     private void startHourSpinner5InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_startHourSpinner5InputMethodTextChanged
@@ -1503,6 +1974,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         {
             System.out.println(ex);
         }
+        startTimeLbl6.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner6.getValue(), (int)startMinuteSpinner6.getValue())));
     }//GEN-LAST:event_startHourSpinner6StateChanged
 
     private void startHourSpinner6InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_startHourSpinner6InputMethodTextChanged
@@ -1611,6 +2083,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         {
             System.out.println(ex);
         }
+        startTimeLbl7.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner7.getValue(), (int)startMinuteSpinner7.getValue())));
     }//GEN-LAST:event_startHourSpinner7StateChanged
 
     private void startHourSpinner7InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_startHourSpinner7InputMethodTextChanged
@@ -1620,6 +2093,94 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     private void staffCombo6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffCombo6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_staffCombo6ActionPerformed
+
+    private void staffCombo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffCombo2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_staffCombo2ActionPerformed
+
+    private void startMinuteSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startMinuteSpinner1StateChanged
+        startTimeLbl1.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner1.getValue(), (int)startMinuteSpinner1.getValue())));
+    }//GEN-LAST:event_startMinuteSpinner1StateChanged
+
+    private void startMinuteSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startMinuteSpinner2StateChanged
+        startTimeLbl2.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner2.getValue(), (int)startMinuteSpinner2.getValue())));
+    }//GEN-LAST:event_startMinuteSpinner2StateChanged
+
+    private void startMinuteSpinner3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startMinuteSpinner3StateChanged
+        startTimeLbl3.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner3.getValue(), (int)startMinuteSpinner3.getValue())));
+    }//GEN-LAST:event_startMinuteSpinner3StateChanged
+
+    private void startMinuteSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startMinuteSpinner4StateChanged
+        startTimeLbl4.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner4.getValue(), (int)startMinuteSpinner4.getValue())));
+    }//GEN-LAST:event_startMinuteSpinner4StateChanged
+
+    private void startMinuteSpinner5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startMinuteSpinner5StateChanged
+        startTimeLbl5.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner5.getValue(), (int)startMinuteSpinner5.getValue())));
+    }//GEN-LAST:event_startMinuteSpinner5StateChanged
+
+    private void startMinuteSpinner6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startMinuteSpinner6StateChanged
+        startTimeLbl6.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner6.getValue(), (int)startMinuteSpinner6.getValue())));
+    }//GEN-LAST:event_startMinuteSpinner6StateChanged
+
+    private void endMinuteSpinner7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endMinuteSpinner7StateChanged
+        endTimeLbl7.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner7.getValue(), (int)endMinuteSpinner7.getValue())));
+    }//GEN-LAST:event_endMinuteSpinner7StateChanged
+
+    private void startMinuteSpinner7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startMinuteSpinner7StateChanged
+        startTimeLbl7.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner7.getValue(), (int)startMinuteSpinner7.getValue())));
+    }//GEN-LAST:event_startMinuteSpinner7StateChanged
+
+    private void endHourSpinner7StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endHourSpinner7StateChanged
+        endTimeLbl7.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner7.getValue(), (int)endMinuteSpinner7.getValue())));
+    }//GEN-LAST:event_endHourSpinner7StateChanged
+
+    private void endMinuteSpinner6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endMinuteSpinner6StateChanged
+        endTimeLbl6.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner6.getValue(), (int)endMinuteSpinner6.getValue())));
+    }//GEN-LAST:event_endMinuteSpinner6StateChanged
+
+    private void endHourSpinner6StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endHourSpinner6StateChanged
+        endTimeLbl6.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner6.getValue(), (int)endMinuteSpinner6.getValue())));
+    }//GEN-LAST:event_endHourSpinner6StateChanged
+
+    private void endMinuteSpinner5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endMinuteSpinner5StateChanged
+        endTimeLbl5.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner5.getValue(), (int)endMinuteSpinner5.getValue())));
+    }//GEN-LAST:event_endMinuteSpinner5StateChanged
+
+    private void endHourSpinner5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endHourSpinner5StateChanged
+        endTimeLbl5.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner5.getValue(), (int)endMinuteSpinner5.getValue())));
+    }//GEN-LAST:event_endHourSpinner5StateChanged
+
+    private void endMinuteSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endMinuteSpinner4StateChanged
+        endTimeLbl4.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner4.getValue(), (int)endMinuteSpinner4.getValue())));
+    }//GEN-LAST:event_endMinuteSpinner4StateChanged
+
+    private void endHourSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endHourSpinner4StateChanged
+        endTimeLbl4.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner4.getValue(), (int)endMinuteSpinner4.getValue())));
+    }//GEN-LAST:event_endHourSpinner4StateChanged
+
+    private void endMinuteSpinner3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endMinuteSpinner3StateChanged
+        endTimeLbl3.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner3.getValue(), (int)endMinuteSpinner3.getValue())));
+    }//GEN-LAST:event_endMinuteSpinner3StateChanged
+
+    private void endHourSpinner3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endHourSpinner3StateChanged
+        endTimeLbl3.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner3.getValue(), (int)endMinuteSpinner3.getValue())));
+    }//GEN-LAST:event_endHourSpinner3StateChanged
+
+    private void endMinuteSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endMinuteSpinner2StateChanged
+        endTimeLbl2.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner2.getValue(), (int)endMinuteSpinner2.getValue())));
+    }//GEN-LAST:event_endMinuteSpinner2StateChanged
+
+    private void endHourSpinner2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endHourSpinner2StateChanged
+        endTimeLbl2.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner2.getValue(), (int)endMinuteSpinner2.getValue())));
+    }//GEN-LAST:event_endHourSpinner2StateChanged
+
+    private void endMinuteSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endMinuteSpinner1StateChanged
+        endTimeLbl1.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner1.getValue(), (int)endMinuteSpinner1.getValue())));
+    }//GEN-LAST:event_endMinuteSpinner1StateChanged
+
+    private void endHourSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endHourSpinner1StateChanged
+        endTimeLbl1.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner1.getValue(), (int)endMinuteSpinner1.getValue())));
+    }//GEN-LAST:event_endHourSpinner1StateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1646,6 +2207,13 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     private javax.swing.JSpinner endMinuteSpinner5;
     private javax.swing.JSpinner endMinuteSpinner6;
     private javax.swing.JSpinner endMinuteSpinner7;
+    private javax.swing.JLabel endTimeLbl1;
+    private javax.swing.JLabel endTimeLbl2;
+    private javax.swing.JLabel endTimeLbl3;
+    private javax.swing.JLabel endTimeLbl4;
+    private javax.swing.JLabel endTimeLbl5;
+    private javax.swing.JLabel endTimeLbl6;
+    private javax.swing.JLabel endTimeLbl7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1681,6 +2249,13 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     private javax.swing.JSpinner startMinuteSpinner5;
     private javax.swing.JSpinner startMinuteSpinner6;
     private javax.swing.JSpinner startMinuteSpinner7;
+    private javax.swing.JLabel startTimeLbl1;
+    private javax.swing.JLabel startTimeLbl2;
+    private javax.swing.JLabel startTimeLbl3;
+    private javax.swing.JLabel startTimeLbl4;
+    private javax.swing.JLabel startTimeLbl5;
+    private javax.swing.JLabel startTimeLbl6;
+    private javax.swing.JLabel startTimeLbl7;
     private javax.swing.JButton submitAllButton;
     private javax.swing.JButton submitButton1;
     private javax.swing.JButton submitButton2;

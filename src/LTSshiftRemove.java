@@ -70,6 +70,8 @@ public class LTSshiftRemove extends javax.swing.JDialog {
         jSeparator3 = new javax.swing.JSeparator();
         locationLbl = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        startTimeLabel1 = new javax.swing.JLabel();
+        endTimeLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LTS Shift Remove");
@@ -83,8 +85,10 @@ public class LTSshiftRemove extends javax.swing.JDialog {
         });
 
         endTimeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         startTimeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel4.setText("Start Time:");
@@ -139,6 +143,12 @@ public class LTSshiftRemove extends javax.swing.JDialog {
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel9.setText("Location:");
 
+        startTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        endTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,14 +177,20 @@ public class LTSshiftRemove extends javax.swing.JDialog {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jSeparator2)
-                                    .addComponent(startTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(endTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(startDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(endDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(70, 70, 70)
-                                        .addComponent(removeButton)))
+                                        .addComponent(removeButton))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(endTimeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                            .addComponent(startTimeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(startTimeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(endTimeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addComponent(staffLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(locationLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -188,9 +204,13 @@ public class LTSshiftRemove extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(startTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(startTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(startTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(endTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(endTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
@@ -245,7 +265,9 @@ public class LTSshiftRemove extends javax.swing.JDialog {
         {
             lts selectedShift = (lts)shiftList.getSelectedValue();
             startTimeLabel.setText(selectedShift.getStartTimeString());
+            startTimeLabel1.setText(comFunc.timeConvert(selectedShift.getStartTime()));
             endTimeLabel.setText(selectedShift.getEndTimeString());
+            endTimeLabel1.setText(comFunc.timeConvert(selectedShift.getEndTime()));
             //dateString = myFormat.format((selectedShift.getStartDate()).toLocalDate());
             startDateLabel.setText(comFunc.formatDate(selectedShift.getStartDate().toLocalDate()));
             //dateString = myFormat.format((selectedShift.getEndDate()).toLocalDate());
@@ -334,6 +356,7 @@ private void loadData()
     private javax.swing.JCheckBox completionTickbox;
     private javax.swing.JLabel endDateLabel;
     private javax.swing.JLabel endTimeLabel;
+    private javax.swing.JLabel endTimeLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -350,5 +373,6 @@ private void loadData()
     private javax.swing.JLabel staffLabel;
     private javax.swing.JLabel startDateLabel;
     private javax.swing.JLabel startTimeLabel;
+    private javax.swing.JLabel startTimeLabel1;
     // End of variables declaration//GEN-END:variables
 }

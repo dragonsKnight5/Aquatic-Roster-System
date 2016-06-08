@@ -33,14 +33,16 @@ public class LTScoverLookup extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
     ArrayList <cover> coverShifts = new ArrayList <cover>();
+    commonFunctions comFunc;
     /**
      * Creates new form LNSSshiftLookup
      */
-    public LTScoverLookup(main inParent, dbConnection inConnection) {
+    public LTScoverLookup(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent,true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -65,6 +67,8 @@ public class LTScoverLookup extends javax.swing.JDialog {
         startTimeLbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         endTimeLbl = new javax.swing.JLabel();
+        endTimeLbl1 = new javax.swing.JLabel();
+        startTimeLbl1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LTS Cover Lookup");
@@ -113,6 +117,12 @@ public class LTScoverLookup extends javax.swing.JDialog {
         endTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        endTimeLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        startTimeLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,7 +134,7 @@ public class LTScoverLookup extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(jLabel6)
-                        .addContainerGap(67, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -137,15 +147,23 @@ public class LTScoverLookup extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(endTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(closeButton))
                                     .addComponent(coveredLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(locationLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(startTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(startTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(startTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(endTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(endTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -156,11 +174,15 @@ public class LTScoverLookup extends javax.swing.JDialog {
                         .addGap(8, 8, 8)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(startTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(startTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(startTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(endTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(endTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(endTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -217,7 +239,9 @@ public class LTScoverLookup extends javax.swing.JDialog {
             cover selectedCover = (cover)coverList.getSelectedValue();
             
             startTimeLbl.setText(selectedCover.getStartTime().toString());
+            startTimeLbl1.setText(comFunc.timeConvert(selectedCover.getStartTime()));
             endTimeLbl.setText(selectedCover.getEndTime().toString());
+            endTimeLbl1.setText(comFunc.timeConvert(selectedCover.getEndTime()));
             coveredLbl.setText(selectedCover.getStaff());
             locationLbl.setText(selectedCover.getLocation());
         }
@@ -234,6 +258,7 @@ public class LTScoverLookup extends javax.swing.JDialog {
     private javax.swing.JList coverList;
     private javax.swing.JLabel coveredLbl;
     private javax.swing.JLabel endTimeLbl;
+    private javax.swing.JLabel endTimeLbl1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -241,5 +266,6 @@ public class LTScoverLookup extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel locationLbl;
     private javax.swing.JLabel startTimeLbl;
+    private javax.swing.JLabel startTimeLbl1;
     // End of variables declaration//GEN-END:variables
 }
