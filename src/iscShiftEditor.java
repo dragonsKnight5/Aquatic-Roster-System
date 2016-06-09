@@ -81,6 +81,8 @@ public class iscShiftEditor extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         refreshUsers = new javax.swing.JButton();
         staffCombo4 = new javax.swing.JComboBox<>();
+        startTimeLbl = new javax.swing.JLabel();
+        endTimeLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ISC Shift Editor");
@@ -128,15 +130,35 @@ public class iscShiftEditor extends javax.swing.JDialog {
 
         startHourSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startHourSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        startHourSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                startHourSpinnerStateChanged(evt);
+            }
+        });
 
         startMinuteSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        startMinuteSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                startMinuteSpinnerStateChanged(evt);
+            }
+        });
 
         endHourSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endHourSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        endHourSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endHourSpinnerStateChanged(evt);
+            }
+        });
 
         endMinuteSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        endMinuteSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                endMinuteSpinnerStateChanged(evt);
+            }
+        });
 
         staffCombo1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
@@ -171,6 +193,12 @@ public class iscShiftEditor extends javax.swing.JDialog {
 
         staffCombo4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
+        startTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        endTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,18 +225,10 @@ public class iscShiftEditor extends javax.swing.JDialog {
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(dateCombo, 0, 177, Short.MAX_VALUE)
-                                    .addComponent(locationCombo, 0, 177, Short.MAX_VALUE)
-                                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(endHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(startHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(startMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                                    .addComponent(dateCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(locationCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jSeparator3)
+                                    .addComponent(jSeparator4)
                                     .addComponent(staffCombo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(staffCombo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(staffCombo3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -216,7 +236,19 @@ public class iscShiftEditor extends javax.swing.JDialog {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(refreshUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(staffCombo4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(staffCombo4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(startHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(startMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(startTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(endHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(endTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(completionTickbox)
@@ -246,13 +278,17 @@ public class iscShiftEditor extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(startHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(startMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(startTimeLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(startHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(startMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(endHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(endTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(endHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -265,7 +301,7 @@ public class iscShiftEditor extends javax.swing.JDialog {
                                 .addComponent(staffCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(staffCombo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
@@ -390,39 +426,40 @@ public class iscShiftEditor extends javax.swing.JDialog {
     }//GEN-LAST:event_shiftListValueChanged
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
+        if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
+        {
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+        }
+        else if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
                 JOptionPane.YES_NO_OPTION)
-            == JOptionPane.YES_OPTION)
-        {
-            LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
-            LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
+                == JOptionPane.YES_OPTION) {
+            LocalTime startTime = LocalTime.of((int) startHourSpinner.getValue(), (int) startMinuteSpinner.getValue());
+            LocalTime endTime = LocalTime.of((int) endHourSpinner.getValue(), (int) endMinuteSpinner.getValue());
             java.sql.Date selectedDate = null;
-            selectedDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
-            
-            
+            selectedDate = comFunc.dateSwitch((String) dateCombo.getSelectedItem());
+
             String command = "update isc set shift_date= \'" + selectedDate + "\', start_time = \'" + startTime + "\', end_time = \'"
-                    + endTime + "\', staff1 = \'" + staffCombo1.getSelectedItem() + "\', staff2 = \'" +staffCombo2.getSelectedItem() + "\', staff3 = \'" 
-                    + staffCombo3.getSelectedItem() +"\', staff4 = \'" +staffCombo4.getSelectedItem() + "\', location = \'" + locationCombo.getSelectedItem() 
+                    + endTime + "\', staff1 = \'" + staffCombo1.getSelectedItem() + "\', staff2 = \'" + staffCombo2.getSelectedItem() + "\', staff3 = \'"
+                    + staffCombo3.getSelectedItem() + "\', staff4 = \'" + staffCombo4.getSelectedItem() + "\', location = \'" + locationCombo.getSelectedItem()
                     + "\', onCall = \'" + onCallCombo.getSelectedItem() + "\' where ID = \'" + ID + "\'";
-            
+
             int status = connection.updateShift(command);
-            if (status == 1)
+            if (status == 1) 
             {
                 JOptionPane.showMessageDialog(parent, "Shift Update Successfull");
-                if (completionTickbox.isSelected())
-                {
+                if (completionTickbox.isSelected()) {
                     dispose();
                 }
-                else
+                else 
                 {
                     // clear and reload list data
                     iscShifts.clear();
                     shiftList.setListData(iscShifts.toArray());
                     loadData();
                 }
-            }
-            else
+            } 
+            else 
             {
                 JOptionPane.showMessageDialog(parent, "Unable To Update Shift");
             }
@@ -494,6 +531,22 @@ public class iscShiftEditor extends javax.swing.JDialog {
             onCallCombo.setSelectedItem("None");
     }//GEN-LAST:event_refreshUsersActionPerformed
 
+    private void startHourSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startHourSpinnerStateChanged
+        startTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue())));
+    }//GEN-LAST:event_startHourSpinnerStateChanged
+
+    private void startMinuteSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_startMinuteSpinnerStateChanged
+        startTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue())));
+    }//GEN-LAST:event_startMinuteSpinnerStateChanged
+
+    private void endHourSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endHourSpinnerStateChanged
+        endTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue())));
+    }//GEN-LAST:event_endHourSpinnerStateChanged
+
+    private void endMinuteSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_endMinuteSpinnerStateChanged
+        endTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue())));
+    }//GEN-LAST:event_endMinuteSpinnerStateChanged
+
 private void loadData()
 {
     ResultSet returned;
@@ -523,6 +576,8 @@ private void loadData()
     {
         System.out.println(ex);
     }
+    startTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue())));
+    endTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue())));
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -531,6 +586,7 @@ private void loadData()
     private javax.swing.JComboBox<String> dateCombo;
     private javax.swing.JSpinner endHourSpinner;
     private javax.swing.JSpinner endMinuteSpinner;
+    private javax.swing.JLabel endTimeLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -552,6 +608,7 @@ private void loadData()
     private javax.swing.JComboBox<String> staffCombo4;
     private javax.swing.JSpinner startHourSpinner;
     private javax.swing.JSpinner startMinuteSpinner;
+    private javax.swing.JLabel startTimeLbl;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }

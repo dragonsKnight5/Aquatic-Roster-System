@@ -402,38 +402,42 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
     }//GEN-LAST:event_shiftListValueChanged
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
+        if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
+        {
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+        } 
+        else if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
                 JOptionPane.YES_NO_OPTION)
-            == JOptionPane.YES_OPTION)
+                == JOptionPane.YES_OPTION) 
         {
-            LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
-            LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
+            LocalTime startTime = LocalTime.of((int) startHourSpinner.getValue(), (int) startMinuteSpinner.getValue());
+            LocalTime endTime = LocalTime.of((int) endHourSpinner.getValue(), (int) endMinuteSpinner.getValue());
             java.sql.Date selectedDate = null;
 
-                selectedDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
-            
+            selectedDate = comFunc.dateSwitch((String) dateCombo.getSelectedItem());
+
             String command = "update lifeguard set shift_date= \'" + selectedDate + "\', start_time = \'" + startTime + "\', end_time = \'"
-                    + endTime + "\', staff1 = \'" + staffCombo1.getSelectedItem() + "\', location = \'" + locationCombo.getSelectedItem() + "\', onCall = \'" + onCallCombo.getSelectedItem() 
+                    + endTime + "\', staff1 = \'" + staffCombo1.getSelectedItem() + "\', location = \'" + locationCombo.getSelectedItem() + "\', onCall = \'" + onCallCombo.getSelectedItem()
                     + "\' where ID = \'" + ID + "\'";
-            
+
             int status = connection.updateShift(command);
-            if (status == 1)
+            if (status == 1) 
             {
                 JOptionPane.showMessageDialog(parent, "Shift Update Successfull");
-                if (completionTickbox.isSelected())
+                if (completionTickbox.isSelected()) 
                 {
                     dispose();
-                }
-                else
+                } 
+                else 
                 {
                     // clear and reload list data
                     guardShifts.clear();
                     shiftList.setListData(guardShifts.toArray());
                     loadData();
                 }
-            }
-            else
+            } 
+            else 
             {
                 JOptionPane.showMessageDialog(parent, "Unable To Update Shift");
             }

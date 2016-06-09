@@ -385,52 +385,55 @@ public class LTSshiftEditor extends javax.swing.JDialog {
     }//GEN-LAST:event_shiftListValueChanged
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
+        if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
+        {
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+        }
+        else if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
                 JOptionPane.YES_NO_OPTION)
-            == JOptionPane.YES_OPTION)
+                == JOptionPane.YES_OPTION) 
         {
-            LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
-            LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
+            LocalTime startTime = LocalTime.of((int) startHourSpinner.getValue(), (int) startMinuteSpinner.getValue());
+            LocalTime endTime = LocalTime.of((int) endHourSpinner.getValue(), (int) endMinuteSpinner.getValue());
             // switch to use common functions class
             SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             java.sql.Date selectedStartDate = null;
             java.sql.Date selectedEndDate = null;
-            
-            try
+
+            try 
             {
-                java.util.Date myDate = myDateFormat.parse((String)startDateCombo.getSelectedItem());
+                java.util.Date myDate = myDateFormat.parse((String) startDateCombo.getSelectedItem());
                 selectedStartDate = new java.sql.Date(myDate.getTime());
-                myDate = myDateFormat.parse((String)endDateCombo.getSelectedItem());
+                myDate = myDateFormat.parse((String) endDateCombo.getSelectedItem());
                 selectedEndDate = new java.sql.Date(myDate.getTime());
-            }
-            catch (ParseException ex)
+            } 
+            catch (ParseException ex) 
             {
                 System.out.println(ex);
             }
-            
-            
-            String command = "update LTS_Shift set staff = \"" + staffCombo.getSelectedItem() + "\", shift_day = \"" + dayCombo.getSelectedItem() +
-                    "\", start_time = \"" + startTime + "\", end_time = \"" + endTime + "\", start_date = \"" + selectedStartDate + "\", end_date = \"" + 
-                    selectedEndDate + "\", location = \"" + locationCombo.getSelectedItem() + "\" where ID = \"" + ID + "\"";
-            
+
+            String command = "update LTS_Shift set staff = \"" + staffCombo.getSelectedItem() + "\", shift_day = \"" + dayCombo.getSelectedItem()
+                    + "\", start_time = \"" + startTime + "\", end_time = \"" + endTime + "\", start_date = \"" + selectedStartDate + "\", end_date = \""
+                    + selectedEndDate + "\", location = \"" + locationCombo.getSelectedItem() + "\" where ID = \"" + ID + "\"";
+
             System.out.println(command);
-            
+
             int status = connection.updateShift(command);
-            if (status == 1)
+            if (status == 1) 
             {
                 JOptionPane.showMessageDialog(parent, "Shift Update Successfull");
-                if (completionTickbox.isSelected())
+                if (completionTickbox.isSelected()) 
                 {
                     dispose();
                 }
-                else
+                else 
                 {
                     ltsShifts.clear();
                     shiftList.setListData(ltsShifts.toArray());
                 }
-            }
-            else
+            } 
+            else 
             {
                 JOptionPane.showMessageDialog(parent, "Unable To Update Shift");
             }

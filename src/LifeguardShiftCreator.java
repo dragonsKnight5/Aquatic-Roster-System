@@ -324,34 +324,41 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
-        LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
-        
-        java.sql.Date selectedDate = comFunc.day2Date((String)dateCombo.getSelectedItem(), (String)dayCombo.getSelectedItem());
-        
-            String command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + selectedDate + "\", \"" + startTime + "\", \""
-                + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" 
-                    + locationCombo.getSelectedItem() +"\", \"" + onCallCombo.getSelectedItem() + "\")";
-
-        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
-                "",
-                JOptionPane.YES_NO_OPTION)
-            == JOptionPane.YES_OPTION)
+        if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
         {
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+        } 
+        else 
+        {
+            LocalTime startTime = LocalTime.of((int) startHourSpinner.getValue(), (int) startMinuteSpinner.getValue());
+            LocalTime endTime = LocalTime.of((int) endHourSpinner.getValue(), (int) endMinuteSpinner.getValue());
 
-           int status = connection.addGuardShift(command);
-        
-            if (status == 1)
+            java.sql.Date selectedDate = comFunc.day2Date((String) dateCombo.getSelectedItem(), (String) dayCombo.getSelectedItem());
+
+            String command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + selectedDate + "\", \"" + startTime + "\", \""
+                    + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \""
+                    + locationCombo.getSelectedItem() + "\", \"" + onCallCombo.getSelectedItem() + "\")";
+
+            if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
+                    "",
+                    JOptionPane.YES_NO_OPTION)
+                    == JOptionPane.YES_OPTION) 
             {
-                JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
-                if (completionTickbox.isSelected())
+
+                int status = connection.addGuardShift(command);
+
+                if (status == 1) 
                 {
-                    dispose();
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                    if (completionTickbox.isSelected()) 
+                    {
+                        dispose();
+                    }
+                } 
+                else 
+                {
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
                 }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
             }
         }
     }//GEN-LAST:event_submitButtonActionPerformed

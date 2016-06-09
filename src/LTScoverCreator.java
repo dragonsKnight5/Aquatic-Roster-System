@@ -313,31 +313,33 @@ public class LTScoverCreator extends javax.swing.JDialog {
     }
     
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
-        LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
-        java.sql.Date selectedDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
-        
-        String command = "insert into LTS_Covers (cover_date, start_time, end_time, location, staff, cover_for) values (\"" + selectedDate + "\", \"" + startTime
-                + "\", \"" + endTime + "\", \""+ locationCombo.getSelectedItem() + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + staffCombo2.getSelectedItem() + "\")";
-        
-        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
-                "",
-                JOptionPane.YES_NO_OPTION)
-            == JOptionPane.YES_OPTION)
+        if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
+        {            
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+        } 
+        else 
         {
-            int status = connection.addCover(command);
-            
-            if (status == 1)
-            {
-                JOptionPane.showMessageDialog(parent, "Cover Added Successfully");
-                if (completionTickbox.isSelected())
-                {
-                    dispose();
+            LocalTime startTime = LocalTime.of((int) startHourSpinner.getValue(), (int) startMinuteSpinner.getValue());
+            LocalTime endTime = LocalTime.of((int) endHourSpinner.getValue(), (int) endMinuteSpinner.getValue());
+            java.sql.Date selectedDate = comFunc.dateSwitch((String) dateCombo.getSelectedItem());
+
+            String command = "insert into LTS_Covers (cover_date, start_time, end_time, location, staff, cover_for) values (\"" + selectedDate + "\", \"" + startTime
+                    + "\", \"" + endTime + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + staffCombo2.getSelectedItem() + "\")";
+
+            if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
+                    "",
+                    JOptionPane.YES_NO_OPTION)
+                    == JOptionPane.YES_OPTION) {
+                int status = connection.addCover(command);
+
+                if (status == 1) {
+                    JOptionPane.showMessageDialog(parent, "Cover Added Successfully");
+                    if (completionTickbox.isSelected()) {
+                        dispose();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Cover");
                 }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(parent, "Unable To Add Cover");
             }
         }
     }//GEN-LAST:event_submitButtonActionPerformed

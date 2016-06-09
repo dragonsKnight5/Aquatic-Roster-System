@@ -362,30 +362,33 @@ public class LTScoverEditor extends javax.swing.JDialog {
     }//GEN-LAST:event_shiftListValueChanged
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
+        if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
+        {
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+        }
+        else if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
                 JOptionPane.YES_NO_OPTION)
-            == JOptionPane.YES_OPTION)
+                == JOptionPane.YES_OPTION) 
         {
-            LocalTime startTime = LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
-            LocalTime endTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
+            LocalTime startTime = LocalTime.of((int) startHourSpinner.getValue(), (int) startMinuteSpinner.getValue());
+            LocalTime endTime = LocalTime.of((int) endHourSpinner.getValue(), (int) endMinuteSpinner.getValue());
             java.sql.Date selectedDate = null;
-            selectedDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
-            
+            selectedDate = comFunc.dateSwitch((String) dateCombo.getSelectedItem());
+
             String command = "update LTS_Covers set cover_date= \'" + selectedDate + "\', start_time = \'" + startTime + "\', end_time = \'"
-                    + endTime + "\', location = \'" + locationCombo.getSelectedItem() +"\', staff = \'" + staffCombo.getSelectedItem() + "\', cover_for = \'" + coverCombo.getSelectedItem() 
+                    + endTime + "\', location = \'" + locationCombo.getSelectedItem() + "\', staff = \'" + staffCombo.getSelectedItem() + "\', cover_for = \'" + coverCombo.getSelectedItem()
                     + "\' where ID = \'" + ID + "\'";
-            
+
             int status = connection.updateShift(command);
-            if (status == 1)
-            {
+            if (status == 1) {
                 JOptionPane.showMessageDialog(parent, "Cover Update Successfull");
-                if (completionTickbox.isSelected())
+                if (completionTickbox.isSelected()) 
                 {
                     dispose();
                 }
-            }
-            else
+            } 
+            else 
             {
                 JOptionPane.showMessageDialog(parent, "Unable To Update Cover");
             }

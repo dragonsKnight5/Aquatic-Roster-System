@@ -85,10 +85,8 @@ public class LTSshiftRemove extends javax.swing.JDialog {
         });
 
         endTimeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        endTimeLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         startTimeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        startTimeLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel4.setText("Start Time:");
@@ -144,10 +142,8 @@ public class LTSshiftRemove extends javax.swing.JDialog {
         jLabel9.setText("Location:");
 
         startTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        startTimeLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         endTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        endTimeLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

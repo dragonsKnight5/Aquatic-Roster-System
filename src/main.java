@@ -713,7 +713,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_loginMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        JOptionPane.showMessageDialog(null, "Version 0.9");
+        JOptionPane.showMessageDialog(null, "Version 0.10");
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void newStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newStaffMenuItemActionPerformed
@@ -850,7 +850,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_overviewMenuItemActionPerformed
 
     private void iscLookupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iscLookupBtnActionPerformed
-        iscShiftLookup iscLookup = new iscShiftLookup(this, connection);
+        iscShiftLookup iscLookup = new iscShiftLookup(this, connection, myCommonFunctions);
     }//GEN-LAST:event_iscLookupBtnActionPerformed
 
     private void iscShiftEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iscShiftEditBtnActionPerformed
@@ -862,7 +862,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_iscShiftCreatorBtnActionPerformed
 
     private void iscShiftRemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iscShiftRemoveBtnActionPerformed
-        iscShiftRemove iscRemove = new iscShiftRemove(this, connection);
+        iscShiftRemove iscRemove = new iscShiftRemove(this, connection, myCommonFunctions);
     }//GEN-LAST:event_iscShiftRemoveBtnActionPerformed
 
     private void exportLgRosterMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportLgRosterMenuItemActionPerformed

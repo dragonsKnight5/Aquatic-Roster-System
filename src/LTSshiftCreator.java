@@ -360,53 +360,57 @@ public class LTSshiftCreator extends javax.swing.JDialog {
     }
     
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        java.time.LocalTime startTime = java.time.LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue());
-        java.time.LocalTime endTime = java.time.LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
-        SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        java.sql.Date selectedStartDate = null;
-        java.sql.Date selectedEndDate = null;
-        String selectedDay = (String)dayCombo.getSelectedItem();
-        
-        try
+        if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
         {
-            //start date
-            String stringDate = (String)startDateCombo.getSelectedItem();
-            java.util.Date myDate = myDateFormat.parse(stringDate);
-            selectedStartDate = new java.sql.Date(myDate.getTime());
-            //end date 
-            stringDate = (String)endDateCombo.getSelectedItem();
-            myDate = myDateFormat.parse(stringDate);
-            selectedEndDate = new java.sql.Date(myDate.getTime());
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
         }
-        catch (ParseException ex)
+        else 
         {
-            System.out.println(ex);
-        }
-        
-        String command = "insert into LTS_Shift (staff, shift_day, start_time, end_time, start_date, end_date, location) values (\""+ staffCombo.getSelectedItem() + "\", \""
-                + selectedDay +"\", \"" +startTime + "\", \"" + endTime + "\", \"" + selectedStartDate +"\", \"" + selectedEndDate + "\", \"" + locationCombo.getSelectedItem() + "\")";
-        
-        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
-                "",
-                JOptionPane.YES_NO_OPTION)
-            == JOptionPane.YES_OPTION)
-        {
-           int status = connection.addLTSshift(command);
-        
-            if (status == 1)
+            java.time.LocalTime startTime = java.time.LocalTime.of((int) startHourSpinner.getValue(), (int) startMinuteSpinner.getValue());
+            java.time.LocalTime endTime = java.time.LocalTime.of((int) endHourSpinner.getValue(), (int) endMinuteSpinner.getValue());
+            SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            java.sql.Date selectedStartDate = null;
+            java.sql.Date selectedEndDate = null;
+            String selectedDay = (String) dayCombo.getSelectedItem();
+
+            try {
+                //start date
+                String stringDate = (String) startDateCombo.getSelectedItem();
+                java.util.Date myDate = myDateFormat.parse(stringDate);
+                selectedStartDate = new java.sql.Date(myDate.getTime());
+                //end date 
+                stringDate = (String) endDateCombo.getSelectedItem();
+                myDate = myDateFormat.parse(stringDate);
+                selectedEndDate = new java.sql.Date(myDate.getTime());
+            } catch (ParseException ex) 
             {
-                JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
-                if (completionTickbox.isSelected())
+                System.out.println(ex);
+            }
+
+            String command = "insert into LTS_Shift (staff, shift_day, start_time, end_time, start_date, end_date, location) values (\"" + staffCombo.getSelectedItem() + "\", \""
+                    + selectedDay + "\", \"" + startTime + "\", \"" + endTime + "\", \"" + selectedStartDate + "\", \"" + selectedEndDate + "\", \"" + locationCombo.getSelectedItem() + "\")";
+
+            if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
+                    "",
+                    JOptionPane.YES_NO_OPTION)
+                    == JOptionPane.YES_OPTION) 
+            {
+                int status = connection.addLTSshift(command);
+
+                if (status == 1) 
                 {
-                    dispose();
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                    if (completionTickbox.isSelected()) 
+                    {
+                        dispose();
+                    }
+                } 
+                else 
+                {
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
                 }
             }
-            else
-            {
-                JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
-            }
         }
-        
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed

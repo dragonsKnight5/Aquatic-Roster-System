@@ -22,7 +22,6 @@ import java.time.LocalTime;
 import static java.time.temporal.TemporalAdjusters.next;
 import java.util.ArrayList;
 import org.jopendocument.dom.spreadsheet.Sheet;
-import org.jopendocument.dom.spreadsheet.*;
 /**
  *
  * @author james
@@ -501,7 +500,6 @@ public class lgExport extends javax.swing.JDialog
     private void exportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportButtonActionPerformed
         Sheet guardSheet = comFunc.loadTemplate("roster");
         LocalDate outDate = (comFunc.dateSwitch((String)dateCombo.getSelectedItem())).toLocalDate();
-        //System.out.println("Day: " + outDate.getDayOfWeek());
         
         java.sql.Date myDate = comFunc.dateSwitch((String)dateCombo.getSelectedItem());
         LocalDate startDate = myDate.toLocalDate();
@@ -531,11 +529,11 @@ public class lgExport extends javax.swing.JDialog
         myDate = java.sql.Date.valueOf(tempDate);
        if (tuesdayOtherRdBttn.isSelected())
         {
-            guardSheet.getCellAt("AO6").setValue(supTuesdayTextField.getText());
+            guardSheet.getCellAt("AQ6").setValue(supTuesdayTextField.getText());
         }
         else
         {
-            guardSheet.getCellAt("AO6").setValue(defaultSUP);
+            guardSheet.getCellAt("AQ6").setValue(defaultSUP);
         }
        // write wednesday values
         guardSheet = writeWednesday(myDate, guardSheet);
@@ -580,10 +578,11 @@ public class lgExport extends javax.swing.JDialog
     {
         guardShifts.clear();
         System.out.println("write saturday function");
-        System.out.println(inDate.toString() + " " + inDate.toLocalDate().getDayOfWeek());
         final String saturdayDay = "H1";
         final String saturdayMonth = "J1";
         final String saturdayYear = "L1";
+        String morningOnCall = null;
+        String afternoonOnCall = null;
         
         ArrayList saturdayColumns = new ArrayList();
         saturdayColumns.add("B");
@@ -617,17 +616,21 @@ public class lgExport extends javax.swing.JDialog
                 selectedColumn = saturdayColumns.get(count).toString();
                 lifeguards tempGuard = guardShifts.get(count);
                 inSheet.getCellAt(selectedColumn.concat(staffRow.toString())).setValue(tempGuard.getStaff1());
-                inSheet.getCellAt(selectedColumn.concat("17")).setValue((tempGuard.getStartTimeString().concat(" - ")).concat(tempGuard.getEndTimeString()));
+                inSheet.getCellAt(selectedColumn.concat("17")).setValue((comFunc.timeConvert(tempGuard.getStartTime()).concat(" - ")).concat(comFunc.timeConvert(tempGuard.getEndTime())));
                 Integer startRow = 0;
                 Integer endRow = 0;
-                for (int x = 0; x < 33; x = x + 1) {
-                    if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0])) {
+                for (int x = 0; x < 33; x = x + 1) 
+                {
+                    if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0])) 
+                    {
                         startRow = Integer.valueOf(timeList[x][1]);
                         break;
                     }
                 }
-                for (int x = 0; x < 33; x = x + 1) {
-                    if (tempGuard.getEndTimeString().equalsIgnoreCase(timeList[x][0])) {
+                for (int x = 0; x < 33; x = x + 1) 
+                {
+                    if (tempGuard.getEndTimeString().equalsIgnoreCase(timeList[x][0])) 
+                    {
                         endRow = Integer.valueOf(timeList[x][1]);
                         break;
                     }
@@ -636,17 +639,27 @@ public class lgExport extends javax.swing.JDialog
                 if (startRow > 0) {
                     do {
                         String cell = selectedColumn.concat(startRow.toString());
-                        if (tempGuard.getStartTime().getHour() >= 12) {
+                        if (tempGuard.getStartTime().getHour() >= 12) 
+                        {
                             inSheet.getCellAt(cell).setBackgroundColor(Color.yellow);
-                        } else {
+                            afternoonOnCall = tempGuard.getOnCall();
+                        } 
+                        else 
+                        {
                             inSheet.getCellAt(cell).setBackgroundColor(Color.red);
+                            morningOnCall = tempGuard.getOnCall();
                         }
                         startRow++;
                     } while (startRow != endRow + 1);
                 }
                 count++;
             } while (count != guardShifts.size());
-        } catch (SQLException ex) {
+            
+            inSheet.getCellAt("L6").setValue(morningOnCall);
+            inSheet.getCellAt("M6").setValue(afternoonOnCall);
+        } 
+        catch (SQLException ex) {
+            
             System.out.println(ex);
         }
         return inSheet;
@@ -656,10 +669,11 @@ public class lgExport extends javax.swing.JDialog
     {
         guardShifts.clear();
         System.out.println("Write Sunday Function");
-        System.out.println(inDate.toString() + " " + inDate.toLocalDate().getDayOfWeek());
         final String sundayDay = "U1";
         final String sundayMonth = "W1";
         final String sundayYear = "Y1";
+        String morningOnCall = null;
+        String afternoonOnCall = null;
         
         ArrayList sundayColumns = new ArrayList();
         sundayColumns.add("O");
@@ -693,7 +707,7 @@ public class lgExport extends javax.swing.JDialog
                 selectedColumn = sundayColumns.get(count).toString();
                 lifeguards tempGuard = guardShifts.get(count);
                 inSheet.getCellAt(selectedColumn.concat(staffRow.toString())).setValue(tempGuard.getStaff1());
-                inSheet.getCellAt(selectedColumn.concat("17")).setValue((tempGuard.getStartTimeString().concat(" - ")).concat(tempGuard.getEndTimeString()));
+                inSheet.getCellAt(selectedColumn.concat("17")).setValue((comFunc.timeConvert(tempGuard.getStartTime()).concat(" - ")).concat(comFunc.timeConvert(tempGuard.getEndTime())));
                 Integer startRow = 0;
                 Integer endRow = 0;
                 for (int x = 0; x < 33; x = x + 1) {
@@ -712,17 +726,26 @@ public class lgExport extends javax.swing.JDialog
                 if (startRow > 0) {
                     do {
                         String cell = selectedColumn.concat(startRow.toString());
-                        if (tempGuard.getStartTime().getHour() >= 12) {
+                        if (tempGuard.getStartTime().getHour() >= 12) 
+                        {
                             inSheet.getCellAt(cell).setBackgroundColor(Color.yellow);
-                        } else {
+                            afternoonOnCall = tempGuard.getOnCall();
+                        } 
+                        else 
+                        {
                             inSheet.getCellAt(cell).setBackgroundColor(Color.red);
+                            morningOnCall = tempGuard.getOnCall();
                         }
                         startRow++;
                     } while (startRow != endRow + 1);
                 }
                 count++;
             } while (count != guardShifts.size());
-        } catch (SQLException ex) {
+            
+            inSheet.getCellAt("Y6").setValue(morningOnCall);
+            inSheet.getCellAt("Z6").setValue(afternoonOnCall);
+        } catch (SQLException ex) 
+        {
             System.out.println(ex);
         }
         return inSheet;
@@ -732,10 +755,11 @@ public class lgExport extends javax.swing.JDialog
     {
         guardShifts.clear();
         System.out.println("write monday function");
-        System.out.println(inDate.toString() + " " + inDate.toLocalDate().getDayOfWeek());
         final String mondayDay = "AH1";
         final String mondayMonth = "AJ1";
         final String mondayYear = "AL1";
+        String morningOnCall = null;
+        String afternoonOnCall = null;
 
         ArrayList mondayColumns = new ArrayList();
         mondayColumns.add("AD");
@@ -765,41 +789,56 @@ public class lgExport extends javax.swing.JDialog
                 guardShifts.add(tempGuard);
             }
             int count = 0;
-            do {
+            do 
+            {
                 selectedColumn = mondayColumns.get(count).toString();
                 lifeguards tempGuard = guardShifts.get(count);
                 inSheet.getCellAt(selectedColumn.concat(staffRow.toString())).setValue(tempGuard.getStaff1());
-                inSheet.getCellAt(selectedColumn.concat("17")).setValue((tempGuard.getStartTimeString().concat(" - ")).concat(tempGuard.getEndTimeString()));
+                inSheet.getCellAt(selectedColumn.concat("17")).setValue((comFunc.timeConvert(tempGuard.getStartTime()).concat(" - ")).concat(comFunc.timeConvert(tempGuard.getEndTime())));
                 Integer startRow = 0;
                 Integer endRow = 0;
-                for (int x = 0; x < 33; x = x + 1) {
-                    if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0])) {
+                for (int x = 0; x < 33; x = x + 1) 
+                {
+                    if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0])) 
+                    {
                         startRow = Integer.valueOf(timeList[x][1]);
                         break;
                     }
                 }
-                for (int x = 0; x < 33; x = x + 1) {
-                    if (tempGuard.getEndTimeString().equalsIgnoreCase(timeList[x][0])) {
+                for (int x = 0; x < 33; x = x + 1) 
+                {
+                    if (tempGuard.getEndTimeString().equalsIgnoreCase(timeList[x][0])) 
+                    {
                         endRow = Integer.valueOf(timeList[x][1]);
                         break;
                     }
                 }
                 //change background colour of cells
-                System.out.println("start Row: " + startRow + " End Row: " + endRow);
-                if (startRow > 0) {
-                    do {
+                if (startRow > 0) 
+                {
+                    do 
+                    {
                         String cell = selectedColumn.concat(startRow.toString());
-                        if (tempGuard.getStartTime().getHour() >= 12) {
+                        if (tempGuard.getStartTime().getHour() >= 12) 
+                        {
                             inSheet.getCellAt(cell).setBackgroundColor(Color.yellow);
-                        } else {
+                            afternoonOnCall = tempGuard.getOnCall();
+                        } 
+                        else
+                        {
                             inSheet.getCellAt(cell).setBackgroundColor(Color.red);
+                            morningOnCall = tempGuard.getOnCall();
                         }
                         startRow++;
                     } while (startRow != endRow + 1);
                 }
                 count++;
             } while (count != guardShifts.size());
-        } catch (SQLException ex) {
+            inSheet.getCellAt("AN6").setValue(morningOnCall);
+            inSheet.getCellAt("AO6").setValue(afternoonOnCall);
+        } 
+        catch (SQLException ex) 
+        {
             System.out.println(ex);
         }
         return inSheet;
@@ -812,6 +851,8 @@ public class lgExport extends javax.swing.JDialog
         final String tuesdayDay = "AV1";
         final String tuesdayMonth = "AX1";
         final String tuesdayYear = "AZ1";
+        String morningOnCall = null;
+        String afternoonOnCall = null;
 
         ArrayList tuesdayColumns = new ArrayList();
         tuesdayColumns.add("AR");
@@ -841,17 +882,15 @@ public class lgExport extends javax.swing.JDialog
                 guardShifts.add(tempGuard);
             }
             int count = 0;
-            System.out.println("thare are " + guardShifts.size() + " lifeguard shifts");
             do
             {
                 selectedColumn = tuesdayColumns.get(count).toString();
                 lifeguards tempGuard = guardShifts.get(count);
                 inSheet.getCellAt(selectedColumn.concat(staffRow.toString())).setValue(tempGuard.getStaff1());
-                inSheet.getCellAt(selectedColumn.concat("17")).setValue((tempGuard.getStartTimeString().concat(" - ")).concat(tempGuard.getEndTimeString()));
+                inSheet.getCellAt(selectedColumn.concat("17")).setValue((comFunc.timeConvert(tempGuard.getStartTime()).concat(" - ")).concat(comFunc.timeConvert(tempGuard.getEndTime())));
                     Integer startRow = 0;
                     Integer endRow = 0;
                     for (int x = 0; x < 33; x = x + 1) {
-                        System.out.println(timeList[x][0]);
                         if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0])) 
                         {
                             startRow = Integer.valueOf(timeList[x][1]);
@@ -874,16 +913,20 @@ public class lgExport extends javax.swing.JDialog
                             if (tempGuard.getStartTime().getHour() >=12)
                             {
                                 inSheet.getCellAt(cell).setBackgroundColor(Color.yellow);
+                                afternoonOnCall = tempGuard.getOnCall();
                             }
                             else
                             {
                                 inSheet.getCellAt(cell).setBackgroundColor(Color.red);
+                                morningOnCall = tempGuard.getOnCall();
                             }
                             startRow++;
                         } while (startRow != endRow+1);
                     }
                 count ++;
             } while (count != guardShifts.size());
+            inSheet.getCellAt("BB6").setValue(morningOnCall);
+            inSheet.getCellAt("BC6").setValue(afternoonOnCall);
         }
         catch (SQLException ex)
         {
@@ -899,6 +942,8 @@ public class lgExport extends javax.swing.JDialog
         final String wednesdayDay = "G60";
         final String wednesdayMonth = "I60";
         final String wednesdayYear = "K60";
+        String morningOnCall = null;
+        String afternoonOnCall = null;
 
         ArrayList wednesdayColumns = new ArrayList();
         wednesdayColumns.add("C");
@@ -925,43 +970,29 @@ public class lgExport extends javax.swing.JDialog
             result = connection.lookup(command);
             while (result.next()) {
                 lifeguards tempGuard = new lifeguards(result.getInt("ID"), result.getDate("shift_Date"), result.getTime("start_time"), result.getTime("end_time"), result.getString("location"), result.getString("staff1"), result.getString("onCall"));
-                System.out.println("Tuesday shift start time: " + tempGuard.getStartTimeString() + " end time " + tempGuard.getEndTime().toString() + " record: " + tempGuard.getID());
                 guardShifts.add(tempGuard);
             }
             int count = 0;
-            System.out.println("thare are " + guardShifts.size() + " lifeguard shifts");
             do
             {
                 selectedColumn = wednesdayColumns.get(count).toString();
                 lifeguards tempGuard = guardShifts.get(count);
                 inSheet.getCellAt(selectedColumn.concat(staffRow.toString())).setValue(tempGuard.getStaff1());
-                inSheet.getCellAt(selectedColumn.concat("76")).setValue((tempGuard.getStartTimeString().concat(" - ")).concat(tempGuard.getEndTimeString()));
-                System.out.println("Current column: " + selectedColumn + ", staff member: " + tempGuard.getStaff1());
+                inSheet.getCellAt(selectedColumn.concat("76")).setValue((comFunc.timeConvert(tempGuard.getStartTime()).concat(" - ")).concat(comFunc.timeConvert(tempGuard.getEndTime())));
                     Integer startRow = 0;
                     Integer endRow = 0;
                     for (int x = 0; x < 33; x = x + 1) {
-                        System.out.println(timeList[x][0]);
                         if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0])) 
                         {
                             startRow = Integer.valueOf(timeList[x][2]);
-                            System.out.println("Start Row: " + startRow);
                             break;
-                        }
-                        else
-                        {
-                            System.out.println("Doesn't Match Start Time");
                         }
                     }
                     for (int x = 0; x < 33; x = x + 1) {
                         if (tempGuard.getEndTimeString().equalsIgnoreCase(timeList[x][0])) 
                         {
                             endRow = Integer.valueOf(timeList[x][2]);
-                            System.out.println("end row: " + endRow);
                             break;
-                        }
-                        else
-                        {
-                            System.out.println("Doesn't Match End Time");
                         }
                     }
                     //change background colour of cells
@@ -970,20 +1001,24 @@ public class lgExport extends javax.swing.JDialog
                         do
                         {
                             String cell = selectedColumn.concat(startRow.toString());
-                            System.out.println("Cell contents: " + cell);
                             if (tempGuard.getStartTime().getHour() >=12)
                             {
                                 inSheet.getCellAt(cell).setBackgroundColor(Color.yellow);
+                                afternoonOnCall = tempGuard.getOnCall();
                             }
                             else
                             {
                                 inSheet.getCellAt(cell).setBackgroundColor(Color.red);
+                                morningOnCall = tempGuard.getOnCall();
                             }
                             startRow++;
                         } while (startRow != endRow+1);
                     }
                 count ++;
             } while (count != guardShifts.size());
+            
+            inSheet.getCellAt("M65").setValue(morningOnCall);
+            inSheet.getCellAt("N65").setValue(afternoonOnCall);
         }
         catch (SQLException ex)
         {
@@ -999,6 +1034,8 @@ public class lgExport extends javax.swing.JDialog
         final String thursdayDay = "V60";
         final String thursdayMonth = "X60";
         final String thursdayYear = "Z60";
+        String morningOnCall = null;
+        String afternoonOnCall = null;
 
         ArrayList thursdayColumns = new ArrayList();
         thursdayColumns.add("R");
@@ -1025,43 +1062,30 @@ public class lgExport extends javax.swing.JDialog
             result = connection.lookup(command);
             while (result.next()) {
                 lifeguards tempGuard = new lifeguards(result.getInt("ID"), result.getDate("shift_Date"), result.getTime("start_time"), result.getTime("end_time"), result.getString("location"), result.getString("staff1"), result.getString("onCall"));
-                System.out.println("Tuesday shift start time: " + tempGuard.getStartTimeString() + " end time " + tempGuard.getEndTime().toString() + " record: " + tempGuard.getID());
                 guardShifts.add(tempGuard);
             }
             int count = 0;
-            System.out.println("thare are " + guardShifts.size() + " lifeguard shifts");
             do
             {
                 selectedColumn = thursdayColumns.get(count).toString();
                 lifeguards tempGuard = guardShifts.get(count);
                 inSheet.getCellAt(selectedColumn.concat(staffRow.toString())).setValue(tempGuard.getStaff1());
-                inSheet.getCellAt(selectedColumn.concat("76")).setValue((tempGuard.getStartTimeString().concat(" - ")).concat(tempGuard.getEndTimeString()));
-                System.out.println("Current column: " + selectedColumn + ", staff member: " + tempGuard.getStaff1());
+                inSheet.getCellAt(selectedColumn.concat("76")).setValue((comFunc.timeConvert(tempGuard.getStartTime()).concat(" - ")).concat(comFunc.timeConvert(tempGuard.getEndTime())));
                     Integer startRow = 0;
                     Integer endRow = 0;
                     for (int x = 0; x < 33; x = x + 1) {
-                        System.out.println(timeList[x][0]);
+                        //System.out.println(timeList[x][0]);
                         if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0])) 
                         {
                             startRow = Integer.valueOf(timeList[x][2]);
-                            System.out.println("Start Row: " + startRow);
                             break;
-                        }
-                        else
-                        {
-                            System.out.println("Doesn't Match Start Time");
                         }
                     }
                     for (int x = 0; x < 33; x = x + 1) {
                         if (tempGuard.getEndTimeString().equalsIgnoreCase(timeList[x][0])) 
                         {
                             endRow = Integer.valueOf(timeList[x][2]);
-                            System.out.println("end row: " + endRow);
                             break;
-                        }
-                        else
-                        {
-                            System.out.println("Doesn't Match End Time");
                         }
                     }
                     //change background colour of cells
@@ -1070,20 +1094,24 @@ public class lgExport extends javax.swing.JDialog
                         do
                         {
                             String cell = selectedColumn.concat(startRow.toString());
-                            System.out.println("Cell contents: " + cell);
                             if (tempGuard.getStartTime().getHour() >=12)
                             {
                                 inSheet.getCellAt(cell).setBackgroundColor(Color.yellow);
+                                afternoonOnCall = tempGuard.getOnCall();
                             }
                             else
                             {
                                 inSheet.getCellAt(cell).setBackgroundColor(Color.red);
+                                morningOnCall = tempGuard.getOnCall();
                             }
                             startRow++;
                         } while (startRow != endRow+1);
                     }
                 count ++;
             } while (count != guardShifts.size());
+            
+            inSheet.getCellAt("AB65").setValue(morningOnCall);
+            inSheet.getCellAt("AC65").setValue(afternoonOnCall);
         }
         catch (SQLException ex)
         {
@@ -1095,6 +1123,8 @@ public class lgExport extends javax.swing.JDialog
     private Sheet writeFriday(java.sql.Date inDate, Sheet inSheet)
     {
         guardShifts.clear();
+        String morningOnCall = null;
+        String afternoonOnCall = null;
         System.out.println("write Friday function");
         final String fridayDay = "AJ60";
         final String fridayMonth = "AL60";
@@ -1125,43 +1155,29 @@ public class lgExport extends javax.swing.JDialog
             result = connection.lookup(command);
             while (result.next()) {
                 lifeguards tempGuard = new lifeguards(result.getInt("ID"), result.getDate("shift_Date"), result.getTime("start_time"), result.getTime("end_time"), result.getString("location"), result.getString("staff1"), result.getString("onCall"));
-                System.out.println("Tuesday shift start time: " + tempGuard.getStartTimeString() + " end time " + tempGuard.getEndTime().toString() + " record: " + tempGuard.getID());
                 guardShifts.add(tempGuard);
             }
             int count = 0;
-            System.out.println("thare are " + guardShifts.size() + " lifeguard shifts");
             do
             {
                 selectedColumn = fridayColumns.get(count).toString();
                 lifeguards tempGuard = guardShifts.get(count);
                 inSheet.getCellAt(selectedColumn.concat(staffRow.toString())).setValue(tempGuard.getStaff1());
-                inSheet.getCellAt(selectedColumn.concat("76")).setValue((tempGuard.getStartTimeString().concat(" - ")).concat(tempGuard.getEndTimeString()));
-                System.out.println("Current column: " + selectedColumn + ", staff member: " + tempGuard.getStaff1());
+                inSheet.getCellAt(selectedColumn.concat("76")).setValue((comFunc.timeConvert(tempGuard.getStartTime()).concat(" - ")).concat(comFunc.timeConvert(tempGuard.getEndTime())));
                     Integer startRow = 0;
                     Integer endRow = 0;
                     for (int x = 0; x < 33; x = x + 1) {
-                        System.out.println(timeList[x][0]);
                         if (tempGuard.getStartTimeString().equalsIgnoreCase(timeList[x][0])) 
                         {
                             startRow = Integer.valueOf(timeList[x][2]);
-                            System.out.println("Start Row: " + startRow);
                             break;
-                        }
-                        else
-                        {
-                            System.out.println("Doesn't Match Start Time");
                         }
                     }
                     for (int x = 0; x < 33; x = x + 1) {
                         if (tempGuard.getEndTimeString().equalsIgnoreCase(timeList[x][0])) 
                         {
                             endRow = Integer.valueOf(timeList[x][2]);
-                            System.out.println("end row: " + endRow);
                             break;
-                        }
-                        else
-                        {
-                            System.out.println("Doesn't Match End Time");
                         }
                     }
                     //change background colour of cells
@@ -1170,20 +1186,24 @@ public class lgExport extends javax.swing.JDialog
                         do
                         {
                             String cell = selectedColumn.concat(startRow.toString());
-                            System.out.println("Cell contents: " + cell);
                             if (tempGuard.getStartTime().getHour() >=12)
                             {
                                 inSheet.getCellAt(cell).setBackgroundColor(Color.yellow);
+                                afternoonOnCall = tempGuard.getOnCall();
                             }
                             else
                             {
                                 inSheet.getCellAt(cell).setBackgroundColor(Color.red);
+                                morningOnCall = tempGuard.getOnCall();
                             }
                             startRow++;
                         } while (startRow != endRow+1);
                     }
                 count ++;
             } while (count != guardShifts.size());
+            
+            inSheet.getCellAt("AP65").setValue(morningOnCall);
+            inSheet.getCellAt("AQ65").setValue(afternoonOnCall);
         }
         catch (SQLException ex)
         {

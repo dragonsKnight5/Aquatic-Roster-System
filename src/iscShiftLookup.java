@@ -24,15 +24,17 @@ import javax.swing.JOptionPane;
 public class iscShiftLookup extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
+    commonFunctions comFunc;
     ArrayList<isc> iscShifts = new ArrayList<isc>();
     /**
      * Creates new form Lifeguard
      */
-    public iscShiftLookup(main inParent, dbConnection inConnection) {
+    public iscShiftLookup(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
+        comFunc = inCommon;
         loadData();
         setVisible(true);
     }
@@ -65,6 +67,8 @@ public class iscShiftLookup extends javax.swing.JDialog {
         onCallLbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         staffLabel4 = new javax.swing.JLabel();
+        endTimeLbl1 = new javax.swing.JLabel();
+        startTimeLbl1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ISC Shift Lookup");
@@ -127,6 +131,12 @@ public class iscShiftLookup extends javax.swing.JDialog {
         staffLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         staffLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        endTimeLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        endTimeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        startTimeLbl1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        startTimeLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,18 +158,23 @@ public class iscShiftLookup extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(locationLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(endTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(startTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                                .addComponent(jSeparator2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(staffLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(staffLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                                 .addComponent(staffLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                                 .addComponent(onCallLbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                .addComponent(staffLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
+                                .addComponent(staffLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(endTimeLbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                    .addComponent(startTimeLbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(startTimeLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(endTimeLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -180,7 +195,11 @@ public class iscShiftLookup extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel5)))
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(startTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(endTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
@@ -227,6 +246,8 @@ public class iscShiftLookup extends javax.swing.JDialog {
             isc selectedShift = (isc) shiftList.getSelectedValue();
             startTimeLbl.setText((selectedShift.getStartTime()).toString());
             endTimeLbl.setText((selectedShift.getEndTime()).toString());
+            startTimeLbl1.setText(comFunc.timeConvert(selectedShift.getStartTime()));
+            endTimeLbl1.setText(comFunc.timeConvert(selectedShift.getEndTime()));
             staffLabel1.setText(selectedShift.getStaff1());
             staffLabel2.setText(selectedShift.getStaff2());
             staffLabel3.setText(selectedShift.getStaff3());
@@ -266,6 +287,7 @@ private void loadData()
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JLabel endTimeLbl;
+    private javax.swing.JLabel endTimeLbl1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -283,5 +305,6 @@ private void loadData()
     private javax.swing.JLabel staffLabel4;
     private javax.swing.JLabel staffLbl;
     private javax.swing.JLabel startTimeLbl;
+    private javax.swing.JLabel startTimeLbl1;
     // End of variables declaration//GEN-END:variables
 }
