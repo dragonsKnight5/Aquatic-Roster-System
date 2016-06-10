@@ -66,7 +66,7 @@ public class locationEdit extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("User Edit");
 
-        updateButton.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +74,7 @@ public class locationEdit extends javax.swing.JDialog {
             }
         });
 
-        closeButton.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +82,7 @@ public class locationEdit extends javax.swing.JDialog {
             }
         });
 
-        userList.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        userList.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         userList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         userList.setVisibleRowCount(12);
         userList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -97,25 +97,26 @@ public class locationEdit extends javax.swing.JDialog {
 
         ltsTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel10.setText("Gym:");
 
         lifeguardTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         gymTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Location:");
 
-        locationTxtbx.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        locationTxtbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        locationTxtbx.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel7.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel7.setText("Lifeguard:");
 
-        jLabel9.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel9.setText("LTS:");
 
-        jLabel11.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel11.setText("ISC:");
 
         iscTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N

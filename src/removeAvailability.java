@@ -71,13 +71,13 @@ public removeAvailability(main inParent, dbConnection inConnection, Boolean inSu
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Availability");
 
-        jLabel2.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setText("Department:");
 
-        jLabel3.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel3.setText("Location:");
 
-        removeBttn.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        removeBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         removeBttn.setText("Remove Availability");
         removeBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +85,7 @@ public removeAvailability(main inParent, dbConnection inConnection, Boolean inSu
             }
         });
 
-        closeBttn.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        closeBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeBttn.setText("Close");
         closeBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +93,7 @@ public removeAvailability(main inParent, dbConnection inConnection, Boolean inSu
             }
         });
 
-        availabilityList.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        availabilityList.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         availabilityList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         availabilityList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -102,8 +102,12 @@ public removeAvailability(main inParent, dbConnection inConnection, Boolean inSu
         });
         jScrollPane1.setViewportView(availabilityList);
 
-        completionTckbx.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        completionTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         completionTckbx.setText("Close On Completion");
+
+        departmentLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        locationLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,10 +131,9 @@ public removeAvailability(main inParent, dbConnection inConnection, Boolean inSu
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(removeBttn))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(completionTckbx)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(removeBttn, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(completionTckbx, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

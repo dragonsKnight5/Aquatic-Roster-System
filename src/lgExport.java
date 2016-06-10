@@ -104,6 +104,7 @@ public class lgExport extends javax.swing.JDialog
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LG Roster Exporter");
 
+        dateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         dateCombo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 dateComboItemStateChanged(evt);
@@ -115,8 +116,10 @@ public class lgExport extends javax.swing.JDialog
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("SUP selector:");
 
+        exportButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         exportButton.setText("Export");
         exportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,10 +128,12 @@ public class lgExport extends javax.swing.JDialog
         });
 
         mondayGroup.add(mondayDefRdBttn);
+        mondayDefRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         mondayDefRdBttn.setSelected(true);
         mondayDefRdBttn.setText("Default");
 
         mondayGroup.add(mondayOtherRdBttn);
+        mondayOtherRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         mondayOtherRdBttn.setText("Other");
         mondayOtherRdBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,9 +141,13 @@ public class lgExport extends javax.swing.JDialog
             }
         });
 
+        supMondayTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel4.setText("Monday:");
 
         tuesdayGroup.add(tuesdayOtherRdBttn);
+        tuesdayOtherRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         tuesdayOtherRdBttn.setText("Other");
         tuesdayOtherRdBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,19 +155,26 @@ public class lgExport extends javax.swing.JDialog
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel5.setText("Tuesday:");
 
+        supTuesdayTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
         tuesdayGroup.add(tuesdayDefRdBttn);
+        tuesdayDefRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         tuesdayDefRdBttn.setSelected(true);
         tuesdayDefRdBttn.setText("Default");
 
         wednesdayGroup.add(wednesdayDefRdBttn);
+        wednesdayDefRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         wednesdayDefRdBttn.setSelected(true);
         wednesdayDefRdBttn.setText("Default");
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel6.setText("Friday:");
 
         wednesdayGroup.add(wednesdayOtherRdBttn);
+        wednesdayOtherRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         wednesdayOtherRdBttn.setText("Other");
         wednesdayOtherRdBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,17 +182,25 @@ public class lgExport extends javax.swing.JDialog
             }
         });
 
+        supFridayTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        supWednesdayTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
         fridayGroup.add(fridayDefRdBttn);
+        fridayDefRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         fridayDefRdBttn.setSelected(true);
         fridayDefRdBttn.setText("Default");
 
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel7.setText("Wednesday:");
 
         thursdayGroup.add(thursdayDefRdBttn);
+        thursdayDefRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         thursdayDefRdBttn.setSelected(true);
         thursdayDefRdBttn.setText("Default");
 
         thursdayGroup.add(thursdayOtherRdBttn);
+        thursdayOtherRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         thursdayOtherRdBttn.setText("Other");
         thursdayOtherRdBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,9 +208,13 @@ public class lgExport extends javax.swing.JDialog
             }
         });
 
+        supThursdayTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel8.setText("Thursday:");
 
         fridayGroup.add(fridayOtherRdBttn);
+        fridayOtherRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         fridayOtherRdBttn.setText("Other");
         fridayOtherRdBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +280,7 @@ public class lgExport extends javax.swing.JDialog
                                             .addComponent(fridayOtherRdBttn))
                                         .addGap(18, 18, 18)
                                         .addComponent(supFridayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 15, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -319,7 +347,7 @@ public class lgExport extends javax.swing.JDialog
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(jLabel7)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();

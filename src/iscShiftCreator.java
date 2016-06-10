@@ -203,11 +203,9 @@ public class iscShiftCreator extends javax.swing.JDialog {
 
         startTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        startTimeLbl.setText("jLabel7");
 
         endTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        endTimeLbl.setText("jLabel9");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,9 +309,11 @@ public class iscShiftCreator extends javax.swing.JDialog {
                             .addComponent(endHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(startTimeLbl)
-                    .addComponent(endTimeLbl))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(endTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(startTimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -338,7 +338,7 @@ public class iscShiftCreator extends javax.swing.JDialog {
                         .addComponent(submitButton)
                         .addComponent(closeButton))
                     .addComponent(completionTickbox, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();

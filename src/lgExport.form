@@ -105,7 +105,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -199,7 +199,7 @@
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -207,6 +207,9 @@
   <SubComponents>
     <Component class="javax.swing.JComboBox" name="dateCombo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
@@ -221,11 +224,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="SUP selector:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="exportButton">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Export"/>
       </Properties>
       <Events>
@@ -237,6 +246,9 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="mondayGroup"/>
         </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Default"/>
       </Properties>
@@ -246,6 +258,9 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="mondayGroup"/>
         </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Other"/>
       </Properties>
       <Events>
@@ -253,9 +268,17 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="supMondayTextField">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Monday:"/>
       </Properties>
     </Component>
@@ -263,6 +286,9 @@
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="tuesdayGroup"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Other"/>
       </Properties>
@@ -272,15 +298,26 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Tuesday:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="supTuesdayTextField">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="tuesdayDefRdBttn">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="tuesdayGroup"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Default"/>
@@ -291,12 +328,18 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="wednesdayGroup"/>
         </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Default"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Friday:"/>
       </Properties>
     </Component>
@@ -305,6 +348,9 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="wednesdayGroup"/>
         </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Other"/>
       </Properties>
       <Events>
@@ -312,13 +358,26 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="supFridayTextField">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="supWednesdayTextField">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="fridayDefRdBttn">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="fridayGroup"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Default"/>
@@ -326,6 +385,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Wednesday:"/>
       </Properties>
     </Component>
@@ -333,6 +395,9 @@
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="thursdayGroup"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Default"/>
@@ -343,6 +408,9 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="thursdayGroup"/>
         </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Other"/>
       </Properties>
       <Events>
@@ -350,9 +418,17 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="supThursdayTextField">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Thursday:"/>
       </Properties>
     </Component>
@@ -360,6 +436,9 @@
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="fridayGroup"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="15" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Other"/>
       </Properties>
