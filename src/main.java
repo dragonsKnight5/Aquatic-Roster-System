@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,14 +27,16 @@ public class main extends javax.swing.JFrame {
     dbConnection connection = new dbConnection();
     commonFunctions myCommonFunctions = new commonFunctions();
     Boolean supervisor = false;
-    private final String user = "staff";
-    private final String password = "dragon";
-    private final String address = "192.168.1.209";
+    private ArrayList<String>  credentials; //contains username, password, address, in this order
+    //private final String user = "staff";
+    //private final String password = "dragon";
+    //private final String address = "192.168.1.209";
     /**
      * Creates new form main
      */
     public main() {
         initComponents();
+        loadData();
         startConnection();
     }
 
@@ -598,10 +603,25 @@ public class main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loadData()
+    {
+        try
+        {
+            ObjectInputStream infile = new ObjectInputStream(new FileInputStream("credentials.dat"));
+            credentials = (ArrayList<String>)infile.readObject();
+            
+            infile.close();
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
     private void startConnection()
     {        
         //Connect to database using restricted user
-        connection.newConnect(user, password, address);
+        connection.newConnect(credentials.get(0), credentials.get(1), credentials.get(2));
         
         //check if connected
         Boolean isConnected = connection.isConnected;
@@ -713,7 +733,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_loginMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        JOptionPane.showMessageDialog(null, "Version 0.10");
+        JOptionPane.showMessageDialog(null, "Version 0.11");
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void newStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newStaffMenuItemActionPerformed
@@ -722,7 +742,7 @@ public class main extends javax.swing.JFrame {
 
     private void databaseConnectMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_databaseConnectMenuItemActionPerformed
         //Connect to database using restricted user
-        connection.newConnect(user, password, address);
+        connection.newConnect(credentials.get(0), credentials.get(1), credentials.get(2));
         
         //check if connected
         Boolean isConnected = connection.isConnected;
@@ -866,7 +886,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_iscShiftRemoveBtnActionPerformed
 
     private void exportLgRosterMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportLgRosterMenuItemActionPerformed
-        lgExport guardExport = new lgExport(this, connection, myCommonFunctions);
+        lgExport guardExport = new lgExport(this, connection, myCommonFunctions, credentials.get(3));
     }//GEN-LAST:event_exportLgRosterMenuItemActionPerformed
 
     private void guardShiftDayCreatorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardShiftDayCreatorBtnActionPerformed

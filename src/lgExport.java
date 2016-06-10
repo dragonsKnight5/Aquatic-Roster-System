@@ -32,7 +32,7 @@ public class lgExport extends javax.swing.JDialog
     dbConnection connection;
     commonFunctions comFunc;
     ArrayList<lifeguards> guardShifts = new ArrayList<lifeguards>();
-    String defaultSUP = "SARA WIGHTMAN";
+    String defaultSUP;
     LocalTime openTime = LocalTime.of(5, 00);
     LocalTime twoPm = LocalTime.of(14, 00);
     LocalTime satSunOpenTime = LocalTime.of(6, 00);
@@ -52,12 +52,13 @@ public class lgExport extends javax.swing.JDialog
     /**
      * Creates new form lgExport
      */
-    public lgExport(main inParent, dbConnection inConnection, commonFunctions inCommon) {
+    public lgExport(main inParent, dbConnection inConnection, commonFunctions inCommon, String inDefaultSUP) {
         super(inParent,true);
         initComponents();
         parent = inParent;
         connection = inConnection;
         comFunc = inCommon;
+        defaultSUP = inDefaultSUP;
         loadData();
         setVisible(true);
     }
