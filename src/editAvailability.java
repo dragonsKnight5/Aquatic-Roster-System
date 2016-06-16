@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+//import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -60,6 +60,7 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        sortButtonGroup = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         departmentCombo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -87,6 +88,9 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
         jScrollPane1 = new javax.swing.JScrollPane();
         availabilityList = new javax.swing.JList();
         completionTckbx = new javax.swing.JCheckBox();
+        nameRdBttn = new javax.swing.JRadioButton();
+        dateRdBttn = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edit Availability");
@@ -188,15 +192,43 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
         completionTckbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         completionTckbx.setText("Close On Completion");
 
+        sortButtonGroup.add(nameRdBttn);
+        nameRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameRdBttn.setSelected(true);
+        nameRdBttn.setText("Name");
+        nameRdBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameRdBttnActionPerformed(evt);
+            }
+        });
+
+        sortButtonGroup.add(dateRdBttn);
+        dateRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateRdBttn.setText("Date");
+        dateRdBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateRdBttnActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel1.setText("Sort By:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(closeBttn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addComponent(completionTckbx)
+                .addGap(18, 18, 18)
+                .addComponent(updateBttn))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -249,19 +281,20 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
                                     .addGap(18, 18, 18)
                                     .addComponent(sundayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(93, 93, 93)))
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(closeBttn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
-                        .addComponent(completionTckbx)
-                        .addGap(18, 18, 18)
-                        .addComponent(updateBttn)))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameRdBttn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dateRdBttn)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,10 +336,14 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameRdBttn)
+                    .addComponent(dateRdBttn)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeBttn)
                     .addComponent(updateBttn)
-                    .addComponent(completionTckbx))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(completionTckbx)))
         );
 
         pack();
@@ -419,6 +456,7 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
             departmentCombo.setSelectedItem(selectedAvailability.getDepartment());
             locationCombo.setSelectedItem(selectedAvailability.getLocation());
             ID = selectedAvailability.getID();
+            System.out.println("record ID: " + ID);
         
             // date manipulation block
             dateCombo.removeAllItems();
@@ -471,6 +509,16 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
         
     }//GEN-LAST:event_availabilityListValueChanged
 
+    private void dateRdBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateRdBttnActionPerformed
+        availabilityList.removeAll();
+        loadData();
+    }//GEN-LAST:event_dateRdBttnActionPerformed
+
+    private void nameRdBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRdBttnActionPerformed
+        availabilityList.removeAll();
+        loadData();
+    }//GEN-LAST:event_nameRdBttnActionPerformed
+
     private void loadData ()
     {
         availList.clear();
@@ -478,11 +526,20 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
         String command = null;
         if (supervisor)
         {
-            command = "select * from availability";
+            if (nameRdBttn.isSelected())
+            {
+                command = "select * from availability  order by username";
+                System.out.println("sorted by username");
+            }
+            else
+            {
+                command = "select * from availability order by weekStarting";
+                System.out.println("sorted by date");
+            }
         }
         else
         {
-            command = "select * from availability where username = \'" + parent.getUser() + "\'";
+                command = "select * from availability where username = \'" + parent.getUser() + "\'";
         }
         
         try
@@ -557,8 +614,10 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
     private javax.swing.JButton closeBttn;
     private javax.swing.JCheckBox completionTckbx;
     private javax.swing.JComboBox<String> dateCombo;
+    private javax.swing.JRadioButton dateRdBttn;
     private javax.swing.JComboBox<String> departmentCombo;
     private javax.swing.JComboBox<String> fridayCombo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -574,7 +633,9 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JComboBox<String> locationCombo;
     private javax.swing.JComboBox<String> mondayCombo;
+    private javax.swing.JRadioButton nameRdBttn;
     private javax.swing.JComboBox<String> saturdayCombo;
+    private javax.swing.ButtonGroup sortButtonGroup;
     private javax.swing.JComboBox<String> sundayCombo;
     private javax.swing.JComboBox<String> thursdayCombo;
     private javax.swing.JComboBox<String> tuesdayCombo;

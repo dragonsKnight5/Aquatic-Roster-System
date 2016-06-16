@@ -20,7 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+//import java.time.format.DateTimeFormatter;
 import static java.time.temporal.TemporalAdjusters.*;
 import javax.swing.JOptionPane;
 
@@ -464,8 +464,8 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
                     userCombo.addItem(returned.getString("username"));
                 }
             }
-            LocalDate date = LocalDate.now();
-            LocalDate myDate = date.with(next(DayOfWeek.SATURDAY));
+            //LocalDate date = LocalDate.now();
+            LocalDate myDate = LocalDate.now().with(next(DayOfWeek.SATURDAY));
             int count = 0;
             while (count < 5)
             {

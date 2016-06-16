@@ -398,8 +398,8 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
         
         try {
         java.util.Date myDate = comFunc.dateSwitch((String) dateCombo.getSelectedItem());
-        String command = "select username from availability where department = \"Lifeguard\" and location = \'"+ locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and " + dayCombo.getSelectedItem() 
-                + " = \'" + shift + "\'";
+        String command = "select username from availability where department = \"Lifeguard\" and location = \'"+ locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and (" + dayCombo.getSelectedItem() 
+                + " = \'" + shift + "\' or " + dayCombo.getSelectedItem() + " = \'both\')";
         System.out.println(command);
 
             ResultSet returned = connection.lookup(command);
@@ -447,17 +447,20 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
     private void loadData()
     {
         ResultSet returned;
+        Integer locationCount = 0;
         try {
             returned = connection.lifeguardLocations();
             while (returned.next()) {
                 locationCombo.addItem(returned.getString("location"));
+                locationCount++;
             }
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex) {
             JOptionPane.showMessageDialog(parent, ex);
         }
 
-        LocalDate date = LocalDate.now();
-        LocalDate myDate = date.with(next(DayOfWeek.MONDAY));
+        //LocalDate date = LocalDate.now();
+        LocalDate myDate = LocalDate.now().with(next(DayOfWeek.SATURDAY));
         int count = 0;
         while (count < 5) {
             dateCombo.addItem(comFunc.formatDate(myDate));
@@ -468,6 +471,16 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
         startTimeLbl.setText(comFunc.timeConvert(tempTime));
         tempTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
         endTimeLbl.setText(comFunc.timeConvert(tempTime));
+        
+        if (locationCount > 2)
+            {
+                locationCombo.setSelectedIndex(0);
+            }
+            else
+            {
+                locationCombo.setSelectedIndex(1);
+                availableStaffBttn.doClick();
+            }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

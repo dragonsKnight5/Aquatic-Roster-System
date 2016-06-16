@@ -430,7 +430,8 @@ public class LTSshiftEditor extends javax.swing.JDialog {
                 else 
                 {
                     ltsShifts.clear();
-                    shiftList.setListData(ltsShifts.toArray());
+                    loadData();
+                    //shiftList.setListData(ltsShifts.toArray());
                 }
             } 
             else 
