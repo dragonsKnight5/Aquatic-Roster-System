@@ -51,7 +51,7 @@ public class isc {
     {
         SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/YYYY");
         String formatedDate = myDateFormat.format(shiftDate);
-        return formatedDate;
+        return formatedDate.concat(", " + timeConvert(startTime) + " - " + timeConvert(endTime));
     }
     
     private LocalTime timeConvert(java.sql.Time inTime)
@@ -118,5 +118,13 @@ public class isc {
     public String getOnCall()
     {
         return onCall;
+    }
+    
+    public String timeConvert (LocalTime time)
+    {
+        java.sql.Time tempDate = java.sql.Time.valueOf(time);
+        SimpleDateFormat timeConvertFormat = new  SimpleDateFormat("hh:mm aa");
+        
+        return timeConvertFormat.format(tempDate);
     }
 }

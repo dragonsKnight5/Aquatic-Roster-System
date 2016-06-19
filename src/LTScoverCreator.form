@@ -274,6 +274,7 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="dateCombo">
       <Properties>
+        <Property name="editable" type="boolean" value="true"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="15" style="0"/>
         </Property>

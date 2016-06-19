@@ -661,29 +661,42 @@ public class main extends javax.swing.JFrame {
         editLocationMenuItem.setEnabled(true);
         removeLocationMenuItem.setEnabled(true);
         absenteeMenuItem.setEnabled(true);
-        overviewMenuItem.setEnabled(true);
         iscShiftCreatorBtn.setEnabled(true);
         iscShiftEditBtn.setEnabled(true);
         iscShiftRemoveBtn.setEnabled(true);
         exportLgRosterMenuItem.setEnabled(true);
         guardShiftDayCreatorBtn.setEnabled(true);
         supervisor = true;
-        userConfig();
+        generalConfig();
+        guardConfig();
+        ltsConfig();
+        iscConfig();
     }
     
-    public void userConfig ()
+    public void guardConfig()
+    {
+        guardLookupBtn.setEnabled(true);
+    }
+    public void ltsConfig()
+    {
+        shiftLookupBtn.setEnabled(true);
+        lookupCoverBtn.setEnabled(true);
+        addLtsAvailabilityMenuItem.setEnabled(true);
+    }
+    public void iscConfig()
+    {
+        iscLookupBtn.setEnabled(true);
+    }
+    
+    public void generalConfig ()
     {
         loginMenuItem.setEnabled(false);
         logoutMenuItem.setEnabled(true);
         editStaffMenuItem.setEnabled(true);
-        guardLookupBtn.setEnabled(true);
-        shiftLookupBtn.setEnabled(true);
-        lookupCoverBtn.setEnabled(true);
         addAvailabilityMenuItem.setEnabled(true);
-        addLtsAvailabilityMenuItem.setEnabled(true);
         editAvailabilityMenuItem.setEnabled(true);
         removeAvailabilityMenuItem.setEnabled(true);
-        iscLookupBtn.setEnabled(true);
+        overviewMenuItem.setEnabled(true);
     }
     
     private void removeStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStaffMenuItemActionPerformed

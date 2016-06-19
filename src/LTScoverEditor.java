@@ -117,6 +117,7 @@ public class LTScoverEditor extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Date:");
 
+        dateCombo.setEditable(true);
         dateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         startHourSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N

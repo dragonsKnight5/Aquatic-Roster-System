@@ -121,6 +121,7 @@ public class LTSshiftEditor extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Start Date:");
 
+        startDateCombo.setEditable(true);
         startDateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         startHourSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -163,6 +164,7 @@ public class LTSshiftEditor extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setText("Day:");
 
+        endDateCombo.setEditable(true);
         endDateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N

@@ -158,7 +158,10 @@ public class login extends javax.swing.JDialog
                 else
                 {
                     System.out.println("User isn't a supervisor");
-                    parent.userConfig();
+                    parent.generalConfig();
+                    userConfig(myUser.getDepartment1());
+                    userConfig(myUser.getDepartment2());
+                    userConfig(myUser.getDepartment3());
                 }
                 dispose();
             }
@@ -175,6 +178,22 @@ public class login extends javax.swing.JDialog
         }
     }//GEN-LAST:event_submitBttnActionPerformed
 
+    private void userConfig(String department)
+    {
+        if (department.equalsIgnoreCase("Lifeguard"))
+        {
+            parent.guardConfig();
+        }
+        else if (department.equalsIgnoreCase("LTS"))
+        {
+            parent.ltsConfig();
+        }
+        else if (department.equalsIgnoreCase("ISC"))
+        {
+            parent.iscConfig();
+        }
+    }
+    
     private void usernameTxtbxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameTxtbxKeyPressed
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
         {

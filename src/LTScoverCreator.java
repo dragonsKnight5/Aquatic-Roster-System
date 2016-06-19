@@ -138,6 +138,7 @@ public class LTScoverCreator extends javax.swing.JDialog {
             }
         });
 
+        dateCombo.setEditable(true);
         dateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         dateCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,6 +288,7 @@ public class LTScoverCreator extends javax.swing.JDialog {
         LocalDate myDate = LocalDate.now();
         String dateString = comFunc.formatDate(myDate);
         
+        Integer locationCount = 0;
         int count = 0;
         do {
             dateCombo.addItem(comFunc.plusDaysFormated(myDate, count));
@@ -301,6 +303,7 @@ public class LTScoverCreator extends javax.swing.JDialog {
             while(returned.next())
             {
                 locationCombo.addItem(returned.getString("location"));
+                locationCount++;
             }
         }
         
@@ -310,6 +313,14 @@ public class LTScoverCreator extends javax.swing.JDialog {
         }
         endTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue())));
         startTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue())));
+        if (locationCount > 2)
+            {
+                locationCombo.setSelectedIndex(0);
+            }
+            else
+            {
+                locationCombo.setSelectedIndex(1);
+            }
     }
     
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed

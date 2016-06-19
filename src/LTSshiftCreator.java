@@ -138,6 +138,7 @@ public class LTSshiftCreator extends javax.swing.JDialog {
             }
         });
 
+        startDateCombo.setEditable(true);
         startDateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         closeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -151,6 +152,7 @@ public class LTSshiftCreator extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel5.setText("End Date");
 
+        endDateCombo.setEditable(true);
         endDateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         completionTickbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -326,7 +328,7 @@ public class LTSshiftCreator extends javax.swing.JDialog {
         // Date Setup and handling block
         LocalDate myDate = LocalDate.now();
 
-        int count = 0;
+        Integer count = 0;
         do {
             if (count < 31)
             {
@@ -337,6 +339,7 @@ public class LTSshiftCreator extends javax.swing.JDialog {
             count ++;
         } while (count <108);
         
+        Integer locationCount = 0;
         ResultSet returned;
         try
         {
@@ -344,6 +347,7 @@ public class LTSshiftCreator extends javax.swing.JDialog {
             while(returned.next())
             {
                 locationCombo.addItem(returned.getString("location"));
+                locationCount++;
             }
             returned = connection.newGetLTSusers((String)locationCombo.getSelectedItem(), (String)dayCombo.getSelectedItem());
             while(returned.next())
@@ -357,6 +361,15 @@ public class LTSshiftCreator extends javax.swing.JDialog {
         }
         startTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue())));
         endTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue())));
+        
+        if (locationCount > 2)
+            {
+                locationCombo.setSelectedIndex(0);
+            }
+            else
+            {
+                locationCombo.setSelectedIndex(1);
+            }
     }
     
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed

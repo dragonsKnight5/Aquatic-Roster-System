@@ -212,7 +212,7 @@ public class iscShiftCreator extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
@@ -472,10 +472,12 @@ public class iscShiftCreator extends javax.swing.JDialog {
     private void loadData()
     {
         ResultSet returned;
+        Integer locationCount = 0;
         try {
             returned = connection.iscLocations();
             while (returned.next()) {
                 locationCombo.addItem(returned.getString("location"));
+                locationCount++;
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(parent, ex);
@@ -491,6 +493,15 @@ public class iscShiftCreator extends javax.swing.JDialog {
         }
         startTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue())));
         endTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue())));
+        
+        if (locationCount > 2)
+            {
+                locationCombo.setSelectedIndex(0);
+            }
+            else
+            {
+                locationCombo.setSelectedIndex(1);
+            }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -243,6 +243,23 @@ public class dbConnection
          return users;
      }
      
+public ResultSet getIscUsers(String location, String day, String shift, java.sql.Date weekDate)
+     {
+         ResultSet users = null;
+         sql = "select username from availability where department = \'ISC\' and location = \'" + location + "\' and weekStarting = \'" + weekDate + "\' and (" + day + " = \'both\' or " + day + " = \'" + shift + "\')";
+         System.out.println(sql);
+         try
+         {
+             ps1 = conn.prepareStatement(sql);
+             users = ps1.executeQuery();
+         }
+         catch (SQLException ex)
+         {
+            JOptionPane.showMessageDialog(null, ex);
+         }
+         return users;
+     }
+     
      public ResultSet newGetLTSusers(String location, String day)
      {
          ResultSet users = null;
