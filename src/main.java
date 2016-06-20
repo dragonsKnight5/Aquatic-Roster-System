@@ -607,7 +607,7 @@ public class main extends javax.swing.JFrame {
     {
         try
         {
-            ObjectInputStream infile = new ObjectInputStream(new FileInputStream("credentials.dat"));
+            ObjectInputStream infile = new ObjectInputStream(new FileInputStream("info.dat"));
             credentials = (ArrayList<String>)infile.readObject();
             
             infile.close();
