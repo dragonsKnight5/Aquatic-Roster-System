@@ -58,8 +58,6 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
 
         jLabel1 = new javax.swing.JLabel();
         userCombo = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        departmentCombo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         locationCombo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -98,21 +96,6 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
         userCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userComboActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        jLabel2.setText("Department:");
-
-        departmentCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        departmentCombo.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                departmentComboItemStateChanged(evt);
-            }
-        });
-        departmentCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                departmentComboActionPerformed(evt);
             }
         });
 
@@ -197,28 +180,26 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(userCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(locationCombo, 0, 120, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(departmentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addGap(18, 18, 18)
                                 .addComponent(sundayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99))))
+                                .addGap(99, 99, 99))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(userCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(34, 34, 34))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -235,7 +216,7 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
                                         .addComponent(jLabel7)
                                         .addGap(18, 18, 18)
                                         .addComponent(wednesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel8)
@@ -262,15 +243,12 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(userCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(departmentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4)
-                        .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -307,107 +285,46 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
     }// </editor-fold>//GEN-END:initComponents
 
     private void userComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_userComboItemStateChanged
-        try
-        {
-            System.out.println("Remove all items from department combo");
-            departmentCombo.removeAllItems();
-            ResultSet returned = connection.getDepartments((String) userCombo.getSelectedItem());
-            returned.next();
-
-            System.out.println("Adding first department to combo");
-            System.out.println("first department: " + returned.getString("department_1"));
-            departmentCombo.addItem(returned.getString("department_1"));
-            
-            System.out.println("Test department 2 value");
-            if (!returned.getString("department_2").equalsIgnoreCase("None")) 
-            {
-                System.out.println("Adding second department to combo");
-                departmentCombo.addItem(returned.getString("department_2"));
-                System.out.println("second department: " + returned.getString("department_2"));
-            }
-            
-            System.out.println("Test department 3 value");
-            if (!returned.getString("department_3").equalsIgnoreCase("None")) 
-            {
-                System.out.println("Adding third department to combo");
-                departmentCombo.addItem(returned.getString("department_3"));
-                System.out.println("third department: " + returned.getString("department_3"));
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Something broke\n" + ex);
-        }
+//        try
+//        {
+//            System.out.println("Remove all items from department combo");
+//            departmentCombo.removeAllItems();
+//            ResultSet returned = connection.getDepartments((String) userCombo.getSelectedItem());
+//            returned.next();
+//
+//            System.out.println("Adding first department to combo");
+//            System.out.println("first department: " + returned.getString("department_1"));
+//            departmentCombo.addItem(returned.getString("department_1"));
+//            
+//            System.out.println("Test department 2 value");
+//            if (!returned.getString("department_2").equalsIgnoreCase("None")) 
+//            {
+//                System.out.println("Adding second department to combo");
+//                departmentCombo.addItem(returned.getString("department_2"));
+//                System.out.println("second department: " + returned.getString("department_2"));
+//            }
+//            
+//            System.out.println("Test department 3 value");
+//            if (!returned.getString("department_3").equalsIgnoreCase("None")) 
+//            {
+//                System.out.println("Adding third department to combo");
+//                departmentCombo.addItem(returned.getString("department_3"));
+//                System.out.println("third department: " + returned.getString("department_3"));
+//            }
+//        }
+//        catch (SQLException ex)
+//        {
+//            System.out.println("Something broke\n" + ex);
+//        }
     }//GEN-LAST:event_userComboItemStateChanged
 
     private void closeBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBttnActionPerformed
         dispose();
     }//GEN-LAST:event_closeBttnActionPerformed
 
-    private void departmentComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departmentComboActionPerformed
-        
-    }//GEN-LAST:event_departmentComboActionPerformed
-
     private void userComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userComboActionPerformed
-
-    private void departmentComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_departmentComboItemStateChanged
-        String comboValue = (String)departmentCombo.getSelectedItem();
-        locationCombo.removeAllItems();
-        String departmentValue = (String)departmentCombo.getSelectedItem();
-        ResultSet result = null;
-        try
-        {
-            if (departmentValue.equalsIgnoreCase("lts"))
-            {
-                result = connection.ltsLocations();
-                
-                while (result.next())
-                {
-                    if (!result.getString("location").equalsIgnoreCase("None"))
-                    {
-                        System.out.println(result.getString("location"));
-                        locationCombo.addItem(result.getString("location"));
-                    }
-                }
-            }
-            else if(departmentValue.equalsIgnoreCase("lifeguard"))
-            {
-                result = connection.lifeguardLocations();
-                
-                while (result.next())
-                {
-                    if (!result.getString("location").equalsIgnoreCase("None"))
-                    {
-                        System.out.println(result.getString("location"));
-                        locationCombo.addItem(result.getString("location"));
-                    }
-                }
-            }
-            else if(departmentValue.equalsIgnoreCase("isc"))
-            {
-                result = connection.lifeguardLocations();
-                
-                while (result.next())
-                {
-                    if (!result.getString("location").equalsIgnoreCase("None"))
-                    {
-                        System.out.println(result.getString("location"));
-                        locationCombo.addItem(result.getString("location"));
-                    }
-                }
-            }
-        }
-        catch (SQLException ex)
-        {
-            System.out.println("Something Broke\n" + ex);
-        }
-        catch (Exception ex)
-        {
-            System.out.println("Something Broke\n" + ex);
-        }
-    }//GEN-LAST:event_departmentComboItemStateChanged
 
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
         SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -425,8 +342,8 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
         
         String command = "insert into availability (username, monday, tuesday, wednesday, thursday, friday, saturday, sunday, department, location, weekStarting)"
                 + " values (\'" + userCombo.getSelectedItem() + "\', \'" + mondayCombo.getSelectedItem() + "\', \'" + tuesdayCombo.getSelectedItem() + "\', \'" + wednesdayCombo.getSelectedItem()
-                + "\', \'" + thursdayCombo.getSelectedItem() + "\', \'" + fridayCombo.getSelectedItem() + "\', \'" + saturdayCombo.getSelectedItem() + "\', \'" + sundayCombo.getSelectedItem() + "\', \'"
-                + departmentCombo.getSelectedItem() + "\', \'" + locationCombo.getSelectedItem() + "\', \'"+ selectedDate + "\')";
+                + "\', \'" + thursdayCombo.getSelectedItem() + "\', \'" + fridayCombo.getSelectedItem() + "\', \'" + saturdayCombo.getSelectedItem() + "\', \'" + sundayCombo.getSelectedItem() + "\', \'LTS\', \'"
+               + locationCombo.getSelectedItem() + "\', \'"+ selectedDate + "\')";
         //System.out.println(command);
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
@@ -449,7 +366,7 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
 
     private void loadData ()
     {
-        ResultSet returned = connection.getUsers();
+        ResultSet returned = connection.getLTSusers();
         try
         {
             while(returned.next())
@@ -467,11 +384,20 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
             LocalDate myDate = date.with(next(DayOfWeek.MONDAY));
             int count = 0;
             while (count < 5)
-            {;
-                String dateString = comFunc.formatDate(date);
+            {
+                String dateString = comFunc.formatDate(myDate);
                 dateCombo.addItem(dateString);
                 count++;
                 myDate = myDate.plusDays(7);
+            }
+            returned = connection.ltsLocations();
+            while(returned.next())
+            {
+                if (!returned.getString("location").equalsIgnoreCase("None"))
+                    {
+                        System.out.println(returned.getString("location"));
+                        locationCombo.addItem(returned.getString("location"));
+                    }
             }
         }
         catch (SQLException ex)
@@ -484,12 +410,10 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeBttn;
     private javax.swing.JComboBox<String> dateCombo;
-    private javax.swing.JComboBox<String> departmentCombo;
     private javax.swing.JComboBox<String> fridayCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

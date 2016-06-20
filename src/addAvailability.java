@@ -203,18 +203,19 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
                                     .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(userCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(locationCombo, 0, 120, Short.MAX_VALUE))
+                                    .addComponent(locationCombo, 0, 130, Short.MAX_VALUE)
+                                    .addComponent(userCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(departmentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(departmentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addGap(18, 18, 18)
@@ -236,7 +237,7 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
                                         .addComponent(jLabel7)
                                         .addGap(18, 18, 18)
                                         .addComponent(wednesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel8)
@@ -317,22 +318,31 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
 
             System.out.println("Adding first department to combo");
             System.out.println("first department: " + returned.getString("department_1"));
-            departmentCombo.addItem(returned.getString("department_1"));
+            if (!returned.getString("department_1").equalsIgnoreCase("LTS"))
+            {
+                departmentCombo.addItem(returned.getString("department_1"));
+            }
             
             System.out.println("Test department 2 value");
             if (!returned.getString("department_2").equalsIgnoreCase("None")) 
             {
-                System.out.println("Adding second department to combo");
-                departmentCombo.addItem(returned.getString("department_2"));
-                System.out.println("second department: " + returned.getString("department_2"));
+                if (!returned.getString("department_2").equalsIgnoreCase("LTS"))
+                {
+                    System.out.println("Adding second department to combo");
+                    departmentCombo.addItem(returned.getString("department_2"));
+                    System.out.println("second department: " + returned.getString("department_2"));
+                }
             }
             
             System.out.println("Test department 3 value");
-            if (!returned.getString("department_3").equalsIgnoreCase("None")) 
+            if (!returned.getString("department_3").equalsIgnoreCase("None"))
             {
-                System.out.println("Adding third department to combo");
-                departmentCombo.addItem(returned.getString("department_3"));
-                System.out.println("third department: " + returned.getString("department_3"));
+                if (!returned.getString("department_3").equalsIgnoreCase("LTS"))
+                {
+                    System.out.println("Adding third department to combo");
+                    departmentCombo.addItem(returned.getString("department_3"));
+                    System.out.println("third department: " + returned.getString("department_3"));
+                }
             }
         }
         catch (SQLException ex)

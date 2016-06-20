@@ -289,9 +289,9 @@ public class LTSshiftLookup extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lookupBtn))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lookupBtn)
+                            .addComponent(dayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(allRadioButton)
@@ -335,11 +335,8 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     
     private void loadData(String day)
 {
-    ltsShifts.clear();
-    ltsList.removeAll();
     String command;
     ResultSet returned;
-    ltsList.removeAll();
     if (day.equalsIgnoreCase("All"))
     {
         if (parent.isSupervisor())
@@ -378,6 +375,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     }
     try
     {
+        ltsShifts.clear();
         returned = connection.lookup(command);
         while(returned.next())
         {

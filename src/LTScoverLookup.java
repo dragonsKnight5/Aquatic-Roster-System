@@ -263,7 +263,6 @@ public class LTScoverLookup extends javax.swing.JDialog {
     {
         ResultSet returned;
         String command = null;
-        coverList.removeAll();
         try
         {
             if (parent.isSupervisor())
@@ -283,6 +282,7 @@ public class LTScoverLookup extends javax.swing.JDialog {
             }
             returned = connection.lookup(command);
             
+            coverShifts.clear();
             while(returned.next())
             {
                 cover covered = new cover (returned.getInt("ID"), returned.getDate("cover_date"), returned.getTime("start_time"), returned.getTime("end_time"), returned.getString("location"), returned.getString("staff"), returned.getString("cover_for"));

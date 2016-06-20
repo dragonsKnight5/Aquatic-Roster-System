@@ -165,11 +165,17 @@ public class iscShiftLookup extends javax.swing.JDialog {
         });
 
         nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nameTxtFld.setEnabled(false);
 
         lookupButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lookupButton.setText("Lookup");
         lookupButton.setEnabled(false);
+        lookupButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lookupButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,13 +272,13 @@ public class iscShiftLookup extends javax.swing.JDialog {
                                 .addGap(61, 61, 61)
                                 .addComponent(staffLbl)))
                         .addGap(7, 17, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(closeButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(allRadioButton)
                                 .addComponent(nameRadioButton)
                                 .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lookupButton))))
+                                .addComponent(lookupButton))
+                            .addComponent(closeButton)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel1)
@@ -325,10 +331,13 @@ public class iscShiftLookup extends javax.swing.JDialog {
         nameTxtFld.setEnabled(false);
     }//GEN-LAST:event_allRadioButtonActionPerformed
 
+    private void lookupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupButtonActionPerformed
+        loadData();
+    }//GEN-LAST:event_lookupButtonActionPerformed
+
 private void loadData()
 {
     ResultSet returned;
-    shiftList.removeAll();
     String command = null;
     if (parent.isSupervisor())
     {
@@ -348,6 +357,7 @@ private void loadData()
             
     try
     {
+        iscShifts.clear();
         returned = connection.lookup(command);
         while(returned.next())
         {

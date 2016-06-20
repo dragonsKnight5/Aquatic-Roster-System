@@ -298,7 +298,7 @@ public class LifeguardShiftLookup extends javax.swing.JDialog {
     }//GEN-LAST:event_nameTxtFldActionPerformed
 
     private void lookupBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupBttnActionPerformed
-        // TODO add your handling code here:
+        loadData();
     }//GEN-LAST:event_lookupBttnActionPerformed
 
     private void nameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRadioButtonActionPerformed
@@ -319,7 +319,6 @@ private void loadData()
 {
     ResultSet returned;
     String command = null;
-    shiftList.removeAll();
     if (parent.isSupervisor())
     {
         if (allRadioButton.isSelected())
@@ -328,7 +327,7 @@ private void loadData()
         }
         else
         {
-            command = "select * from lifeguard where staff1= \'" + nameTxtFld.getText() + "\'";
+            command = "select * from lifeguard where staff1 = \'" + nameTxtFld.getText() + "\'";
         }
     }
     else
@@ -337,6 +336,8 @@ private void loadData()
     }
     try
     {
+        guardShifts.clear();
+        System.out.println(command);
         returned = connection.lookup(command);
         while(returned.next())
         {
