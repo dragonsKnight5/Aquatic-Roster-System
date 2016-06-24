@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class main extends javax.swing.JFrame {
     dbConnection connection = new dbConnection();
     commonFunctions myCommonFunctions = new commonFunctions();
-    Boolean supervisor = false;
+    private Boolean supervisor = false;
     private ArrayList<String>  credentials; //contains username, password, address, in this order
     //private final String user = "staff";
     //private final String password = "dragon";
@@ -746,7 +746,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_loginMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        JOptionPane.showMessageDialog(null, "Version 0.11");
+        JOptionPane.showMessageDialog(null, "Version 0.13");
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void newStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newStaffMenuItemActionPerformed
@@ -867,11 +867,11 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_addAvailabilityMenuItemActionPerformed
 
     private void editAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAvailabilityMenuItemActionPerformed
-        editAvailability availabilityEdit = new editAvailability(this, connection, supervisor, myCommonFunctions);
+        editAvailability availabilityEdit = new editAvailability(this, connection, myCommonFunctions);
     }//GEN-LAST:event_editAvailabilityMenuItemActionPerformed
 
     private void removeAvailabilityMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAvailabilityMenuItemActionPerformed
-        removeAvailability availabilityRemoval = new removeAvailability(this, connection, supervisor);
+        removeAvailability availabilityRemoval = new removeAvailability(this, connection);
     }//GEN-LAST:event_removeAvailabilityMenuItemActionPerformed
 
     private void absenteeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_absenteeMenuItemActionPerformed
@@ -879,7 +879,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_absenteeMenuItemActionPerformed
 
     private void overviewMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewMenuItemActionPerformed
-        overview myOveriew = new overview(this, connection, myCommonFunctions);
+        overviewOld myOveriew = new overviewOld(this, connection, myCommonFunctions);
     }//GEN-LAST:event_overviewMenuItemActionPerformed
 
     private void iscLookupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iscLookupBtnActionPerformed

@@ -166,7 +166,7 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
         jLabel5.setText("Location:");
 
         dayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        dayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        dayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" }));
         dayCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dayComboActionPerformed(evt);

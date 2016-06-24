@@ -15,6 +15,7 @@
  */
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -37,6 +38,7 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
         connection = inConnection;
         comFunc = inCommon;
         loadData();
+        firstLoad();
         setVisible(true);
     }
 
@@ -49,6 +51,7 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nameButtonGroup = new javax.swing.ButtonGroup();
         closeButton = new javax.swing.JButton();
         endTimeLabel = new javax.swing.JLabel();
         startTimeLabel = new javax.swing.JLabel();
@@ -69,6 +72,12 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         startTimeLabel1 = new javax.swing.JLabel();
         endTimeLabel1 = new javax.swing.JLabel();
+        nameRadioButton = new javax.swing.JRadioButton();
+        dateSearchCombo = new javax.swing.JComboBox<>();
+        dateRadioButton = new javax.swing.JRadioButton();
+        nameTxtFld = new javax.swing.JTextField();
+        allRadioButton = new javax.swing.JRadioButton();
+        lookupButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lifeguard Shift Remove");
@@ -144,6 +153,60 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
         endTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endTimeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        nameButtonGroup.add(nameRadioButton);
+        nameRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameRadioButton.setText("Name");
+        nameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameRadioButtonActionPerformed(evt);
+            }
+        });
+
+        dateSearchCombo.setEditable(true);
+        dateSearchCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateSearchCombo.setEnabled(false);
+        dateSearchCombo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dateSearchComboKeyPressed(evt);
+            }
+        });
+
+        nameButtonGroup.add(dateRadioButton);
+        dateRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateRadioButton.setText("Date");
+        dateRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateRadioButtonActionPerformed(evt);
+            }
+        });
+
+        nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nameTxtFld.setEnabled(false);
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyPressed(evt);
+            }
+        });
+
+        nameButtonGroup.add(allRadioButton);
+        allRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        allRadioButton.setSelected(true);
+        allRadioButton.setText("All");
+        allRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allRadioButtonActionPerformed(evt);
+            }
+        });
+
+        lookupButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lookupButton.setText("Lookup");
+        lookupButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lookupButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -166,7 +229,6 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator2)
-                            .addComponent(completionTickbox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(staffLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -183,9 +245,26 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
                                             .addComponent(startTimeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(closeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(removeButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(closeButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(lookupButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(completionTickbox, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                                .addGap(4, 4, 4)
+                                .addComponent(removeButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(allRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nameRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dateRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dateSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -218,8 +297,7 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
                                 .addComponent(jLabel6)
                                 .addGap(26, 26, 26)
                                 .addComponent(jLabel8)))
-                        .addGap(80, 80, 80)
-                        .addComponent(completionTickbox))
+                        .addGap(104, 104, 104))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,10 +309,23 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
                                 .addComponent(jLabel7))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(25, 25, 25)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(closeButton)
-                    .addComponent(removeButton)))
+                    .addComponent(allRadioButton)
+                    .addComponent(nameRadioButton)
+                    .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateRadioButton)
+                    .addComponent(dateSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(closeButton)
+                            .addComponent(removeButton)
+                            .addComponent(lookupButton)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(completionTickbox)
+                        .addContainerGap())))
         );
 
         pack();
@@ -306,11 +397,71 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_completionTickboxActionPerformed
 
+    private void nameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRadioButtonActionPerformed
+        nameTxtFld.setEnabled(true);
+        dateSearchCombo.setEnabled(false);
+    }//GEN-LAST:event_nameRadioButtonActionPerformed
+
+    private void dateRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateRadioButtonActionPerformed
+        dateSearchCombo.setEnabled(true);
+        nameTxtFld.setEnabled(false);
+    }//GEN-LAST:event_dateRadioButtonActionPerformed
+
+    private void allRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRadioButtonActionPerformed
+        nameTxtFld.setEnabled(false);
+        dateSearchCombo.setEnabled(false);
+    }//GEN-LAST:event_allRadioButtonActionPerformed
+
+    private void lookupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupButtonActionPerformed
+        loadData();
+    }//GEN-LAST:event_lookupButtonActionPerformed
+
+    private void nameTxtFldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupButton.doClick();
+        }
+    }//GEN-LAST:event_nameTxtFldKeyPressed
+
+    private void dateSearchComboKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateSearchComboKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupButton.doClick();
+        }
+    }//GEN-LAST:event_dateSearchComboKeyPressed
+
+    private void firstLoad()
+    {
+        LocalDate tempDate = LocalDate.now();
+            int count = 0;
+            while (count < 70)
+            {
+                dateSearchCombo.addItem(comFunc.plusDaysFormated(tempDate, count));
+                count++;
+            }
+    }
+    
 private void loadData()
 {
     ResultSet returned;
-    shiftList.removeAll();
-    String command = "select * from lifeguard";
+    String command = null;
+    guardShifts.clear();
+    if (allRadioButton.isSelected())
+        {
+            command = "select * from lifeguard";
+        }
+        else if (nameRadioButton.isSelected())
+        {
+            command = "select * from lifeguard where staff1 = \'" + nameTxtFld.getText() + "\'";
+        }
+        else if (dateRadioButton.isSelected())
+        {
+            command = "select * from lifeguard where shift_date = \'" + comFunc.dateSwitch((String)dateSearchCombo.getSelectedItem()) + "\'";
+        }
+    else
+        {
+            command = "select * from lifeguard where staff1 = \'" + nameTxtFld.getText() + "\'";
+        }
     try
     {
         returned = connection.lookup(command);
@@ -333,8 +484,11 @@ private void loadData()
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionTickbox;
+    private javax.swing.JRadioButton dateRadioButton;
+    private javax.swing.JComboBox<String> dateSearchCombo;
     private javax.swing.JLabel endTimeLabel;
     private javax.swing.JLabel endTimeLabel1;
     private javax.swing.JLabel jLabel4;
@@ -347,6 +501,10 @@ private void loadData()
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel locationLbl;
+    private javax.swing.JButton lookupButton;
+    private javax.swing.ButtonGroup nameButtonGroup;
+    private javax.swing.JRadioButton nameRadioButton;
+    private javax.swing.JTextField nameTxtFld;
     private javax.swing.JLabel onCallLbl;
     private javax.swing.JButton removeButton;
     private javax.swing.JList shiftList;

@@ -421,9 +421,10 @@ public class iscShiftCreator extends javax.swing.JDialog {
         }
         
         try {
-        java.util.Date myDate = comFunc.dateSwitch((String) dateCombo.getSelectedItem());
-        String command = "select username from availability where department = \"ISC\" and location = \'"+ locationCombo.getSelectedItem() + "\' and weekStarting = \'" + myDate + "\' and " + dayCombo.getSelectedItem() 
-                + " = \'" + shift + "\'";
+        //java.util.Date myDate = comFunc.dateSwitch((String) dateCombo.getSelectedItem());
+        //String command = "select username from availability where department = \"ISC\" and location = \'"+ locationCombo.getSelectedItem() + "\' and weekStarting = \'" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\' and (" + dayCombo.getSelectedItem() 
+        //        + " = \'" + shift + "\' or " + dayCombo.getSelectedItem() +" = \'Both\')";
+        String command = "select username from availability where weekStarting = \'" + comFunc.dateSwitch((String)dateCombo.getSelectedItem()) + "\' and department = \'ISC\' and location = \'" + locationCombo.getSelectedItem() + "\' and (" + dayCombo.getSelectedItem() + " = \'" + shift + "\' or " + dayCombo.getSelectedItem() + " = \'Both\')";
         System.out.println(command);
 
             ResultSet returned = connection.lookup(command);
@@ -433,6 +434,10 @@ public class iscShiftCreator extends javax.swing.JDialog {
                 staffCombo3.addItem(returned.getString("username"));
                 staffCombo4.addItem(returned.getString("username"));
                 onCallCombo.addItem(returned.getString("username"));
+            }
+            if (staffCombo1.getItemCount() == 0)
+            {
+                staffCombo1.addItem("None");
             }
             staffCombo2.addItem("None");
             staffCombo3.addItem("None");
@@ -484,7 +489,7 @@ public class iscShiftCreator extends javax.swing.JDialog {
         }
 
         LocalDate date = LocalDate.now();
-        LocalDate myDate = date.with(next(DayOfWeek.MONDAY));
+        LocalDate myDate = date.with(next(DayOfWeek.SATURDAY));
         int count = 0;
         while (count < 5) {
             dateCombo.addItem(comFunc.formatDate(myDate));
@@ -502,6 +507,7 @@ public class iscShiftCreator extends javax.swing.JDialog {
             {
                 locationCombo.setSelectedIndex(1);
             }
+        availableStaffBttn.doClick();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

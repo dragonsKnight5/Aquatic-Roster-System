@@ -42,6 +42,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         parent = inParent;
         connection = inConnection;
         comFunc = inCommon;
+        loadData("All");
         firstLoad();
         setVisible(true);
     }
@@ -71,7 +72,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         dayCombo = new javax.swing.JComboBox();
-        lookupBtn = new javax.swing.JButton();
+        lookupBttn = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -137,11 +138,11 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         dayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         dayCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }));
 
-        lookupBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        lookupBtn.setText("Lookup");
-        lookupBtn.addActionListener(new java.awt.event.ActionListener() {
+        lookupBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lookupBttn.setText("Lookup");
+        lookupBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lookupBtnActionPerformed(evt);
+                lookupBttnActionPerformed(evt);
             }
         });
 
@@ -180,6 +181,11 @@ public class LTSshiftLookup extends javax.swing.JDialog {
 
         nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         nameTxtFld.setEnabled(false);
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -203,7 +209,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(dayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(lookupBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lookupBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(28, 28, 28)
                                 .addComponent(jLabel6)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -290,7 +296,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lookupBtn)
+                            .addComponent(lookupBttn)
                             .addComponent(dayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -324,7 +330,6 @@ public class LTSshiftLookup extends javax.swing.JDialog {
 
     private void firstLoad ()
     {
-        loadData("All");
         dayCombo.setSelectedItem("All");
         if (parent.isSupervisor())
         {
@@ -335,7 +340,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     
     private void loadData(String day)
 {
-    String command;
+    String command = null;
     ResultSet returned;
     if (day.equalsIgnoreCase("All"))
     {
@@ -343,16 +348,37 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         {
             if (allRadioButton.isSelected())
             {
-                command = "select * from LTS_Shift";
+                if (((String)dayCombo.getSelectedItem()).equalsIgnoreCase("All"))
+                {
+                    command = "select * from LTS_Shift";
+                }
+                else
+                {
+                    command = "select * from LTS_Shift where shift_day = \"" + day + "\"";
+                }
             }
-            else
+            else if (nameRadioButton.isSelected())
             {
-                command = "select * from LTS_Shift where staff = \'" + nameTxtFld.getText() + "\'";
+                if (((String)dayCombo.getSelectedItem()).equalsIgnoreCase("All"))
+                {
+                    command = "select * from LTS_Shift where staff = \'" + nameTxtFld.getText() + "\'";
+                }
+                else
+                {
+                    command = "select * from LTS_Shift where staff = \'" + nameTxtFld.getText() + "\' and shift_day = \"" + day + "\"";
+                }
             }
         }
         else
         {
-            command = "select * from LTS_Shift where staff = \"" + parent.getUser() + "\"";
+            if (((String)dayCombo.getSelectedItem()).equalsIgnoreCase("All"))
+            {
+                command = "select * from LTS_Shift where staff = \"" + parent.getUser() + "\"";
+            }
+            else
+            {
+                command = "select * from LTS_Shift where staff = \'" + parent.getUser() + "\' and shift_day = \"" + day + "\"";
+            }
         }
     }
     else
@@ -365,7 +391,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
             }
             else
             {
-                command = "select * from LTS_Shift where shift_day = \"" + day + "\" where staff = \'" + nameTxtFld.getText() + "\'";
+                command = "select * from LTS_Shift where shift_day = \"" + day + "\" and staff = \'" + nameTxtFld.getText() + "\'";
             }
         }
         else
@@ -376,6 +402,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     try
     {
         ltsShifts.clear();
+        System.out.println(command);
         returned = connection.lookup(command);
         while(returned.next())
         {
@@ -399,9 +426,9 @@ public class LTSshiftLookup extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_closeButtonActionPerformed
 
-    private void lookupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupBtnActionPerformed
+    private void lookupBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupBttnActionPerformed
         loadData((String)dayCombo.getSelectedItem());
-    }//GEN-LAST:event_lookupBtnActionPerformed
+    }//GEN-LAST:event_lookupBttnActionPerformed
 
     private void nameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRadioButtonActionPerformed
         nameTxtFld.setEnabled(true);
@@ -410,6 +437,13 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     private void allRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRadioButtonActionPerformed
         nameTxtFld.setEnabled(false);
     }//GEN-LAST:event_allRadioButtonActionPerformed
+
+    private void nameTxtFldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupBttn.doClick();
+        }
+    }//GEN-LAST:event_nameTxtFldKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -430,7 +464,7 @@ public class LTSshiftLookup extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel locationLbl;
-    private javax.swing.JButton lookupBtn;
+    private javax.swing.JButton lookupBttn;
     private javax.swing.JList ltsList;
     private javax.swing.JRadioButton nameRadioButton;
     private javax.swing.JTextField nameTxtFld;

@@ -698,13 +698,18 @@ public class lgExport extends javax.swing.JDialog
                     } while (startRow != endRow + 1);
                 }
                 count++;
-            } while (count != guardShifts.size());
+            } while (count > guardShifts.size());
             
+            System.out.println("Writing oncall staff");
             inSheet.getCellAt("L6").setValue(morningOnCall);
             inSheet.getCellAt("M6").setValue(afternoonOnCall);
         } 
         catch (SQLException ex) {
             
+            System.out.println(ex);
+        }
+        catch (Exception ex)
+        {
             System.out.println(ex);
         }
         return inSheet;
@@ -790,6 +795,10 @@ public class lgExport extends javax.swing.JDialog
             inSheet.getCellAt("Y6").setValue(morningOnCall);
             inSheet.getCellAt("Z6").setValue(afternoonOnCall);
         } catch (SQLException ex) 
+        {
+            System.out.println(ex);
+        }
+        catch (Exception ex)
         {
             System.out.println(ex);
         }
@@ -886,6 +895,10 @@ public class lgExport extends javax.swing.JDialog
         {
             System.out.println(ex);
         }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
         return inSheet;
     }
     
@@ -974,6 +987,10 @@ public class lgExport extends javax.swing.JDialog
             inSheet.getCellAt("BC6").setValue(afternoonOnCall);
         }
         catch (SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        catch (Exception ex)
         {
             System.out.println(ex);
         }
@@ -1066,6 +1083,10 @@ public class lgExport extends javax.swing.JDialog
             inSheet.getCellAt("N65").setValue(afternoonOnCall);
         }
         catch (SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        catch (Exception ex)
         {
             System.out.println(ex);
         }
@@ -1162,6 +1183,10 @@ public class lgExport extends javax.swing.JDialog
         {
             System.out.println(ex);
         }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
         return inSheet;
     }
     
@@ -1251,6 +1276,10 @@ public class lgExport extends javax.swing.JDialog
             inSheet.getCellAt("AQ65").setValue(afternoonOnCall);
         }
         catch (SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        catch (Exception ex)
         {
             System.out.println(ex);
         }

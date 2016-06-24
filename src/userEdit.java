@@ -75,6 +75,7 @@ public class userEdit extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("username:");
 
+        usernameTextbox.setEditable(false);
         usernameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -99,6 +100,11 @@ public class userEdit extends javax.swing.JDialog {
         jLabel8.setText("Password:");
 
         lastNameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lastNameTextbox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lastNameTextboxKeyReleased(evt);
+            }
+        });
 
         supervisorCheckBox.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
 
@@ -145,6 +151,11 @@ public class userEdit extends javax.swing.JDialog {
         completionCheckbox.setText("Close On Completion");
 
         firstNameTxtbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        firstNameTxtbx.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                firstNameTxtbxKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,10 +176,13 @@ public class userEdit extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usernameTextbox, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(firstNameTxtbx, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(usernameTextbox))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(firstNameTxtbx))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -246,7 +260,7 @@ public class userEdit extends javax.swing.JDialog {
 
     private void loadData()
     {
-        String command = "select * from users";
+        String command = "select * from users order by last_name asc";
         userList.removeAll();
         ArrayList<users> myUsers = new ArrayList<users>();
         myUsers.clear();
@@ -353,6 +367,14 @@ public class userEdit extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void firstNameTxtbxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTxtbxKeyReleased
+        usernameTextbox.setText(firstNameTxtbx.getText().concat("." + lastNameTextbox.getText()));
+    }//GEN-LAST:event_firstNameTxtbxKeyReleased
+
+    private void lastNameTextboxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextboxKeyReleased
+        usernameTextbox.setText(firstNameTxtbx.getText().concat("." + lastNameTextbox.getText()));
+    }//GEN-LAST:event_lastNameTextboxKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

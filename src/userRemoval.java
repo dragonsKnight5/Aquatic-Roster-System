@@ -75,7 +75,7 @@ public class userRemoval extends javax.swing.JDialog
         completionCheckbox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Location Remove");
+        setTitle("Staff Remove");
 
         removeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         removeButton.setText("Remove");

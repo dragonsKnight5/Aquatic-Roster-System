@@ -15,6 +15,7 @@
  */
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -73,8 +74,10 @@ public class iscShiftLookup extends javax.swing.JDialog {
         startTimeLbl1 = new javax.swing.JLabel();
         allRadioButton = new javax.swing.JRadioButton();
         nameRadioButton = new javax.swing.JRadioButton();
-        nameTxtFld = new javax.swing.JTextField();
         lookupButton = new javax.swing.JButton();
+        dateRadioButton = new javax.swing.JRadioButton();
+        nameTxtFld = new javax.swing.JTextField();
+        dateSearchCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ISC Shift Lookup");
@@ -164,16 +167,40 @@ public class iscShiftLookup extends javax.swing.JDialog {
             }
         });
 
-        nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        nameTxtFld.setEnabled(false);
-
         lookupButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lookupButton.setText("Lookup");
         lookupButton.setEnabled(false);
         lookupButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lookupButtonActionPerformed(evt);
+            }
+        });
+
+        userButtonGroup.add(dateRadioButton);
+        dateRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateRadioButton.setText("Date");
+        dateRadioButton.setEnabled(false);
+        dateRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateRadioButtonActionPerformed(evt);
+            }
+        });
+
+        nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nameTxtFld.setEnabled(false);
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyPressed(evt);
+            }
+        });
+
+        dateSearchCombo.setEditable(true);
+        dateSearchCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateSearchCombo.setEnabled(false);
+        dateSearchCombo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dateSearchComboKeyPressed(evt);
             }
         });
 
@@ -219,15 +246,20 @@ public class iscShiftLookup extends javax.swing.JDialog {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(dateRadioButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lookupButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(closeButton))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(allRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nameRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lookupButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeButton))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,22 +302,28 @@ public class iscShiftLookup extends javax.swing.JDialog {
                                 .addGap(19, 19, 19)
                                 .addComponent(jLabel7)
                                 .addGap(61, 61, 61)
-                                .addComponent(staffLbl)))
-                        .addGap(7, 17, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(allRadioButton)
-                                .addComponent(nameRadioButton)
-                                .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lookupButton))
-                            .addComponent(closeButton)))
+                                .addComponent(staffLbl))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel1)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allRadioButton)
+                    .addComponent(nameRadioButton)
+                    .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addComponent(closeButton)
+                        .addGap(8, 8, 8))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dateRadioButton)
+                            .addComponent(lookupButton)
+                            .addComponent(dateSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -302,6 +340,15 @@ public class iscShiftLookup extends javax.swing.JDialog {
             allRadioButton.setEnabled(true);
             nameRadioButton.setEnabled(true);
             lookupButton.setEnabled(true);
+            dateRadioButton.setEnabled(true);
+            
+            LocalDate tempDate = LocalDate.now();
+            int count = 0;
+            while (count < 70)
+            {
+                dateSearchCombo.addItem(comFunc.plusDaysFormated(tempDate, count));
+                count++;
+            }
         }
     }
     
@@ -325,15 +372,36 @@ public class iscShiftLookup extends javax.swing.JDialog {
 
     private void nameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRadioButtonActionPerformed
         nameTxtFld.setEnabled(true);
+        dateSearchCombo.setEnabled(false);
     }//GEN-LAST:event_nameRadioButtonActionPerformed
 
     private void allRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRadioButtonActionPerformed
         nameTxtFld.setEnabled(false);
+        dateSearchCombo.setEnabled(false);
     }//GEN-LAST:event_allRadioButtonActionPerformed
 
     private void lookupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupButtonActionPerformed
         loadData();
     }//GEN-LAST:event_lookupButtonActionPerformed
+
+    private void dateRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateRadioButtonActionPerformed
+        dateSearchCombo.setEnabled(true);
+        nameTxtFld.setEnabled(false);
+    }//GEN-LAST:event_dateRadioButtonActionPerformed
+
+    private void nameTxtFldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupButton.doClick();
+        }
+    }//GEN-LAST:event_nameTxtFldKeyPressed
+
+    private void dateSearchComboKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateSearchComboKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupButton.doClick();
+        }
+    }//GEN-LAST:event_dateSearchComboKeyPressed
 
 private void loadData()
 {
@@ -345,9 +413,13 @@ private void loadData()
         {
             command = "select * from isc";
         }
-        else
+        else if (nameRadioButton.isSelected())
         {
             command = "select * from isc where staff1 = \'" + nameTxtFld.getText() + "\' or staff2 = \'" + nameTxtFld.getText() +"\' or staff3 = \'" + nameTxtFld.getText() +"\' or staff4 = \'" + nameTxtFld.getText() + "\'";
+        }
+        else
+        {
+            command = "select * from isc where shift_date = \'" + comFunc.dateSwitch((String)dateSearchCombo.getSelectedItem()) + "\'";
         }
     }
     else
@@ -379,6 +451,8 @@ private void loadData()
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JButton closeButton;
+    private javax.swing.JRadioButton dateRadioButton;
+    private javax.swing.JComboBox<String> dateSearchCombo;
     private javax.swing.JLabel endTimeLbl;
     private javax.swing.JLabel endTimeLbl1;
     private javax.swing.JLabel jLabel1;

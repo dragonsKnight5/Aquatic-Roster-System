@@ -72,6 +72,7 @@ public class userAdd extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Username:");
 
+        usernameTextbox.setEditable(false);
         usernameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -96,6 +97,17 @@ public class userAdd extends javax.swing.JDialog {
         jLabel8.setText("Password:");
 
         lastNameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lastNameTextbox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lastNameTextboxKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lastNameTextboxKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lastNameTextboxKeyReleased(evt);
+            }
+        });
 
         supervisorCheckbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
@@ -130,6 +142,14 @@ public class userAdd extends javax.swing.JDialog {
         completionCheckbox.setText("Close On Completion");
 
         firstNameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        firstNameTextbox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                firstNameTextboxKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                firstNameTextboxKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -280,6 +300,26 @@ public class userAdd extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void firstNameTextboxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextboxKeyPressed
+        
+    }//GEN-LAST:event_firstNameTextboxKeyPressed
+
+    private void lastNameTextboxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextboxKeyReleased
+        usernameTextbox.setText(firstNameTextbox.getText().concat("." + lastNameTextbox.getText()));
+    }//GEN-LAST:event_lastNameTextboxKeyReleased
+
+    private void lastNameTextboxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextboxKeyPressed
+        
+    }//GEN-LAST:event_lastNameTextboxKeyPressed
+
+    private void firstNameTextboxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextboxKeyReleased
+        usernameTextbox.setText(firstNameTextbox.getText().concat("." + lastNameTextbox.getText()));
+    }//GEN-LAST:event_firstNameTextboxKeyReleased
+
+    private void lastNameTextboxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextboxKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameTextboxKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

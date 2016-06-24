@@ -33,21 +33,20 @@ public class editAvailability extends javax.swing.JDialog {
     main parent;
     dbConnection connection;
     commonFunctions comFunc;
-    Boolean supervisor;
     ArrayList<availability> availList = new ArrayList<availability>();
     int ID;
 
     /**
      * Creates new form addAvailability
      */
-public editAvailability(main inParent, dbConnection inConnection, Boolean inSupervisor, commonFunctions inCommon) {
+public editAvailability(main inParent, dbConnection inConnection, commonFunctions inCommon) {
         super(inParent, true);
         initComponents();
         parent = inParent;
         connection = inConnection;
-        supervisor = inSupervisor;
         comFunc = inCommon;
         loadData();
+        firstLoad();
         setVisible(true);
     }
 
@@ -61,6 +60,7 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
     private void initComponents() {
 
         sortButtonGroup = new javax.swing.ButtonGroup();
+        searchButtonGroup = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         departmentCombo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -90,7 +90,14 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
         completionTckbx = new javax.swing.JCheckBox();
         nameRdBttn = new javax.swing.JRadioButton();
         dateRdBttn = new javax.swing.JRadioButton();
+        allRadioButton = new javax.swing.JRadioButton();
+        nameFilterRadioButton = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        nameTxtFld = new javax.swing.JTextField();
+        lookupBttn = new javax.swing.JButton();
+        dateFilterRadioButton = new javax.swing.JRadioButton();
+        dateTxtFld = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edit Availability");
@@ -211,25 +218,89 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
             }
         });
 
+        searchButtonGroup.add(allRadioButton);
+        allRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        allRadioButton.setSelected(true);
+        allRadioButton.setText("All");
+        allRadioButton.setEnabled(false);
+        allRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allRadioButtonActionPerformed(evt);
+            }
+        });
+
+        searchButtonGroup.add(nameFilterRadioButton);
+        nameFilterRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameFilterRadioButton.setText("Name");
+        nameFilterRadioButton.setEnabled(false);
+        nameFilterRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFilterRadioButtonActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Sort By:");
+
+        jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel12.setText("Filter By:");
+
+        nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nameTxtFld.setEnabled(false);
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyPressed(evt);
+            }
+        });
+
+        lookupBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lookupBttn.setText("Lookup");
+        lookupBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lookupBttnActionPerformed(evt);
+            }
+        });
+
+        searchButtonGroup.add(dateFilterRadioButton);
+        dateFilterRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateFilterRadioButton.setText("Week Starting");
+        dateFilterRadioButton.setEnabled(false);
+        dateFilterRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateFilterRadioButtonActionPerformed(evt);
+            }
+        });
+
+        dateTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateTxtFld.setEnabled(false);
+        dateTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dateTxtFldKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(closeBttn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
-                .addComponent(completionTckbx)
-                .addGap(18, 18, 18)
-                .addComponent(updateBttn))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                        .addGap(5, 5, 5)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(12, 12, 12)
+                        .addComponent(nameRdBttn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateRdBttn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -280,22 +351,38 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
                                     .addComponent(jLabel11)
                                     .addGap(18, 18, 18)
                                     .addComponent(sundayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(93, 93, 93)))
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameRdBttn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dateRdBttn)
+                                    .addGap(93, 93, 93))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(closeBttn)
+                .addGap(18, 18, 18)
+                .addComponent(lookupBttn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(completionTckbx)
+                .addGap(18, 18, 18)
+                .addComponent(updateBttn))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(allRadioButton)
+                .addGap(30, 30, 30)
+                .addComponent(nameFilterRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateFilterRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -332,18 +419,26 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
                             .addComponent(jLabel11)
                             .addComponent(sundayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
                     .addComponent(nameRdBttn)
-                    .addComponent(dateRdBttn)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(dateRdBttn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allRadioButton)
+                    .addComponent(nameFilterRadioButton)
+                    .addComponent(jLabel12)
+                    .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateFilterRadioButton)
+                    .addComponent(dateTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeBttn)
                     .addComponent(updateBttn)
-                    .addComponent(completionTckbx)))
+                    .addComponent(completionTckbx)
+                    .addComponent(lookupBttn)))
         );
 
         pack();
@@ -510,31 +605,74 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
     }//GEN-LAST:event_availabilityListValueChanged
 
     private void dateRdBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateRdBttnActionPerformed
-        availabilityList.removeAll();
-        loadData();
+
     }//GEN-LAST:event_dateRdBttnActionPerformed
 
     private void nameRdBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRdBttnActionPerformed
-        availabilityList.removeAll();
-        loadData();
+
     }//GEN-LAST:event_nameRdBttnActionPerformed
 
+    private void nameFilterRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFilterRadioButtonActionPerformed
+        nameTxtFld.setEnabled(true);
+        dateTxtFld.setEnabled(false);
+    }//GEN-LAST:event_nameFilterRadioButtonActionPerformed
+
+    private void allRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRadioButtonActionPerformed
+        nameTxtFld.setEnabled(false);
+        dateTxtFld.setEnabled(false);
+    }//GEN-LAST:event_allRadioButtonActionPerformed
+
+    private void lookupBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupBttnActionPerformed
+        loadData();
+    }//GEN-LAST:event_lookupBttnActionPerformed
+
+    private void nameTxtFldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupBttn.doClick();
+        }
+    }//GEN-LAST:event_nameTxtFldKeyPressed
+
+    private void dateTxtFldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateTxtFldKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupBttn.doClick();
+        }
+    }//GEN-LAST:event_dateTxtFldKeyPressed
+
+    private void dateFilterRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFilterRadioButtonActionPerformed
+        dateTxtFld.setEnabled(true);
+        nameTxtFld.setEnabled(false);
+    }//GEN-LAST:event_dateFilterRadioButtonActionPerformed
+
+    private void firstLoad()
+    {
+        if (parent.isSupervisor())
+        {
+            allRadioButton.setEnabled(true);
+            nameFilterRadioButton.setEnabled(true);
+            dateFilterRadioButton.setEnabled(true);
+        }
+    }
+    
     private void loadData ()
     {
         availList.clear();
         availabilityList.setListData(availList.toArray());
         String command = null;
-        if (supervisor)
+        if (parent.isSupervisor())
         {
-            if (nameRdBttn.isSelected())
+            if (allRadioButton.isSelected())
             {
-                command = "select * from availability  order by username";
-                System.out.println("sorted by username");
+                command = "select * from availability"; 
+            }
+            else if (nameFilterRadioButton.isSelected())
+            {
+                command = "select * from availability where username = \'" + nameTxtFld.getText() + "\'";
             }
             else
             {
-                command = "select * from availability order by weekStarting";
-                System.out.println("sorted by date");
+                command = "select * from availability where weekStarting = \'" + comFunc.dateSwitch(dateTxtFld.getText()) + "\'";
             }
         }
         else
@@ -542,6 +680,16 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
                 command = "select * from availability where username = \'" + parent.getUser() + "\'";
         }
         
+        if (nameRdBttn.isSelected())
+        {
+            command = command.concat(" order by username");
+        }
+        else
+        {
+            command = command.concat(" order by weekStarting");
+        }
+        
+        System.out.println(command);
         try
         {
             ResultSet returned = connection.lookup(command);
@@ -610,16 +758,20 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JList availabilityList;
     private javax.swing.JButton closeBttn;
     private javax.swing.JCheckBox completionTckbx;
     private javax.swing.JComboBox<String> dateCombo;
+    private javax.swing.JRadioButton dateFilterRadioButton;
     private javax.swing.JRadioButton dateRdBttn;
+    private javax.swing.JTextField dateTxtFld;
     private javax.swing.JComboBox<String> departmentCombo;
     private javax.swing.JComboBox<String> fridayCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -632,9 +784,13 @@ public editAvailability(main inParent, dbConnection inConnection, Boolean inSupe
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JComboBox<String> locationCombo;
+    private javax.swing.JButton lookupBttn;
     private javax.swing.JComboBox<String> mondayCombo;
+    private javax.swing.JRadioButton nameFilterRadioButton;
     private javax.swing.JRadioButton nameRdBttn;
+    private javax.swing.JTextField nameTxtFld;
     private javax.swing.JComboBox<String> saturdayCombo;
+    private javax.swing.ButtonGroup searchButtonGroup;
     private javax.swing.ButtonGroup sortButtonGroup;
     private javax.swing.JComboBox<String> sundayCombo;
     private javax.swing.JComboBox<String> thursdayCombo;

@@ -41,7 +41,8 @@ public class LTSshiftEditor extends javax.swing.JDialog {
         parent = inParent;
         connection = inConnection;
         comFunc = inCommon;
-        loadData();
+        loadData("All");
+        firstLoad();
         setVisible(true);
     }
 
@@ -54,6 +55,7 @@ public class LTSshiftEditor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nameButtonGroup = new javax.swing.ButtonGroup();
         updateButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -80,6 +82,11 @@ public class LTSshiftEditor extends javax.swing.JDialog {
         locationCombo = new javax.swing.JComboBox<>();
         startTimeLbl = new javax.swing.JLabel();
         endTimeLbl = new javax.swing.JLabel();
+        nameTxtFld = new javax.swing.JTextField();
+        nameRadioButton = new javax.swing.JRadioButton();
+        allRadioButton = new javax.swing.JRadioButton();
+        lookupBttn = new javax.swing.JButton();
+        daySearchCombo = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LTS Shift Editor");
@@ -186,6 +193,46 @@ public class LTSshiftEditor extends javax.swing.JDialog {
         endTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endTimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameTxtFld.setEnabled(false);
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyPressed(evt);
+            }
+        });
+
+        nameButtonGroup.add(nameRadioButton);
+        nameRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameRadioButton.setText("Name");
+        nameRadioButton.setEnabled(false);
+        nameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameRadioButtonActionPerformed(evt);
+            }
+        });
+
+        nameButtonGroup.add(allRadioButton);
+        allRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        allRadioButton.setSelected(true);
+        allRadioButton.setText("All Staff");
+        allRadioButton.setEnabled(false);
+        allRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allRadioButtonActionPerformed(evt);
+            }
+        });
+
+        lookupBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lookupBttn.setText("Lookup");
+        lookupBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lookupBttnActionPerformed(evt);
+            }
+        });
+
+        daySearchCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        daySearchCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -239,12 +286,25 @@ public class LTSshiftEditor extends javax.swing.JDialog {
                         .addComponent(completionTickbox)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(updateButton)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(daySearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(lookupBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(allRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nameRadioButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -292,18 +352,25 @@ public class LTSshiftEditor extends javax.swing.JDialog {
                                 .addGap(31, 31, 31)
                                 .addComponent(jLabel6))))
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(159, 159, 159)
-                                .addComponent(startTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(updateButton)
-                                .addComponent(completionTickbox))
-                            .addComponent(closeButton))))
+                        .addGap(159, 159, 159)
+                        .addComponent(startTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lookupBttn)
+                    .addComponent(daySearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allRadioButton)
+                    .addComponent(nameRadioButton)
+                    .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(updateButton)
+                        .addComponent(completionTickbox))
+                    .addComponent(closeButton))
                 .addContainerGap())
         );
 
@@ -353,6 +420,9 @@ public class LTSshiftEditor extends javax.swing.JDialog {
             } while (count != 17);
 
             // set selected Items
+            // Location
+            locationCombo.setSelectedItem(selectedShift.getLocation());
+            
             // Date
             startDateCombo.setSelectedItem(comFunc.formatDate(selectedStartDate));
             endDateCombo.setSelectedItem(comFunc.formatDate(selectedEndDate));
@@ -379,9 +449,13 @@ public class LTSshiftEditor extends javax.swing.JDialog {
             
             
             locationCombo.setSelectedItem(selectedShift.getLocation());
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) 
+        {
             JOptionPane.showMessageDialog(parent, ex);
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) 
+        {
             System.out.println(ex);
         }
     }//GEN-LAST:event_shiftListValueChanged
@@ -432,8 +506,7 @@ public class LTSshiftEditor extends javax.swing.JDialog {
                 else 
                 {
                     ltsShifts.clear();
-                    loadData();
-                    //shiftList.setListData(ltsShifts.toArray());
+                    loadData((String)daySearchCombo.getSelectedItem());
                 }
             } 
             else 
@@ -459,11 +532,100 @@ public class LTSshiftEditor extends javax.swing.JDialog {
         endTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue())));
     }//GEN-LAST:event_endMinuteSpinnerStateChanged
 
-private void loadData()
+    private void nameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRadioButtonActionPerformed
+        nameTxtFld.setEnabled(true);
+    }//GEN-LAST:event_nameRadioButtonActionPerformed
+
+    private void allRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRadioButtonActionPerformed
+        nameTxtFld.setEnabled(false);
+    }//GEN-LAST:event_allRadioButtonActionPerformed
+
+    private void lookupBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupBttnActionPerformed
+        loadData((String)daySearchCombo.getSelectedItem());
+    }//GEN-LAST:event_lookupBttnActionPerformed
+
+    private void nameTxtFldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupBttn.doClick();
+        }
+    }//GEN-LAST:event_nameTxtFldKeyPressed
+
+    private void firstLoad()
+    {
+        if (parent.isSupervisor())
+        {
+            allRadioButton.setEnabled(true);
+            nameRadioButton.setEnabled(true);
+            lookupBttn.setEnabled(true);
+        }
+    }
+    
+private void loadData(String day)
     {
         ResultSet returned;
-        shiftList.removeAll();
-        String command = "select * from LTS_Shift";
+        ltsShifts.clear();
+        String command = null;
+        
+        
+        if (day.equalsIgnoreCase("All"))
+    {
+        if (parent.isSupervisor())
+        {
+            if (allRadioButton.isSelected())
+            {
+                if (((String)daySearchCombo.getSelectedItem()).equalsIgnoreCase("All"))
+                {
+                    command = "select * from LTS_Shift";
+                }
+                else
+                {
+                    command = "select * from LTS_Shift where shift_day = \"" + day + "\"";
+                }
+            }
+            else if (nameRadioButton.isSelected())
+            {
+                if (((String)daySearchCombo.getSelectedItem()).equalsIgnoreCase("All"))
+                {
+                    command = "select * from LTS_Shift where staff = \'" + nameTxtFld.getText() + "\'";
+                }
+                else
+                {
+                    command = "select * from LTS_Shift where staff = \'" + nameTxtFld.getText() + "\' and shift_day = \"" + day + "\"";
+                }
+            }
+        }
+        else
+        {
+            if (((String)daySearchCombo.getSelectedItem()).equalsIgnoreCase("All"))
+            {
+                command = "select * from LTS_Shift where staff = \"" + parent.getUser() + "\"";
+            }
+            else
+            {
+                command = "select * from LTS_Shift where staff = \'" + parent.getUser() + "\' and shift_day = \"" + day + "\"";
+            }
+        }
+    }
+    else
+    {
+        if (parent.isSupervisor())
+        {
+            if (allRadioButton.isSelected())
+            {
+                command = "select * from LTS_Shift where shift_day = \"" + day + "\"";
+            }
+            else
+            {
+                command = "select * from LTS_Shift where shift_day = \"" + day + "\" and staff = \'" + nameTxtFld.getText() + "\'";
+            }
+        }
+        else
+        {
+            command = "select * from LTS_Shift where shift_day = \"" + day + "\" and staff = \"" + parent.getUser() + "\"";
+        }
+    }
+        
         try {
             returned = connection.lookup(command);
             while (returned.next()) {
@@ -488,9 +650,11 @@ private void loadData()
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionTickbox;
     private javax.swing.JComboBox<String> dayCombo;
+    private javax.swing.JComboBox daySearchCombo;
     private javax.swing.JComboBox<String> endDateCombo;
     private javax.swing.JSpinner endHourSpinner;
     private javax.swing.JSpinner endMinuteSpinner;
@@ -507,6 +671,10 @@ private void loadData()
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JComboBox<String> locationCombo;
+    private javax.swing.JButton lookupBttn;
+    private javax.swing.ButtonGroup nameButtonGroup;
+    private javax.swing.JRadioButton nameRadioButton;
+    private javax.swing.JTextField nameTxtFld;
     private javax.swing.JList shiftList;
     private javax.swing.JComboBox<String> staffCombo;
     private javax.swing.JComboBox<String> startDateCombo;

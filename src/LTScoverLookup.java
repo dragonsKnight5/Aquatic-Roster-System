@@ -16,6 +16,7 @@
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
@@ -43,8 +44,8 @@ public class LTScoverLookup extends javax.swing.JDialog {
         parent = inParent;
         connection = inConnection;
         comFunc = inCommon;
-        firstLoad();
         loadData();
+        firstLoad();
         setVisible(true);
     }
 
@@ -75,6 +76,8 @@ public class LTScoverLookup extends javax.swing.JDialog {
         nameRadioButton = new javax.swing.JRadioButton();
         nameTxtFld = new javax.swing.JTextField();
         lookupButton = new javax.swing.JButton();
+        dateCombo = new javax.swing.JComboBox<>();
+        dateRadioButton = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LTS Cover Lookup");
@@ -153,6 +156,11 @@ public class LTScoverLookup extends javax.swing.JDialog {
         nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nameTxtFld.setEnabled(false);
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyPressed(evt);
+            }
+        });
 
         lookupButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lookupButton.setText("Lookup");
@@ -160,6 +168,24 @@ public class LTScoverLookup extends javax.swing.JDialog {
         lookupButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lookupButtonActionPerformed(evt);
+            }
+        });
+
+        dateCombo.setEditable(true);
+        dateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateCombo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dateComboKeyPressed(evt);
+            }
+        });
+
+        userButtonGroup.add(dateRadioButton);
+        dateRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateRadioButton.setText("Date");
+        dateRadioButton.setEnabled(false);
+        dateRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateRadioButtonActionPerformed(evt);
             }
         });
 
@@ -171,12 +197,10 @@ public class LTScoverLookup extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(allRadioButton)
+                        .addComponent(dateRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameRadioButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
                         .addComponent(lookupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(closeButton))
@@ -185,29 +209,36 @@ public class LTScoverLookup extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(jLabel6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel5))))
+                                .addComponent(endTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                                .addComponent(endTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(coveredLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(locationLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(48, 48, 48)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(startTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(startTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(startTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(endTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                                        .addComponent(endTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addGap(47, 47, 47)
+                                        .addComponent(jLabel6))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(48, 48, 48)
+                                        .addComponent(jLabel1)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(allRadioButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameRadioButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -227,22 +258,27 @@ public class LTScoverLookup extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(endTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(endTimeLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(locationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(coveredLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(coveredLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 14, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(closeButton)
                     .addComponent(allRadioButton)
                     .addComponent(nameRadioButton)
-                    .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lookupButton))
+                    .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(closeButton)
+                    .addComponent(lookupButton)
+                    .addComponent(dateRadioButton)
+                    .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -256,6 +292,15 @@ public class LTScoverLookup extends javax.swing.JDialog {
             allRadioButton.setEnabled(true);
             nameRadioButton.setEnabled(true);
             lookupButton.setEnabled(true);
+            dateRadioButton.setEnabled(true);
+            
+            LocalDate tempDate = LocalDate.now();
+             int count = 0;
+            while (count < 70) 
+            {
+                dateCombo.addItem(comFunc.plusDaysFormated(tempDate, count));
+                count++;
+            }
         }
     }
     
@@ -271,9 +316,13 @@ public class LTScoverLookup extends javax.swing.JDialog {
                 {
                     command = "select * from LTS_Covers";
                 }
-                else
+                else if (nameRadioButton.isSelected())
                 {
                     command = "select * from LTS_Covers where staff = \'" + nameTxtFld.getText() + "\' or cover_for = \'" + nameTxtFld.getText() + "\'";
+                }
+                else
+                {
+                    command = "select * from LTS_Covers where cover_date = \'" + comFunc.dateSwitch((String)dateCombo.getSelectedItem()) + "\'";
                 }
             }
             else
@@ -336,12 +385,33 @@ public class LTScoverLookup extends javax.swing.JDialog {
         loadData();
     }//GEN-LAST:event_lookupButtonActionPerformed
 
+    private void dateRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateRadioButtonActionPerformed
+        dateCombo.setEnabled(true);
+        nameTxtFld.setEnabled(false);
+    }//GEN-LAST:event_dateRadioButtonActionPerformed
+
+    private void nameTxtFldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupButton.doClick();
+        }
+    }//GEN-LAST:event_nameTxtFldKeyPressed
+
+    private void dateComboKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateComboKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupButton.doClick();
+        }
+    }//GEN-LAST:event_dateComboKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JList coverList;
     private javax.swing.JLabel coveredLbl;
+    private javax.swing.JComboBox<String> dateCombo;
+    private javax.swing.JRadioButton dateRadioButton;
     private javax.swing.JLabel endTimeLbl;
     private javax.swing.JLabel endTimeLbl1;
     private javax.swing.JLabel jLabel1;

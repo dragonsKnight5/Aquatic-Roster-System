@@ -15,6 +15,7 @@
  */
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -37,6 +38,7 @@ public class iscShiftRemove extends javax.swing.JDialog {
         connection = inConnection;
         comFunc = inCommon;
         loadData();
+        firstLoad();
         setVisible(true);
     }
 
@@ -49,6 +51,7 @@ public class iscShiftRemove extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nameButtonGroup = new javax.swing.ButtonGroup();
         closeButton = new javax.swing.JButton();
         endTimeLabel = new javax.swing.JLabel();
         startTimeLabel = new javax.swing.JLabel();
@@ -72,11 +75,17 @@ public class iscShiftRemove extends javax.swing.JDialog {
         staffLabel4 = new javax.swing.JLabel();
         endTimeLabel1 = new javax.swing.JLabel();
         startTimeLabel1 = new javax.swing.JLabel();
+        allRadioButton = new javax.swing.JRadioButton();
+        dateRadioButton = new javax.swing.JRadioButton();
+        dateCombo = new javax.swing.JComboBox<>();
+        lookupBttn = new javax.swing.JButton();
+        nameRadioButton = new javax.swing.JRadioButton();
+        nameTxtFld = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ISC Shift Remove");
 
-        closeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        closeButton.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +165,60 @@ public class iscShiftRemove extends javax.swing.JDialog {
         startTimeLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startTimeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        nameButtonGroup.add(allRadioButton);
+        allRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        allRadioButton.setSelected(true);
+        allRadioButton.setText("All");
+        allRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allRadioButtonActionPerformed(evt);
+            }
+        });
+
+        nameButtonGroup.add(dateRadioButton);
+        dateRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateRadioButton.setText("Date");
+        dateRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateRadioButtonActionPerformed(evt);
+            }
+        });
+
+        dateCombo.setEditable(true);
+        dateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateCombo.setEnabled(false);
+        dateCombo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dateComboKeyPressed(evt);
+            }
+        });
+
+        lookupBttn.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        lookupBttn.setText("Lookup");
+        lookupBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lookupBttnActionPerformed(evt);
+            }
+        });
+
+        nameButtonGroup.add(nameRadioButton);
+        nameRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameRadioButton.setText("Name");
+        nameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameRadioButtonActionPerformed(evt);
+            }
+        });
+
+        nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nameTxtFld.setEnabled(false);
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,24 +227,33 @@ public class iscShiftRemove extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(29, 29, 29)
-                                            .addComponent(jLabel6))
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addComponent(jLabel7)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel8)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(12, 12, 12)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel4)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addGap(29, 29, 29)
+                                                            .addComponent(jLabel6))
+                                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                    .addComponent(jLabel7)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel8))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(allRadioButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(dateRadioButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -202,13 +274,19 @@ public class iscShiftRemove extends javax.swing.JDialog {
                                             .addComponent(startTimeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                                             .addComponent(endTimeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(completionTickbox, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))))
+                                .addComponent(closeButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lookupBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(removeButton)))
+                        .addGap(0, 35, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(closeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(removeButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(nameRadioButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                        .addComponent(completionTickbox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +307,7 @@ public class iscShiftRemove extends javax.swing.JDialog {
                         .addComponent(locationLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 13, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(staffLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(staffLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,12 +319,8 @@ public class iscShiftRemove extends javax.swing.JDialog {
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(onCallLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(completionTickbox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addGap(36, 36, 36))
+                        .addGap(41, 41, 41))
+                    .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -260,10 +334,24 @@ public class iscShiftRemove extends javax.swing.JDialog {
                                 .addGap(65, 65, 65)
                                 .addComponent(jLabel8))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(allRadioButton)
+                            .addComponent(dateRadioButton)
+                            .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(3, 3, 3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nameRadioButton)
+                        .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(completionTickbox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(removeButton)
-                    .addComponent(closeButton)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(closeButton)
+                        .addComponent(lookupBttn)))
+                .addContainerGap())
         );
 
         pack();
@@ -338,11 +426,68 @@ public class iscShiftRemove extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_completionTickboxActionPerformed
 
+    private void dateRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateRadioButtonActionPerformed
+        dateCombo.setEnabled(true);
+        nameTxtFld.setEnabled(false);
+    }//GEN-LAST:event_dateRadioButtonActionPerformed
+
+    private void allRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRadioButtonActionPerformed
+        dateCombo.setEnabled(false);
+        nameTxtFld.setEnabled(false);
+    }//GEN-LAST:event_allRadioButtonActionPerformed
+
+    private void nameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRadioButtonActionPerformed
+        nameTxtFld.setEnabled(true);
+        dateCombo.setEnabled(false);
+    }//GEN-LAST:event_nameRadioButtonActionPerformed
+
+    private void dateComboKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateComboKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupBttn.doClick();
+        }
+    }//GEN-LAST:event_dateComboKeyPressed
+
+    private void nameTxtFldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupBttn.doClick();
+        }
+    }//GEN-LAST:event_nameTxtFldKeyPressed
+
+    private void lookupBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupBttnActionPerformed
+        loadData();
+    }//GEN-LAST:event_lookupBttnActionPerformed
+
+    private void firstLoad()
+    {
+        LocalDate tempDate = LocalDate.now();
+            int count = 0;
+            while (count < 70)
+            {
+                dateCombo.addItem(comFunc.plusDaysFormated(tempDate, count));
+                count++;
+            }
+    }
+    
 private void loadData()
 {
     ResultSet returned;
-    shiftList.removeAll();
-    String command = "select * from isc";
+    String command = null;
+    iscShifts.clear();
+    if (allRadioButton.isSelected())
+    {
+        command = "select * from isc";
+    }
+    else if (dateRadioButton.isSelected())
+    {
+        command = "select * from isc where shift_date = \'" + comFunc.dateSwitch((String)dateCombo.getSelectedItem()) + "\'";
+    }
+    else
+    {
+        command = "select * from isc where staff1 = \'" + nameTxtFld.getText() + "\' or staff2 = \'" + nameTxtFld.getText() +"\' or staff3 = \'" + nameTxtFld.getText() +"\' or staff4 = \'" + nameTxtFld.getText() + "\'";
+    }
+    
     try
     {
         returned = connection.lookup(command);
@@ -365,8 +510,11 @@ private void loadData()
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton allRadioButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionTickbox;
+    private javax.swing.JComboBox<String> dateCombo;
+    private javax.swing.JRadioButton dateRadioButton;
     private javax.swing.JLabel endTimeLabel;
     private javax.swing.JLabel endTimeLabel1;
     private javax.swing.JLabel jLabel4;
@@ -379,6 +527,10 @@ private void loadData()
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel locationLbl;
+    private javax.swing.JButton lookupBttn;
+    private javax.swing.ButtonGroup nameButtonGroup;
+    private javax.swing.JRadioButton nameRadioButton;
+    private javax.swing.JTextField nameTxtFld;
     private javax.swing.JLabel onCallLbl;
     private javax.swing.JButton removeButton;
     private javax.swing.JList shiftList;

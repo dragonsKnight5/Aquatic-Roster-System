@@ -338,13 +338,13 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="7">
-            <StringItem index="0" value="Monday"/>
-            <StringItem index="1" value="Tuesday"/>
-            <StringItem index="2" value="Wednesday"/>
-            <StringItem index="3" value="Thursday"/>
-            <StringItem index="4" value="Friday"/>
-            <StringItem index="5" value="Saturday"/>
-            <StringItem index="6" value="Sunday"/>
+            <StringItem index="0" value="Saturday"/>
+            <StringItem index="1" value="Sunday"/>
+            <StringItem index="2" value="Monday"/>
+            <StringItem index="3" value="Tuesday"/>
+            <StringItem index="4" value="Wednesday"/>
+            <StringItem index="5" value="Thursday"/>
+            <StringItem index="6" value="Friday"/>
           </StringArray>
         </Property>
       </Properties>

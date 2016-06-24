@@ -140,7 +140,7 @@ public class locationRemoval extends javax.swing.JDialog
                 JOptionPane.YES_NO_OPTION)
             == JOptionPane.YES_OPTION)
         {
-            String command = "delete from locations where location = \"" + locationCombo.getSelectedItem() + "\"";
+            String command = "delete from location where location = \"" + locationCombo.getSelectedItem() + "\"";
             //JOptionPane.showMessageDialog(parent, command);
             int status = connection.removeUser(command);
             

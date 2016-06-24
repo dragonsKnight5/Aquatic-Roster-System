@@ -398,7 +398,7 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
             }
             else if(departmentValue.equalsIgnoreCase("isc"))
             {
-                result = connection.lifeguardLocations();
+                result = connection.iscLocations();
                 
                 while (result.next())
                 {

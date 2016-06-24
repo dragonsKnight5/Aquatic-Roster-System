@@ -262,6 +262,7 @@ public ResultSet getIscUsers(String location, String day, String shift, java.sql
      
      public ResultSet newGetLTSusers(String location, String day)
      {
+         System.out.println("location: " + location + " Day: " + day);
          ResultSet users = null;
          sql = "select username from availability where department = \'LTS\' and location = \'" + location + "\' and (" + day + " = \'both\' or " + day + " = \'Morning\' or " + day + " = \'Afternoon\')";
          System.out.println(sql);

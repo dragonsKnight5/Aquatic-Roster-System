@@ -73,6 +73,7 @@ public class commonFunctions {
         {
             java.util.Date myDate = myDateFormat.parse(date);
             selectedDate = new java.sql.Date(myDate.getTime());
+            System.out.println("date switch: " + selectedDate.toString());
         }
         catch (ParseException ex)
         {

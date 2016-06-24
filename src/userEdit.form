@@ -42,10 +42,15 @@
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="usernameTextbox" alignment="1" max="32767" attributes="0"/>
-                          <Component id="firstNameTxtbx" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="usernameTextbox" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="firstNameTxtbx" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -155,6 +160,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="usernameTextbox">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="15" style="0"/>
         </Property>
@@ -222,6 +228,9 @@
           <Font name="Lucida Grande" size="15" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lastNameTextboxKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="supervisorCheckBox">
       <Properties>
@@ -354,6 +363,9 @@
           <Font name="Lucida Grande" size="15" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="firstNameTxtbxKeyReleased"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
