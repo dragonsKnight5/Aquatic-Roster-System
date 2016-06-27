@@ -386,7 +386,7 @@ public class iscShiftRemove extends javax.swing.JDialog {
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
        int shiftListSelection = shiftList.getSelectedIndex();
-        if (shiftListSelection >0)
+        if (shiftListSelection >= 0)
        {
             if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                     "",

@@ -422,22 +422,22 @@ public addAvailability(main inParent, dbConnection inConnection, Boolean inSuper
 
     private void submitBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBttnActionPerformed
         SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        java.sql.Date selectedDate = null;
-        
-        try
-        {
-            java.util.Date myDate = myDateFormat.parse((String)dateCombo.getSelectedItem());
-            selectedDate = new java.sql.Date(myDate.getTime());
-        }
-        catch (ParseException ex)
-        {
-            System.out.println(ex);
-        }
+//        java.sql.Date selectedDate = null;
+//        
+//        try
+//        {
+//            java.util.Date myDate = myDateFormat.parse((String)dateCombo.getSelectedItem());
+//            selectedDate = new java.sql.Date(myDate.getTime());
+//        }
+//        catch (ParseException ex)
+//        {
+//            System.out.println(ex);
+//        }
         
         String command = "insert into availability (username, monday, tuesday, wednesday, thursday, friday, saturday, sunday, department, location, weekStarting)"
                 + " values (\'" + userCombo.getSelectedItem() + "\', \'" + mondayCombo.getSelectedItem() + "\', \'" + tuesdayCombo.getSelectedItem() + "\', \'" + wednesdayCombo.getSelectedItem()
                 + "\', \'" + thursdayCombo.getSelectedItem() + "\', \'" + fridayCombo.getSelectedItem() + "\', \'" + saturdayCombo.getSelectedItem() + "\', \'" + sundayCombo.getSelectedItem() + "\', \'"
-                + departmentCombo.getSelectedItem() + "\', \'" + locationCombo.getSelectedItem() + "\', \'"+ selectedDate + "\')";
+                + departmentCombo.getSelectedItem() + "\', \'" + locationCombo.getSelectedItem() + "\', \'"+ comFunc.dateSwitch((String)dateCombo.getSelectedItem()) + "\')";
         //System.out.println(command);
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",

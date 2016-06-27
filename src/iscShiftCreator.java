@@ -421,11 +421,8 @@ public class iscShiftCreator extends javax.swing.JDialog {
         }
         
         try {
-        //java.util.Date myDate = comFunc.dateSwitch((String) dateCombo.getSelectedItem());
-        //String command = "select username from availability where department = \"ISC\" and location = \'"+ locationCombo.getSelectedItem() + "\' and weekStarting = \'" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\' and (" + dayCombo.getSelectedItem() 
-        //        + " = \'" + shift + "\' or " + dayCombo.getSelectedItem() +" = \'Both\')";
-        String command = "select username from availability where weekStarting = \'" + comFunc.dateSwitch((String)dateCombo.getSelectedItem()) + "\' and department = \'ISC\' and location = \'" + locationCombo.getSelectedItem() + "\' and (" + dayCombo.getSelectedItem() + " = \'" + shift + "\' or " + dayCombo.getSelectedItem() + " = \'Both\')";
-        System.out.println(command);
+            String command = "select username from availability where weekStarting = \'" + comFunc.dateSwitch((String)dateCombo.getSelectedItem()) + "\' and department = \'ISC\' and location = \'" + locationCombo.getSelectedItem() + "\' and (" + dayCombo.getSelectedItem() + " = \'" + shift + "\' or " + dayCombo.getSelectedItem() + " = \'Both\')";
+            System.out.println(command);
 
             ResultSet returned = connection.lookup(command);
             while (returned.next()) {

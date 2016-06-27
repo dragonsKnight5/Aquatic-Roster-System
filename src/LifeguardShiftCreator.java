@@ -336,8 +336,7 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
             java.sql.Date selectedDate = comFunc.day2Date((String) dateCombo.getSelectedItem(), (String) dayCombo.getSelectedItem());
 
             String command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + selectedDate + "\", \"" + startTime + "\", \""
-                    + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \""
-                    + locationCombo.getSelectedItem() + "\", \"" + onCallCombo.getSelectedItem() + "\")";
+                    + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + onCallCombo.getSelectedItem() + "\")";
 
             if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                     "",

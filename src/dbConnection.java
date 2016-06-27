@@ -245,6 +245,7 @@ public class dbConnection
      
 public ResultSet getIscUsers(String location, String day, String shift, java.sql.Date weekDate)
      {
+         System.out.println("Location: " + location + " day: " + day + " shift: " + shift + " week Date: " + weekDate);
          ResultSet users = null;
          sql = "select username from availability where department = \'ISC\' and location = \'" + location + "\' and weekStarting = \'" + weekDate + "\' and (" + day + " = \'both\' or " + day + " = \'" + shift + "\')";
          System.out.println(sql);

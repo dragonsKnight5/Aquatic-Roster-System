@@ -15,7 +15,6 @@
  */
 
 import java.sql.*;
-//import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
@@ -321,9 +320,7 @@ public class LTSshiftRemove extends javax.swing.JDialog {
             startTimeLabel1.setText(comFunc.timeConvert(selectedShift.getStartTime()));
             endTimeLabel.setText(selectedShift.getEndTimeString());
             endTimeLabel1.setText(comFunc.timeConvert(selectedShift.getEndTime()));
-            //dateString = myFormat.format((selectedShift.getStartDate()).toLocalDate());
             startDateLabel.setText(comFunc.formatDate(selectedShift.getStartDate().toLocalDate()));
-            //dateString = myFormat.format((selectedShift.getEndDate()).toLocalDate());
             endDateLabel.setText(comFunc.formatDate(selectedShift.getEndDate().toLocalDate()));
             staffLabel.setText(selectedShift.getStaff());
             ID = selectedShift.getID();

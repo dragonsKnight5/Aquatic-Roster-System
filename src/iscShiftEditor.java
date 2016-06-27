@@ -238,6 +238,7 @@ public class iscShiftEditor extends javax.swing.JDialog {
             }
         });
 
+        lookupButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lookupButton.setText("Lookup");
         lookupButton.setEnabled(false);
         lookupButton.addActionListener(new java.awt.event.ActionListener() {
@@ -479,6 +480,17 @@ public class iscShiftEditor extends javax.swing.JDialog {
             System.out.println("lookup date: " + lookupDate);
             
             // User Listing Code
+            if ((shiftDate.getDayOfWeek().toString()).equalsIgnoreCase("saturday"))
+            {
+                lookupDate = selectedShift.getShiftDate();
+            }
+            else
+            {
+                LocalDate tempDate = shiftDate.with(previous(DayOfWeek.SATURDAY));
+                lookupDate = Date.valueOf(tempDate);
+            }
+            
+            
             String shift;
             if (startTime.getHour() >=12)
             {
@@ -575,16 +587,16 @@ public class iscShiftEditor extends javax.swing.JDialog {
         System.out.println("After coversion: " + selectedDate);
         String day = ((selectedDate.getDayOfWeek()).toString()).toLowerCase();
         
-        //Date of last monday
+        //Date of last saturday
         java.sql.Date weekDate;
         
-        if ((selectedDate.getDayOfWeek().toString()).equalsIgnoreCase("monday"))
+        if ((selectedDate.getDayOfWeek().toString()).equalsIgnoreCase("saturday"))
             {
                 weekDate = Date.valueOf(selectedDate);
             }
             else
             {
-                LocalDate tempDate = selectedDate.with(previous(DayOfWeek.MONDAY));
+                LocalDate tempDate = selectedDate.with(previous(DayOfWeek.SATURDAY));
                 weekDate = Date.valueOf(tempDate);
             }
             System.out.println("lookup date: " + weekDate);

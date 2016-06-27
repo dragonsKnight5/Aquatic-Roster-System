@@ -1097,19 +1097,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(parent, ex);
         }
 
-        //LocalDate date = LocalDate.now();
-        //System.out.println("Date Now: " + date);
         LocalDate myDate = LocalDate.now().with(next(DayOfWeek.SATURDAY));
-        //System.out.println("Date next Monday: " + myDate);
-        //date = myDate;
-        //int count = 0;
-       // while (count < 50) {
-       //     dateCombo.addItem(comFunc.formatDate(myDate));
-       //     count++;
-       //     myDate = myDate.plusDays(1);
-        //}
-        
-        //start week dates
         int count = 0;
         while (count < 7) {
             weekStartingCombo.addItem(comFunc.formatDate(myDate));

@@ -746,7 +746,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_loginMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        JOptionPane.showMessageDialog(null, "Version 0.13");
+        JOptionPane.showMessageDialog(null, "Version 0.14");
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void newStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newStaffMenuItemActionPerformed
@@ -879,7 +879,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_absenteeMenuItemActionPerformed
 
     private void overviewMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewMenuItemActionPerformed
-        overviewOld myOveriew = new overviewOld(this, connection, myCommonFunctions);
+        overview myOveriew = new overview(this, connection, myCommonFunctions);
     }//GEN-LAST:event_overviewMenuItemActionPerformed
 
     private void iscLookupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iscLookupBtnActionPerformed

@@ -84,37 +84,46 @@ public class commonFunctions {
     
     public java.sql.Date day2Date(String date, String day)
     {
+        System.out.println("Date: " + date + " Day: " + day);
         LocalDate tempDate = dateSwitch(date).toLocalDate();
         LocalDate manipDate = null;
         if (day.equalsIgnoreCase("monday"))
         {
             manipDate = tempDate.with(next(DayOfWeek.MONDAY));
+            System.out.println("Monday Date: " + manipDate);
         }
         else if (day.equalsIgnoreCase("tuesday"))
         {
             manipDate = tempDate.with(next(DayOfWeek.TUESDAY));
+            System.out.println("Tuesday Date: " + manipDate);
         }
         else if (day.equalsIgnoreCase("wednesday"))
         {
             manipDate = tempDate.with(next(DayOfWeek.WEDNESDAY));
+            System.out.println("Wednesday Date: " + manipDate);
         }
         else if (day.equalsIgnoreCase("thursday"))
         {
             manipDate = tempDate.with(next(DayOfWeek.THURSDAY));
+            System.out.println("Thursday Date: " + manipDate);
         }
         else if (day.equalsIgnoreCase("friday"))
         {
             manipDate = tempDate.with(next(DayOfWeek.FRIDAY));
+            System.out.println("Friday Date: " + manipDate);
         }
         else if (day.equalsIgnoreCase("saturday"))
         {
             manipDate = tempDate.with(next(DayOfWeek.SATURDAY));
+            System.out.println("Saturday Date: " + manipDate);
         }
         else if (day.equalsIgnoreCase("sunday"))
         {
             manipDate = tempDate.with(next(DayOfWeek.SUNDAY));
+            System.out.println("Sunday Date: " + manipDate);
         }
-        java.sql.Date returnDate = Date.valueOf(tempDate);
+        java.sql.Date returnDate = Date.valueOf(manipDate);
+        System.out.println("Return Date: " + manipDate.toString());
         
         return returnDate;
     }

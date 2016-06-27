@@ -20,7 +20,6 @@ import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
-//import org.apache.commons.lang3.time.DateUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -286,7 +285,7 @@ public class LTScoverCreator extends javax.swing.JDialog {
     {
         // Date Setup and handling block
         LocalDate myDate = LocalDate.now();
-        String dateString = comFunc.formatDate(myDate);
+        //String dateString = comFunc.formatDate(myDate);
         
         Integer locationCount = 0;
         int count = 0;
@@ -296,7 +295,7 @@ public class LTScoverCreator extends javax.swing.JDialog {
         } while (count <= 90);
         
         ResultSet returned;
-        String command;
+        //String command;
         returned = connection.ltsLocations();
         try
         {
