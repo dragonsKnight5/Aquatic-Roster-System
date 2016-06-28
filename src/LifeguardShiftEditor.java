@@ -236,6 +236,9 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 nameTxtFldKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyReleased(evt);
+            }
         });
 
         lookupButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -263,6 +266,9 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         dateSearchCombo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 dateSearchComboKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dateSearchComboKeyReleased(evt);
             }
         });
 
@@ -659,6 +665,14 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
             lookupButton.doClick();
         }
     }//GEN-LAST:event_dateSearchComboKeyPressed
+
+    private void dateSearchComboKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateSearchComboKeyReleased
+        
+    }//GEN-LAST:event_dateSearchComboKeyReleased
+
+    private void nameTxtFldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyReleased
+        
+    }//GEN-LAST:event_nameTxtFldKeyReleased
 
     private void firstLoad()
     {

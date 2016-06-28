@@ -655,6 +655,7 @@ public class lgExport extends javax.swing.JDialog
         inSheet.getCellAt(saturdayMonth).setValue(saturdayDate.getMonthValue());
         inSheet.getCellAt(saturdayYear).setValue(saturdayDate.getYear());
         String command = "select * from lifeguard where shift_date = \'" + inDate + "\' order by start_time";
+        System.out.println(command);
         ResultSet result = null;
         try {
             result = connection.lookup(command);
@@ -704,7 +705,7 @@ public class lgExport extends javax.swing.JDialog
                     } while (startRow != endRow + 1);
                 }
                 count++;
-            } while (count > guardShifts.size());
+            } while (count != guardShifts.size());
             
             System.out.println("Writing oncall staff");
             inSheet.getCellAt("L6").setValue(morningOnCall);

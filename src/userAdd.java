@@ -74,6 +74,7 @@ public class userAdd extends javax.swing.JDialog {
 
         usernameTextbox.setEditable(false);
         usernameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        usernameTextbox.setFocusable(false);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setText("First Name:");
