@@ -181,6 +181,7 @@ public class LTScoverEditor extends javax.swing.JDialog {
         endTimeLbl.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         namebuttonGroup.add(allRadioButton);
+        allRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         allRadioButton.setSelected(true);
         allRadioButton.setText("All");
         allRadioButton.setEnabled(false);
@@ -191,6 +192,7 @@ public class LTScoverEditor extends javax.swing.JDialog {
         });
 
         namebuttonGroup.add(nameRadioButton);
+        nameRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         nameRadioButton.setText("Name");
         nameRadioButton.setEnabled(false);
         nameRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -201,7 +203,13 @@ public class LTScoverEditor extends javax.swing.JDialog {
 
         nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nameTxtFld.setEnabled(false);
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyReleased(evt);
+            }
+        });
 
+        lookupButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lookupButton.setText("Lookup");
         lookupButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,6 +234,11 @@ public class LTScoverEditor extends javax.swing.JDialog {
 
         dateSearchCombo.setEditable(true);
         dateSearchCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        dateSearchCombo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dateSearchComboKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -518,11 +531,22 @@ public class LTScoverEditor extends javax.swing.JDialog {
     }//GEN-LAST:event_dateRadioButtonActionPerformed
 
     private void lookupButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lookupButtonKeyPressed
+        
+    }//GEN-LAST:event_lookupButtonKeyPressed
+
+    private void dateSearchComboKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateSearchComboKeyReleased
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
         {
             lookupButton.doClick();
         }
-    }//GEN-LAST:event_lookupButtonKeyPressed
+    }//GEN-LAST:event_dateSearchComboKeyReleased
+
+    private void nameTxtFldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyReleased
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            lookupButton.doClick();
+        }
+    }//GEN-LAST:event_nameTxtFldKeyReleased
 
     private void firstLoad()
     {

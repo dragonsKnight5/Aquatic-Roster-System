@@ -355,6 +355,11 @@ public class overview extends javax.swing.JDialog
 
         nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         nameTxtFld.setEnabled(false);
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nameTxtFldKeyReleased(evt);
+            }
+        });
 
         jLabel20.setText("LTS supports name filtering only");
 
@@ -745,6 +750,13 @@ public class overview extends javax.swing.JDialog
     private void nameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRadioButtonActionPerformed
         nameTxtFld.setEnabled(true);
     }//GEN-LAST:event_nameRadioButtonActionPerformed
+
+    private void nameTxtFldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameTxtFldKeyReleased
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+        {
+            updateBttn.doClick();
+        }
+    }//GEN-LAST:event_nameTxtFldKeyReleased
 
     private void firstLoad()
     {

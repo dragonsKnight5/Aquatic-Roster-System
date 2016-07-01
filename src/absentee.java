@@ -270,7 +270,7 @@ public class absentee extends javax.swing.JDialog {
         //absenteeSheet.getCellAt("A1").setValue("Staff:");
         //absenteeSheet.getCellAt("A2").setValue("Absent Dates:");
         
-        comFunc.saveFile(absenteeSheet, "absentee");
+        comFunc.saveFile(absenteeSheet, "absentee " + startDaySpinner.getValue().toString() + "-" + startMonthSpinner.getValue().toString() + "-" + startYearCombo.getSelectedItem() + " to " + endDaySpinner.getValue().toString() + "-" + endMonthSpinner.getValue().toString() + "-" + endYearCombo.getSelectedItem());
         }
         catch (IndexOutOfBoundsException ex)
         {

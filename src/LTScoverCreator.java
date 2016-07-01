@@ -373,8 +373,8 @@ public class LTScoverCreator extends javax.swing.JDialog {
         try
         {
             System.out.println("Getting usernames");
-            returned = connection.userAvailabilityByLocation((String)locationCombo.getSelectedItem());
-            //returned = connection.getLTSusers();
+            //returned = connection.userAvailabilityByLocation((String)locationCombo.getSelectedItem());
+            returned = connection.getLTSusers();
             while(returned.next())
             {
                 System.out.println("Adding Username: " + returned.getString("username"));
