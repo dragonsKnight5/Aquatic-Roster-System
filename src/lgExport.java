@@ -102,6 +102,8 @@ public class lgExport extends javax.swing.JDialog
         fridayOtherRdBttn = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        locationCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("LG Roster Exporter");
@@ -224,6 +226,7 @@ public class lgExport extends javax.swing.JDialog
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jButton1.setText("Close");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,7 +234,13 @@ public class lgExport extends javax.swing.JDialog
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setText("Week Start Date:");
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel3.setText("Location:");
+
+        locationCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,73 +248,75 @@ public class lgExport extends javax.swing.JDialog
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(exportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(exportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(locationCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(wednesdayDefRdBttn)
-                                            .addComponent(wednesdayOtherRdBttn))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(supWednesdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(mondayDefRdBttn)
-                                            .addComponent(mondayOtherRdBttn))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(supMondayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tuesdayDefRdBttn)
-                                            .addComponent(tuesdayOtherRdBttn))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(supTuesdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel8)
-                                            .addGap(18, 18, 18)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(thursdayDefRdBttn)
-                                                .addComponent(thursdayOtherRdBttn))
-                                            .addGap(18, 18, 18)
-                                            .addComponent(supThursdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel6)
-                                            .addGap(18, 18, 18)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(fridayDefRdBttn)
-                                                .addComponent(fridayOtherRdBttn))
-                                            .addGap(18, 18, 18)
-                                            .addComponent(supFridayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                    .addComponent(wednesdayDefRdBttn)
+                                    .addComponent(wednesdayOtherRdBttn))
+                                .addGap(18, 18, 18)
+                                .addComponent(supWednesdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(mondayDefRdBttn)
+                                    .addComponent(mondayOtherRdBttn))
+                                .addGap(18, 18, 18)
+                                .addComponent(supMondayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tuesdayDefRdBttn)
+                                    .addComponent(tuesdayOtherRdBttn))
+                                .addGap(18, 18, 18)
+                                .addComponent(supTuesdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(thursdayDefRdBttn)
+                                    .addComponent(thursdayOtherRdBttn))
+                                .addGap(18, 18, 18)
+                                .addComponent(supThursdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fridayDefRdBttn)
+                                    .addComponent(fridayOtherRdBttn))
+                                .addGap(18, 18, 18)
+                                .addComponent(supFridayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exportButton)
                     .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,24 +363,25 @@ public class lgExport extends javax.swing.JDialog
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(wednesdayDefRdBttn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(wednesdayDefRdBttn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(supWednesdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(wednesdayOtherRdBttn)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel7)))
-                        .addContainerGap(24, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(15, 15, 15))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(supWednesdayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(wednesdayOtherRdBttn)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel7)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 6, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(exportButton)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -521,6 +533,16 @@ public class lgExport extends javax.swing.JDialog
             timeList[32][0] = "21:00";
             timeList[32][1] = "59";
             timeList[32][2] = "118";
+            
+            ResultSet returned = connection.lifeguardLocations();
+            
+            while (returned.next())
+            {
+                if (!returned.getString("Location").equalsIgnoreCase("None"))
+                {
+                    locationCombo.addItem(returned.getString("location"));
+                }
+            }
         }
         catch (Exception ex)
         {
@@ -654,7 +676,7 @@ public class lgExport extends javax.swing.JDialog
         inSheet.getCellAt(saturdayDay).setValue(saturdayDate.getDayOfMonth());
         inSheet.getCellAt(saturdayMonth).setValue(saturdayDate.getMonthValue());
         inSheet.getCellAt(saturdayYear).setValue(saturdayDate.getYear());
-        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' order by start_time";
+        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' and location = \'" + locationCombo.getSelectedItem() +"\' order by start_time";
         System.out.println(command);
         ResultSet result = null;
         try {
@@ -751,7 +773,7 @@ public class lgExport extends javax.swing.JDialog
         inSheet.getCellAt(sundayDay).setValue(sundayDate.getDayOfMonth());
         inSheet.getCellAt(sundayMonth).setValue(sundayDate.getMonthValue());
         inSheet.getCellAt(sundayYear).setValue(sundayDate.getYear());
-        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' order by start_time";
+        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' and location = \'" + locationCombo.getSelectedItem() +"\' order by start_time";
         ResultSet result = null;
         try {
             result = connection.lookup(command);
@@ -841,7 +863,7 @@ public class lgExport extends javax.swing.JDialog
         inSheet.getCellAt(mondayDay).setValue(mondayDate.getDayOfMonth());
         inSheet.getCellAt(mondayMonth).setValue(mondayDate.getMonthValue());
         inSheet.getCellAt(mondayYear).setValue(mondayDate.getYear());
-        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' order by start_time";
+        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' and location = \'" + locationCombo.getSelectedItem() +"\' order by start_time";
         ResultSet result = null;
         try {
             result = connection.lookup(command);
@@ -938,7 +960,7 @@ public class lgExport extends javax.swing.JDialog
         inSheet.getCellAt(tuesdayDay).setValue(tuesdayDate.getDayOfMonth());
         inSheet.getCellAt(tuesdayMonth).setValue(tuesdayDate.getMonthValue());
         inSheet.getCellAt(tuesdayYear).setValue(tuesdayDate.getYear());
-        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' order by start_time";
+        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' and location = \'" + locationCombo.getSelectedItem() +"\' order by start_time";
         ResultSet result = null;
         try {
             result = connection.lookup(command);
@@ -1033,7 +1055,7 @@ public class lgExport extends javax.swing.JDialog
         inSheet.getCellAt(wednesdayDay).setValue(wednesdayDate.getDayOfMonth());
         inSheet.getCellAt(wednesdayMonth).setValue(wednesdayDate.getMonthValue());
         inSheet.getCellAt(wednesdayYear).setValue(wednesdayDate.getYear());
-        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' order by start_time";
+        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' and location = \'" + locationCombo.getSelectedItem() +"\' order by start_time";
         ResultSet result = null;
         try {
             result = connection.lookup(command);
@@ -1129,7 +1151,7 @@ public class lgExport extends javax.swing.JDialog
         inSheet.getCellAt(thursdayDay).setValue(thursdayDate.getDayOfMonth());
         inSheet.getCellAt(thursdayMonth).setValue(thursdayDate.getMonthValue());
         inSheet.getCellAt(thursdayYear).setValue(thursdayDate.getYear());
-        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' order by start_time";
+        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' and location = \'" + locationCombo.getSelectedItem() +"\' order by start_time";
         ResultSet result = null;
         try {
             result = connection.lookup(command);
@@ -1226,7 +1248,7 @@ public class lgExport extends javax.swing.JDialog
         inSheet.getCellAt(fridayDay).setValue(fridayDate.getDayOfMonth());
         inSheet.getCellAt(fridayMonth).setValue(fridayDate.getMonthValue());
         inSheet.getCellAt(fridayYear).setValue(fridayDate.getYear());
-        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' order by start_time";
+        String command = "select * from lifeguard where shift_date = \'" + inDate + "\' and location = \'" + locationCombo.getSelectedItem() +"\' order by start_time";
         ResultSet result = null;
         try {
             result = connection.lookup(command);
@@ -1315,11 +1337,13 @@ public class lgExport extends javax.swing.JDialog
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JComboBox<String> locationCombo;
     private javax.swing.JRadioButton mondayDefRdBttn;
     private javax.swing.ButtonGroup mondayGroup;
     private javax.swing.JRadioButton mondayOtherRdBttn;

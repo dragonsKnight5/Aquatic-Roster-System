@@ -471,15 +471,15 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
         tempTime = LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue());
         endTimeLbl.setText(comFunc.timeConvert(tempTime));
         
-        if (locationCount > 2)
-            {
-                locationCombo.setSelectedIndex(0);
-            }
-            else
-            {
+        if (locationCount >= 2)
+        {
                 locationCombo.setSelectedIndex(1);
                 availableStaffBttn.doClick();
-            }
+        }
+        else if (locationCount == 1)
+        {
+            locationCombo.setSelectedIndex(0);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

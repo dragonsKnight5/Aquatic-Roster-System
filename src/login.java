@@ -174,7 +174,8 @@ public class login extends javax.swing.JDialog
         }
         catch (SQLException ex)
         {
-            JOptionPane.showMessageDialog(parent, ex);
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(parent, "Account with supplied details couldn't be found\nPlease check details and try again");
         }
     }//GEN-LAST:event_submitBttnActionPerformed
 

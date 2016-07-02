@@ -496,13 +496,13 @@ public class iscShiftCreator extends javax.swing.JDialog {
         startTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)startHourSpinner.getValue(), (int)startMinuteSpinner.getValue())));
         endTimeLbl.setText(comFunc.timeConvert(LocalTime.of((int)endHourSpinner.getValue(), (int)endMinuteSpinner.getValue())));
         
-        if (locationCount > 2)
-            {
-                locationCombo.setSelectedIndex(0);
-            }
-            else
+        if (locationCount >= 2)
             {
                 locationCombo.setSelectedIndex(1);
+            }
+        else if (locationCount ==1)
+            {
+                locationCombo.setSelectedIndex(0);
             }
         availableStaffBttn.doClick();
     }

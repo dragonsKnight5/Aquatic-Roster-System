@@ -48,7 +48,10 @@ public class locationRemoval extends javax.swing.JDialog
         {
             while(returned.next())
             {
-                locationCombo.addItem(returned.getString("location"));
+                if (!returned.getString("location").equalsIgnoreCase("None"))
+                {
+                    locationCombo.addItem(returned.getString("location"));
+                }
             }
         }
         catch (SQLException ex)
