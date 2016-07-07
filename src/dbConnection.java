@@ -402,4 +402,28 @@ public ResultSet getIscUsers(String location, String day, String shift, java.sql
          
          return result;
      }
+     
+     public String getOncallNumber (String staff)
+     {
+         String command = "select contact_number from users where username = \'" + staff + "\'";
+         ResultSet result = null;
+         String contactNumber = "";
+         try 
+         {
+             ps1 = conn.prepareStatement(command);
+             result = ps1.executeQuery();
+             result.next();
+             contactNumber = result.getString("contact_number");
+             //System.out.println("contact Number Length: " + contactNumber.length());
+             if (contactNumber.isEmpty())
+             {
+                 contactNumber = "No Contact Number Available";
+             }
+         }
+         catch (SQLException ex)
+         {
+             System.out.println(ex);
+         }
+         return contactNumber;
+     }
 }

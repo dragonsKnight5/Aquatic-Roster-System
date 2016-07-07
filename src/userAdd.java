@@ -65,6 +65,8 @@ public class userAdd extends javax.swing.JDialog {
         departmentCombo3 = new javax.swing.JComboBox<>();
         completionCheckbox = new javax.swing.JCheckBox();
         firstNameTextbox = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        contactNumberTxtbx = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("User Add");
@@ -152,6 +154,22 @@ public class userAdd extends javax.swing.JDialog {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel9.setText("Contact Number:");
+
+        contactNumberTxtbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        contactNumberTxtbx.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contactNumberTxtbxKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                contactNumberTxtbxKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                contactNumberTxtbxKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,32 +180,44 @@ public class userAdd extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2)
-                            .addGap(36, 36, 36)
-                            .addComponent(firstNameTextbox, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(firstNameTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel6)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(departmentCombo2, 0, 145, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel1)
                                 .addComponent(jLabel3))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lastNameTextbox, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                .addComponent(usernameTextbox, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                .addComponent(departmentCombo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel8))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(departmentCombo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lastNameTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(usernameTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(supervisorCheckbox)
-                                .addComponent(departmentCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(passwordTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel7)
+                                                .addComponent(jLabel8))
+                                            .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGap(0, 0, Short.MAX_VALUE)
+                                            .addComponent(jLabel9)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addGap(25, 25, 25)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(departmentCombo2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(contactNumberTxtbx)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(supervisorCheckbox)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(departmentCombo3, 0, 145, Short.MAX_VALUE)
+                                .addComponent(passwordTextbox, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -232,8 +262,12 @@ public class userAdd extends javax.swing.JDialog {
                     .addComponent(passwordTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(contactNumberTxtbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(completionCheckbox)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeButton)
                     .addComponent(submitButton))
@@ -252,6 +286,7 @@ public class userAdd extends javax.swing.JDialog {
         String username = usernameTextbox.getText();
         String firstName = firstNameTextbox.getText();
         String lastName = lastNameTextbox.getText();
+        String contactNumber = contactNumberTxtbx.getText();
         String department1 = (String) departmentCombo1.getSelectedItem();
         String department2 = (String) departmentCombo2.getSelectedItem();
         String department3 = (String) departmentCombo3.getSelectedItem();
@@ -267,8 +302,8 @@ public class userAdd extends javax.swing.JDialog {
         String password = new String(passwordTextbox.getPassword());
         
         System.out.println("Prepare sql command");
-        String command = "insert into users (username, first_name, last_name, department_1, department_2, department_3, supervisor, password) values  " 
-                +"(\"" + username + "\", \"" + firstName + "\", \"" + lastName + "\", \"" + department1 + "\", \"" + department2 + "\", \"" + department3 + "\", " + supervisor + ", \"" + password + "\")";
+        String command = "insert into users (username, first_name, last_name, department_1, department_2, department_3, supervisor, password, contact_number) values  " 
+                +"(\"" + username + "\", \"" + firstName + "\", \"" + lastName + "\", \"" + department1 + "\", \"" + department2 + "\", \"" + department3 + "\", " + supervisor + ", \"" + password + "\", \'" + contactNumber + "\')";
         System.out.println(command);
         
        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
@@ -322,10 +357,23 @@ public class userAdd extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameTextboxKeyTyped
 
+    private void contactNumberTxtbxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactNumberTxtbxKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactNumberTxtbxKeyTyped
+
+    private void contactNumberTxtbxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactNumberTxtbxKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactNumberTxtbxKeyPressed
+
+    private void contactNumberTxtbxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactNumberTxtbxKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactNumberTxtbxKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionCheckbox;
+    private javax.swing.JTextField contactNumberTxtbx;
     private javax.swing.JComboBox<String> departmentCombo1;
     private javax.swing.JComboBox<String> departmentCombo2;
     private javax.swing.JComboBox<String> departmentCombo3;
@@ -338,6 +386,7 @@ public class userAdd extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField lastNameTextbox;
     private javax.swing.JPasswordField passwordTextbox;
     private javax.swing.JButton submitButton;

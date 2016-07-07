@@ -29,8 +29,9 @@ public class users {
     private String department3;
     private boolean supervisor;
     private String password;
+    private String contactNumber;
 
-    public users(int inID, String inUsername, String inFirstName, String inLastName, String inDepartment1, String inDepartment2, String inDepartment3, boolean inSupervisor, String inPassword) 
+    public users(int inID, String inUsername, String inFirstName, String inLastName, String inDepartment1, String inDepartment2, String inDepartment3, boolean inSupervisor, String inPassword, String inContactNumber) 
     {
         ID = inID;
         username = inUsername;
@@ -41,6 +42,7 @@ public class users {
         department3 = inDepartment3;
         supervisor = inSupervisor;
         password = inPassword;
+        contactNumber = inContactNumber;
     }
     
     public String toString()
@@ -92,5 +94,9 @@ public class users {
     public int getID()
     {
         return ID;
+    }
+    public String getContactNumber()
+    {
+        return contactNumber;
     }
 }

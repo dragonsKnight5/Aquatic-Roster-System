@@ -142,7 +142,7 @@ public class login extends javax.swing.JDialog
         {
             returned.next();
             System.out.println("Create user object");
-            users myUser = new users(returned.getInt("ID"), returned.getString("username"), returned.getString("first_name"), returned.getString("last_name"), returned.getString("department_1"), returned.getString("department_2"), returned.getString("department_3"), returned.getBoolean("supervisor"), returned.getString("password"));
+            users myUser = new users(returned.getInt("ID"), returned.getString("username"), returned.getString("first_name"), returned.getString("last_name"), returned.getString("department_1"), returned.getString("department_2"), returned.getString("department_3"), returned.getBoolean("supervisor"), returned.getString("password"), returned.getString("contact_number"));
           
             System.out.println("Compare entered password with password in database");
             if (password.equalsIgnoreCase(myUser.getPassword()))

@@ -68,6 +68,8 @@ public class userEdit extends javax.swing.JDialog {
         department3Combo = new javax.swing.JComboBox<>();
         completionCheckbox = new javax.swing.JCheckBox();
         firstNameTxtbx = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        contactNumberTxtbx = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("User Edit");
@@ -77,6 +79,7 @@ public class userEdit extends javax.swing.JDialog {
 
         usernameTextbox.setEditable(false);
         usernameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        usernameTextbox.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setText("First Name:");
@@ -100,6 +103,7 @@ public class userEdit extends javax.swing.JDialog {
         jLabel8.setText("Password:");
 
         lastNameTextbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        lastNameTextbox.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         lastNameTextbox.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 lastNameTextboxKeyReleased(evt);
@@ -109,7 +113,7 @@ public class userEdit extends javax.swing.JDialog {
         supervisorCheckBox.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
 
         passwordTxt.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        passwordTxt.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        passwordTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         passwordTxt.setName("password");
 
         updateButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -151,11 +155,18 @@ public class userEdit extends javax.swing.JDialog {
         completionCheckbox.setText("Close On Completion");
 
         firstNameTxtbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        firstNameTxtbx.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         firstNameTxtbx.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 firstNameTxtbxKeyReleased(evt);
             }
         });
+
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jLabel9.setText("Contact Number:");
+
+        contactNumberTxtbx.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        contactNumberTxtbx.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,48 +181,58 @@ public class userEdit extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(completionCheckbox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                         .addComponent(updateButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
+                        .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(usernameTextbox))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(firstNameTxtbx))))
+                            .addComponent(firstNameTxtbx)
+                            .addComponent(usernameTextbox)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
+                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(department1Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lastNameTextbox, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(45, 45, 45)
-                        .addComponent(passwordTxt))
+                            .addComponent(lastNameTextbox)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
+                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(supervisorCheckBox)
-                            .addComponent(department2Combo, 0, 201, Short.MAX_VALUE)
-                            .addComponent(department3Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(department3Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(supervisorCheckBox)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(department2Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(68, 68, 68)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(passwordTxt)
+                            .addComponent(contactNumberTxtbx, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -245,9 +266,12 @@ public class userEdit extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(supervisorCheckBox)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(contactNumberTxtbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeButton)
                     .addComponent(updateButton)
@@ -276,14 +300,14 @@ public class userEdit extends javax.swing.JDialog {
             {
                 if (supervisor)
                 {
-                    users tempUser = new users(returned.getInt("ID"), returned.getString("username"), returned.getString("first_name"), returned.getString("last_name"), returned.getString("department_1"), returned.getString("department_2"), returned.getString("department_3"), returned.getBoolean("supervisor"), returned.getString("password"));
+                    users tempUser = new users(returned.getInt("ID"), returned.getString("username"), returned.getString("first_name"), returned.getString("last_name"), returned.getString("department_1"), returned.getString("department_2"), returned.getString("department_3"), returned.getBoolean("supervisor"), returned.getString("password"), returned.getString("contact_number"));
                     myUsers.add(tempUser);
                 }
                 else
                 {
                     if ((returned.getString("username")).equalsIgnoreCase(loggedUser))
                     {
-                        users tempUser = new users(returned.getInt("ID"), returned.getString("username"), returned.getString("first_name"), returned.getString("last_name"), returned.getString("department_1"), returned.getString("department_2"), returned.getString("department_3"), returned.getBoolean("supervisor"), returned.getString("password"));
+                        users tempUser = new users(returned.getInt("ID"), returned.getString("username"), returned.getString("first_name"), returned.getString("last_name"), returned.getString("department_1"), returned.getString("department_2"), returned.getString("department_3"), returned.getBoolean("supervisor"), returned.getString("password"), returned.getString("contact_number"));
                         myUsers.add(tempUser);
                     }
                 }
@@ -318,6 +342,7 @@ public class userEdit extends javax.swing.JDialog {
         department2Combo.setSelectedItem(selectedUser.getDepartment2());
         department3Combo.setSelectedItem(selectedUser.getDepartment3());
         passwordTxt.setText(selectedUser.getPassword());
+        contactNumberTxtbx.setText(selectedUser.getContactNumber());
          
         if(selectedUser.getSupervisor())
         {
@@ -380,6 +405,7 @@ public class userEdit extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox completionCheckbox;
+    private javax.swing.JTextField contactNumberTxtbx;
     private javax.swing.JComboBox<String> department1Combo;
     private javax.swing.JComboBox<String> department2Combo;
     private javax.swing.JComboBox<String> department3Combo;
@@ -392,6 +418,7 @@ public class userEdit extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lastNameTextbox;
     private javax.swing.JPasswordField passwordTxt;
