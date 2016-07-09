@@ -464,7 +464,7 @@ public class LTScoverEditor extends javax.swing.JDialog {
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
         {
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.ERROR_MESSAGE);
         }
         else if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
@@ -482,7 +482,7 @@ public class LTScoverEditor extends javax.swing.JDialog {
 
             int status = connection.updateShift(command);
             if (status == 1) {
-                JOptionPane.showMessageDialog(parent, "Cover Update Successfull");
+                JOptionPane.showMessageDialog(parent, "Cover Update Successfull", "", JOptionPane.INFORMATION_MESSAGE);
                 if (completionTickbox.isSelected()) 
                 {
                     dispose();
@@ -490,7 +490,7 @@ public class LTScoverEditor extends javax.swing.JDialog {
             } 
             else 
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Update Cover");
+                JOptionPane.showMessageDialog(parent, "Unable To Update Cover", "", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_updateButtonActionPerformed
@@ -614,7 +614,8 @@ private void loadData()
     }
     catch (SQLException ex)
     {
-        JOptionPane.showMessageDialog(parent, ex);
+        System.out.println(ex);
+        //JOptionPane.showMessageDialog(parent, ex);
     }
 }
 

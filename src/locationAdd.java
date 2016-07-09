@@ -243,7 +243,7 @@ public class locationAdd extends javax.swing.JDialog {
             int result = connection.addLocation(command);
             if (result == 1)
             {
-                JOptionPane.showMessageDialog(parent, "Location Added");
+                JOptionPane.showMessageDialog(parent, "Location Added", "", JOptionPane.INFORMATION_MESSAGE);
                 if (completionCheckbox.isSelected())
                 {
                     dispose();
@@ -259,7 +259,7 @@ public class locationAdd extends javax.swing.JDialog {
             }
             else
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Add Location");
+                JOptionPane.showMessageDialog(parent, "Unable To Add Location", "", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_submitButtonActionPerformed

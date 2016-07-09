@@ -217,11 +217,13 @@ public class locationEdit extends javax.swing.JDialog {
        }
        catch (SQLException ex)
        {
-           JOptionPane.showMessageDialog(parent,ex);
+           System.out.println(ex);
+           //JOptionPane.showMessageDialog(parent,ex);
        }
        catch (Exception ex)
        {
-           JOptionPane.showMessageDialog(parent, ex);
+           System.out.println(ex);
+           //JOptionPane.showMessageDialog(parent, ex);
        }
     }
     
@@ -299,10 +301,14 @@ public class locationEdit extends javax.swing.JDialog {
                 == JOptionPane.YES_OPTION) {
             int status = connection.editUser(command);
             if (status == 1) {
-                JOptionPane.showMessageDialog(parent, "Location edited successfully");
+                JOptionPane.showMessageDialog(parent, "Location edited successfully", "", JOptionPane.INFORMATION_MESSAGE);
                 if (completionCheckbox.isSelected()) {
                     dispose();
                 }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(parent, "Location edit failed", "", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_updateButtonActionPerformed

@@ -326,7 +326,7 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
         {
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         } 
         else 
         {
@@ -348,7 +348,7 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
 
                 if (status == 1) 
                 {
-                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully", "", JOptionPane.INFORMATION_MESSAGE);
                     if (completionTickbox.isSelected()) 
                     {
                         dispose();
@@ -356,7 +356,7 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
                 } 
                 else 
                 {
-                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -447,15 +447,18 @@ public class LifeguardShiftCreator extends javax.swing.JDialog {
     {
         ResultSet returned;
         Integer locationCount = 0;
-        try {
+        try 
+        {
             returned = connection.lifeguardLocations();
             while (returned.next()) {
                 locationCombo.addItem(returned.getString("location"));
                 locationCount++;
             }
         }
-        catch (SQLException ex) {
-            JOptionPane.showMessageDialog(parent, ex);
+        catch (SQLException ex) 
+        {
+            System.out.println(ex);
+            //JOptionPane.showMessageDialog(parent, ex);
         }
 
         //LocalDate date = LocalDate.now();

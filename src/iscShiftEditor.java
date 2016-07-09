@@ -522,9 +522,13 @@ public class iscShiftEditor extends javax.swing.JDialog {
             staffCombo4.setSelectedItem(selectedShift.getStaff4());
             onCallCombo.setSelectedItem(selectedShift.getOnCall());
             locationCombo.setSelectedItem(selectedShift.getLocation());
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) 
+        {
             System.out.println(ex);
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) 
+        {
             System.out.println(ex);
         }
         
@@ -533,7 +537,7 @@ public class iscShiftEditor extends javax.swing.JDialog {
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
         {
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         }
         else if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
@@ -552,7 +556,7 @@ public class iscShiftEditor extends javax.swing.JDialog {
             int status = connection.updateShift(command);
             if (status == 1) 
             {
-                JOptionPane.showMessageDialog(parent, "Shift Update Successfull");
+                JOptionPane.showMessageDialog(parent, "Shift Update Successfull", "", JOptionPane.INFORMATION_MESSAGE);
                 if (completionTickbox.isSelected()) {
                     dispose();
                 }
@@ -566,7 +570,7 @@ public class iscShiftEditor extends javax.swing.JDialog {
             } 
             else 
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Update Shift");
+                JOptionPane.showMessageDialog(parent, "Unable To Update Shift", "", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_updateButtonActionPerformed

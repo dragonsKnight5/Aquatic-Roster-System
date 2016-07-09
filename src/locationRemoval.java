@@ -56,7 +56,8 @@ public class locationRemoval extends javax.swing.JDialog
         }
         catch (SQLException ex)
         {
-            JOptionPane.showMessageDialog(parent, ex);
+            System.out.println(ex);
+            //JOptionPane.showMessageDialog(parent, ex);
         }
     }
     /**
@@ -149,11 +150,11 @@ public class locationRemoval extends javax.swing.JDialog
             
             if (status == 1)
             {
-                JOptionPane.showMessageDialog(parent, "Location Removed");
+                JOptionPane.showMessageDialog(parent, "Location Removed", "", JOptionPane.INFORMATION_MESSAGE);
             }
             else
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Remove Location");
+                JOptionPane.showMessageDialog(parent, "Unable To Remove Location", "", JOptionPane.ERROR_MESSAGE);
             }
             
             if (completionCheckbox.isSelected())

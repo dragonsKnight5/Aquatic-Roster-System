@@ -421,11 +421,11 @@ public class iscShiftLookup extends javax.swing.JDialog {
     private void contactNumberBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactNumberBttnActionPerformed
         if (shiftList.getSelectedIndex() >= 0)
         {
-            JOptionPane.showMessageDialog(parent, connection.getOncallNumber(onCallLbl.getText()));
+            JOptionPane.showMessageDialog(parent, connection.getOncallNumber(onCallLbl.getText()), "", JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
-            JOptionPane.showMessageDialog(parent, "Please select a list entry to proceed");
+            JOptionPane.showMessageDialog(parent, "Please select a list entry to proceed", "", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_contactNumberBttnActionPerformed
 
@@ -470,7 +470,8 @@ private void loadData()
     }
     catch (SQLException ex)
     {
-        JOptionPane.showMessageDialog(parent, ex);
+        System.out.println(ex);
+        //JOptionPane.showMessageDialog(parent, ex);
     }
 }
 

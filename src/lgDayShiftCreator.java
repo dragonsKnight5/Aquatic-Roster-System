@@ -1094,8 +1094,11 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
             {
                 locationCombo.setSelectedIndex(1);
             }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(parent, ex);
+        }
+        catch (SQLException ex)
+        {
+            System.out.println(ex);
+            //JOptionPane.showMessageDialog(parent, ex);
         }
 
         LocalDate myDate = LocalDate.now().with(next(DayOfWeek.SATURDAY));
@@ -1387,42 +1390,44 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     
     private void submitButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButton1ActionPerformed
         if ((int) endHourSpinner1.getValue() <= (int) startHourSpinner1.getValue()) 
-        {            
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
-        } 
-        else
         {
-        LocalTime startTime = LocalTime.of((int)startHourSpinner1.getValue(), (int)startMinuteSpinner1.getValue());
-        LocalTime endTime = LocalTime.of((int)endHourSpinner1.getValue(), (int)endMinuteSpinner1.getValue());
-        String shift;
-        String command;
-        if ((int) startHourSpinner1.getValue() >= 12) {
-            shift = "Afternoon";
-            command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String)dateCombo.getSelectedItem()) + "\", \"" + startTime + "\", \""
-                + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() +"\", \"" + afternoonOncallCombo.getSelectedItem() + "\")";
-        } else {
-            shift = "Morning";
-            command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String)dateCombo.getSelectedItem()) + "\", \"" + startTime + "\", \""
-                + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() +"\", \"" + morningOncallCombo.getSelectedItem() + "\")";
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         }
-
-        if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
-                "",
-                JOptionPane.YES_NO_OPTION)
-            == JOptionPane.YES_OPTION)
+       else
         {
-
-           int status = connection.addGuardShift(command);
-        
-            if (status == 1)
+            LocalTime startTime = LocalTime.of((int) startHourSpinner1.getValue(), (int) startMinuteSpinner1.getValue());
+            LocalTime endTime = LocalTime.of((int) endHourSpinner1.getValue(), (int) endMinuteSpinner1.getValue());
+            String shift;
+            String command;
+            if ((int) startHourSpinner1.getValue() >= 12)
             {
-                JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                shift = "Afternoon";
+                command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime + "\", \""
+                        + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + afternoonOncallCombo.getSelectedItem() + "\")";
             }
             else
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
+                shift = "Morning";
+                command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime + "\", \""
+                        + endTime + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + morningOncallCombo.getSelectedItem() + "\")";
             }
-        }
+
+            if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
+                    "",
+                    JOptionPane.YES_NO_OPTION)
+                    == JOptionPane.YES_OPTION)
+            {
+                int status = connection.addGuardShift(command);
+
+                if (status == 1)
+                {
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully", "", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift", "", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
     }//GEN-LAST:event_submitButton1ActionPerformed
 
@@ -1431,7 +1436,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
                 && (int) endHourSpinner4.getValue() <= (int) startHourSpinner4.getValue() && (int) endHourSpinner5.getValue() <= (int) startHourSpinner5.getValue() && (int) endHourSpinner6.getValue() <= (int) startHourSpinner6.getValue()
                 && (int) endHourSpinner7.getValue() <= (int) startHourSpinner7.getValue())
         {            
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         }
         else
         {
@@ -1439,144 +1444,179 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
                 JOptionPane.YES_NO_OPTION)
-                == JOptionPane.YES_OPTION) {
+                == JOptionPane.YES_OPTION)
+        {
             // add row 1
             LocalTime startTime1 = LocalTime.of((int) startHourSpinner1.getValue(), (int) startMinuteSpinner1.getValue());
             LocalTime endTime1 = LocalTime.of((int) endHourSpinner1.getValue(), (int) endMinuteSpinner1.getValue());
             String shift;
             String command;
-            if ((int) startHourSpinner1.getValue() >= 12) {
+            if ((int) startHourSpinner1.getValue() >= 12)
+            {
                 shift = "Afternoon";
                 command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime1 + "\", \""
                         + endTime1 + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + afternoonOncallCombo.getSelectedItem() + "\")";
-            } else {
+            }
+            else
+            {
                 shift = "Morning";
                 command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime1 + "\", \""
                         + endTime1 + "\", \"" + staffCombo1.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + morningOncallCombo.getSelectedItem() + "\")";
             }
             int status = connection.addGuardShift(command);
 
-            if (status == 0) {
+            if (status == 0)
+            {
                 completeSuccess = false;
             }
             System.out.println("Adding Row 1 To Database");
 
             // add row 2
-            if (CheckBox2.isSelected()) {
+            if (CheckBox2.isSelected())
+            {
                 LocalTime startTime2 = LocalTime.of((int) startHourSpinner2.getValue(), (int) startMinuteSpinner2.getValue());
                 LocalTime endTime2 = LocalTime.of((int) endHourSpinner2.getValue(), (int) endMinuteSpinner2.getValue());
-                if ((int) startHourSpinner2.getValue() >= 12) {
+                if ((int) startHourSpinner2.getValue() >= 12)
+                {
                     shift = "Afternoon";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime2 + "\", \""
                             + endTime2 + "\", \"" + staffCombo2.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + afternoonOncallCombo.getSelectedItem() + "\")";
-                } else {
+                }
+                else
+                {
                     shift = "Morning";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime2 + "\", \""
                             + endTime2 + "\", \"" + staffCombo2.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + morningOncallCombo.getSelectedItem() + "\")";
                 }
                 status = connection.addGuardShift(command);
-                if (status == 0) {
+                if (status == 0)
+                {
                     completeSuccess = false;
                 }
 
                 System.out.println("Adding Row 2 To Database");
             }
             // add row 3
-            if (CheckBox3.isSelected()) {
+            if (CheckBox3.isSelected())
+            {
                 LocalTime startTime3 = LocalTime.of((int) startHourSpinner3.getValue(), (int) startMinuteSpinner3.getValue());
                 LocalTime endTime3 = LocalTime.of((int) endHourSpinner3.getValue(), (int) endMinuteSpinner3.getValue());
-                if ((int) startHourSpinner3.getValue() >= 12) {
+                if ((int) startHourSpinner3.getValue() >= 12)
+                {
                     shift = "Afternoon";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime3 + "\", \""
                             + endTime3 + "\", \"" + staffCombo3.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + afternoonOncallCombo.getSelectedItem() + "\")";
-                } else {
+                }
+                else
+                {
                     shift = "Morning";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime3 + "\", \""
                             + endTime3 + "\", \"" + staffCombo3.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + morningOncallCombo.getSelectedItem() + "\")";
                 }
                 status = connection.addGuardShift(command);
-                if (status == 0) {
+                if (status == 0)
+                {
                     completeSuccess = false;
                 }
                 System.out.println("Adding Row 3 To Database");
             }
 
             // add row 4
-            if (CheckBox4.isSelected()) {
+            if (CheckBox4.isSelected())
+            {
                 LocalTime startTime4 = LocalTime.of((int) startHourSpinner4.getValue(), (int) startMinuteSpinner4.getValue());
                 LocalTime endTime4 = LocalTime.of((int) endHourSpinner4.getValue(), (int) endMinuteSpinner4.getValue());
-                if ((int) startHourSpinner4.getValue() >= 12) {
+                if ((int) startHourSpinner4.getValue() >= 12)
+                {
                     shift = "Afternoon";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime4 + "\", \""
                             + endTime4 + "\", \"" + staffCombo4.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + afternoonOncallCombo.getSelectedItem() + "\")";
-                } else {
+                }
+                else
+                {
                     shift = "Morning";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime4 + "\", \""
                             + endTime4 + "\", \"" + staffCombo4.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + morningOncallCombo.getSelectedItem() + "\")";
                 }
                 status = connection.addGuardShift(command);
 
-                if (status == 0) {
+                if (status == 0)
+                {
                     completeSuccess = false;
                 }
                 System.out.println("Adding Row 4 To Database");
             }
 
             // add row 5
-            if (CheckBox5.isSelected()) {
+            if (CheckBox5.isSelected())
+            {
                 LocalTime startTime5 = LocalTime.of((int) startHourSpinner5.getValue(), (int) startMinuteSpinner5.getValue());
                 LocalTime endTime5 = LocalTime.of((int) endHourSpinner5.getValue(), (int) endMinuteSpinner5.getValue());
-                if ((int) startHourSpinner5.getValue() >= 12) {
+                if ((int) startHourSpinner5.getValue() >= 12)
+                {
                     shift = "Afternoon";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime5 + "\", \""
                             + endTime5 + "\", \"" + staffCombo5.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + afternoonOncallCombo.getSelectedItem() + "\")";
-                } else {
+                }
+                else
+                {
                     shift = "Morning";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime5 + "\", \""
                             + endTime5 + "\", \"" + staffCombo5.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + morningOncallCombo.getSelectedItem() + "\")";
                 }
                 status = connection.addGuardShift(command);
-                if (status == 0) {
+                if (status == 0)
+                {
                     completeSuccess = false;
                 }
                 System.out.println("Adding Row 5 To Database");
             }
 
             //add row 6
-            if (CheckBox6.isSelected()) {
+            if (CheckBox6.isSelected())
+            {
                 LocalTime startTime6 = LocalTime.of((int) startHourSpinner6.getValue(), (int) startMinuteSpinner6.getValue());
                 LocalTime endTime6 = LocalTime.of((int) endHourSpinner6.getValue(), (int) endMinuteSpinner6.getValue());
-                if ((int) startHourSpinner6.getValue() >= 12) {
+                if ((int) startHourSpinner6.getValue() >= 12)
+                {
                     shift = "Afternoon";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime6 + "\", \""
                             + endTime6 + "\", \"" + staffCombo6.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + afternoonOncallCombo.getSelectedItem() + "\")";
-                } else {
+                }
+                else
+                {
                     shift = "Morning";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime6 + "\", \""
                             + endTime6 + "\", \"" + staffCombo6.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + morningOncallCombo.getSelectedItem() + "\")";
                 }
                 status = connection.addGuardShift(command);
-                if (status == 0) {
+                if (status == 0)
+                {
                     completeSuccess = false;
                 }
                 System.out.println("Adding Row 6 To Database");
             }
             
             //add row 7
-            if (CheckBox7.isSelected()) {
+            if (CheckBox7.isSelected())
+            {
                 LocalTime startTime7 = LocalTime.of((int) startHourSpinner7.getValue(), (int) startMinuteSpinner7.getValue());
                 LocalTime endTime7 = LocalTime.of((int) endHourSpinner6.getValue(), (int) endMinuteSpinner7.getValue());
-                if ((int) startHourSpinner6.getValue() >= 12) {
+                if ((int) startHourSpinner6.getValue() >= 12)
+                {
                     shift = "Afternoon";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime7 + "\", \""
                             + endTime7 + "\", \"" + staffCombo6.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + afternoonOncallCombo.getSelectedItem() + "\")";
-                } else {
+                }
+                else
+                {
                     shift = "Morning";
                     command = "Insert into lifeguard (Shift_date, start_time, end_time, staff1, location, oncall) values (\"" + comFunc.dateSwitch((String) dateCombo.getSelectedItem()) + "\", \"" + startTime7 + "\", \""
                             + endTime7 + "\", \"" + staffCombo6.getSelectedItem() + "\", \"" + locationCombo.getSelectedItem() + "\", \"" + morningOncallCombo.getSelectedItem() + "\")";
                 }
                 status = connection.addGuardShift(command);
-                if (status == 0) {
+                if (status == 0)
+                {
                     completeSuccess = false;
                 }
                 System.out.println("Adding Row 7 To Database");
@@ -1584,7 +1624,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
             
             if (completeSuccess)
             {
-                JOptionPane.showMessageDialog(parent,"All Shifts Added To Database");
+                JOptionPane.showMessageDialog(parent,"All Shifts Added To Database", "", JOptionPane.INFORMATION_MESSAGE);
                 if (completionTickbox.isSelected())
                 {
                     dispose();
@@ -1592,12 +1632,12 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
             }
             else
             {
-                JOptionPane.showMessageDialog(parent,"Not All Shifts Were Able To Be Add To Database");
+                JOptionPane.showMessageDialog(parent,"Not All Shifts Were Able To Be Add To Database", "", JOptionPane.ERROR_MESSAGE);
             }
         }
         else
         {
-            JOptionPane.showMessageDialog(parent, "Shift Add Cancelled");
+            JOptionPane.showMessageDialog(parent, "Shift Add Cancelled", "", JOptionPane.INFORMATION_MESSAGE);
         }
         }
     }//GEN-LAST:event_submitAllButtonActionPerformed
@@ -1605,7 +1645,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     private void submitButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButton2ActionPerformed
         if ((int) endHourSpinner2.getValue() <= (int) startHourSpinner2.getValue()) 
         {
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         } 
         else 
         {
@@ -1636,11 +1676,11 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
                 if (status == 1) 
                 {
-                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully", "", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else 
                 {
-                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -1649,7 +1689,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     private void submitButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButton3ActionPerformed
         if ((int) endHourSpinner3.getValue() <= (int) startHourSpinner3.getValue()) 
         {
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         }
         else 
         {
@@ -1680,11 +1720,11 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
                 if (status == 1) 
                 {
-                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully", "", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else 
                 {
-                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -1693,7 +1733,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     private void submitButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButton4ActionPerformed
         if ((int) endHourSpinner4.getValue() <= (int) startHourSpinner4.getValue()) 
         {
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         } 
         else 
         {
@@ -1724,11 +1764,11 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
                 if (status == 1) 
                 {
-                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully", "", JOptionPane.INFORMATION_MESSAGE);
                 } 
                 else 
                 {
-                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -1737,7 +1777,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     private void submitButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButton5ActionPerformed
         if ((int) endHourSpinner5.getValue() <= (int) startHourSpinner5.getValue()) 
         {
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         } 
         else 
         {
@@ -1768,11 +1808,11 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
                 if (status == 1) 
                 {
-                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully", "", JOptionPane.INFORMATION_MESSAGE);
                 } 
                 else 
                 {
-                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -1781,7 +1821,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     private void submitButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButton6ActionPerformed
         if ((int) endHourSpinner6.getValue() <= (int) startHourSpinner6.getValue()) 
         {
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         } 
         else 
         {
@@ -1812,11 +1852,11 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
                 if (status == 1) 
                 {
-                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully", "", JOptionPane.INFORMATION_MESSAGE);
                 } 
                 else 
                 {
-                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -2118,7 +2158,7 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
     private void submitButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButton7ActionPerformed
         if ((int) endHourSpinner7.getValue() <= (int) startHourSpinner7.getValue()) 
         {
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         } 
         else 
         {
@@ -2149,11 +2189,11 @@ public class lgDayShiftCreator extends javax.swing.JDialog {
 
                 if (status == 1) 
                 {
-                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully");
+                    JOptionPane.showMessageDialog(parent, "Shift Added Successfully", "", JOptionPane.INFORMATION_MESSAGE);
                 } 
                 else 
                 {
-                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift");
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Shift", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

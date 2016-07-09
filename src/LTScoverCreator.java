@@ -325,7 +325,7 @@ public class LTScoverCreator extends javax.swing.JDialog {
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         if ((int) endHourSpinner.getValue() <= (int) startHourSpinner.getValue()) 
         {            
-            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time");
+            JOptionPane.showMessageDialog(parent, "Unable To Proceed\n Finish Time Is Before Start Time", "", JOptionPane.WARNING_MESSAGE);
         } 
         else 
         {
@@ -343,12 +343,12 @@ public class LTScoverCreator extends javax.swing.JDialog {
                 int status = connection.addCover(command);
 
                 if (status == 1) {
-                    JOptionPane.showMessageDialog(parent, "Cover Added Successfully");
+                    JOptionPane.showMessageDialog(parent, "Cover Added Successfully", "", JOptionPane.INFORMATION_MESSAGE);
                     if (completionTickbox.isSelected()) {
                         dispose();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(parent, "Unable To Add Cover");
+                    JOptionPane.showMessageDialog(parent, "Unable To Add Cover", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

@@ -346,7 +346,8 @@ public class LTScoverLookup extends javax.swing.JDialog {
         }
         catch (SQLException ex)
         {
-            JOptionPane.showMessageDialog(parent, ex);
+            System.out.println(ex);
+            //JOptionPane.showMessageDialog(parent, ex);
         }
     }
     

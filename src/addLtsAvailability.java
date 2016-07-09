@@ -354,11 +354,11 @@ public addLtsAvailability(main inParent, dbConnection inConnection, Boolean inSu
             
             if (status == 1)
             {
-                JOptionPane.showMessageDialog(parent, "Availability Added");
+                JOptionPane.showMessageDialog(parent, "Availability Added", "", JOptionPane.INFORMATION_MESSAGE);
             }
             else
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Add Availability");
+                JOptionPane.showMessageDialog(parent, "Unable To Add Availability", "", JOptionPane.ERROR_MESSAGE);
             }
         }
         

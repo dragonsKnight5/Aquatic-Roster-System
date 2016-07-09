@@ -168,14 +168,14 @@ public class login extends javax.swing.JDialog
             else
             {
                 System.out.println("Passwords didn't match");
-                JOptionPane.showMessageDialog(parent,"The login details used can't be found\n Please check your details and try again");
+                JOptionPane.showMessageDialog(parent,"The login details used can't be found\n Please check your details and try again", "", JOptionPane.WARNING_MESSAGE);
                 passwordTxtbx.setText("");
             }
         }
         catch (SQLException ex)
         {
             System.out.println(ex);
-            JOptionPane.showMessageDialog(parent, "Account with supplied details couldn't be found\nPlease check details and try again");
+            JOptionPane.showMessageDialog(parent, "Account with supplied details couldn't be found\nPlease check details and try again", "", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_submitBttnActionPerformed
 

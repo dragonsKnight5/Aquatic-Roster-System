@@ -528,7 +528,7 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         int status = connection.updateShift(command);
             if (status == 1)
             {
-                JOptionPane.showMessageDialog(parent, "Availability Update Successfull");
+                JOptionPane.showMessageDialog(parent, "Availability Update Successfull", "", JOptionPane.INFORMATION_MESSAGE);
                 if (completionTckbx.isSelected())
                 {
                     dispose();
@@ -540,7 +540,7 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
             }
             else
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Update Availability");
+                JOptionPane.showMessageDialog(parent, "Unable To Update Availability", "", JOptionPane.ERROR_MESSAGE);
             }
     }//GEN-LAST:event_updateBttnActionPerformed
 

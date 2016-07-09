@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-import java.sql.Date;
+//import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+//import java.text.ParseException;
+//import java.text.SimpleDateFormat;
+//import java.time.LocalDate;
+//import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -267,7 +267,7 @@ public removeAvailability(main inParent, dbConnection inConnection) {
             int status = connection.updateShift(command);
             if (status == 1)
             {
-                JOptionPane.showMessageDialog(parent, "Availability Removal Successfull");
+                JOptionPane.showMessageDialog(parent, "Availability Removal Successfull", "", JOptionPane.INFORMATION_MESSAGE);
                 if (completionTckbx.isSelected())
                 {
                     dispose();
@@ -279,7 +279,7 @@ public removeAvailability(main inParent, dbConnection inConnection) {
             }
             else
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Remove Availability");
+                JOptionPane.showMessageDialog(parent, "Unable To Remove Availability", "", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_removeBttnActionPerformed

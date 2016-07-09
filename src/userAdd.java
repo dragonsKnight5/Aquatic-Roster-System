@@ -314,7 +314,7 @@ public class userAdd extends javax.swing.JDialog {
             int result = connection.addUser(command);
             if (result == 1)
             {
-                JOptionPane.showMessageDialog(parent, "User Added");
+                JOptionPane.showMessageDialog(parent, "User Added", "", JOptionPane.INFORMATION_MESSAGE);
                 if (completionCheckbox.isSelected())
                 {
                     dispose();
@@ -332,7 +332,7 @@ public class userAdd extends javax.swing.JDialog {
             }
             else
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Add User");
+                JOptionPane.showMessageDialog(parent, "Unable To Add User", "", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_submitButtonActionPerformed

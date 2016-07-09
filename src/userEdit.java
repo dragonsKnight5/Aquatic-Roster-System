@@ -301,7 +301,10 @@ public class userEdit extends javax.swing.JDialog {
                 if (supervisor)
                 {
                     users tempUser = new users(returned.getInt("ID"), returned.getString("username"), returned.getString("first_name"), returned.getString("last_name"), returned.getString("department_1"), returned.getString("department_2"), returned.getString("department_3"), returned.getBoolean("supervisor"), returned.getString("password"), returned.getString("contact_number"));
-                    myUsers.add(tempUser);
+                    if (!tempUser.getUsername().equalsIgnoreCase("None"))
+                    {
+                        myUsers.add(tempUser);
+                    }
                 }
                 else
                 {
@@ -374,14 +377,14 @@ public class userEdit extends javax.swing.JDialog {
         
         String command = "UPDATE users SET username = \"" + usernameTextbox.getText() + "\", first_name = \"" + firstNameTxtbx.getText() + "\", last_name = \"" + lastNameTextbox.getText()
                 + "\", department_1 = \"" + (String)department1Combo.getSelectedItem() + "\", department_2 = \"" + department2Combo.getSelectedItem() + "\", department_3 = \"" + department3Combo.getSelectedItem() + "\", supervisor = " + supervisor 
-                + ", password = \"" + password + "\" where id = \"" + ID + "\"";
+                + ", password = \"" + password + "\", contact_number = \"" + contactNumberTxtbx.getText() + "\" where id = \"" + ID + "\"";
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
                 JOptionPane.YES_NO_OPTION)
                 == JOptionPane.YES_OPTION) {
             int status = connection.editUser(command);
             if (status == 1) {
-                JOptionPane.showMessageDialog(parent, "User edited successfully");
+                JOptionPane.showMessageDialog(parent, "User edited successfully", "", JOptionPane.INFORMATION_MESSAGE);
                 if (completionCheckbox.isSelected()) {
                     dispose();
                 }
@@ -389,6 +392,10 @@ public class userEdit extends javax.swing.JDialog {
                 {
                     loadData();
                 }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(parent, "User edit failed", "", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_updateButtonActionPerformed

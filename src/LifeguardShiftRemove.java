@@ -370,7 +370,7 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
             
                 if (status == 1)
                 {
-                    JOptionPane.showMessageDialog(parent, "Shift Removed");
+                    JOptionPane.showMessageDialog(parent, "Shift Removed", "", JOptionPane.INFORMATION_MESSAGE);
                     if (completionTickbox.isSelected())
                     {
                         dispose();
@@ -383,13 +383,13 @@ public class LifeguardShiftRemove extends javax.swing.JDialog {
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(parent, "Unable To Remove Shift");
+                    JOptionPane.showMessageDialog(parent, "Unable To Remove Shift", "", JOptionPane.ERROR_MESSAGE);
                 }
             }
        }
        else
        {
-           JOptionPane.showMessageDialog(parent, "Please Select A Shift And Try Again");
+           JOptionPane.showMessageDialog(parent, "Please Select A Shift And Try Again", "", JOptionPane.WARNING_MESSAGE);
        }
     }//GEN-LAST:event_removeButtonActionPerformed
 
@@ -479,7 +479,8 @@ private void loadData()
     }
     catch (SQLException ex)
     {
-        JOptionPane.showMessageDialog(parent, ex);
+        System.out.println(ex);
+        //JOptionPane.showMessageDialog(parent, ex);
     }
 }
 

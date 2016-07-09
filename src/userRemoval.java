@@ -57,7 +57,8 @@ public class userRemoval extends javax.swing.JDialog
         }
         catch (SQLException ex)
         {
-            JOptionPane.showMessageDialog(parent, ex);
+            System.out.println(ex);
+            //JOptionPane.showMessageDialog(parent, ex);
         }
     }
     /**
@@ -149,11 +150,11 @@ public class userRemoval extends javax.swing.JDialog
             
             if (status == 1)
             {
-                JOptionPane.showMessageDialog(parent, "User Removed");
+                JOptionPane.showMessageDialog(parent, "User Removed", "", JOptionPane.INFORMATION_MESSAGE);
             }
             else
             {
-                JOptionPane.showMessageDialog(parent, "Unable To Remove User");
+                JOptionPane.showMessageDialog(parent, "Unable To Remove User", "", JOptionPane.ERROR_MESSAGE);
             }
             
             if (completionCheckbox.isSelected())
