@@ -293,7 +293,7 @@ public class locationEdit extends javax.swing.JDialog {
             isc = true;
         }
         
-        String command = "update location set locations = \"" + locationTxtbx.getText() + "\", lifeguard = " + lifeguard + ", lts = " + lts + ", gym = "
+        String command = "update location set location = \"" + locationTxtbx.getText() + "\", lifeguard = " + lifeguard + ", lts = " + lts + ", gym = "
                 + gym + ", isc = "+ isc + " where ID = \"" + ID + "\"";
         if (JOptionPane.showConfirmDialog(parent, "Confirm to continue",
                 "",
