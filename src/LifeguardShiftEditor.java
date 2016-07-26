@@ -53,7 +53,8 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         namebuttonGroup = new javax.swing.ButtonGroup();
         updateButton = new javax.swing.JButton();
@@ -88,22 +89,28 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         lookupButton = new javax.swing.JButton();
         dateRadioButton = new javax.swing.JRadioButton();
         dateSearchCombo = new javax.swing.JComboBox<>();
+        staffNoteTxt = new javax.swing.JLabel();
+        oncallNoteTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lifeguard Shift Editor");
 
         updateButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         updateButton.setText("Update");
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        updateButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 updateButtonActionPerformed(evt);
             }
         });
 
         closeButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeButton.setText("Close");
-        closeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        closeButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 closeButtonActionPerformed(evt);
             }
         });
@@ -119,8 +126,10 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
 
         shiftList.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         shiftList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        shiftList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+        shiftList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
+        {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt)
+            {
                 shiftListValueChanged(evt);
             }
         });
@@ -136,42 +145,59 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
 
         startHourSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startHourSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
-        startHourSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        startHourSpinner.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 startHourSpinnerStateChanged(evt);
             }
         });
 
         startMinuteSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         startMinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-        startMinuteSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        startMinuteSpinner.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 startMinuteSpinnerStateChanged(evt);
             }
         });
 
         endHourSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endHourSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
-        endHourSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        endHourSpinner.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 endHourSpinnerStateChanged(evt);
             }
         });
 
         endMinuteSpinner.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         endMinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-        endMinuteSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        endMinuteSpinner.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 endMinuteSpinnerStateChanged(evt);
             }
         });
 
         staffCombo1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        staffCombo1.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
+                staffCombo1ItemStateChanged(evt);
+            }
+        });
 
         completionTickbox.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         completionTickbox.setText("Close On Completion");
-        completionTickbox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        completionTickbox.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 completionTickboxActionPerformed(evt);
             }
         });
@@ -182,8 +208,17 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         locationCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         onCallCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        onCallCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        onCallCombo.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
+                onCallComboItemStateChanged(evt);
+            }
+        });
+        onCallCombo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 onCallComboActionPerformed(evt);
             }
         });
@@ -193,8 +228,10 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
 
         refreshUsers.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         refreshUsers.setText("Refresh Users");
-        refreshUsers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        refreshUsers.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 refreshUsersActionPerformed(evt);
             }
         });
@@ -208,8 +245,10 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         allRadioButton.setSelected(true);
         allRadioButton.setText("All");
         allRadioButton.setEnabled(false);
-        allRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        allRadioButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 allRadioButtonActionPerformed(evt);
             }
         });
@@ -218,8 +257,10 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         nameRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         nameRadioButton.setText("Name");
         nameRadioButton.setEnabled(false);
-        nameRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        nameRadioButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 nameRadioButtonActionPerformed(evt);
             }
         });
@@ -227,16 +268,21 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nameTxtFld.setEnabled(false);
-        nameTxtFld.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        nameTxtFld.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 nameTxtFldActionPerformed(evt);
             }
         });
-        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 nameTxtFldKeyPressed(evt);
             }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
                 nameTxtFldKeyReleased(evt);
             }
         });
@@ -244,8 +290,10 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         lookupButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lookupButton.setText("Lookup");
         lookupButton.setEnabled(false);
-        lookupButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        lookupButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 lookupButtonActionPerformed(evt);
             }
         });
@@ -254,8 +302,10 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         dateRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         dateRadioButton.setText("Date");
         dateRadioButton.setEnabled(false);
-        dateRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        dateRadioButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 dateRadioButtonActionPerformed(evt);
             }
         });
@@ -263,14 +313,25 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         dateSearchCombo.setEditable(true);
         dateSearchCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         dateSearchCombo.setEnabled(false);
-        dateSearchCombo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        dateSearchCombo.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 dateSearchComboKeyPressed(evt);
             }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
                 dateSearchComboKeyReleased(evt);
             }
         });
+
+        staffNoteTxt.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        staffNoteTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        staffNoteTxt.setToolTipText("staff shift note");
+
+        oncallNoteTxt.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        oncallNoteTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        oncallNoteTxt.setToolTipText("oncall staff shift note");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -334,7 +395,9 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(endTimeLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(startTimeLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(onCallCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(onCallCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(staffNoteTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(oncallNoteTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(dateRadioButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -360,6 +423,13 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
                             .addComponent(jLabel2))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel5)
+                                .addGap(76, 76, 76)
+                                .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -379,28 +449,24 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(refreshUsers)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(staffCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5)
-                                .addGap(76, 76, 76)
-                                .addComponent(jLabel6)))
+                                .addComponent(staffCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(staffNoteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(onCallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel3))))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(onCallCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(oncallNoteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 12, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(allRadioButton)
                     .addComponent(nameRadioButton)
@@ -413,7 +479,7 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
                     .addComponent(closeButton)
                     .addComponent(completionTickbox)
                     .addComponent(updateButton))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -487,19 +553,27 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
             ResultSet returned;
             returned = connection.newGetLifeguardUsers(selectedShift.getLocation(), day, shift, lookupDate);
             
-            while (returned.next()) {
-                
+            while (returned.next()) 
+            {    
                 staffCombo1.addItem(returned.getString("username"));
                 onCallCombo.addItem(returned.getString("username"));
-                }
+            }
             onCallCombo.addItem("None");
-
             staffCombo1.setSelectedItem(selectedShift.getStaff1());
             onCallCombo.setSelectedItem(selectedShift.getOnCall());
             locationCombo.setSelectedItem(selectedShift.getLocation());
-        } catch (SQLException ex) {
+            
+            //push shift notes to screen
+            staffNoteTxt.setText(connection.getShiftNote((String)staffCombo1.getSelectedItem(), (String)locationCombo.getSelectedItem(), comFunc.dateSwitch((String)dateCombo.getSelectedItem()), (((comFunc.dateSwitch((String)dateCombo.getSelectedItem())).toLocalDate()).getDayOfWeek()).toString(), "Lifeguard"));
+            oncallNoteTxt.setText(connection.getShiftNote((String)onCallCombo.getSelectedItem(), (String)locationCombo.getSelectedItem(), comFunc.dateSwitch((String)dateCombo.getSelectedItem()), (((comFunc.dateSwitch((String)dateCombo.getSelectedItem())).toLocalDate()).getDayOfWeek()).toString(), "Lifeguard"));
+            
+        }
+        catch (SQLException ex)
+        {
             System.out.println(ex);
-        } catch (Exception ex) {
+        }
+       catch (Exception ex)
+       {
             System.out.println(ex);
         }
         
@@ -674,6 +748,30 @@ public class LifeguardShiftEditor extends javax.swing.JDialog {
         
     }//GEN-LAST:event_nameTxtFldKeyReleased
 
+    private void staffCombo1ItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_staffCombo1ItemStateChanged
+    {//GEN-HEADEREND:event_staffCombo1ItemStateChanged
+        try
+        {
+            staffNoteTxt.setText(connection.getShiftNote((String)staffCombo1.getSelectedItem(), (String)locationCombo.getSelectedItem(), comFunc.dateSwitch((String)dateCombo.getSelectedItem()), comFunc.dateSwitch((String)dateCombo.getSelectedItem()).toLocalDate().getDayOfWeek().toString(), "Lifeguard"));
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_staffCombo1ItemStateChanged
+
+    private void onCallComboItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_onCallComboItemStateChanged
+    {//GEN-HEADEREND:event_onCallComboItemStateChanged
+        try
+        {
+            oncallNoteTxt.setText(connection.getShiftNote((String)onCallCombo.getSelectedItem(), (String)locationCombo.getSelectedItem(), comFunc.dateSwitch((String)dateCombo.getSelectedItem()), comFunc.dateSwitch((String)dateCombo.getSelectedItem()).toLocalDate().getDayOfWeek().toString(), "Lifeguard"));
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_onCallComboItemStateChanged
+
     private void firstLoad()
     {
         if (parent.isSupervisor())
@@ -771,9 +869,11 @@ private void loadData()
     private javax.swing.JTextField nameTxtFld;
     private javax.swing.ButtonGroup namebuttonGroup;
     private javax.swing.JComboBox<String> onCallCombo;
+    private javax.swing.JLabel oncallNoteTxt;
     private javax.swing.JButton refreshUsers;
     private javax.swing.JList shiftList;
     private javax.swing.JComboBox<String> staffCombo1;
+    private javax.swing.JLabel staffNoteTxt;
     private javax.swing.JSpinner startHourSpinner;
     private javax.swing.JSpinner startMinuteSpinner;
     private javax.swing.JLabel startTimeLbl;

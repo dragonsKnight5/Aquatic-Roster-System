@@ -57,7 +57,8 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         sortButtonGroup = new javax.swing.ButtonGroup();
         searchButtonGroup = new javax.swing.ButtonGroup();
@@ -98,6 +99,16 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         lookupBttn = new javax.swing.JButton();
         dateFilterRadioButton = new javax.swing.JRadioButton();
         dateTxtFld = new javax.swing.JTextField();
+        saturdayNoteText = new javax.swing.JTextField();
+        sundayNoteText = new javax.swing.JTextField();
+        mondayNoteText = new javax.swing.JTextField();
+        tuesdayNoteText = new javax.swing.JTextField();
+        wednesdayNoteText = new javax.swing.JTextField();
+        thursdayNoteText = new javax.swing.JTextField();
+        fridayNoteText = new javax.swing.JTextField();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        departmentFilterRdBttn = new javax.swing.JRadioButton();
+        departmentFilterCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edit Availability");
@@ -105,14 +116,18 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel2.setText("Department:");
 
-        departmentCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
-        departmentCombo.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        departmentCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        departmentCombo.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 departmentComboItemStateChanged(evt);
             }
         });
-        departmentCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        departmentCombo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 departmentComboActionPerformed(evt);
             }
         });
@@ -120,67 +135,92 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel3.setText("Location:");
 
-        locationCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        locationCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel4.setText("Week Starting:");
 
-        dateCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        dateCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel5.setText("Monday:");
 
-        mondayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        mondayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         mondayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        jLabel6.setText("Tuesday");
+        jLabel6.setText("Tuesday:");
 
-        tuesdayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        tuesdayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         tuesdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
+        tuesdayCombo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                tuesdayComboActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel7.setText("Wednesday:");
 
-        wednesdayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        wednesdayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         wednesdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
+        wednesdayCombo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                wednesdayComboActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel8.setText("Thursday:");
 
-        thursdayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        thursdayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         thursdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel9.setText("Friday:");
 
-        fridayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        fridayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         fridayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
+        fridayCombo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                fridayComboActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel10.setText("Saturday:");
 
-        saturdayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        saturdayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         saturdayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
         jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel11.setText("Sunday:");
 
-        sundayCombo.setFont(new java.awt.Font("Al Bayan", 0, 15)); // NOI18N
+        sundayCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         sundayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Morning", "Afternoon", "Both" }));
 
         updateBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         updateBttn.setText("Update Availability");
-        updateBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        updateBttn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 updateBttnActionPerformed(evt);
             }
         });
 
         closeBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         closeBttn.setText("Close");
-        closeBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        closeBttn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 closeBttnActionPerformed(evt);
             }
         });
@@ -189,8 +229,10 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         availabilityList.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         availabilityList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         availabilityList.setSelectedIndex(0);
-        availabilityList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+        availabilityList.addListSelectionListener(new javax.swing.event.ListSelectionListener()
+        {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt)
+            {
                 availabilityListValueChanged(evt);
             }
         });
@@ -203,8 +245,10 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         nameRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         nameRdBttn.setSelected(true);
         nameRdBttn.setText("Name");
-        nameRdBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        nameRdBttn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 nameRdBttnActionPerformed(evt);
             }
         });
@@ -212,8 +256,10 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         sortButtonGroup.add(dateRdBttn);
         dateRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         dateRdBttn.setText("Date");
-        dateRdBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        dateRdBttn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 dateRdBttnActionPerformed(evt);
             }
         });
@@ -223,8 +269,10 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         allRadioButton.setSelected(true);
         allRadioButton.setText("All");
         allRadioButton.setEnabled(false);
-        allRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        allRadioButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 allRadioButtonActionPerformed(evt);
             }
         });
@@ -233,8 +281,10 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         nameFilterRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         nameFilterRadioButton.setText("Name");
         nameFilterRadioButton.setEnabled(false);
-        nameFilterRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        nameFilterRadioButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 nameFilterRadioButtonActionPerformed(evt);
             }
         });
@@ -248,16 +298,20 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         nameTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         nameTxtFld.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nameTxtFld.setEnabled(false);
-        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        nameTxtFld.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 nameTxtFldKeyPressed(evt);
             }
         });
 
         lookupBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lookupBttn.setText("Lookup");
-        lookupBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        lookupBttn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 lookupBttnActionPerformed(evt);
             }
         });
@@ -266,19 +320,77 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         dateFilterRadioButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         dateFilterRadioButton.setText("Week Starting");
         dateFilterRadioButton.setEnabled(false);
-        dateFilterRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        dateFilterRadioButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 dateFilterRadioButtonActionPerformed(evt);
             }
         });
 
         dateTxtFld.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         dateTxtFld.setEnabled(false);
-        dateTxtFld.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        dateTxtFld.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 dateTxtFldKeyPressed(evt);
             }
         });
+
+        saturdayNoteText.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        saturdayNoteText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        saturdayNoteText.setToolTipText("Saturday Shift Note");
+
+        sundayNoteText.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        sundayNoteText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        sundayNoteText.setToolTipText("Sunday Shift Note");
+
+        mondayNoteText.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        mondayNoteText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        mondayNoteText.setToolTipText("Monday Shift Note");
+
+        tuesdayNoteText.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        tuesdayNoteText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tuesdayNoteText.setToolTipText("Tuesday Shift Note");
+
+        wednesdayNoteText.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        wednesdayNoteText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        wednesdayNoteText.setToolTipText("Wednesday Shift Note");
+
+        thursdayNoteText.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        thursdayNoteText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        thursdayNoteText.setToolTipText("Thursday Shift Note");
+
+        fridayNoteText.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        fridayNoteText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        fridayNoteText.setToolTipText("Friday Shift Note");
+
+        sortButtonGroup.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        jRadioButton1.setText("Department");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        searchButtonGroup.add(departmentFilterRdBttn);
+        departmentFilterRdBttn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        departmentFilterRdBttn.setText("Department");
+        departmentFilterRdBttn.setEnabled(false);
+        departmentFilterRdBttn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                departmentFilterRdBttnActionPerformed(evt);
+            }
+        });
+
+        departmentFilterCombo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        departmentFilterCombo.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -287,102 +399,136 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(12, 12, 12)
-                        .addComponent(nameRdBttn)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(12, 12, 12)
+                                .addComponent(nameRdBttn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dateRdBttn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(allRadioButton)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(nameFilterRadioButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(departmentFilterRdBttn)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(departmentFilterCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(18, 18, 18)
+                        .addComponent(dateFilterRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dateRdBttn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(dateTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(closeBttn)
+                        .addGap(18, 18, 18)
+                        .addComponent(lookupBttn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(completionTckbx)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateBttn)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jLabel10)
+                                                .addGap(30, 30, 30)
+                                                .addComponent(saturdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(saturdayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(59, 59, 59)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(12, 12, 12)
+                                                .addComponent(jLabel11)
+                                                .addGap(35, 35, 35)
+                                                .addComponent(sundayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(sundayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(mondayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel7)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(wednesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(wednesdayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(6, 6, 6)
+                                                        .addComponent(jLabel8)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(thursdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(tuesdayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabel6)
+                                                            .addGap(18, 18, 18)
+                                                            .addComponent(tuesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(thursdayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                        .addGap(11, 11, 11)
+                                                        .addComponent(jLabel5)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(mondayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addGap(3, 3, 3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(162, 162, 162)
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(fridayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jSeparator1))
+                                .addGap(0, 32, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
                                         .addComponent(jLabel4)
                                         .addGap(12, 12, 12)
                                         .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(departmentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addGap(26, 26, 26)
-                                .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel9)
-                                            .addGap(50, 50, 50)
-                                            .addComponent(fridayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addGap(39, 39, 39)
-                                            .addComponent(mondayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(wednesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabel8)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(thursdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabel6)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(tuesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabel10)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(saturdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(146, 146, 146)
-                                    .addComponent(jLabel11)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(sundayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(93, 93, 93))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(closeBttn)
-                .addGap(18, 18, 18)
-                .addComponent(lookupBttn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(completionTckbx)
-                .addGap(18, 18, 18)
-                .addComponent(updateBttn))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(allRadioButton)
-                .addGap(30, 30, 30)
-                .addComponent(nameFilterRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateFilterRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(departmentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel3)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(fridayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -394,37 +540,64 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(dateCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(2, 2, 2)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(mondayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(tuesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(wednesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(thursdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(fridayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(saturdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(saturdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(saturdayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(sundayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sundayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(mondayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mondayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(wednesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(wednesdayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(tuesdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tuesdayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(thursdayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(thursdayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(sundayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5)
+                            .addComponent(jLabel9)
+                            .addComponent(fridayCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fridayNoteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(nameRdBttn)
-                    .addComponent(dateRdBttn))
+                    .addComponent(dateRdBttn)
+                    .addComponent(jRadioButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(allRadioButton)
@@ -433,12 +606,17 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
                     .addComponent(nameTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dateFilterRadioButton)
                     .addComponent(dateTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(departmentFilterRdBttn)
+                    .addComponent(departmentFilterCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeBttn)
+                    .addComponent(lookupBttn)
                     .addComponent(updateBttn)
-                    .addComponent(completionTckbx)
-                    .addComponent(lookupBttn)))
+                    .addComponent(completionTckbx))
+                .addGap(6, 6, 6))
         );
 
         pack();
@@ -521,10 +699,11 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         }
         
         String command = "update availability set department = \'" + departmentCombo.getSelectedItem() + "\', location = \'" + locationCombo.getSelectedItem()
-                + "\', weekStarting = \'" + selectedDate + "\', monday = \'" + mondayCombo.getSelectedItem() + "\', tuesday = \'" + tuesdayCombo.getSelectedItem()
-                + "\', wednesday = \'" + wednesdayCombo.getSelectedItem() + "\', thursday = \'" + thursdayCombo.getSelectedItem() + "\', friday = \'" 
-                + fridayCombo.getSelectedItem() + "\', saturday = \'" + saturdayCombo.getSelectedItem() + "\', sunday = \'" + sundayCombo.getSelectedItem() 
-                + "\' where ID = \'" + ID + "\'";
+                + "\', weekStarting = \'" + selectedDate + "\', monday = \'" + mondayCombo.getSelectedItem() + "\', mondayNote = \'" + mondayNoteText.getText() + "\', tuesday = \'" + tuesdayCombo.getSelectedItem() + "\', tuesdayNote = \'"
+                + tuesdayNoteText.getText()+ "\', wednesday = \'" + wednesdayCombo.getSelectedItem() + "\', wednesdayNote = \'"+ wednesdayNoteText.getText() + "\', thursday = \'" + thursdayCombo.getSelectedItem() 
+                + "\', thursdayNote = \'" + thursdayNoteText.getText() +"\', friday = \'" + fridayCombo.getSelectedItem()  + "\', fridayNote = \'"+ fridayNoteText.getText() + "\', saturday = \'" + saturdayCombo.getSelectedItem() 
+                + "\', sunday = \'" + sundayCombo.getSelectedItem() + "\', sundayNote = \'" + sundayNoteText.getText() + "\' where ID = \'" + ID + "\'";
+        System.out.println(command);
         int status = connection.updateShift(command);
             if (status == 1)
             {
@@ -547,7 +726,19 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
     private void availabilityListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_availabilityListValueChanged
         try
         {
+            departmentCombo.removeAllItems();
             availability selectedAvailability = (availability)availabilityList.getSelectedValue();
+            ResultSet userDepartments = connection.getDepartments(selectedAvailability.getUsername());
+            userDepartments.next();
+            departmentCombo.addItem(userDepartments.getString("department_1"));
+            if (!userDepartments.getString("department_2").equalsIgnoreCase("None"))
+            {
+                departmentCombo.addItem(userDepartments.getString("department_2"));
+            }
+            if (!userDepartments.getString("department_3").equalsIgnoreCase("None"))
+            {
+                departmentCombo.addItem(userDepartments.getString("department_3"));
+            }
             departmentCombo.setSelectedItem(selectedAvailability.getDepartment());
             locationCombo.setSelectedItem(selectedAvailability.getLocation());
             ID = selectedAvailability.getID();
@@ -555,7 +746,6 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         
             // date manipulation block
             dateCombo.removeAllItems();
-            //DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("dd/MM/YYYY");
             Date availDate = selectedAvailability.getWeekStarting();
             LocalDate selectedDate = availDate.toLocalDate();
             String dateString = null;
@@ -564,7 +754,6 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
             do
                 {
                     newDate = selectedDate.minusDays(count);
-                    //dateString = myFormat.format(newDate);
                     dateString = comFunc.formatDate(newDate);
                     dateCombo.addItem(dateString);
                     count = count - 7;
@@ -573,29 +762,34 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
             do 
                 {
                     newDate = selectedDate.plusDays(count);
-                    //dateString = myFormat.format(newDate);
                     dateString = comFunc.formatDate(newDate);
                     dateCombo.addItem(dateString);
                     count = count + 7;
                 } while (count != 28);
-            //dateString = myFormat.format(selectedDate);
             dateString = comFunc.formatDate(selectedDate);
             dateCombo.setSelectedItem(dateString);
 
             String tempDay = selectedAvailability.getMonday();
             mondayCombo.setSelectedItem(tempDay);
+            mondayNoteText.setText(selectedAvailability.getMondayNote());
             tempDay = selectedAvailability.getTuesday();
             tuesdayCombo.setSelectedItem(tempDay);
+            tuesdayNoteText.setText(selectedAvailability.getTuesdayNote());
             tempDay = selectedAvailability.getWednesday();
             wednesdayCombo.setSelectedItem(tempDay);
+            wednesdayNoteText.setText(selectedAvailability.getWednesdayNote());
             tempDay = selectedAvailability.getThursday();
             thursdayCombo.setSelectedItem(tempDay);
+            thursdayNoteText.setText(selectedAvailability.getThursdayNote());
             tempDay = selectedAvailability.getFriday();
             fridayCombo.setSelectedItem(tempDay);
+            fridayNoteText.setText(selectedAvailability.getFridayNote());
             tempDay = selectedAvailability.getSaturday();
             saturdayCombo.setSelectedItem(tempDay);
+            saturdayNoteText.setText(selectedAvailability.getSaturdayNote());
             tempDay = selectedAvailability.getSunday();
             sundayCombo.setSelectedItem(tempDay);
+            sundayNoteText.setText(selectedAvailability.getSundayNote());
         }
         catch (Exception ex)
         {
@@ -615,11 +809,13 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
     private void nameFilterRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFilterRadioButtonActionPerformed
         nameTxtFld.setEnabled(true);
         dateTxtFld.setEnabled(false);
+        departmentFilterCombo.setEnabled(false);
     }//GEN-LAST:event_nameFilterRadioButtonActionPerformed
 
     private void allRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRadioButtonActionPerformed
         nameTxtFld.setEnabled(false);
         dateTxtFld.setEnabled(false);
+        departmentFilterCombo.setEnabled(false);
     }//GEN-LAST:event_allRadioButtonActionPerformed
 
     private void lookupBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookupBttnActionPerformed
@@ -643,7 +839,35 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
     private void dateFilterRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFilterRadioButtonActionPerformed
         dateTxtFld.setEnabled(true);
         nameTxtFld.setEnabled(false);
+        departmentFilterCombo.setEnabled(false);
     }//GEN-LAST:event_dateFilterRadioButtonActionPerformed
+
+    private void wednesdayComboActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_wednesdayComboActionPerformed
+    {//GEN-HEADEREND:event_wednesdayComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wednesdayComboActionPerformed
+
+    private void tuesdayComboActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_tuesdayComboActionPerformed
+    {//GEN-HEADEREND:event_tuesdayComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tuesdayComboActionPerformed
+
+    private void fridayComboActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_fridayComboActionPerformed
+    {//GEN-HEADEREND:event_fridayComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fridayComboActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jRadioButton1ActionPerformed
+    {//GEN-HEADEREND:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void departmentFilterRdBttnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_departmentFilterRdBttnActionPerformed
+    {//GEN-HEADEREND:event_departmentFilterRdBttnActionPerformed
+        nameTxtFld.setEnabled(false);
+        dateTxtFld.setEnabled(false);
+        departmentFilterCombo.setEnabled(true);
+    }//GEN-LAST:event_departmentFilterRdBttnActionPerformed
 
     private void firstLoad()
     {
@@ -652,6 +876,12 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
             allRadioButton.setEnabled(true);
             nameFilterRadioButton.setEnabled(true);
             dateFilterRadioButton.setEnabled(true);
+            departmentFilterRdBttn.setEnabled(true);
+            departmentFilterCombo.addItem("ISC");
+            departmentFilterCombo.addItem("LTS");
+            departmentFilterCombo.addItem("Lifeguard");
+            departmentFilterCombo.addItem("Gym");
+            
         }
     }
     
@@ -684,9 +914,13 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
         {
             command = command.concat(" order by username");
         }
-        else
+        else if (dateRdBttn.isSelected())
         {
             command = command.concat(" order by weekStarting");
+        }
+        else
+        {
+            command = command.concat(" order by department");
         }
         
         System.out.println(command);
@@ -697,7 +931,7 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
             while (returned.next())
             {
                 // add availability entries to list
-                availability tempAvailability = new availability(returned.getInt("ID"), returned.getString("username"), returned.getString("monday"), returned.getString("tuesday"), returned.getString("wednesday"), returned.getString("thursday"), returned.getString("friday"), returned.getString("saturday"), returned.getString("sunday"), returned.getString("department"), returned.getString("location"), returned.getDate("weekStarting"));
+                availability tempAvailability = new availability(returned.getInt("ID"), returned.getString("username"), returned.getString("monday"), returned.getString("mondayNote"), returned.getString("tuesday"), returned.getString("tuesdayNote"), returned.getString("wednesday"), returned.getString("wednesdayNote"), returned.getString("thursday"), returned.getString("thursdayNote"), returned.getString("friday"), returned.getString("fridayNote"), returned.getString("saturday"), returned.getString("saturdayNote"), returned.getString("sunday"), returned.getString("sundayNote"), returned.getString("department"), returned.getString("location"), returned.getDate("weekStarting"));
                 availList.add(tempAvailability);
             }
             availabilityList.setListData(availList.toArray());
@@ -767,7 +1001,10 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
     private javax.swing.JRadioButton dateRdBttn;
     private javax.swing.JTextField dateTxtFld;
     private javax.swing.JComboBox<String> departmentCombo;
+    private javax.swing.JComboBox<String> departmentFilterCombo;
+    private javax.swing.JRadioButton departmentFilterRdBttn;
     private javax.swing.JComboBox<String> fridayCombo;
+    private javax.swing.JTextField fridayNoteText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -780,22 +1017,29 @@ public editAvailability(main inParent, dbConnection inConnection, commonFunction
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JComboBox<String> locationCombo;
     private javax.swing.JButton lookupBttn;
     private javax.swing.JComboBox<String> mondayCombo;
+    private javax.swing.JTextField mondayNoteText;
     private javax.swing.JRadioButton nameFilterRadioButton;
     private javax.swing.JRadioButton nameRdBttn;
     private javax.swing.JTextField nameTxtFld;
     private javax.swing.JComboBox<String> saturdayCombo;
+    private javax.swing.JTextField saturdayNoteText;
     private javax.swing.ButtonGroup searchButtonGroup;
     private javax.swing.ButtonGroup sortButtonGroup;
     private javax.swing.JComboBox<String> sundayCombo;
+    private javax.swing.JTextField sundayNoteText;
     private javax.swing.JComboBox<String> thursdayCombo;
+    private javax.swing.JTextField thursdayNoteText;
     private javax.swing.JComboBox<String> tuesdayCombo;
+    private javax.swing.JTextField tuesdayNoteText;
     private javax.swing.JButton updateBttn;
     private javax.swing.JComboBox<String> wednesdayCombo;
+    private javax.swing.JTextField wednesdayNoteText;
     // End of variables declaration//GEN-END:variables
 }

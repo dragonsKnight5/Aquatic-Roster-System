@@ -160,6 +160,7 @@ public class login extends javax.swing.JDialog
                     System.out.println("User isn't a supervisor");
                     parent.generalConfig();
                     userConfig(myUser.getDepartment1());
+                    parent.setDepartmentTab(myUser.getDepartment1());
                     userConfig(myUser.getDepartment2());
                     userConfig(myUser.getDepartment3());
                 }

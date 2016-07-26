@@ -47,10 +47,11 @@ public class main extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jMenuItem4 = new javax.swing.JMenuItem();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        departmentTabs = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         guardLookupBtn = new javax.swing.JButton();
         guardShiftCreatorBtn = new javax.swing.JButton();
@@ -104,14 +105,16 @@ public class main extends javax.swing.JFrame {
         setTitle("Roster System");
         setMaximumSize(new java.awt.Dimension(620, 504));
 
-        jTabbedPane1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        jTabbedPane1.setMaximumSize(null);
+        departmentTabs.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        departmentTabs.setMaximumSize(null);
 
         guardLookupBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         guardLookupBtn.setText("Lookup Shift");
         guardLookupBtn.setEnabled(false);
-        guardLookupBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        guardLookupBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 guardLookupBtnActionPerformed(evt);
             }
         });
@@ -119,8 +122,10 @@ public class main extends javax.swing.JFrame {
         guardShiftCreatorBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         guardShiftCreatorBtn.setText("Create Single Shift");
         guardShiftCreatorBtn.setEnabled(false);
-        guardShiftCreatorBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        guardShiftCreatorBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 guardShiftCreatorBtnActionPerformed(evt);
             }
         });
@@ -128,8 +133,10 @@ public class main extends javax.swing.JFrame {
         guardShiftEditBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         guardShiftEditBtn.setText("Edit Shift");
         guardShiftEditBtn.setEnabled(false);
-        guardShiftEditBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        guardShiftEditBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 guardShiftEditBtnActionPerformed(evt);
             }
         });
@@ -137,8 +144,10 @@ public class main extends javax.swing.JFrame {
         guardShiftRemoveBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         guardShiftRemoveBtn.setText("Remove Shift");
         guardShiftRemoveBtn.setEnabled(false);
-        guardShiftRemoveBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        guardShiftRemoveBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 guardShiftRemoveBtnActionPerformed(evt);
             }
         });
@@ -146,8 +155,10 @@ public class main extends javax.swing.JFrame {
         guardShiftDayCreatorBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         guardShiftDayCreatorBtn.setText("Create Multiple Shifts");
         guardShiftDayCreatorBtn.setEnabled(false);
-        guardShiftDayCreatorBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        guardShiftDayCreatorBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 guardShiftDayCreatorBtnActionPerformed(evt);
             }
         });
@@ -187,13 +198,15 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Lifeguards", jPanel2);
+        departmentTabs.addTab("Lifeguards", jPanel2);
 
         createShiftBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         createShiftBtn.setText("Create Shift");
         createShiftBtn.setEnabled(false);
-        createShiftBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        createShiftBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 createShiftBtnActionPerformed(evt);
             }
         });
@@ -201,8 +214,10 @@ public class main extends javax.swing.JFrame {
         shiftLookupBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         shiftLookupBtn.setText("Lookup Shift");
         shiftLookupBtn.setEnabled(false);
-        shiftLookupBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        shiftLookupBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 shiftLookupBtnActionPerformed(evt);
             }
         });
@@ -210,8 +225,10 @@ public class main extends javax.swing.JFrame {
         createCoverBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         createCoverBtn.setText("Create Cover");
         createCoverBtn.setEnabled(false);
-        createCoverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        createCoverBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 createCoverBtnActionPerformed(evt);
             }
         });
@@ -219,8 +236,10 @@ public class main extends javax.swing.JFrame {
         lookupCoverBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         lookupCoverBtn.setText("Lookup Cover");
         lookupCoverBtn.setEnabled(false);
-        lookupCoverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        lookupCoverBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 lookupCoverBtnActionPerformed(evt);
             }
         });
@@ -228,8 +247,10 @@ public class main extends javax.swing.JFrame {
         editShiftBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         editShiftBtn.setText("Edit Shift");
         editShiftBtn.setEnabled(false);
-        editShiftBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        editShiftBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 editShiftBtnActionPerformed(evt);
             }
         });
@@ -237,8 +258,10 @@ public class main extends javax.swing.JFrame {
         EditCoverBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         EditCoverBtn.setText("Edit Cover");
         EditCoverBtn.setEnabled(false);
-        EditCoverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        EditCoverBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 EditCoverBtnActionPerformed(evt);
             }
         });
@@ -246,8 +269,10 @@ public class main extends javax.swing.JFrame {
         removeShiftBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         removeShiftBtn.setText("Remove Shift");
         removeShiftBtn.setEnabled(false);
-        removeShiftBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeShiftBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 removeShiftBtnActionPerformed(evt);
             }
         });
@@ -255,8 +280,10 @@ public class main extends javax.swing.JFrame {
         removeCoverBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         removeCoverBtn.setText("Remove Cover");
         removeCoverBtn.setEnabled(false);
-        removeCoverBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeCoverBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 removeCoverBtnActionPerformed(evt);
             }
         });
@@ -301,13 +328,15 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("LTS", jPanel1);
+        departmentTabs.addTab("LTS", jPanel1);
 
         iscLookupBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         iscLookupBtn.setText("Lookup Shift");
         iscLookupBtn.setEnabled(false);
-        iscLookupBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        iscLookupBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 iscLookupBtnActionPerformed(evt);
             }
         });
@@ -315,8 +344,10 @@ public class main extends javax.swing.JFrame {
         iscShiftEditBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         iscShiftEditBtn.setText("Edit Shift");
         iscShiftEditBtn.setEnabled(false);
-        iscShiftEditBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        iscShiftEditBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 iscShiftEditBtnActionPerformed(evt);
             }
         });
@@ -324,8 +355,10 @@ public class main extends javax.swing.JFrame {
         iscShiftCreatorBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         iscShiftCreatorBtn.setText("Create Shift");
         iscShiftCreatorBtn.setEnabled(false);
-        iscShiftCreatorBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        iscShiftCreatorBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 iscShiftCreatorBtnActionPerformed(evt);
             }
         });
@@ -333,8 +366,10 @@ public class main extends javax.swing.JFrame {
         iscShiftRemoveBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         iscShiftRemoveBtn.setText("Remove Shift");
         iscShiftRemoveBtn.setEnabled(false);
-        iscShiftRemoveBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        iscShiftRemoveBtn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 iscShiftRemoveBtnActionPerformed(evt);
             }
         });
@@ -367,7 +402,7 @@ public class main extends javax.swing.JFrame {
                 .addGap(0, 71, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("ISC", jPanel3);
+        departmentTabs.addTab("ISC", jPanel3);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         jLabel1.setText("Logged In As:");
@@ -380,8 +415,10 @@ public class main extends javax.swing.JFrame {
 
         loginMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         loginMenuItem.setText("Login");
-        loginMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        loginMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 loginMenuItemActionPerformed(evt);
             }
         });
@@ -390,8 +427,10 @@ public class main extends javax.swing.JFrame {
         logoutMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         logoutMenuItem.setText("Logout");
         logoutMenuItem.setEnabled(false);
-        logoutMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        logoutMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 logoutMenuItemActionPerformed(evt);
             }
         });
@@ -400,8 +439,10 @@ public class main extends javax.swing.JFrame {
         databaseConnectMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         databaseConnectMenuItem.setText("Connect To Database");
         databaseConnectMenuItem.setEnabled(false);
-        databaseConnectMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        databaseConnectMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 databaseConnectMenuItemActionPerformed(evt);
             }
         });
@@ -409,8 +450,10 @@ public class main extends javax.swing.JFrame {
 
         exitMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitMenuItemActionPerformed(evt);
             }
         });
@@ -424,8 +467,10 @@ public class main extends javax.swing.JFrame {
         newStaffMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         newStaffMenuItem.setText("New Staff");
         newStaffMenuItem.setEnabled(false);
-        newStaffMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        newStaffMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 newStaffMenuItemActionPerformed(evt);
             }
         });
@@ -434,8 +479,10 @@ public class main extends javax.swing.JFrame {
         editStaffMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         editStaffMenuItem.setText("Edit Staff");
         editStaffMenuItem.setEnabled(false);
-        editStaffMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        editStaffMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 editStaffMenuItemActionPerformed(evt);
             }
         });
@@ -444,8 +491,10 @@ public class main extends javax.swing.JFrame {
         removeStaffMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         removeStaffMenuItem.setText("Remove Staff");
         removeStaffMenuItem.setEnabled(false);
-        removeStaffMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeStaffMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 removeStaffMenuItemActionPerformed(evt);
             }
         });
@@ -454,8 +503,10 @@ public class main extends javax.swing.JFrame {
         addAvailabilityMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         addAvailabilityMenuItem.setText("Add Availability");
         addAvailabilityMenuItem.setEnabled(false);
-        addAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 addAvailabilityMenuItemActionPerformed(evt);
             }
         });
@@ -464,8 +515,10 @@ public class main extends javax.swing.JFrame {
         addLtsAvailabilityMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         addLtsAvailabilityMenuItem.setText("Add LTS Availability");
         addLtsAvailabilityMenuItem.setEnabled(false);
-        addLtsAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addLtsAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 addLtsAvailabilityMenuItemActionPerformed(evt);
             }
         });
@@ -474,8 +527,10 @@ public class main extends javax.swing.JFrame {
         editAvailabilityMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         editAvailabilityMenuItem.setText("Edit Availability");
         editAvailabilityMenuItem.setEnabled(false);
-        editAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        editAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 editAvailabilityMenuItemActionPerformed(evt);
             }
         });
@@ -484,8 +539,10 @@ public class main extends javax.swing.JFrame {
         removeAvailabilityMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         removeAvailabilityMenuItem.setText("Remove Availability");
         removeAvailabilityMenuItem.setEnabled(false);
-        removeAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeAvailabilityMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 removeAvailabilityMenuItemActionPerformed(evt);
             }
         });
@@ -499,8 +556,10 @@ public class main extends javax.swing.JFrame {
         newLocationMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         newLocationMenuItem.setText("New Location");
         newLocationMenuItem.setEnabled(false);
-        newLocationMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        newLocationMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 newLocationMenuItemActionPerformed(evt);
             }
         });
@@ -509,8 +568,10 @@ public class main extends javax.swing.JFrame {
         editLocationMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         editLocationMenuItem.setText("Edit Location");
         editLocationMenuItem.setEnabled(false);
-        editLocationMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        editLocationMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 editLocationMenuItemActionPerformed(evt);
             }
         });
@@ -519,8 +580,10 @@ public class main extends javax.swing.JFrame {
         removeLocationMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         removeLocationMenuItem.setText("Remove Location");
         removeLocationMenuItem.setEnabled(false);
-        removeLocationMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeLocationMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 removeLocationMenuItemActionPerformed(evt);
             }
         });
@@ -533,8 +596,10 @@ public class main extends javax.swing.JFrame {
 
         overviewMenuItem.setText("Overview");
         overviewMenuItem.setEnabled(false);
-        overviewMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        overviewMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 overviewMenuItemActionPerformed(evt);
             }
         });
@@ -542,8 +607,10 @@ public class main extends javax.swing.JFrame {
 
         absenteeMenuItem.setText("Absentee");
         absenteeMenuItem.setEnabled(false);
-        absenteeMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        absenteeMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 absenteeMenuItemActionPerformed(evt);
             }
         });
@@ -551,8 +618,10 @@ public class main extends javax.swing.JFrame {
 
         exportLgRosterMenuItem.setText("Export LG Roster");
         exportLgRosterMenuItem.setEnabled(false);
-        exportLgRosterMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exportLgRosterMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exportLgRosterMenuItemActionPerformed(evt);
             }
         });
@@ -565,8 +634,10 @@ public class main extends javax.swing.JFrame {
 
         aboutMenuItem.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         aboutMenuItem.setText("About");
-        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 aboutMenuItemActionPerformed(evt);
             }
         });
@@ -586,13 +657,13 @@ public class main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(userLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(departmentTabs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(departmentTabs, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -615,6 +686,22 @@ public class main extends javax.swing.JFrame {
         catch (Exception ex)
         {
             System.out.println(ex);
+        }
+    }
+    
+    public void setDepartmentTab(String department)
+    {
+        if (department.equalsIgnoreCase("Lifeguard"))
+        {
+            departmentTabs.setSelectedIndex(0);
+        }
+        else if (department.equalsIgnoreCase("LTS"))
+        {
+            departmentTabs.setSelectedIndex(1);
+        }
+        else if (department.equalsIgnoreCase("ISC"))
+        {
+            departmentTabs.setSelectedIndex(2);
         }
     }
     
@@ -746,7 +833,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_loginMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        JOptionPane.showMessageDialog(null, "Version 0.14", "", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Version 0.15", "", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void newStaffMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newStaffMenuItemActionPerformed
@@ -954,6 +1041,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton createCoverBtn;
     private javax.swing.JButton createShiftBtn;
     private javax.swing.JMenuItem databaseConnectMenuItem;
+    private javax.swing.JTabbedPane departmentTabs;
     private javax.swing.JMenuItem editAvailabilityMenuItem;
     private javax.swing.JMenuItem editLocationMenuItem;
     private javax.swing.JButton editShiftBtn;
@@ -980,7 +1068,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JMenuItem loginMenuItem;
     private javax.swing.JMenuItem logoutMenuItem;
     private javax.swing.JButton lookupCoverBtn;

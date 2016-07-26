@@ -364,7 +364,7 @@ if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
             while (returned.next())
             {
                 // add availability entries to list
-                availability tempAvailability = new availability(returned.getInt("ID"), returned.getString("username"), returned.getString("monday"), returned.getString("tuesday"), returned.getString("wednesday"), returned.getString("thursday"), returned.getString("friday"), returned.getString("saturday"), returned.getString("sunday"), returned.getString("department"), returned.getString("location"), returned.getDate("weekStarting"));
+                availability tempAvailability = new availability(returned.getInt("ID"), returned.getString("username"), returned.getString("monday"), returned.getString("mondayNote"), returned.getString("tuesday"), returned.getString("tuesdayNote"), returned.getString("wednesday"), returned.getString("wednesdayNote"), returned.getString("thursday"), returned.getString("thursdayNote"), returned.getString("friday"), returned.getString("fridayNote"), returned.getString("saturday"), returned.getString("saturdayNote"), returned.getString("sunday"), returned.getString("sundayNote"), returned.getString("department"), returned.getString("location"), returned.getDate("weekStarting"));
                 availList.add(tempAvailability);
             }
             availabilityList.setListData(availList.toArray());

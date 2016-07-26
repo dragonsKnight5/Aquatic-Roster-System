@@ -426,4 +426,29 @@ public ResultSet getIscUsers(String location, String day, String shift, java.sql
          }
          return contactNumber;
      }
+     
+     public String getShiftNote (String username, String location, java.sql.Date weekDate, String day, String department)
+     {
+         String note = null;
+         if (!username.equalsIgnoreCase("None"))
+         {
+             String dayNote = day.concat("Note");
+             String command = "select " + dayNote + " from availability where username = \'" + username + "\' and location = \'" + location + "\' and department = \'" + department + "\'"
+                     + " and weekStarting = \'" + weekDate + "\'";
+             System.out.println(command);
+             ResultSet result = null;
+             try 
+             {
+                 ps1 = conn.prepareStatement(command);
+                 result = ps1.executeQuery();
+                 result.next();
+                 note = result.getString(dayNote);
+             }
+             catch (SQLException ex)
+            {
+                 System.out.println(ex);
+            }
+         }
+         return note;
+     }
 }

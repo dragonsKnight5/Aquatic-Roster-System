@@ -23,28 +23,42 @@ public class availability
     private int ID;
     private String username;
     private String monday;
+    private String mondayNote;
     private String tuesday;
+    private String tuesdayNote;
     private String wednesday;
+    private String wednesdayNote;
     private String thursday;
+    private String thursdayNote;
     private String friday;
+    private String fridayNote;
     private String saturday;
+    private String saturdayNote;
     private String sunday;
+    private String sundayNote;
     private String department;
     private String location;
     private java.sql.Date date;
     final private commonFunctions myCommonFunctions = new commonFunctions();
     
-    public availability (int inID, String inUsername, String inMonday, String inTuesday, String inWednesday, String inThursday, String inFriday, String inSaturday, String inSunday, String inDepartment, String inLocation, java.sql.Date inDate)
+    public availability (int inID, String inUsername, String inMonday, String inMondayNote, String inTuesday, String inTuesdayNote, String inWednesday, String inWednesdayNote, String inThursday, String inThursdayNote, String inFriday, String inFridayNote, String inSaturday, String inSaturdayNote, String inSunday, String inSundayNote, String inDepartment, String inLocation, java.sql.Date inDate)
     {
         ID = inID;
         username = inUsername;
         monday = inMonday;
+        mondayNote = inMondayNote;
         tuesday = inTuesday;
+        tuesdayNote = inTuesdayNote;
         wednesday = inWednesday;
+        wednesdayNote = inWednesdayNote;
         thursday = inThursday;
+        thursdayNote = inThursdayNote;
         friday = inFriday;
+        fridayNote = inFridayNote;
         saturday = inSaturday;
+        saturdayNote = inSaturdayNote;
         sunday = inSunday;
+        sundayNote = inSundayNote;
         department = inDepartment;
         location = inLocation;
         date = inDate;
@@ -65,9 +79,19 @@ public class availability
         return monday;
     }
     
+    public String getMondayNote()
+    {
+        return mondayNote;
+    }
+    
     public String getTuesday()
     {
         return tuesday;
+    }
+    
+    public String getTuesdayNote()
+    {
+        return tuesdayNote;
     }
     
     public String getWednesday()
@@ -75,9 +99,19 @@ public class availability
         return wednesday;
     }
     
+    public String getWednesdayNote()
+    {
+        return wednesdayNote;
+    }
+    
     public String getThursday()
     {
         return thursday;
+    }
+    
+    public String getThursdayNote()
+    {
+        return thursdayNote;
     }
     
     public String getFriday()
@@ -85,14 +119,29 @@ public class availability
         return friday;
     }
     
+    public String getFridayNote()
+    {
+        return fridayNote;
+    }
+    
     public String getSaturday()
     {
         return saturday;
     }
     
+    public String getSaturdayNote()
+    {
+        return saturdayNote;
+    }
+    
     public String getSunday()
     {
         return sunday;
+    }
+    
+    public String getSundayNote()
+    {
+        return sundayNote;
     }
     
     public String getDepartment()
